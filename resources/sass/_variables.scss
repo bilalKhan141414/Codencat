@@ -1,20 +1,26 @@
-
-// Body
-$body-bg: #f8fafc;
-
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+@font-face{
+    font-family: 'Sofia Pro';
+    src: '.resources/assets/font/Sofia-Pro-Black.otf';
+}
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$white: #FBFBFB;
+$black: #1E2326;
+$blue: #00E0E9;
+$brown: #CB8E55;
+
+// Theme colors
+$primary: $blue;
+$secondary: $brown;
+
+// Font Size
+$font-size-small:14px;
+$font-size-regular:16px;
+$font-size-large:20px;
+
+// Font weight
+$font-weight-light:100;
+$font-weight-medium:200;
+$font-weight-regular:600;
+$font-weight-bold:900;

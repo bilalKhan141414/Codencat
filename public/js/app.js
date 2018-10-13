@@ -13903,7 +13903,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('menu-header', __webpack_require__(47));
+Vue.component('menu-header', __webpack_require__(49));
 
 var app = new Vue({
   el: '#app'
@@ -47302,7 +47302,9 @@ module.exports = function normalizeComponent (
 /* 44 */,
 /* 45 */,
 /* 46 */,
-/* 47 */
+/* 47 */,
+/* 48 */,
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -47310,7 +47312,7 @@ var normalizeComponent = __webpack_require__(40)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47327,7 +47329,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/layout/Header.vue"
+Component.options.__file = "resources/js/components/layouts/Header.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47336,9 +47338,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a27ab812", Component.options)
+    hotAPI.createRecord("data-v-5fddf304", Component.options)
   } else {
-    hotAPI.reload("data-v-a27ab812", Component.options)
+    hotAPI.reload("data-v-5fddf304", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47349,7 +47351,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47364,7 +47366,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a27ab812", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5fddf304", module.exports)
   }
 }
 
