@@ -10479,6 +10479,7 @@ a.text-dark:focus {
 body {
   background: #1E2326;
   position: relative;
+  font-family: Sofia Pro !important;
 }
 
 .verticle-lines {

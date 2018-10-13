@@ -2,9 +2,7 @@
 
 @section('content')
 <div id="app">
-        <div class="background">
 
-        <menu-header></menu-header>
-        </div>
-    </div>
+    <menu-header></menu-header>
+</div>
 @stop

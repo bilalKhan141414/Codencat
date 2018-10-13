@@ -8,11 +8,13 @@
     ::before,
     ::after{
             margin: 0px;
+
     }
 }
 body{
     background: $black;
     position: relative;
+    font-family: Sofia Pro !important;
 }
 
 .verticle-lines{
