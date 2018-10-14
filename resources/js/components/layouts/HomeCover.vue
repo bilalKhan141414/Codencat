@@ -733,21 +733,22 @@
         bottom:1%;
         width: 100vw;
 
-        font-family: Sofia Pro;
-        .bold{
-            font-size: 4rem;
-            color: $white;
-            opacity: 0.1;
-            font-weight:$font-weight-bold;
-            text-align: center;
-        }
-        .light{
-            font-size: 1rem;
-            color: $primary;
-            font-weight:$font-weight-light;
-            text-align: center;
-            margin-top: -20px;
-        }
+        // font-family: Sofia Pro;
+        // .bold{
+        //     font-size: 4rem;
+        //     color: $white;
+        //     opacity: 0.1;
+        //     font-weight:$font-weight-bold;
+        //     text-align: center;
+        // }
+        // .light{
+        //     font-size: 1rem;
+        //     color: $primary;
+        //     font-weight:$font-weight-medium;
+        //     text-align: center;
+        //     margin-top: -15px;
+        //     letter-spacing: 3px;
+        // }
     }
 }
 .cover{
