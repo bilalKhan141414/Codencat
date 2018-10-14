@@ -5,5 +5,6 @@
 
     <menu-header></menu-header>
     <cover></cover>
+    <graphic-designing></graphic-designing>
 </div>
 @stop

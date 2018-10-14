@@ -711,19 +711,59 @@
             </svg>
         </div>
         <div class="slogan">
-            <div class="bold">PROVIDING QUALITY</div><div class="light">TAKES TIME</div>
+            <div class="heading-bold">PROVIDING QUALITY</div><div class="heading-light">TAKES TIME</div>
+        </div>
+        <div class="scroll">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 21.9 182.7" style="enable-background:new 0 0 21.9 182.7;" xml:space="preserve">
+                <g id="Group_71" transform="translate(-1227.793 -602.5)">
+                    <g class="st0">
+                        <path class="st1" d="M1241.3,708.4c0.6,0,1.2-0.6,1.2-1.4c0-0.8-0.4-1.3-1-1.4c-0.5,0-0.9,0.3-1.1,1.1l-0.3,1
+                            c-0.4,1.4-1.2,2.1-2.3,2.1c-0.7,0-1.3-0.3-1.7-0.8c-0.5-0.5-0.7-1.2-0.7-2c0-0.8,0.2-1.5,0.7-2c0.4-0.5,1.1-0.8,1.8-0.8v1.5
+                            c-0.7,0-1.1,0.5-1.1,1.2c0,0.7,0.4,1.2,1,1.2c0.5,0,0.8-0.3,0.9-1l0.3-1c0.5-1.7,1.4-2.3,2.5-2.3c0.7,0,1.3,0.3,1.7,0.9
+                            c0.4,0.6,0.6,1.2,0.6,2c0,0.9-0.2,1.6-0.7,2.1c-0.5,0.6-1.1,0.8-1.8,0.8V708.4z"/>
+                        <path class="st1" d="M1242.2,693.1c1,0.7,1.7,2,1.7,3.4c0,1.2-0.4,2.2-1.2,3c-0.8,0.8-1.8,1.2-3,1.2c-1.2,0-2.2-0.4-3-1.2
+                            s-1.2-1.8-1.2-3c0-1.4,0.6-2.6,1.6-3.3l0.9,1.2c-0.7,0.5-1.1,1.2-1.1,2.1c0,0.7,0.3,1.4,0.8,1.9s1.2,0.8,2,0.8
+                            c0.8,0,1.4-0.3,2-0.8s0.8-1.1,0.8-1.9c0-0.9-0.4-1.7-1.1-2.1L1242.2,693.1z"/>
+                        <path class="st1" d="M1243.8,683.5v1.8l-2.9,1.9v0.6h2.9v1.5h-8.3v-3.3c0-0.9,0.3-1.5,0.8-2c0.5-0.5,1.2-0.7,1.9-0.7
+                            c0.6,0,1.2,0.2,1.7,0.5c0.5,0.3,0.8,0.9,0.9,1.6L1243.8,683.5z M1236.9,687.9h2.6v-1.7c0-0.8-0.6-1.2-1.3-1.2
+                            c-0.7,0-1.3,0.4-1.3,1.1V687.9z"/>
+                        <path class="st1" d="M1236.6,678.7c-0.8-0.8-1.2-1.8-1.2-3s0.4-2.2,1.2-3c0.8-0.8,1.8-1.2,3-1.2c1.2,0,2.2,0.4,3,1.2
+                            c0.8,0.8,1.2,1.8,1.2,3s-0.4,2.2-1.2,3c-0.8,0.8-1.8,1.2-3,1.2C1238.5,680,1237.5,679.6,1236.6,678.7z M1239.6,678.4
+                            c0.8,0,1.4-0.3,1.9-0.8c0.5-0.5,0.8-1.2,0.8-1.9s-0.3-1.4-0.8-1.9c-0.5-0.5-1.2-0.8-1.9-0.8c-0.8,0-1.4,0.3-1.9,0.8
+                            c-0.5,0.5-0.8,1.1-0.8,1.9s0.3,1.4,0.8,1.9C1238.2,678.2,1238.9,678.4,1239.6,678.4z"/>
+                        <path class="st1" d="M1243.8,667.6h-8.3v-1.5h6.9v-3.2h1.4V667.6z"/>
+                        <path class="st1" d="M1243.8,659.1h-8.3v-1.5h6.9v-3.2h1.4V659.1z"/>
+                        <path class="st1" d="M1243.8,645.6h-8.3v-3.2c0-1.2,0.4-2.1,1.2-2.7c0.8-0.7,1.8-1,3-1c1.2,0,2.2,0.3,3,1c0.8,0.7,1.2,1.6,1.2,2.7
+                            V645.6z M1236.9,644.1h5.5v-1.7c0-0.7-0.3-1.2-0.8-1.6c-0.5-0.4-1.2-0.6-1.9-0.6c-0.8,0-1.5,0.2-2,0.6c-0.5,0.4-0.8,0.9-0.8,1.6
+                            V644.1z"/>
+                        <path class="st1" d="M1236.6,634c-0.8-0.8-1.2-1.8-1.2-3s0.4-2.2,1.2-3c0.8-0.8,1.8-1.2,3-1.2c1.2,0,2.2,0.4,3,1.2
+                            c0.8,0.8,1.2,1.8,1.2,3c0,1.2-0.4,2.2-1.2,3c-0.8,0.8-1.8,1.2-3,1.2C1238.5,635.2,1237.5,634.8,1236.6,634z M1239.6,633.6
+                            c0.8,0,1.4-0.3,1.9-0.8c0.5-0.5,0.8-1.2,0.8-1.9s-0.3-1.4-0.8-1.9c-0.5-0.5-1.2-0.8-1.9-0.8c-0.8,0-1.4,0.3-1.9,0.8
+                            c-0.5,0.5-0.8,1.1-0.8,1.9s0.3,1.4,0.8,1.9C1238.2,633.4,1238.9,633.6,1239.6,633.6z"/>
+                        <path class="st1" d="M1241.2,616.8l-5.8-1.8v-1.7l8.3,2.8v1.2l-4.7,1.3l4.7,1.2v1.2l-8.3,2.8v-1.7l5.8-1.8l-4.6-1.3V618
+                            L1241.2,616.8z"/>
+                        <path class="st1" d="M1235.5,603.7h8.3v1.4l-5.4,3.2h5.4v1.5h-8.3v-1.4l5.4-3.2h-5.4V603.7z"/>
+                    </g>
+                    <g id="Group_3" transform="translate(10)">
+                        <line id="Line_4" class="st2" x1="1228.8" y1="744.8" x2="1228.8" y2="777.5"/>
+                        <line id="Line_5" class="st3" x1="1236.8" y1="769.5" x2="1228.8" y2="777.5"/>
+                        <line id="Line_6" class="st3" x1="1228.8" y1="777.5" x2="1220.8" y2="769.5"/>
+                    </g>
+                </g>
+            </svg>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../../../sass/app.scss';
+@import '../../../../sass/app.scss';
 
 .home-cover{
     height: 100vh;
     width:100vw;
     overflow: hidden;
     position : relative;
+    z-index: 1;
     .slogan{
         color: white;
         position: absolute;
@@ -732,23 +772,45 @@
         transform: translateX(-50%);
         bottom:1%;
         width: 100vw;
+        .heading-light{
+            text-align: center;
+            margin-top: -15px;
+        }
+        .heading-bold{
+            opacity: 0.1;
+            text-align: center;
+        }
+    }
+    .scroll{
+        position: absolute;
+        bottom : 15%;
+        right: 7vh;
+        color : white;
+        svg{
+            .st0{enable-background:new    ;}
+            .st1{fill:#EBEBEB;}
+            .st2{fill:none;stroke:#00E0E9;stroke-width:2.6491;stroke-linecap:round;}
+            .st3{fill:none;stroke:#00E0E9;stroke-width:3;stroke-linecap:round;}
+            width: 1.2rem;
 
-        // font-family: Sofia Pro;
-        // .bold{
-        //     font-size: 4rem;
-        //     color: $white;
-        //     opacity: 0.1;
-        //     font-weight:$font-weight-bold;
-        //     text-align: center;
-        // }
-        // .light{
-        //     font-size: 1rem;
-        //     color: $primary;
-        //     font-weight:$font-weight-medium;
-        //     text-align: center;
-        //     margin-top: -15px;
-        //     letter-spacing: 3px;
-        // }
+            -webkit-animation: scroll-down 1s infinite; /* Safari 4+ */
+            -moz-animation:    scroll-down 1s infinite; /* Fx 5+ */
+            -o-animation:      scroll-down 1s infinite; /* Opera 12+ */
+            animation:         scroll-down 1s infinite; /* IE 10+, Fx 29+ */
+            animation-timing-function: ease-in-out;
+
+        }
+        @keyframes scroll-down {
+            0% {ms-transform: translate(0, 50px);
+                    -webkit-transform: translate(0, 50px);
+                    transform: translate(0, 50px);}
+            50% {ms-transform: translate(0, 60px);
+                -webkit-transform: translate(0, 60px);
+                transform: translate(0, 60px);}
+            100% {ms-transform: translate(0, 50px);
+                -webkit-transform: translate(0, 50px);
+                transform: translate(0, 50px);}
+        }
     }
 }
 .cover{
@@ -870,6 +932,13 @@
         .st112{fill:none;stroke:#33373A;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
         .st113{fill:#34393C;stroke:#33373A;stroke-miterlimit:10;}
         .st114{clip-path:url(#SVGID_94_);}
+        #programer{
+            transition: transform 1s;
+            &:hover{
+                transform: translateY(-0.5rem);
+
+            }
+        }
     }
 }
 </style>
