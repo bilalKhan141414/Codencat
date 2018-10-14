@@ -141,7 +141,7 @@ ul ol {
 }
 
 dt {
-  font-weight: 900;
+  font-weight: 600;
 }
 
 dd {
@@ -567,7 +567,7 @@ kbd {
 kbd kbd {
   padding: 0;
   font-size: 100%;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 pre {
@@ -5522,7 +5522,7 @@ input[type="button"].btn-block {
   display: inline-block;
   padding: 0.25em 0.4em;
   font-size: 75%;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -5673,7 +5673,7 @@ input[type="button"].btn-block {
 }
 
 .alert-link {
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .alert-dismissible {
@@ -6104,7 +6104,7 @@ input[type="button"].btn-block {
 .close {
   float: right;
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
   color: #1E2326;
   text-shadow: 0 1px 0 #FBFBFB;
@@ -10249,7 +10249,7 @@ button.bg-dark:focus {
 }
 
 .font-weight-light {
-  font-weight: 100 !important;
+  font-weight: 300 !important;
 }
 
 .font-weight-normal {
@@ -10257,7 +10257,7 @@ button.bg-dark:focus {
 }
 
 .font-weight-bold {
-  font-weight: 900 !important;
+  font-weight: 600 !important;
 }
 
 .font-italic {
