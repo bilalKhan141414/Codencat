@@ -161,13 +161,15 @@
                 <polygon class="st19" points="450.8,27.2 426.3,27.2 402.8,27.2 379.8,64.2 472.8,64.2 	"/>
                 <path id="lightbulb" class="st20" d="M379.8,64.2h93c0,0-12,7-48,7S379.8,64.2,379.8,64.2z"/>
                 <g id="laptoplight" class="st21">
-                    <linearGradient id="SVGID_18_" gradientUnits="userSpaceOnUse" x1="405.3516" y1="600.6987" x2="405.3516" y2="361.1024">
+                    <linearGradient id="SVGID_18_" gradientUnits="userSpaceOnUse" x1="413.3516" y1="597.6987" x2="405.3516" y2="361.1024">
                         <stop  offset="0" style="stop-color:#FFFFFF"/>
                         <stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
                     </linearGradient>
-                    <polygon class="st22" points="682.5,361.1 503.3,600.7 503.3,477.9 498.3,472.9 338.3,472.9 333.3,477.9 333.3,600.7 128.2,361.1
+                    <polygon class="st22" points="690.5,358.1 600.9,477.9 511.3,597.7 511.3,474.9 506.3,469.9 346.3,469.9 341.3,474.9 341.3,597.7 
+			236.9,475.7 136.2,358.1
                                 "/>
                 </g>
+               
                 <polygon id="toplight" class="st23" points="709,599.6 472.7,64.2 379.7,64.2 141.7,601 	"/>
             </g>
             <g id="drink">
@@ -871,7 +873,7 @@
     width:100vw;
     overflow: hidden;
     position : relative;
-    z-index: 1;
+    z-index: 3;
     .slogan{
         color: white;
         position: absolute;
@@ -928,7 +930,7 @@
         height: 95vh;
         .st0{fill:#1E2326;}
         .st1{fill:url(#SVGID_2_);}
-        .st2{opacity:0.35;fill:#34393C;}
+        .st2{opacity:1;fill:#34393C;}
         .st3{fill:url(#SVGID_3_);}
         .st4{fill:url(#SVGID_4_);}
         .st5{fill:url(#SVGID_5_);}
@@ -1063,13 +1065,14 @@
             opacity: 1;
         }
         #clock{
+            opacity: 1;
             #round{
                 -webkit-animation: clock 60s infinite; /* Safari 4+ */
                 -moz-animation:    clock 60s infinite; /* Fx 5+ */
                 -o-animation:      clock 60s infinite; /* Opera 12+ */
                 animation:         clock 60s infinite; /* IE 10+, Fx 29+ */
                 animation-timing-function: linear;
-                transform-origin: 72px 92px 0px;
+                transform-origin: 72.5px 92.9px 0px;
             }
         @keyframes clock {
             0% {ms-transform: rotate(0deg);
