@@ -21,10 +21,14 @@ body{
     display: flex;
     justify-content: space-between;
     position: absolute;
-    width:100%
+    top:0;
+    width:100%;
+    height:100%;
 }
 .verticle-line{
     border-left: 1px solid white;
     height: 100vh;
     opacity: 0.1;
+    position: sticky;
+    top: 0;
 }
