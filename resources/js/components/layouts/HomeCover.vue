@@ -6,7 +6,5 @@
 
 <style lang="scss" scoped>
 
-.cover{
-    height: 100vh;
-}
+
 </style>
