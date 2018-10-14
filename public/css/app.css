@@ -10476,6 +10476,29 @@ a.text-dark:focus {
   margin: 0px;
 }
 
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #ebebeb;
+  background: #CB8E55;
+}
+
+::selection {
+  color: #ebebeb;
+  background: #CB8E55;
+}
+
 body {
   background: #1E2326;
   position: relative;

@@ -11,6 +11,26 @@
 
     }
 }
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: $white;
+    background: $secondary;
+}
+
+::selection {
+    color: $white;
+    background: $secondary;
+}
+
+
 body{
     background: $black;
     position: relative;

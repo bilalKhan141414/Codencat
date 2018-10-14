@@ -165,11 +165,11 @@
                         <stop  offset="0" style="stop-color:#FFFFFF"/>
                         <stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
                     </linearGradient>
-                    <polygon class="st22" points="690.5,358.1 600.9,477.9 511.3,597.7 511.3,474.9 506.3,469.9 346.3,469.9 341.3,474.9 341.3,597.7 
+                    <polygon class="st22" points="690.5,358.1 600.9,477.9 511.3,597.7 511.3,474.9 506.3,469.9 346.3,469.9 341.3,474.9 341.3,597.7
 			236.9,475.7 136.2,358.1
                                 "/>
                 </g>
-               
+
                 <polygon id="toplight" class="st23" points="709,599.6 472.7,64.2 379.7,64.2 141.7,601 	"/>
             </g>
             <g id="drink">
@@ -873,7 +873,7 @@
     width:100vw;
     overflow: hidden;
     position : relative;
-    z-index: 3;
+    z-index: 1;
     .slogan{
         color: white;
         position: absolute;
@@ -894,7 +894,7 @@
     .scroll{
         position: absolute;
         bottom : 15%;
-        right: 7vh;
+        right: 5vh;
         color : white;
         svg{
             .st0{enable-background:new    ;}
