@@ -141,7 +141,7 @@ ul ol {
 }
 
 dt {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 dd {
@@ -567,7 +567,7 @@ kbd {
 kbd kbd {
   padding: 0;
   font-size: 100%;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 pre {
@@ -5522,7 +5522,7 @@ input[type="button"].btn-block {
   display: inline-block;
   padding: 0.25em 0.4em;
   font-size: 75%;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -5673,7 +5673,7 @@ input[type="button"].btn-block {
 }
 
 .alert-link {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .alert-dismissible {
@@ -6104,7 +6104,7 @@ input[type="button"].btn-block {
 .close {
   float: right;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   color: #1E2326;
   text-shadow: 0 1px 0 #FBFBFB;
@@ -10257,7 +10257,7 @@ button.bg-dark:focus {
 }
 
 .font-weight-bold {
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
 .font-italic {
@@ -10490,12 +10490,34 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: absolute;
+  top: 0;
   width: 100%;
+  height: 100%;
 }
 
 .verticle-line {
   border-left: 1px solid white;
   height: 100vh;
   opacity: 0.1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.light {
+  font-size: 1rem;
+  color: #00E0E9;
+  font-weight: 400;
+  text-align: center;
+  margin-top: -15px;
+  letter-spacing: 3px;
+}
+
+.bold {
+  font-size: 4rem;
+  color: #FBFBFB;
+  opacity: 0.1;
+  font-weight: 700;
+  text-align: center;
 }
 

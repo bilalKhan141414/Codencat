@@ -21,10 +21,29 @@ body{
     display: flex;
     justify-content: space-between;
     position: absolute;
-    width:100%
+    top:0;
+    width:100%;
+    height:100%;
 }
 .verticle-line{
     border-left: 1px solid white;
     height: 100vh;
     opacity: 0.1;
+    position: sticky;
+    top: 0;
+}
+.light{
+    font-size: 1rem;
+    color: $primary;
+    font-weight:$font-weight-medium;
+    text-align: center;
+    margin-top: -15px;
+    letter-spacing: 3px;
+}
+.bold{
+    font-size: 4rem;
+    color: $white;
+    opacity: 0.1;
+    font-weight:$font-weight-bold;
+    text-align: center;
 }

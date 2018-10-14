@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('menu-header', require('./components/layouts/Header.vue'));
+Vue.component('cover', require('./components/layouts/HomeCover.vue'));
 
 const app = new Vue({
     el: '#app'

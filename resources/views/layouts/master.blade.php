@@ -19,7 +19,7 @@
         <div class="verticle-line"></div>
     </div>
 
-    @yield('content');
+    @yield('content')
 
     <script src="{{'js/app.js'}}"></script>
 </body>
