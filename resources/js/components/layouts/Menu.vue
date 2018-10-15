@@ -167,7 +167,7 @@
         right:0;
         top:50%;
         transform:translateY(-50%);
-        margin-right:0.5rem;
+        margin-right:1rem;
 
         svg{
             .st0{
@@ -175,18 +175,16 @@
                 transition: width 0.2s ease-in-out, x 0.2s ease-in-out;
             }
             width: 5vh;
-            margin-left:0.2rem;
-            .mid-line{
-            }
+
         }
         .menu-text{
-            font-size:12px;
+            font-size:10px;
             letter-spacing: 2px;
             font-weight:$font-weight-bold;
             margin-top:0.3rem;
             color:$white;
             text-align: left;
-
+            transition: color 0.3s ease-in-out;
         }
         &:hover{
             svg{
@@ -194,6 +192,9 @@
                 width: 38px;
                 x:1;
                 }
+            }
+            .menu-text{
+                color: $primary;
             }
         }
     }
