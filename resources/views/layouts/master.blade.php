@@ -8,6 +8,7 @@
     <script>window.Laravel = { csrfToken: '{{ csrf_token()}}'}</script>
     <title>Codencat</title>
     <link href="{{'css/app.css'}}" rel="stylesheet" type="text/css">
+    <link href="{{'../resources/assets/fontawesome/css/all.min.css'}}" rel="stylesheet" type="text/css">
 </head>
 <body>
 

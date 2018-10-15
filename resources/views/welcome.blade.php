@@ -3,7 +3,7 @@
 @section('content')
 <div id="app">
 
-    <menu-header></menu-header>
+    <main-header></main-header>
     <cover></cover>
     <graphic-designing></graphic-designing>
 </div>
