@@ -58712,7 +58712,7 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(63)
 /* template */
 var __vue_template__ = __webpack_require__(62)
 /* template functional */
@@ -58787,7 +58787,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-left[data-v-66898320] {\n  position: absolute;\n  height: 100vh;\n}\n.header-left .logo[data-v-66898320] {\n    margin: 1rem;\n}\n.header-left .logo svg[data-v-66898320] {\n      width: 7em;\n}\n.header-left .logo svg .st0[data-v-66898320] {\n        fill: #00E0E9;\n}\n.header-left .logo svg .st1[data-v-66898320] {\n        fill: #ebebeb;\n}\n.header-left .contact-button[data-v-66898320] {\n    background-color: #00E0E9;\n    padding: 1rem 0rem 1rem 1rem;\n    width: 2.5em;\n    position: absolute;\n    top: 50%;\n    left: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -webkit-transition: background-color 0.3s ease-in-out;\n    transition: background-color 0.3s ease-in-out;\n}\n.header-left .contact-button .contact-sign svg[data-v-66898320] {\n      width: 1.5rem;\n}\n.header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n        fill: #1E2326;\n}\n.header-left .contact-button .contact-sign svg path[data-v-66898320] {\n        -webkit-transition: fill .3s ease-in-out;\n        transition: fill .3s ease-in-out;\n}\n.header-left .contact-button .button-link[data-v-66898320] {\n      color: #1E2326;\n      text-orientation: rtl;\n      -webkit-writing-mode: vertical-lr;\n          -ms-writing-mode: tb-lr;\n              writing-mode: vertical-lr;\n      -webkit-transform: rotate(180deg);\n              transform: rotate(180deg);\n      font-size: 0.7rem;\n      letter-spacing: 2px;\n      line-height: 21px;\n      -webkit-transition: color 0.3s ease-in-out;\n      transition: color 0.3s ease-in-out;\n}\n.header-left .contact-button[data-v-66898320]:hover {\n      background-color: #CB8E55;\n}\n.header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n        fill: #ebebeb;\n}\n.header-left .contact-button:hover .button-link[data-v-66898320] {\n        color: #ebebeb;\n}\n.header-right[data-v-66898320] {\n  position: absolute;\n  height: 100vh;\n  top: 0;\n  right: 0;\n  margin-right: 0.5rem;\n}\n.header-right .social-links[data-v-66898320] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 1rem 1rem 0 0;\n}\n.header-right .social-links .social-button[data-v-66898320] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n}\n.header-right .social-links .social-button i[data-v-66898320] {\n        font-size: 0.9rem;\n        color: #ebebeb;\n        text-align: center;\n        padding: 0.5em;\n}\n.header-right .social-links .social-button[data-v-66898320] :hover {\n        color: #00E0E9;\n}\n.header-right .menu-button[data-v-66898320] {\n    position: absolute;\n    right: 0;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-right: 1rem;\n}\n.header-right .menu-button svg[data-v-66898320] {\n      width: 5vh;\n}\n.header-right .menu-button svg .st0[data-v-66898320] {\n        fill: #00E0E9;\n        -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out;\n        transition: width 0.2s ease-in-out, x 0.2s ease-in-out;\n}\n.header-right .menu-button .menu-text[data-v-66898320] {\n      font-size: 10px;\n      letter-spacing: 2px;\n      font-weight: 700;\n      margin-top: 0.3rem;\n      color: #ebebeb;\n      text-align: left;\n      -webkit-transition: color 0.3s ease-in-out;\n      transition: color 0.3s ease-in-out;\n}\n.header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n      width: 38px;\n      x: 1;\n}\n.header-right .menu-button:hover .menu-text[data-v-66898320] {\n      color: #00E0E9;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n}\n.header-fixed .header .menu-section .menu-top[data-v-66898320] {\n        margin-top: 15vh;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-top .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 41px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          width: 174px;\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n}\n.header-fixed .header .menu-section .menu-top :last-child .heading-bold[data-v-66898320] {\n          position: absolute;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold[data-v-66898320] {\n          font-size: 3rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold:hover p[data-v-66898320] {\n              display: inline-block;\n}\n.header-left[data-v-66898320] {\n  position: absolute;\n  height: 100vh;\n}\n.header-left .logo[data-v-66898320] {\n    margin: 1rem;\n    position: absolute;\n    z-index: 99999;\n}\n.header-left .logo svg[data-v-66898320] {\n      width: 7em;\n}\n.header-left .logo svg .st0[data-v-66898320] {\n        fill: #00E0E9;\n}\n.header-left .logo svg .st1[data-v-66898320] {\n        fill: #ebebeb;\n}\n.header-left .contact-button[data-v-66898320] {\n    background-color: #00E0E9;\n    padding: 1rem 0rem 1rem 1rem;\n    width: 2.5em;\n    position: absolute;\n    top: 50%;\n    left: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -webkit-transition: background-color 0.3s ease-in-out;\n    transition: background-color 0.3s ease-in-out;\n}\n.header-left .contact-button .contact-sign svg[data-v-66898320] {\n      width: 1.5rem;\n}\n.header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n        fill: #1E2326;\n}\n.header-left .contact-button .contact-sign svg path[data-v-66898320] {\n        -webkit-transition: fill .3s ease-in-out;\n        transition: fill .3s ease-in-out;\n}\n.header-left .contact-button .button-link[data-v-66898320] {\n      color: #1E2326;\n      text-orientation: rtl;\n      -webkit-writing-mode: vertical-lr;\n          -ms-writing-mode: tb-lr;\n              writing-mode: vertical-lr;\n      -webkit-transform: rotate(180deg);\n              transform: rotate(180deg);\n      font-size: 0.7rem;\n      letter-spacing: 2px;\n      line-height: 21px;\n      -webkit-transition: color 0.3s ease-in-out;\n      transition: color 0.3s ease-in-out;\n}\n.header-left .contact-button[data-v-66898320]:hover {\n      background-color: #CB8E55;\n}\n.header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n        fill: #ebebeb;\n}\n.header-left .contact-button:hover .button-link[data-v-66898320] {\n        color: #ebebeb;\n}\n.header-right[data-v-66898320] {\n  position: absolute;\n  height: 100vh;\n  top: 0;\n  right: 0;\n  margin-right: 0.5rem;\n}\n.header-right .social-links[data-v-66898320] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 1rem 1rem 0 0;\n}\n.header-right .social-links .social-button[data-v-66898320] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n}\n.header-right .social-links .social-button i[data-v-66898320] {\n        font-size: 0.9rem;\n        color: #ebebeb;\n        text-align: center;\n        padding: 0.5em;\n}\n.header-right .social-links .social-button[data-v-66898320] :hover {\n        color: #00E0E9;\n}\n.header-right .menu-button[data-v-66898320] {\n    position: absolute;\n    right: 0;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-right: 1rem;\n}\n.header-right .menu-button svg[data-v-66898320] {\n      width: 2.1rem;\n}\n.header-right .menu-button svg .st0[data-v-66898320] {\n        fill: #00E0E9;\n        -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out;\n        transition: width 0.2s ease-in-out, x 0.2s ease-in-out;\n}\n.header-right .menu-button .menu-text[data-v-66898320] {\n      font-size: 10px;\n      letter-spacing: 2px;\n      font-weight: 700;\n      margin-top: 0.3rem;\n      color: #ebebeb;\n      text-align: left;\n      -webkit-transition: color 0.3s ease-in-out;\n      transition: color 0.3s ease-in-out;\n}\n.header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n      width: 38px;\n      x: 1;\n}\n.header-right .menu-button:hover .menu-text[data-v-66898320] {\n      color: #00E0E9;\n}\n", ""]);
 
 // exports
 
@@ -58911,7 +58911,9 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "menu-text" }, [_vm._v("MENU")])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
     ])
   ])
 }
@@ -58933,6 +58935,38 @@ var staticRenderFns = [
         _c("i", { staticClass: "fab fa-behance" })
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "menu-section" }, [
+      _c("div", { staticClass: "menu-top" }, [
+        _c("div", { staticClass: "background" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "heading-bold" }, [_c("p", [_vm._v("HOME")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "heading-bold" }, [
+          _c("p", [_vm._v("DESIGNING")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "heading-bold" }, [
+          _c("p", [_vm._v("DEVELOPMENT")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "heading-bold" }, [
+          _c("p", [_vm._v("ABOUT US")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "heading-bold" }, [
+          _c("p", [_vm._v("CONTACT")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "heading-bold" }, [
+          _c("p", [_vm._v("PORTFOLIO")])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -58943,6 +58977,348 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-66898320", module.exports)
   }
 }
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+$(function () {
+
+    $(".menu-section .heading-bold:nth-child(2)").hover(function () {
+
+        $('.menu-section .background').css({
+            'transform': 'scaleX(1) translateY(0px)',
+            "width": "174px"
+        });
+    }, function () {
+        $('.menu-section .background').css({
+            'transform': 'scaleX(0) translateY(0px)'
+        });
+    });
+    $(".menu-section .heading-bold:nth-child(3)").hover(function () {
+
+        $('.menu-section .background').css({
+            'transform': 'scaleX(1)  translateY(41px)',
+            "width": "288px"
+        });
+    }, function () {
+        $('.menu-section .background').css({
+            'transform': 'scaleX(0) translateY(41px)'
+        });
+    });
+    $(".menu-section .heading-bold:nth-child(4)").hover(function () {
+
+        $('.menu-section .background').css({
+            'transform': 'scaleX(1)  translateY(83px)',
+            "width": "373px"
+        });
+    }, function () {
+        $('.menu-section .background').css({
+            'transform': 'scaleX(0) translateY(83px)'
+        });
+    });
+    $(".menu-section .heading-bold:nth-child(5)").hover(function () {
+
+        $('.menu-section .background').css({
+            'transform': 'scaleX(1)  translateY(124px)',
+            "width": "266px"
+        });
+    }, function () {
+        $('.menu-section .background').css({
+            'transform': 'scaleX(0) translateY(124px)'
+        });
+    });
+    $(".menu-section .heading-bold:nth-child(6)").hover(function () {
+
+        $('.menu-section .background').css({
+            'transform': 'scaleX(1)  translateY(166px)',
+            "width": "256px"
+        });
+    }, function () {
+        $('.menu-section .background').css({
+            'transform': 'scaleX(0) translateY(166px)'
+        });
+    });
+});
 
 /***/ })
 /******/ ]);

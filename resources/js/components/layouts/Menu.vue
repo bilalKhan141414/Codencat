@@ -71,6 +71,18 @@
                 <div class="menu-text">MENU</div>
             </div>
         </div>
+        <div class="menu-section">
+            <div class="menu-top">
+                <div class="background"></div>
+                <div class="heading-bold"><p>HOME</p></div>
+                <div class="heading-bold"><p>DESIGNING</p></div>
+                <div class="heading-bold"><p>DEVELOPMENT</p></div>
+                <div class="heading-bold"><p>ABOUT US</p></div>
+                <div class="heading-bold"><p>CONTACT</p></div>
+                <div class="heading-bold"><p>PORTFOLIO</p></div>
+
+            </div>
+        </div>
     </div>
 </div>
 </template>
@@ -84,6 +96,68 @@
      width: 100vw;
     .header{
         position: relative;
+        .menu-section{
+            height: 100vh;
+            width: 100vw;
+            background-color: $black;
+            position: absolute;
+            z-index:9999;
+
+            .menu-top{
+                margin-top:15vh;
+                position:relative;
+                .background
+                {
+                        background-color: $primary;
+                        height: 41px;
+                        position: absolute;
+                        transform: scaleX(0);
+                        width: 174px;
+                        transition: transform 0.3s ease, width 0.3s ease;
+                        transform-origin: left;
+
+                }
+                :last-child .heading-bold{
+                    position:absolute;
+                }
+                .heading-bold{
+                    font-size:3rem;
+                    line-height:0.8;
+                    transition: color 0.3s ease;
+                    p{
+                        padding: 0 1rem 0.2rem 1rem;
+                        position:relative;
+                        z-index:2;
+                    }
+
+                    &:hover{
+                        color: $black;
+                        p{
+                            display:inline-block;
+                        }
+                    }
+                }
+            }
+            // .menu-bottom{
+            //     position: absolute;
+            //     bottom: 3%;
+            //     width: 100vw;
+            //     .heading-bold{
+            //         font-size:3rem;
+            //         line-height:0.8;
+            //         p{
+            //             padding: 0 1rem 0.2rem 1rem;
+            //         }
+            //         &:hover{
+            //             color: $black;
+            //             p{
+            //                 display:inline-block;
+            //                 background-color: $primary;
+            //             }
+            //         }
+            //     }
+            // }
+        }
     }
 }
 .header-left{
@@ -91,6 +165,8 @@
     height: 100vh;
     .logo{
         margin: 1rem;
+        position: absolute;
+        z-index:99999;
         svg{
             .st0{fill:$primary;}
             .st1{fill:$white;}
@@ -174,7 +250,7 @@
                 fill:#00E0E9;
                 transition: width 0.2s ease-in-out, x 0.2s ease-in-out;
             }
-            width: 5vh;
+            width: 2.1rem;
 
         }
         .menu-text{
@@ -200,3 +276,63 @@
     }
 }
 </style>
+<script>
+$(function(){
+
+    $(".menu-section .heading-bold:nth-child(2)").hover(function(){
+
+        $('.menu-section .background').css({
+            'transform':'scaleX(1) translateY(0px)',
+                "width": "174px"
+        })
+    },function(){
+        $('.menu-section .background').css({
+            'transform':'scaleX(0) translateY(0px)'
+        })
+    });
+    $(".menu-section .heading-bold:nth-child(3)").hover(function(){
+
+        $('.menu-section .background').css({
+            'transform':'scaleX(1)  translateY(41px)',
+                "width": "288px"
+        })
+    },function(){
+        $('.menu-section .background').css({
+            'transform':'scaleX(0) translateY(41px)'
+        })
+    });
+    $(".menu-section .heading-bold:nth-child(4)").hover(function(){
+
+        $('.menu-section .background').css({
+            'transform':'scaleX(1)  translateY(83px)',
+                "width": "373px"
+        })
+    },function(){
+        $('.menu-section .background').css({
+            'transform':'scaleX(0) translateY(83px)'
+        })
+    });
+    $(".menu-section .heading-bold:nth-child(5)").hover(function(){
+
+        $('.menu-section .background').css({
+            'transform':'scaleX(1)  translateY(124px)',
+                "width": "266px"
+        })
+    },function(){
+        $('.menu-section .background').css({
+            'transform':'scaleX(0) translateY(124px)'
+        })
+    });
+    $(".menu-section .heading-bold:nth-child(6)").hover(function(){
+
+        $('.menu-section .background').css({
+            'transform':'scaleX(1)  translateY(166px)',
+                "width": "256px"
+        })
+    },function(){
+        $('.menu-section .background').css({
+            'transform':'scaleX(0) translateY(166px)'
+        })
+    });
+})
+</script>
