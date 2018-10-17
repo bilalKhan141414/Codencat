@@ -96,59 +96,6 @@
      width: 100vw;
     .header{
         position: relative;
-        .menu-section{
-            height: 100vh;
-            width: 100vw;
-            background-color: $black;
-            position: absolute;
-            z-index:9999;
-            transform: translateX(-90rem);
-            transition: transform 0.5s ease-in-out;
-            .menu-links{
-                height: 85vh;
-                padding-top:15vh;
-                width: 95vw;
-                position:relative;
-                .background
-                {
-                    background-color: $primary;
-                    height: 50px;
-                    position: absolute;
-                    transform: scaleX(0);
-                    transition: transform 0.3s ease, width 0.3s ease;
-                    transform-origin: left;
-                    transform:scaleX(0) translateY(0px);
-                }
-
-                .heading-bold{
-                    font-size:3.5rem;
-                    line-height:0.8;
-                    transition: color 0.3s ease;
-                    left: -26rem;
-                    position: relative;
-                    &:last-child{
-                        position: relative;
-                        width: 100%;
-                        height:58%;
-                        p{
-                            position: absolute;
-                            bottom:43px;
-                        }
-                    }
-                    p{
-                        padding: 0 1rem 0.2rem 1rem;
-                        position:relative;
-                        z-index:2;
-
-                    }
-
-                    &:hover{
-                        color: $black;
-
-                    }
-                }
-            }
-        }
         .header-left{
             position: absolute;
             height: 100vh;
@@ -262,6 +209,59 @@
                     }
                     .menu-text{
                         color: $primary;
+                    }
+                }
+            }
+        }
+        .menu-section{
+            height: 100vh;
+            width: 100vw;
+            background-color: $black;
+            position: absolute;
+            z-index:9999;
+            transform: translateX(-90rem);
+            transition: transform 0.5s ease-in-out;
+            .menu-links{
+                height: 85vh;
+                padding-top:15vh;
+                width: 95vw;
+                position:relative;
+                .background
+                {
+                    background-color: $primary;
+                    height: 50px;
+                    position: absolute;
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease, width 0.3s ease;
+                    transform-origin: left;
+                    transform:scaleX(0) translateY(0px);
+                }
+
+                .heading-bold{
+                    font-size:3.5rem;
+                    line-height:0.8;
+                    transition: color 0.3s ease;
+                    left: -26rem;
+                    position: relative;
+                    &:last-child{
+                        position: relative;
+                        width: 100%;
+                        height:58%;
+                        p{
+                            position: absolute;
+                            bottom:43px;
+                        }
+                    }
+                    p{
+                        padding: 0 1rem 0.2rem 1rem;
+                        position:relative;
+                        z-index:2;
+
+                    }
+
+                    &:hover{
+                        color: $black;
+
                     }
                 }
             }
