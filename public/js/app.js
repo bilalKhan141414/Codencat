@@ -14298,7 +14298,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(55);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
@@ -14321,9 +14321,9 @@ window.Vue = __webpack_require__(39);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('main-header', __webpack_require__(59));
-Vue.component('cover', __webpack_require__(47));
-Vue.component('graphic-designing', __webpack_require__(51));
+Vue.component('main-header', __webpack_require__(42));
+Vue.component('cover', __webpack_require__(48));
+Vue.component('graphic-designing', __webpack_require__(52));
 
 var app = new Vue({
   el: '#app'
@@ -47601,9 +47601,97 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(9)))
 
 /***/ }),
-/* 42 */,
-/* 43 */,
-/* 44 */,
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(43)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(46)
+/* template */
+var __vue_template__ = __webpack_require__(47)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-66898320"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/menu.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-66898320", Component.options)
+  } else {
+    hotAPI.reload("data-v-66898320", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(44);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("0c426a07", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66898320\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./menu.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66898320\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./menu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n      -webkit-transform: translateX(-90rem);\n              transform: translateX(-90rem);\n      -webkit-transition: -webkit-transform 0.5s ease-in-out;\n      transition: -webkit-transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;\n}\n.header-fixed .header .menu-section .menu-links[data-v-66898320] {\n        height: 85vh;\n        padding-top: 15vh;\n        width: 95vw;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-links .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 50px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n          -webkit-transform: scaleX(0) translateY(0px);\n                  transform: scaleX(0) translateY(0px);\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320] {\n          font-size: 3.5rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n          left: -26rem;\n          position: relative;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:last-child {\n            position: relative;\n            width: 100%;\n            height: 58%;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold:last-child p[data-v-66898320] {\n              position: absolute;\n              bottom: 43px;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n.header-fixed .header .header-left[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n}\n.header-fixed .header .header-left .logo[data-v-66898320] {\n        margin: 1rem;\n        position: absolute;\n        z-index: 99999;\n}\n.header-fixed .header .header-left .logo svg[data-v-66898320] {\n          width: 7em;\n}\n.header-fixed .header .header-left .logo svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n}\n.header-fixed .header .header-left .logo svg .st1[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320] {\n        background-color: #00E0E9;\n        padding: 1rem 0rem 1rem 1rem;\n        width: 2.5em;\n        position: absolute;\n        top: 50%;\n        left: 0;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: background-color 0.3s ease-in-out;\n        transition: background-color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg[data-v-66898320] {\n          width: 1.5rem;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n            fill: #1E2326;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg path[data-v-66898320] {\n            -webkit-transition: fill .3s ease-in-out;\n            transition: fill .3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .button-link[data-v-66898320] {\n          color: #1E2326;\n          text-orientation: rtl;\n          -webkit-writing-mode: vertical-lr;\n              -ms-writing-mode: tb-lr;\n                  writing-mode: vertical-lr;\n          -webkit-transform: rotate(180deg);\n                  transform: rotate(180deg);\n          font-size: 0.7rem;\n          letter-spacing: 2px;\n          line-height: 21px;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320]:hover {\n          background-color: #CB8E55;\n}\n.header-fixed .header .header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button:hover .button-link[data-v-66898320] {\n            color: #ebebeb;\n}\n.header-fixed .header .header-right[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n      top: 0;\n      right: 0;\n      margin-right: 0.5rem;\n}\n.header-fixed .header .header-right .social-links[data-v-66898320] {\n        position: absolute;\n        top: 0;\n        right: 0;\n        margin: 1rem 1rem 0 0;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-orient: vertical;\n          -webkit-box-direction: normal;\n              -ms-flex-direction: column;\n                  flex-direction: column;\n}\n.header-fixed .header .header-right .social-links .social-button i[data-v-66898320] {\n            font-size: 0.9rem;\n            color: #ebebeb;\n            text-align: center;\n            padding: 0.5em;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] :hover {\n            color: #00E0E9;\n}\n.header-fixed .header .header-right .menu-button[data-v-66898320] {\n        position: absolute;\n        right: 0;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        margin-right: 1rem;\n        z-index: 99999;\n}\n.header-fixed .header .header-right .menu-button svg[data-v-66898320] {\n          width: 2.1rem;\n}\n.header-fixed .header .header-right .menu-button svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n            -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button .menu-text[data-v-66898320] {\n          font-size: 10px;\n          letter-spacing: 2px;\n          font-weight: 700;\n          margin-top: 0.3rem;\n          color: #ebebeb;\n          text-align: center;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n          width: 38px;\n          x: 1;\n}\n.header-fixed .header .header-right .menu-button:hover .menu-text[data-v-66898320] {\n          color: #00E0E9;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 45 */
 /***/ (function(module, exports) {
 
@@ -47637,20 +47725,678 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 46 */,
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+$(function () {
+    var isActive = false;
+    $(".header .menu-button").click(function () {
+        if (!isActive) {
+            $(this).parents(".header").children(".menu-section").css({
+                'transform': 'translateX(0rem)'
+            });
+
+            // header links animation
+            $(".header .menu-links div:nth-child(2)").delay(400).animate({
+                'left': '0rem'
+            }, 200);
+            $(".header .menu-links div:nth-child(3)").delay(450).animate({
+                'left': '0rem'
+            }, 200);
+            $(".header .menu-links div:nth-child(4)").delay(500).animate({
+                'left': '0rem'
+            }, 200);
+            $(".header .menu-links div:nth-child(5)").delay(550).animate({
+                'left': '0rem'
+            }, 200);
+            $(".header .menu-links div:nth-child(6)").delay(600).animate({
+                'left': '0rem'
+            }, 200);
+            $(".header .menu-links div:nth-child(7)").delay(650).animate({
+                'left': '0rem'
+            }, 200);
+
+            // header menu animation
+            $(".click-mid-line").css({
+                'width': '0px',
+                'x': 20
+            });
+            $(".click-bottom-line").css({
+                'transform': 'rotate(45deg)',
+                'transform-origin': 'center',
+                'y': 11
+            });
+            $(".click-top-line").css({
+                'transform': 'rotate(-45deg)',
+                'transform-origin': 'center',
+                'y': 11
+            });
+            isActive = !isActive;
+        } else {
+            $(this).parents(".header").children(".menu-section").css({
+                'transform': 'translateX(-90rem)'
+            });
+            $(".header .menu-links .heading-bold").animate({
+                'left': '-26rem'
+            });
+            // header menu close animation
+            $(".click-mid-line").css({
+                'width': '16px',
+                'x': 12
+            });
+            $(".click-bottom-line").css({
+                'transform': 'rotate(0deg)',
+                'transform-origin': 'center',
+                'y': 21
+            });
+            $(".click-top-line").css({
+                'transform': 'rotate(0deg)',
+                'transform-origin': 'center',
+                'y': 1
+            });
+            isActive = !isActive;
+        }
+    });
+});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'header-fixed',
+    data: function data() {
+        return {
+            bgwidth: '200px',
+            bgtransform: 'scaleX(0) translateY(0px)'
+        };
+    },
+
+    methods: {
+        hoverbg1: function hoverbg1() {
+            this.bgwidth = '200px', this.bgtransform = 'scaleX(1) translateY(0px)';
+        },
+        hoveroutbg1: function hoveroutbg1() {
+            this.bgtransform = 'scaleX(0) translateY(0px)';
+        },
+        hoverbg2: function hoverbg2() {
+            this.bgwidth = '333px', this.bgtransform = 'scaleX(1) translateY(47px)';
+        },
+        hoveroutbg2: function hoveroutbg2() {
+            this.bgtransform = 'scaleX(0) translateY(47px)';
+        },
+        hoverbg3: function hoverbg3() {
+            this.bgwidth = '430px', this.bgtransform = 'scaleX(1) translateY(95px)';
+        },
+        hoveroutbg3: function hoveroutbg3() {
+            this.bgtransform = 'scaleX(0) translateY(95px)';
+        },
+        hoverbg4: function hoverbg4() {
+            this.bgwidth = '302px', this.bgtransform = 'scaleX(1) translateY(142px)';
+        },
+        hoveroutbg4: function hoveroutbg4() {
+            this.bgtransform = 'scaleX(0) translateY(142px)';
+        },
+        hoverbg5: function hoverbg5() {
+            this.bgwidth = '292px', this.bgtransform = 'scaleX(1) translateY(190px)';
+        },
+        hoveroutbg5: function hoveroutbg5() {
+            this.bgtransform = 'scaleX(0) translateY(190px)';
+        },
+        hoverbg6: function hoverbg6() {
+            this.bgwidth = '345px', this.bgtransform = 'scaleX(1) translateY(475px)';
+        },
+        hoveroutbg6: function hoveroutbg6() {
+            this.bgtransform = 'scaleX(0) translateY(475px)';
+        }
+
+    }
+
+});
+
+/***/ }),
 /* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "header-fixed" }, [
+    _c("div", { staticClass: "header" }, [
+      _c("div", { staticClass: "header-left" }, [
+        _c("div", { staticClass: "logo" }, [
+          _c(
+            "svg",
+            {
+              staticStyle: { "enable-background": "new 0 0 300 168" },
+              attrs: {
+                version: "1.1",
+                id: "logo",
+                x: "0px",
+                y: "0px",
+                viewBox: "0 0 300 168",
+                "xml:space": "preserve"
+              }
+            },
+            [
+              _c("path", {
+                staticClass: "st0",
+                attrs: {
+                  d:
+                    "M40.7,92c-1.1-2-2.8-3.7-5-5.1c-3-1.8-6-3.5-9.8-2.1c-0.8,0.3-1.9,                    0-2.8-0.3c-3.1-1.1-3.7-4.4-5.7-6.5\n                        c-1.8-2-1.5-3.8,0.3-5.8c1-1.1,1.3-2.8,2-4.2c0.7-1.6,1.1-3.5,2.2-4.7c1.8-2,4.1-3.6,6.1-5.4c3.4-3,4.1-2.4,1.3-6.8\n                        c-0.2-0.3-0.2-0.9-0.2-1.4c0-0.1,0.1-0.1,0.2-0.1c0.3,0.1,2.2,1.6,3.1,2c0.2,0.1,0.7,0.3,1,0.3c0-0.4,0-0.8,0-1.2\n                        c-0.1-1.8-0.2-3.6-0.3-5.5c-0.1-1.7,1.1-1.8,1.9-1.1c2,1.8,3.7,3.8,5.5,5.8c0.3,0.3,0.9,1.3,1.5,2.2c3.6-7.2,8.9-13.4,15.4-18\n                        l-0.9-0.4c-4.4-1.6-9.2-2.5-14.2-2.5c-22.9,0-41.5,18.6-41.5,41.5s18.6,41.5,41.5,41.5c4.8,0,9.5-0.8,13.8-2.3\n                        C49.3,106.9,44,100,40.7,92z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticClass: "st1",
+                attrs: {
+                  d:
+                    "M294.9,85.8c-8-15.3-25-28.6-43-25.8c-8.8,1.4-16.4,6.5-21.9,13.5c-4.1,5.3-7.7,11.1-12.8,15.6\n                        c-1.4,1.3-2.9,2.4-4.6,3.3c-8.9,5.1-21.2,3.1-28.1-4.4c18.6-10.2,37.3-20.4,55.9-30.6c-5.3-14.3-19.1-25.2-34.3-26.9\n                        c-9.8-1.1-19.9,1.7-28.1,7.2V4h-18v33.6c-6.7-4.6-14.8-7.3-23.5-7.3c-7.1,0-13.7,1.8-19.6,4.9c4.7,4.1,8.6,9,11.5,14.6\n                        c2.5-0.9,5.2-1.5,8.1-1.5c13,0,23.5,10.5,23.5,23.5c0,9.6-5.8,17.9-14,21.5c-0.2,0.1-0.5,0.2-0.7,0.3c-0.5,0.2-1.1,0.4-1.6,0.6\n                        c-0.2,0.1-0.3,0.1-0.5,0.1c-0.5,0.1-1,0.3-1.5,0.4c-0.2,0-0.3,0.1-0.5,0.1c-0.6,0.1-1.3,0.2-2,0.3c-0.2,0-0.3,0-0.5,0\n                        c-0.7,0.1-1.4,0.1-2.1,0.1c-0.7,0-1.3,0-2-0.1c-0.1,0-0.2,0-0.3,0c-2-0.2-4-0.7-5.8-1.3c0,0,0,0,0,0c-2.2-0.8-4.2-1.9-6.1-3.3\n                        c2.9-5.6,4.5-12,4.5-18.8c0-22.9-18.6-41.5-41.5-41.5S43.7,48.9,43.7,71.8s18.6,41.5,41.5,41.5c9.7,0,18.6-3.3,25.6-8.9\n                        c1.9,1.5,3.9,2.8,6.1,4c0,0,0.1,0,0.1,0.1c0.7,0.4,1.4,0.7,2.1,1c0,0,0,0,0,0c1.5,0.7,3,1.3,4.5,1.8c0.2,0.1,0.4,0.1,0.6,0.2\n                        c0.6,0.2,1.1,0.3,1.7,0.5c0.2,0.1,0.5,0.1,0.8,0.2c0.5,0.1,1.1,0.2,1.6,0.4c0.3,0.1,0.6,0.1,0.8,0.2c0.5,0.1,1,0.2,1.6,0.2\n                        c0.3,0,0.6,0.1,0.9,0.1c0.6,0.1,1.1,0.1,1.7,0.2c0.3,0,0.5,0,0.8,0.1c0.8,0,1.6,0.1,2.5,0.1c0.9,0,1.8,0,2.7-0.1\n                        c0.2,0,0.5,0,0.7-0.1c0.7-0.1,1.4-0.1,2.1-0.2c0.2,0,0.3,0,0.5-0.1c0.9-0.1,1.7-0.3,2.6-0.5c0.2,0,0.3-0.1,0.5-0.1\n                        c0.7-0.2,1.4-0.3,2.1-0.5c0.2-0.1,0.4-0.1,0.6-0.2c1.7-0.5,3.3-1.1,4.9-1.8c0.2-0.1,0.3-0.1,0.5-0.2c0.7-0.3,1.4-0.7,2.1-1\n                        c0.1,0,0.1-0.1,0.2-0.1c0.8-0.4,1.5-0.8,2.3-1.3c0,0,0.1,0,0.1-0.1c4.1-2.5,7.8-5.8,10.8-9.6c8.3,10.3,21.8,16.5,35,15.7\n                        c9.5-0.6,18.6-4.7,25.6-11.1c5.5-5,8.9-11.7,12.7-17.9c4.9-8.2,11.9-14.4,22.2-11.9c8.7,2.1,16.4,9.5,20.7,17.1\n                        c3.5,6.3,5.2,13.6,4.7,20.8c-0.3,4.7-1.7,9.2-3.9,13.4c-9.6,17.3-24.2,25.1-39.9,29c-10.9,2.7-21.2,1.2-32.3,0.5\n                        c-25-1.7-48.5-12.4-72.6-18.6c-16.4-4.2-34.4-6.1-50.6-4.9c-9.5,0.7-27.8,2.4-28.4,15c-0.4,8.9,8,12.8,15.8,11.4\n                        c4.8-0.9,9.1-3.3,13.2-5.8c18-10.8,40-7,59-1.2c23.4,7.1,47.2,14.7,71.9,15.4c28.8,0.8,62.8-10.2,74.4-39.3\n                        C301.6,112.3,301.1,97.8,294.9,85.8z M85.2,95.4c-13,0-23.5-10.5-23.5-23.5s10.5-23.5,23.5-23.5s23.5,10.5,23.5,23.5\n                        S98.2,95.4,85.2,95.4z M201.5,48.3c4.4,0,8.5,1.2,12,3.3L178,71C178.4,58.4,188.8,48.3,201.5,48.3z"
+                }
+              })
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "contact-button" }, [
+          _c("div", { staticClass: "contact-sign" }, [
+            _c(
+              "svg",
+              {
+                staticStyle: { "enable-background": "new 0 0 976 1000" },
+                attrs: {
+                  version: "1.1",
+                  id: "Capa_1",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                  x: "0px",
+                  y: "0px",
+                  viewBox: "0 0 976 1000",
+                  "xml:space": "preserve"
+                }
+              },
+              [
+                _c("g", [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M671.7,329.6C625,286.5,566.9,265,497.6,265c-72.9,0-135.1,24.4-186.3,73.4s-77,109.9-77,182.8\n                                c0,69.9,24.4,129.9,73.2,180.3c49,50.3,114.8,75.5,197.6,75.5c49.9,0,98.9-10.2,147-30.8c15.7-6.7,23.3-24.6,16.9-40.4l0,0\n                                c-6.6-16.3-25.2-23.8-41.4-16.9c-41.8,18-82.7,26.9-122.6,26.9c-63.5,0-112.7-19.3-147.6-58.1c-34.8-38.6-52.2-84.1-52.2-136.2\n                                c0-56.6,18.7-103.8,56-141.7c37.2-37.8,83-56.8,137.3-56.8c50,0,92.3,15.6,126.8,46.7C659.8,400.8,677,440,677,487.2\n                                c0,32.3-7.9,59.2-23.7,80.6c-15.8,21.5-32.2,32.2-49.2,32.2c-9.2,0-13.8-4.9-13.8-14.8c0-8,0.6-17.4,1.8-28.3L611.5,398h-66.8\n                                l-4.3,15.6c-17-13.9-35.7-20.9-56-20.9c-32.2,0-59.7,12.8-82.6,38.4c-23,25.6-34.4,58.6-34.4,98.9c0,39.4,10.1,71.2,30.5,95.4\n                                c20.4,24.2,44.8,36.2,73.4,36.2c25.6,0,47.4-10.8,65.6-32.2c13.7,20.6,33.8,30.8,60.5,30.8c39.2,0,73-17,101.5-51.2\n                                c28.5-34,42.8-75.2,42.8-123.4C741.8,424.7,718.5,372.6,671.7,329.6z M517.7,569.9c-11.8,15.9-25.9,23.9-42.3,23.9\n                                c-11.2,0-20.2-5.8-26.9-17.5c-6.9-11.7-10.3-26.2-10.3-43.7c0-21.5,4.8-38.9,14.4-52c9.6-13.2,21.5-19.8,35.7-19.8\n                                c12.3,0,23.3,4.9,32.9,14.8c9.6,9.9,14.4,23.1,14.4,39.6C535.5,535.8,529.5,553.9,517.7,569.9z"
+                    }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "button-link" }, [_vm._v("CONTACT")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "header-right" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "menu-button" }, [
+          _c(
+            "svg",
+            {
+              staticStyle: { "enable-background": "new 0 0 40 26" },
+              attrs: {
+                version: "1.1",
+                id: "Layer_1",
+                xmlns: "http://www.w3.org/2000/svg",
+                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                x: "0px",
+                y: "0px",
+                viewBox: "0 0 40 26",
+                "xml:space": "preserve"
+              }
+            },
+            [
+              _c("rect", {
+                staticClass: "st0 click-bottom-line",
+                attrs: { x: "4", y: "21", width: "32", height: "4" }
+              }),
+              _vm._v(" "),
+              _c("rect", {
+                staticClass: "st0 click-top-line",
+                attrs: { x: "4", y: "1", width: "32", height: "4" }
+              }),
+              _vm._v(" "),
+              _c("rect", {
+                staticClass: "st0 mid-line click-mid-line",
+                attrs: { x: "12", y: "11", width: "16", height: "4" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "menu-text" }, [_vm._v("MENU")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "menu-section" }, [
+        _c("div", { staticClass: "menu-links" }, [
+          _c("div", {
+            staticClass: "background",
+            style: { width: _vm.bgwidth, transform: _vm.bgtransform }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "heading-bold",
+              on: {
+                mouseover: function($event) {
+                  _vm.hoverbg1()
+                },
+                mouseout: function($event) {
+                  _vm.hoveroutbg1()
+                }
+              }
+            },
+            [_c("p", [_vm._v("HOME")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "heading-bold",
+              on: {
+                mouseover: function($event) {
+                  _vm.hoverbg2()
+                },
+                mouseout: function($event) {
+                  _vm.hoveroutbg2()
+                }
+              }
+            },
+            [_c("p", [_vm._v("DESIGNING")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "heading-bold",
+              on: {
+                mouseover: function($event) {
+                  _vm.hoverbg3()
+                },
+                mouseout: function($event) {
+                  _vm.hoveroutbg3()
+                }
+              }
+            },
+            [_c("p", [_vm._v("DEVELOPMENT")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "heading-bold",
+              on: {
+                mouseover: function($event) {
+                  _vm.hoverbg4()
+                },
+                mouseout: function($event) {
+                  _vm.hoveroutbg4()
+                }
+              }
+            },
+            [_c("p", [_vm._v("ABOUT US")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "heading-bold",
+              on: {
+                mouseover: function($event) {
+                  _vm.hoverbg5()
+                },
+                mouseout: function($event) {
+                  _vm.hoveroutbg5()
+                }
+              }
+            },
+            [_c("p", [_vm._v("CONTACT")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "heading-bold",
+              on: {
+                mouseover: function($event) {
+                  _vm.hoverbg6()
+                },
+                mouseout: function($event) {
+                  _vm.hoveroutbg6()
+                }
+              }
+            },
+            [_c("p", [_vm._v("PORTFOLIO")])]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "social-links" }, [
+      _c("div", { staticClass: "social-button" }, [
+        _c("i", { staticClass: "fab fa-facebook-f" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fab fa-instagram" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fab fa-twitter" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fab fa-pinterest-p" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fab fa-behance" })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-66898320", module.exports)
+  }
+}
+
+/***/ }),
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(48)
+  __webpack_require__(49)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47689,13 +48435,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(49);
+var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -47715,7 +48461,7 @@ if(false) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -47729,7 +48475,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52009,19 +52755,19 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(52)
+  __webpack_require__(53)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(55)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52060,13 +52806,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(53);
+var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -52086,7 +52832,7 @@ if(false) {
 }
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -52100,7 +52846,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -58693,632 +59439,10 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(60)
-}
-var normalizeComponent = __webpack_require__(5)
-/* script */
-var __vue_script__ = __webpack_require__(63)
-/* template */
-var __vue_template__ = __webpack_require__(62)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-66898320"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/layouts/menu.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-66898320", Component.options)
-  } else {
-    hotAPI.reload("data-v-66898320", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(61);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(4)("0c426a07", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66898320\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./menu.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66898320\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./menu.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n}\n.header-fixed .header .menu-section .menu-top[data-v-66898320] {\n        margin-top: 15vh;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-top .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 41px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          width: 174px;\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n}\n.header-fixed .header .menu-section .menu-top :last-child .heading-bold[data-v-66898320] {\n          position: absolute;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold[data-v-66898320] {\n          font-size: 3rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n.header-fixed .header .menu-section .menu-top .heading-bold:hover p[data-v-66898320] {\n              display: inline-block;\n}\n.header-left[data-v-66898320] {\n  position: absolute;\n  height: 100vh;\n}\n.header-left .logo[data-v-66898320] {\n    margin: 1rem;\n    position: absolute;\n    z-index: 99999;\n}\n.header-left .logo svg[data-v-66898320] {\n      width: 7em;\n}\n.header-left .logo svg .st0[data-v-66898320] {\n        fill: #00E0E9;\n}\n.header-left .logo svg .st1[data-v-66898320] {\n        fill: #ebebeb;\n}\n.header-left .contact-button[data-v-66898320] {\n    background-color: #00E0E9;\n    padding: 1rem 0rem 1rem 1rem;\n    width: 2.5em;\n    position: absolute;\n    top: 50%;\n    left: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -webkit-transition: background-color 0.3s ease-in-out;\n    transition: background-color 0.3s ease-in-out;\n}\n.header-left .contact-button .contact-sign svg[data-v-66898320] {\n      width: 1.5rem;\n}\n.header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n        fill: #1E2326;\n}\n.header-left .contact-button .contact-sign svg path[data-v-66898320] {\n        -webkit-transition: fill .3s ease-in-out;\n        transition: fill .3s ease-in-out;\n}\n.header-left .contact-button .button-link[data-v-66898320] {\n      color: #1E2326;\n      text-orientation: rtl;\n      -webkit-writing-mode: vertical-lr;\n          -ms-writing-mode: tb-lr;\n              writing-mode: vertical-lr;\n      -webkit-transform: rotate(180deg);\n              transform: rotate(180deg);\n      font-size: 0.7rem;\n      letter-spacing: 2px;\n      line-height: 21px;\n      -webkit-transition: color 0.3s ease-in-out;\n      transition: color 0.3s ease-in-out;\n}\n.header-left .contact-button[data-v-66898320]:hover {\n      background-color: #CB8E55;\n}\n.header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n        fill: #ebebeb;\n}\n.header-left .contact-button:hover .button-link[data-v-66898320] {\n        color: #ebebeb;\n}\n.header-right[data-v-66898320] {\n  position: absolute;\n  height: 100vh;\n  top: 0;\n  right: 0;\n  margin-right: 0.5rem;\n}\n.header-right .social-links[data-v-66898320] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 1rem 1rem 0 0;\n}\n.header-right .social-links .social-button[data-v-66898320] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n}\n.header-right .social-links .social-button i[data-v-66898320] {\n        font-size: 0.9rem;\n        color: #ebebeb;\n        text-align: center;\n        padding: 0.5em;\n}\n.header-right .social-links .social-button[data-v-66898320] :hover {\n        color: #00E0E9;\n}\n.header-right .menu-button[data-v-66898320] {\n    position: absolute;\n    right: 0;\n    top: 50%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-right: 1rem;\n}\n.header-right .menu-button svg[data-v-66898320] {\n      width: 2.1rem;\n}\n.header-right .menu-button svg .st0[data-v-66898320] {\n        fill: #00E0E9;\n        -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out;\n        transition: width 0.2s ease-in-out, x 0.2s ease-in-out;\n}\n.header-right .menu-button .menu-text[data-v-66898320] {\n      font-size: 10px;\n      letter-spacing: 2px;\n      font-weight: 700;\n      margin-top: 0.3rem;\n      color: #ebebeb;\n      text-align: left;\n      -webkit-transition: color 0.3s ease-in-out;\n      transition: color 0.3s ease-in-out;\n}\n.header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n      width: 38px;\n      x: 1;\n}\n.header-right .menu-button:hover .menu-text[data-v-66898320] {\n      color: #00E0E9;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "header-fixed" }, [
-    _c("div", { staticClass: "header" }, [
-      _c("div", { staticClass: "header-left" }, [
-        _c("div", { staticClass: "logo" }, [
-          _c(
-            "svg",
-            {
-              staticStyle: { "enable-background": "new 0 0 300 168" },
-              attrs: {
-                version: "1.1",
-                id: "logo",
-                x: "0px",
-                y: "0px",
-                viewBox: "0 0 300 168",
-                "xml:space": "preserve"
-              }
-            },
-            [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M40.7,92c-1.1-2-2.8-3.7-5-5.1c-3-1.8-6-3.5-9.8-2.1c-0.8,0.3-1.9,                    0-2.8-0.3c-3.1-1.1-3.7-4.4-5.7-6.5\n                        c-1.8-2-1.5-3.8,0.3-5.8c1-1.1,1.3-2.8,2-4.2c0.7-1.6,1.1-3.5,2.2-4.7c1.8-2,4.1-3.6,6.1-5.4c3.4-3,4.1-2.4,1.3-6.8\n                        c-0.2-0.3-0.2-0.9-0.2-1.4c0-0.1,0.1-0.1,0.2-0.1c0.3,0.1,2.2,1.6,3.1,2c0.2,0.1,0.7,0.3,1,0.3c0-0.4,0-0.8,0-1.2\n                        c-0.1-1.8-0.2-3.6-0.3-5.5c-0.1-1.7,1.1-1.8,1.9-1.1c2,1.8,3.7,3.8,5.5,5.8c0.3,0.3,0.9,1.3,1.5,2.2c3.6-7.2,8.9-13.4,15.4-18\n                        l-0.9-0.4c-4.4-1.6-9.2-2.5-14.2-2.5c-22.9,0-41.5,18.6-41.5,41.5s18.6,41.5,41.5,41.5c4.8,0,9.5-0.8,13.8-2.3\n                        C49.3,106.9,44,100,40.7,92z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st1",
-                attrs: {
-                  d:
-                    "M294.9,85.8c-8-15.3-25-28.6-43-25.8c-8.8,1.4-16.4,6.5-21.9,13.5c-4.1,5.3-7.7,11.1-12.8,15.6\n                        c-1.4,1.3-2.9,2.4-4.6,3.3c-8.9,5.1-21.2,3.1-28.1-4.4c18.6-10.2,37.3-20.4,55.9-30.6c-5.3-14.3-19.1-25.2-34.3-26.9\n                        c-9.8-1.1-19.9,1.7-28.1,7.2V4h-18v33.6c-6.7-4.6-14.8-7.3-23.5-7.3c-7.1,0-13.7,1.8-19.6,4.9c4.7,4.1,8.6,9,11.5,14.6\n                        c2.5-0.9,5.2-1.5,8.1-1.5c13,0,23.5,10.5,23.5,23.5c0,9.6-5.8,17.9-14,21.5c-0.2,0.1-0.5,0.2-0.7,0.3c-0.5,0.2-1.1,0.4-1.6,0.6\n                        c-0.2,0.1-0.3,0.1-0.5,0.1c-0.5,0.1-1,0.3-1.5,0.4c-0.2,0-0.3,0.1-0.5,0.1c-0.6,0.1-1.3,0.2-2,0.3c-0.2,0-0.3,0-0.5,0\n                        c-0.7,0.1-1.4,0.1-2.1,0.1c-0.7,0-1.3,0-2-0.1c-0.1,0-0.2,0-0.3,0c-2-0.2-4-0.7-5.8-1.3c0,0,0,0,0,0c-2.2-0.8-4.2-1.9-6.1-3.3\n                        c2.9-5.6,4.5-12,4.5-18.8c0-22.9-18.6-41.5-41.5-41.5S43.7,48.9,43.7,71.8s18.6,41.5,41.5,41.5c9.7,0,18.6-3.3,25.6-8.9\n                        c1.9,1.5,3.9,2.8,6.1,4c0,0,0.1,0,0.1,0.1c0.7,0.4,1.4,0.7,2.1,1c0,0,0,0,0,0c1.5,0.7,3,1.3,4.5,1.8c0.2,0.1,0.4,0.1,0.6,0.2\n                        c0.6,0.2,1.1,0.3,1.7,0.5c0.2,0.1,0.5,0.1,0.8,0.2c0.5,0.1,1.1,0.2,1.6,0.4c0.3,0.1,0.6,0.1,0.8,0.2c0.5,0.1,1,0.2,1.6,0.2\n                        c0.3,0,0.6,0.1,0.9,0.1c0.6,0.1,1.1,0.1,1.7,0.2c0.3,0,0.5,0,0.8,0.1c0.8,0,1.6,0.1,2.5,0.1c0.9,0,1.8,0,2.7-0.1\n                        c0.2,0,0.5,0,0.7-0.1c0.7-0.1,1.4-0.1,2.1-0.2c0.2,0,0.3,0,0.5-0.1c0.9-0.1,1.7-0.3,2.6-0.5c0.2,0,0.3-0.1,0.5-0.1\n                        c0.7-0.2,1.4-0.3,2.1-0.5c0.2-0.1,0.4-0.1,0.6-0.2c1.7-0.5,3.3-1.1,4.9-1.8c0.2-0.1,0.3-0.1,0.5-0.2c0.7-0.3,1.4-0.7,2.1-1\n                        c0.1,0,0.1-0.1,0.2-0.1c0.8-0.4,1.5-0.8,2.3-1.3c0,0,0.1,0,0.1-0.1c4.1-2.5,7.8-5.8,10.8-9.6c8.3,10.3,21.8,16.5,35,15.7\n                        c9.5-0.6,18.6-4.7,25.6-11.1c5.5-5,8.9-11.7,12.7-17.9c4.9-8.2,11.9-14.4,22.2-11.9c8.7,2.1,16.4,9.5,20.7,17.1\n                        c3.5,6.3,5.2,13.6,4.7,20.8c-0.3,4.7-1.7,9.2-3.9,13.4c-9.6,17.3-24.2,25.1-39.9,29c-10.9,2.7-21.2,1.2-32.3,0.5\n                        c-25-1.7-48.5-12.4-72.6-18.6c-16.4-4.2-34.4-6.1-50.6-4.9c-9.5,0.7-27.8,2.4-28.4,15c-0.4,8.9,8,12.8,15.8,11.4\n                        c4.8-0.9,9.1-3.3,13.2-5.8c18-10.8,40-7,59-1.2c23.4,7.1,47.2,14.7,71.9,15.4c28.8,0.8,62.8-10.2,74.4-39.3\n                        C301.6,112.3,301.1,97.8,294.9,85.8z M85.2,95.4c-13,0-23.5-10.5-23.5-23.5s10.5-23.5,23.5-23.5s23.5,10.5,23.5,23.5\n                        S98.2,95.4,85.2,95.4z M201.5,48.3c4.4,0,8.5,1.2,12,3.3L178,71C178.4,58.4,188.8,48.3,201.5,48.3z"
-                }
-              })
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "contact-button" }, [
-          _c("div", { staticClass: "contact-sign" }, [
-            _c(
-              "svg",
-              {
-                staticStyle: { "enable-background": "new 0 0 976 1000" },
-                attrs: {
-                  version: "1.1",
-                  id: "Capa_1",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                  x: "0px",
-                  y: "0px",
-                  viewBox: "0 0 976 1000",
-                  "xml:space": "preserve"
-                }
-              },
-              [
-                _c("g", [
-                  _c("path", {
-                    staticClass: "st0",
-                    attrs: {
-                      d:
-                        "M671.7,329.6C625,286.5,566.9,265,497.6,265c-72.9,0-135.1,24.4-186.3,73.4s-77,109.9-77,182.8\n                                c0,69.9,24.4,129.9,73.2,180.3c49,50.3,114.8,75.5,197.6,75.5c49.9,0,98.9-10.2,147-30.8c15.7-6.7,23.3-24.6,16.9-40.4l0,0\n                                c-6.6-16.3-25.2-23.8-41.4-16.9c-41.8,18-82.7,26.9-122.6,26.9c-63.5,0-112.7-19.3-147.6-58.1c-34.8-38.6-52.2-84.1-52.2-136.2\n                                c0-56.6,18.7-103.8,56-141.7c37.2-37.8,83-56.8,137.3-56.8c50,0,92.3,15.6,126.8,46.7C659.8,400.8,677,440,677,487.2\n                                c0,32.3-7.9,59.2-23.7,80.6c-15.8,21.5-32.2,32.2-49.2,32.2c-9.2,0-13.8-4.9-13.8-14.8c0-8,0.6-17.4,1.8-28.3L611.5,398h-66.8\n                                l-4.3,15.6c-17-13.9-35.7-20.9-56-20.9c-32.2,0-59.7,12.8-82.6,38.4c-23,25.6-34.4,58.6-34.4,98.9c0,39.4,10.1,71.2,30.5,95.4\n                                c20.4,24.2,44.8,36.2,73.4,36.2c25.6,0,47.4-10.8,65.6-32.2c13.7,20.6,33.8,30.8,60.5,30.8c39.2,0,73-17,101.5-51.2\n                                c28.5-34,42.8-75.2,42.8-123.4C741.8,424.7,718.5,372.6,671.7,329.6z M517.7,569.9c-11.8,15.9-25.9,23.9-42.3,23.9\n                                c-11.2,0-20.2-5.8-26.9-17.5c-6.9-11.7-10.3-26.2-10.3-43.7c0-21.5,4.8-38.9,14.4-52c9.6-13.2,21.5-19.8,35.7-19.8\n                                c12.3,0,23.3,4.9,32.9,14.8c9.6,9.9,14.4,23.1,14.4,39.6C535.5,535.8,529.5,553.9,517.7,569.9z"
-                    }
-                  })
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "button-link" }, [_vm._v("CONTACT")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "header-right" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "menu-button" }, [
-          _c(
-            "svg",
-            {
-              staticStyle: { "enable-background": "new 0 0 38 24" },
-              attrs: {
-                version: "1.1",
-                id: "Layer_1",
-                xmlns: "http://www.w3.org/2000/svg",
-                "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                x: "0px",
-                y: "0px",
-                viewBox: "0 0 38 24",
-                "xml:space": "preserve"
-              }
-            },
-            [
-              _c("rect", {
-                staticClass: "st0",
-                attrs: { width: "38", height: "4" }
-              }),
-              _vm._v(" "),
-              _c("rect", {
-                staticClass: "st0 , mid-line",
-                attrs: { x: "12", y: "10", width: "14", height: "4" }
-              }),
-              _vm._v(" "),
-              _c("rect", {
-                staticClass: "st0",
-                attrs: { y: "20", width: "38", height: "4" }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "menu-text" }, [_vm._v("MENU")])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "social-links" }, [
-      _c("div", { staticClass: "social-button" }, [
-        _c("i", { staticClass: "fab fa-facebook-f" }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fab fa-instagram" }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fab fa-twitter" }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fab fa-pinterest-p" }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fab fa-behance" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "menu-section" }, [
-      _c("div", { staticClass: "menu-top" }, [
-        _c("div", { staticClass: "background" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "heading-bold" }, [_c("p", [_vm._v("HOME")])]),
-        _vm._v(" "),
-        _c("div", { staticClass: "heading-bold" }, [
-          _c("p", [_vm._v("DESIGNING")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "heading-bold" }, [
-          _c("p", [_vm._v("DEVELOPMENT")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "heading-bold" }, [
-          _c("p", [_vm._v("ABOUT US")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "heading-bold" }, [
-          _c("p", [_vm._v("CONTACT")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "heading-bold" }, [
-          _c("p", [_vm._v("PORTFOLIO")])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-66898320", module.exports)
-  }
-}
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-$(function () {
-
-    $(".menu-section .heading-bold:nth-child(2)").hover(function () {
-
-        $('.menu-section .background').css({
-            'transform': 'scaleX(1) translateY(0px)',
-            "width": "174px"
-        });
-    }, function () {
-        $('.menu-section .background').css({
-            'transform': 'scaleX(0) translateY(0px)'
-        });
-    });
-    $(".menu-section .heading-bold:nth-child(3)").hover(function () {
-
-        $('.menu-section .background').css({
-            'transform': 'scaleX(1)  translateY(41px)',
-            "width": "288px"
-        });
-    }, function () {
-        $('.menu-section .background').css({
-            'transform': 'scaleX(0) translateY(41px)'
-        });
-    });
-    $(".menu-section .heading-bold:nth-child(4)").hover(function () {
-
-        $('.menu-section .background').css({
-            'transform': 'scaleX(1)  translateY(83px)',
-            "width": "373px"
-        });
-    }, function () {
-        $('.menu-section .background').css({
-            'transform': 'scaleX(0) translateY(83px)'
-        });
-    });
-    $(".menu-section .heading-bold:nth-child(5)").hover(function () {
-
-        $('.menu-section .background').css({
-            'transform': 'scaleX(1)  translateY(124px)',
-            "width": "266px"
-        });
-    }, function () {
-        $('.menu-section .background').css({
-            'transform': 'scaleX(0) translateY(124px)'
-        });
-    });
-    $(".menu-section .heading-bold:nth-child(6)").hover(function () {
-
-        $('.menu-section .background').css({
-            'transform': 'scaleX(1)  translateY(166px)',
-            "width": "256px"
-        });
-    }, function () {
-        $('.menu-section .background').css({
-            'transform': 'scaleX(0) translateY(166px)'
-        });
-    });
-});
 
 /***/ })
 /******/ ]);

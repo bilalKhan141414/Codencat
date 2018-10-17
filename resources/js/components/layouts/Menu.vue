@@ -63,23 +63,23 @@
             </div>
             <div class="menu-button">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 38 24" style="enable-background:new 0 0 38 24;" xml:space="preserve">
-                    <rect class="st0" width="38" height="4"/>
-                    <rect x="12" y="10" class="st0 , mid-line" width="14" height="4"/>
-                    <rect y="20" class="st0" width="38" height="4"/>
+                    viewBox="0 0 40 26" style="enable-background:new 0 0 40 26;" xml:space="preserve">
+                    <rect x="4" y="21" class="st0 click-bottom-line" width="32" height="4"/>
+                    <rect x="4" y="1" class="st0 click-top-line" width="32" height="4"/>
+                    <rect  x="12" y="11" class="st0 mid-line click-mid-line" width="16" height="4"/>
                 </svg>
                 <div class="menu-text">MENU</div>
             </div>
         </div>
         <div class="menu-section">
-            <div class="menu-top">
-                <div class="background"></div>
-                <div class="heading-bold"><p>HOME</p></div>
-                <div class="heading-bold"><p>DESIGNING</p></div>
-                <div class="heading-bold"><p>DEVELOPMENT</p></div>
-                <div class="heading-bold"><p>ABOUT US</p></div>
-                <div class="heading-bold"><p>CONTACT</p></div>
-                <div class="heading-bold"><p>PORTFOLIO</p></div>
+            <div class="menu-links">
+                <div :style="{width:bgwidth,transform:bgtransform }" class="background"></div>
+                <div @mouseover="hoverbg1()" @mouseout="hoveroutbg1()" class="heading-bold"><p>HOME</p></div>
+                <div @mouseover="hoverbg2()" @mouseout="hoveroutbg2()" class="heading-bold"><p>DESIGNING</p></div>
+                <div @mouseover="hoverbg3()" @mouseout="hoveroutbg3()" class="heading-bold"><p>DEVELOPMENT</p></div>
+                <div @mouseover="hoverbg4()" @mouseout="hoveroutbg4()" class="heading-bold"><p>ABOUT US</p></div>
+                <div @mouseover="hoverbg5()" @mouseout="hoveroutbg5()" class="heading-bold"><p>CONTACT</p></div>
+                <div @mouseover="hoverbg6()" @mouseout="hoveroutbg6()" class="heading-bold"><p>PORTFOLIO</p></div>
 
             </div>
         </div>
@@ -102,237 +102,301 @@
             background-color: $black;
             position: absolute;
             z-index:9999;
-
-            .menu-top{
-                margin-top:15vh;
+            transform: translateX(-90rem);
+            transition: transform 0.5s ease-in-out;
+            .menu-links{
+                height: 85vh;
+                padding-top:15vh;
+                width: 95vw;
                 position:relative;
                 .background
                 {
-                        background-color: $primary;
-                        height: 41px;
-                        position: absolute;
-                        transform: scaleX(0);
-                        width: 174px;
-                        transition: transform 0.3s ease, width 0.3s ease;
-                        transform-origin: left;
+                    background-color: $primary;
+                    height: 50px;
+                    position: absolute;
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease, width 0.3s ease;
+                    transform-origin: left;
+                    transform:scaleX(0) translateY(0px);
+                }
 
-                }
-                :last-child .heading-bold{
-                    position:absolute;
-                }
                 .heading-bold{
-                    font-size:3rem;
+                    font-size:3.5rem;
                     line-height:0.8;
                     transition: color 0.3s ease;
+                    left: -26rem;
+                    position: relative;
+                    &:last-child{
+                        position: relative;
+                        width: 100%;
+                        height:58%;
+                        p{
+                            position: absolute;
+                            bottom:43px;
+                        }
+                    }
                     p{
                         padding: 0 1rem 0.2rem 1rem;
                         position:relative;
                         z-index:2;
+
                     }
 
                     &:hover{
                         color: $black;
-                        p{
-                            display:inline-block;
-                        }
+
                     }
                 }
             }
-            // .menu-bottom{
-            //     position: absolute;
-            //     bottom: 3%;
-            //     width: 100vw;
-            //     .heading-bold{
-            //         font-size:3rem;
-            //         line-height:0.8;
-            //         p{
-            //             padding: 0 1rem 0.2rem 1rem;
-            //         }
-            //         &:hover{
-            //             color: $black;
-            //             p{
-            //                 display:inline-block;
-            //                 background-color: $primary;
-            //             }
-            //         }
-            //     }
-            // }
         }
-    }
-}
-.header-left{
-    position: absolute;
-    height: 100vh;
-    .logo{
-        margin: 1rem;
-        position: absolute;
-        z-index:99999;
-        svg{
-            .st0{fill:$primary;}
-            .st1{fill:$white;}
-            width: 7em;
-        }
-    }
-    .contact-button{
-        background-color: $primary;
-        padding:1rem 0rem 1rem 1rem;
-        width:2.5em;
-        position: absolute;
-        top:50%;
-        left:0;
-        transform:translateY(-50%);
-        transition: background-color 0.3s ease-in-out;
-
-        .contact-sign{
-            svg{
-                .st0{fill:$black;}
-                width: 1.5rem;
-                path { transition: fill .3s ease-in-out; }
-
-            }
-        }
-        .button-link{
-            color: $black;
-	        text-orientation: rtl;
-            writing-mode: vertical-lr;
-            transform: rotate(180deg);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            line-height: 21px;
-            transition: color 0.3s ease-in-out;
-        }
-        &:hover{
-            background-color: $secondary;
-            .contact-sign .st0{
-                fill: $white;
-            }
-            .button-link{
-                color: $white;
-            }
-        }
-    }
-}
-.header-right{
-    position: absolute;
-    height: 100vh;
-    top:0;
-    right:0;
-    margin-right: 0.5rem;
-    .social-links{
-        position:absolute;
-        top:0;
-        right:0;
-        margin: 1rem 1rem 0 0;
-       .social-button{
-            display:flex;
-            flex-direction: column;
-           i{
-            font-size: 0.9rem;
-            color:$white;
-            text-align: center;
-            padding:0.5em;
-           }
-           :hover{
-               color: $primary;
-           }
-
-       }
-    }
-    .menu-button{
-        position: absolute;
-        right:0;
-        top:50%;
-        transform:translateY(-50%);
-        margin-right:1rem;
-
-        svg{
-            .st0{
-                fill:#00E0E9;
-                transition: width 0.2s ease-in-out, x 0.2s ease-in-out;
-            }
-            width: 2.1rem;
-
-        }
-        .menu-text{
-            font-size:10px;
-            letter-spacing: 2px;
-            font-weight:$font-weight-bold;
-            margin-top:0.3rem;
-            color:$white;
-            text-align: left;
-            transition: color 0.3s ease-in-out;
-        }
-        &:hover{
-            svg{
-                .mid-line{
-                width: 38px;
-                x:1;
+        .header-left{
+            position: absolute;
+            height: 100vh;
+            .logo{
+                margin: 1rem;
+                position: absolute;
+                z-index:99999;
+                svg{
+                    .st0{fill:$primary;}
+                    .st1{fill:$white;}
+                    width: 7em;
                 }
             }
-            .menu-text{
-                color: $primary;
+            .contact-button{
+                background-color: $primary;
+                padding:1rem 0rem 1rem 1rem;
+                width:2.5em;
+                position: absolute;
+                top:50%;
+                left:0;
+                transform:translateY(-50%);
+                transition: background-color 0.3s ease-in-out;
+
+                .contact-sign{
+                    svg{
+                        .st0{fill:$black;}
+                        width: 1.5rem;
+                        path { transition: fill .3s ease-in-out; }
+
+                    }
+                }
+                .button-link{
+                    color: $black;
+                    text-orientation: rtl;
+                    writing-mode: vertical-lr;
+                    transform: rotate(180deg);
+                    font-size: 0.7rem;
+                    letter-spacing: 2px;
+                    line-height: 21px;
+                    transition: color 0.3s ease-in-out;
+                }
+                &:hover{
+                    background-color: $secondary;
+                    .contact-sign .st0{
+                        fill: $white;
+                    }
+                    .button-link{
+                        color: $white;
+                    }
+                }
+            }
+        }
+        .header-right{
+            position: absolute;
+            height: 100vh;
+            top:0;
+            right:0;
+            margin-right: 0.5rem;
+            .social-links{
+                position:absolute;
+                top:0;
+                right:0;
+                margin: 1rem 1rem 0 0;
+            .social-button{
+                    display:flex;
+                    flex-direction: column;
+                i{
+                    font-size: 0.9rem;
+                    color:$white;
+                    text-align: center;
+                    padding:0.5em;
+                }
+                :hover{
+                    color: $primary;
+                }
+
+            }
+            }
+            .menu-button{
+                position: absolute;
+                right:0;
+                top:50%;
+                transform:translateY(-50%);
+                margin-right:1rem;
+                z-index:99999;
+                svg{
+                    .st0{
+                        fill:#00E0E9;
+                        transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;
+
+                    }
+
+                    width: 2.1rem;
+
+                }
+                .menu-text{
+                    font-size:10px;
+                    letter-spacing: 2px;
+                    font-weight:$font-weight-bold;
+                    margin-top:0.3rem;
+                    color:$white;
+                    text-align: center;
+                    transition: color 0.3s ease-in-out;
+                }
+                &:hover{
+                    svg{
+                        .mid-line{
+                        width: 38px;
+                        x:1;
+                        }
+                    }
+                    .menu-text{
+                        color: $primary;
+                    }
+                }
             }
         }
     }
 }
+
+
 </style>
 <script>
 $(function(){
+    let isActive = false
+    $(".header .menu-button").click(function(){
+        if(!isActive){
+            $(this).parents(".header").children(".menu-section").css({
+                'transform': 'translateX(0rem)'
+            })
 
-    $(".menu-section .heading-bold:nth-child(2)").hover(function(){
+            // header links animation
+            $(".header .menu-links div:nth-child(2)").delay(400).animate({
+                'left': '0rem',
+            },200)
+            $(".header .menu-links div:nth-child(3)").delay(450).animate({
+                'left': '0rem',
+            },200)
+            $(".header .menu-links div:nth-child(4)").delay(500).animate({
+                'left': '0rem',
+            },200)
+            $(".header .menu-links div:nth-child(5)").delay(550).animate({
+                'left': '0rem',
+            },200)
+            $(".header .menu-links div:nth-child(6)").delay(600).animate({
+                'left': '0rem',
+            },200)
+            $(".header .menu-links div:nth-child(7)").delay(650).animate({
+                'left': '0rem',
+            },200)
 
-        $('.menu-section .background').css({
-            'transform':'scaleX(1) translateY(0px)',
-                "width": "174px"
-        })
-    },function(){
-        $('.menu-section .background').css({
-            'transform':'scaleX(0) translateY(0px)'
-        })
-    });
-    $(".menu-section .heading-bold:nth-child(3)").hover(function(){
-
-        $('.menu-section .background').css({
-            'transform':'scaleX(1)  translateY(41px)',
-                "width": "288px"
-        })
-    },function(){
-        $('.menu-section .background').css({
-            'transform':'scaleX(0) translateY(41px)'
-        })
-    });
-    $(".menu-section .heading-bold:nth-child(4)").hover(function(){
-
-        $('.menu-section .background').css({
-            'transform':'scaleX(1)  translateY(83px)',
-                "width": "373px"
-        })
-    },function(){
-        $('.menu-section .background').css({
-            'transform':'scaleX(0) translateY(83px)'
-        })
-    });
-    $(".menu-section .heading-bold:nth-child(5)").hover(function(){
-
-        $('.menu-section .background').css({
-            'transform':'scaleX(1)  translateY(124px)',
-                "width": "266px"
-        })
-    },function(){
-        $('.menu-section .background').css({
-            'transform':'scaleX(0) translateY(124px)'
-        })
-    });
-    $(".menu-section .heading-bold:nth-child(6)").hover(function(){
-
-        $('.menu-section .background').css({
-            'transform':'scaleX(1)  translateY(166px)',
-                "width": "256px"
-        })
-    },function(){
-        $('.menu-section .background').css({
-            'transform':'scaleX(0) translateY(166px)'
-        })
-    });
+            // header menu animation
+            $(".click-mid-line").css({
+                'width' : '0px',
+                'x' : 20
+            })
+            $(".click-bottom-line").css({
+                'transform': 'rotate(45deg)',
+                'transform-origin': 'center',
+                'y' : 11
+            })
+            $(".click-top-line").css({
+                'transform' : 'rotate(-45deg)',
+                'transform-origin' : 'center',
+                'y' : 11
+            })
+            isActive = !isActive;
+        }
+        else{
+            $(this).parents(".header").children(".menu-section").css({
+                'transform': 'translateX(-90rem)'
+            })
+            $(".header .menu-links .heading-bold").animate({
+                'left': '-26rem',
+            })
+            // header menu close animation
+            $(".click-mid-line").css({
+                'width' : '16px',
+                'x' : 12
+            })
+            $(".click-bottom-line").css({
+                'transform': 'rotate(0deg)',
+                'transform-origin': 'center',
+                'y' : 21
+            })
+            $(".click-top-line").css({
+                'transform' : 'rotate(0deg)',
+                'transform-origin' : 'center',
+                'y' : 1
+            })
+            isActive = !isActive;
+        }
+    })
 })
+
+export default {
+    name: 'header-fixed',
+    data() {
+        return{
+            bgwidth:'200px',
+            bgtransform:'scaleX(0) translateY(0px)',
+        }
+    },
+    methods:{
+        hoverbg1: function(){
+            this.bgwidth ='200px',
+            this.bgtransform = 'scaleX(1) translateY(0px)'
+        },
+        hoveroutbg1: function(){
+            this.bgtransform = 'scaleX(0) translateY(0px)'
+        },
+        hoverbg2: function(){
+            this.bgwidth ='333px',
+            this.bgtransform = 'scaleX(1) translateY(47px)'
+        },
+        hoveroutbg2: function(){
+            this.bgtransform = 'scaleX(0) translateY(47px)'
+        },
+        hoverbg3: function(){
+            this.bgwidth ='430px',
+            this.bgtransform = 'scaleX(1) translateY(95px)'
+        },
+        hoveroutbg3: function(){
+            this.bgtransform = 'scaleX(0) translateY(95px)'
+        },
+        hoverbg4: function(){
+            this.bgwidth ='302px',
+            this.bgtransform = 'scaleX(1) translateY(142px)'
+        },
+        hoveroutbg4: function(){
+            this.bgtransform = 'scaleX(0) translateY(142px)'
+        },
+        hoverbg5: function(){
+            this.bgwidth ='292px',
+            this.bgtransform = 'scaleX(1) translateY(190px)'
+        },
+        hoveroutbg5: function(){
+            this.bgtransform = 'scaleX(0) translateY(190px)'
+        },
+        hoverbg6: function(){
+            this.bgwidth ='345px',
+            this.bgtransform = 'scaleX(1) translateY(475px)'
+        },
+        hoveroutbg6: function(){
+            this.bgtransform = 'scaleX(0) translateY(475px)'
+        }
+
+    }
+
+}
 </script>
