@@ -47686,7 +47686,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .header-left[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n}\n.header-fixed .header .header-left .logo[data-v-66898320] {\n        margin: 1rem;\n        position: absolute;\n        z-index: 99999;\n}\n.header-fixed .header .header-left .logo svg[data-v-66898320] {\n          width: 7em;\n}\n.header-fixed .header .header-left .logo svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n}\n.header-fixed .header .header-left .logo svg .st1[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320] {\n        background-color: #00E0E9;\n        padding: 1rem 0rem 1rem 1rem;\n        width: 2.5em;\n        position: absolute;\n        top: 50%;\n        left: 0;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: background-color 0.3s ease-in-out;\n        transition: background-color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg[data-v-66898320] {\n          width: 1.5rem;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n            fill: #1E2326;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg path[data-v-66898320] {\n            -webkit-transition: fill .3s ease-in-out;\n            transition: fill .3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .button-link[data-v-66898320] {\n          color: #1E2326;\n          text-orientation: rtl;\n          -webkit-writing-mode: vertical-lr;\n              -ms-writing-mode: tb-lr;\n                  writing-mode: vertical-lr;\n          -webkit-transform: rotate(180deg);\n                  transform: rotate(180deg);\n          font-size: 0.7rem;\n          letter-spacing: 2px;\n          line-height: 21px;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320]:hover {\n          background-color: #CB8E55;\n}\n.header-fixed .header .header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button:hover .button-link[data-v-66898320] {\n            color: #ebebeb;\n}\n.header-fixed .header .header-right[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n      top: 0;\n      right: 0;\n      margin-right: 0.5rem;\n}\n.header-fixed .header .header-right .social-links[data-v-66898320] {\n        position: absolute;\n        top: 0;\n        right: 0;\n        margin: 1rem 1rem 0 0;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-orient: vertical;\n          -webkit-box-direction: normal;\n              -ms-flex-direction: column;\n                  flex-direction: column;\n}\n.header-fixed .header .header-right .social-links .social-button i[data-v-66898320] {\n            font-size: 0.9rem;\n            color: #ebebeb;\n            text-align: center;\n            padding: 0.5em;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] :hover {\n            color: #00E0E9;\n}\n.header-fixed .header .header-right .menu-button[data-v-66898320] {\n        position: absolute;\n        right: 0;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        margin-right: 1rem;\n        z-index: 99999;\n}\n.header-fixed .header .header-right .menu-button svg[data-v-66898320] {\n          width: 2.1rem;\n}\n.header-fixed .header .header-right .menu-button svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n            -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button .menu-text[data-v-66898320] {\n          font-size: 10px;\n          letter-spacing: 2px;\n          font-weight: 700;\n          margin-top: 0.3rem;\n          color: #ebebeb;\n          text-align: center;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n          width: 38px;\n          x: 1;\n}\n.header-fixed .header .header-right .menu-button:hover .menu-text[data-v-66898320] {\n          color: #00E0E9;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n      -webkit-transform: translateX(-90rem);\n              transform: translateX(-90rem);\n      -webkit-transition: -webkit-transform 0.5s ease-in-out;\n      transition: -webkit-transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;\n}\n.header-fixed .header .menu-section .menu-links[data-v-66898320] {\n        height: 85vh;\n        padding-top: 15vh;\n        width: 95vw;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-links .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 50px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n          -webkit-transform: scaleX(0) translateY(0px);\n                  transform: scaleX(0) translateY(0px);\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320] {\n          font-size: 3.5rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n          left: -26rem;\n          position: relative;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:last-child {\n            position: relative;\n            width: 100%;\n            height: 58%;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold:last-child p[data-v-66898320] {\n              position: absolute;\n              bottom: 43px;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .header-left[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n}\n.header-fixed .header .header-left .logo[data-v-66898320] {\n        margin: 1rem;\n        position: absolute;\n        z-index: 99999;\n}\n.header-fixed .header .header-left .logo svg[data-v-66898320] {\n          width: 7em;\n}\n.header-fixed .header .header-left .logo svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n}\n.header-fixed .header .header-left .logo svg .st1[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320] {\n        background-color: #00E0E9;\n        padding: 1rem 0rem 1rem 1rem;\n        width: 2.5em;\n        position: absolute;\n        top: 50%;\n        left: 0;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: background-color 0.3s ease-in-out;\n        transition: background-color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg[data-v-66898320] {\n          width: 1.5rem;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n            fill: #1E2326;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg path[data-v-66898320] {\n            -webkit-transition: fill .3s ease-in-out;\n            transition: fill .3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .button-link[data-v-66898320] {\n          color: #1E2326;\n          text-orientation: rtl;\n          -webkit-writing-mode: vertical-lr;\n              -ms-writing-mode: tb-lr;\n                  writing-mode: vertical-lr;\n          -webkit-transform: rotate(180deg);\n                  transform: rotate(180deg);\n          font-size: 0.7rem;\n          letter-spacing: 2px;\n          line-height: 21px;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320]:hover {\n          background-color: #CB8E55;\n}\n.header-fixed .header .header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button:hover .button-link[data-v-66898320] {\n            color: #ebebeb;\n}\n.header-fixed .header .header-right[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n      top: 0;\n      right: 0;\n      margin-right: 0.5rem;\n}\n.header-fixed .header .header-right .social-links[data-v-66898320] {\n        position: absolute;\n        top: 0;\n        right: 0;\n        margin: 1rem 1rem 0 0;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-orient: vertical;\n          -webkit-box-direction: normal;\n              -ms-flex-direction: column;\n                  flex-direction: column;\n}\n.header-fixed .header .header-right .social-links .social-button i[data-v-66898320] {\n            font-size: 0.9rem;\n            color: #ebebeb;\n            text-align: center;\n            padding: 0.5em;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] :hover {\n            color: #00E0E9;\n}\n.header-fixed .header .header-right .menu-button[data-v-66898320] {\n        cursor: pointer;\n        position: absolute;\n        right: 0;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        margin-right: 1rem;\n        z-index: 99999;\n}\n.header-fixed .header .header-right .menu-button svg[data-v-66898320] {\n          width: 2.1rem;\n}\n.header-fixed .header .header-right .menu-button svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n            -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button .menu-text[data-v-66898320] {\n          font-size: 10px;\n          letter-spacing: 2px;\n          font-weight: 700;\n          margin-top: 0.3rem;\n          color: #ebebeb;\n          text-align: center;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n          width: 38px;\n          x: 1;\n}\n.header-fixed .header .header-right .menu-button:hover .menu-text[data-v-66898320] {\n          color: #00E0E9;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n      -webkit-transform: translateX(-90rem);\n              transform: translateX(-90rem);\n      -webkit-transition: -webkit-transform 0.5s ease-in-out;\n      transition: -webkit-transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;\n}\n.header-fixed .header .menu-section .menu-links[data-v-66898320] {\n        height: 85vh;\n        padding-top: 15vh;\n        width: 95vw;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-links .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 50px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n          -webkit-transform: scaleX(0) translateY(0px);\n                  transform: scaleX(0) translateY(0px);\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320] {\n          font-size: 3.5rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n          left: -26rem;\n          position: relative;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:last-child {\n            position: relative;\n            width: 100%;\n            height: 58%;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold:last-child p[data-v-66898320] {\n              position: absolute;\n              bottom: 43px;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n", ""]);
 
 // exports
 
@@ -47730,6 +47730,7 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -48052,6 +48053,7 @@ $(function () {
             $(this).parents(".header").children(".menu-section").css({
                 'transform': 'translateX(-90rem)'
             });
+            $(".header .menu-links .heading-bold").clearQueue();
             $(".header .menu-links .heading-bold").animate({
                 'left': '-26rem'
             });
@@ -48394,7 +48396,7 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(60)
 /* template */
 var __vue_template__ = __webpack_require__(51)
 /* template functional */
@@ -48469,7 +48471,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-f703cbce] {\n  margin: 0px;\n}\n*[data-v-f703cbce] ::before,\n  *[data-v-f703cbce] ::after {\n    margin: 0px;\n}\nhtml[data-v-f703cbce] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-f703cbce]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-f703cbce]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-f703cbce]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-f703cbce] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-f703cbce] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-f703cbce] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-f703cbce] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-cover[data-v-f703cbce] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.home-cover .slogan[data-v-f703cbce] {\n    color: white;\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    bottom: 1%;\n    width: 100vw;\n}\n.home-cover .slogan .heading-light[data-v-f703cbce] {\n      text-align: center;\n      margin-top: -15px;\n}\n.home-cover .slogan .heading-bold[data-v-f703cbce] {\n      opacity: 0.1;\n      text-align: center;\n}\n.home-cover .scroll[data-v-f703cbce] {\n    position: absolute;\n    bottom: 15%;\n    right: 5vh;\n    color: white;\n}\n.home-cover .scroll svg[data-v-f703cbce] {\n      width: 1.2rem;\n      -webkit-animation: scroll-down-data-v-f703cbce 1s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: scroll-down-data-v-f703cbce 1s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: ease-in-out;\n              animation-timing-function: ease-in-out;\n}\n.home-cover .scroll svg .st0[data-v-f703cbce] {\n        enable-background: new;\n}\n.home-cover .scroll svg .st1[data-v-f703cbce] {\n        fill: #EBEBEB;\n}\n.home-cover .scroll svg .st2[data-v-f703cbce] {\n        fill: none;\n        stroke: #00E0E9;\n        stroke-width: 2.6491;\n        stroke-linecap: round;\n}\n.home-cover .scroll svg .st3[data-v-f703cbce] {\n        fill: none;\n        stroke: #00E0E9;\n        stroke-width: 3;\n        stroke-linecap: round;\n}\n@-webkit-keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n50% {\n    ms-transform: translate(0, 60px);\n    -webkit-transform: translate(0, 60px);\n    transform: translate(0, 60px);\n}\n100% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n}\n@keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n50% {\n    ms-transform: translate(0, 60px);\n    -webkit-transform: translate(0, 60px);\n    transform: translate(0, 60px);\n}\n100% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n}\n.cover svg[data-v-f703cbce] {\n  width: 100%;\n  height: 95vh;\n}\n.cover svg .st0[data-v-f703cbce] {\n    fill: #1E2326;\n}\n.cover svg .st1[data-v-f703cbce] {\n    fill: url(#SVGID_2_);\n}\n.cover svg .st2[data-v-f703cbce] {\n    opacity: 1;\n    fill: #34393C;\n}\n.cover svg .st3[data-v-f703cbce] {\n    fill: url(#SVGID_3_);\n}\n.cover svg .st4[data-v-f703cbce] {\n    fill: url(#SVGID_4_);\n}\n.cover svg .st5[data-v-f703cbce] {\n    fill: url(#SVGID_5_);\n}\n.cover svg .st6[data-v-f703cbce] {\n    fill: url(#SVGID_6_);\n}\n.cover svg .st7[data-v-f703cbce] {\n    fill: url(#SVGID_7_);\n}\n.cover svg .st8[data-v-f703cbce] {\n    fill: url(#SVGID_8_);\n}\n.cover svg .st9[data-v-f703cbce] {\n    fill: url(#SVGID_9_);\n}\n.cover svg .st10[data-v-f703cbce] {\n    fill: url(#SVGID_10_);\n}\n.cover svg .st11[data-v-f703cbce] {\n    fill: url(#SVGID_11_);\n}\n.cover svg .st12[data-v-f703cbce] {\n    fill: url(#SVGID_12_);\n}\n.cover svg .st13[data-v-f703cbce] {\n    fill: none;\n    stroke: #1E2326;\n    stroke-miterlimit: 10;\n}\n.cover svg .st14[data-v-f703cbce] {\n    fill: url(#SVGID_13_);\n}\n.cover svg .st15[data-v-f703cbce] {\n    fill: #1C2123;\n}\n.cover svg .st16[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_15_);\n            clip-path: url(#SVGID_15_);\n    fill: #151819;\n}\n.cover svg .st17[data-v-f703cbce] {\n    fill: #121516;\n}\n.cover svg .st18[data-v-f703cbce] {\n    fill: url(#SVGID_16_);\n}\n.cover svg .st19[data-v-f703cbce] {\n    fill: url(#SVGID_17_);\n}\n.cover svg .st20[data-v-f703cbce] {\n    fill: #FFFFFF;\n}\n.cover svg .st21[data-v-f703cbce] {\n    display: inline;\n}\n.cover svg .st22[data-v-f703cbce] {\n    display: inline;\n    opacity: 0.5;\n    fill: url(#SVGID_18_);\n}\n.cover svg .st23[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: #FDFEFF;\n}\n.cover svg .st24[data-v-f703cbce] {\n    opacity: 0.2;\n    -webkit-clip-path: url(#SVGID_20_);\n            clip-path: url(#SVGID_20_);\n    fill: url(#smoke_2_);\n}\n.cover svg .st25[data-v-f703cbce] {\n    opacity: 0.2;\n    fill: url(#SVGID_21_);\n}\n.cover svg .st26[data-v-f703cbce] {\n    fill: url(#SVGID_22_);\n}\n.cover svg .st27[data-v-f703cbce] {\n    fill: url(#SVGID_23_);\n}\n.cover svg .st28[data-v-f703cbce] {\n    fill: #BABABA;\n}\n.cover svg .st29[data-v-f703cbce] {\n    fill: #DEE7F9;\n}\n.cover svg .st30[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_25_);\n            clip-path: url(#SVGID_25_);\n    fill: #C46970;\n}\n.cover svg .st31[data-v-f703cbce] {\n    fill: url(#SVGID_26_);\n}\n.cover svg .st32[data-v-f703cbce] {\n    fill: url(#SVGID_27_);\n}\n.cover svg .st33[data-v-f703cbce] {\n    fill: #A3A5A6;\n}\n.cover svg .st34[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #C46970;\n}\n.cover svg .st35[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #A3A5A6;\n}\n.cover svg .st36[data-v-f703cbce] {\n    fill: url(#SVGID_30_);\n}\n.cover svg .st37[data-v-f703cbce] {\n    fill: url(#SVGID_31_);\n}\n.cover svg .st38[data-v-f703cbce] {\n    fill: #6D4930;\n}\n.cover svg .st39[data-v-f703cbce] {\n    fill: #CB8E55;\n}\n.cover svg .st40[data-v-f703cbce] {\n    fill: #2A3033;\n}\n.cover svg .st41[data-v-f703cbce] {\n    fill: #007075;\n}\n.cover svg .st42[data-v-f703cbce] {\n    fill: url(#SVGID_32_);\n}\n.cover svg .st43[data-v-f703cbce] {\n    fill: url(#SVGID_33_);\n}\n.cover svg .st44[data-v-f703cbce] {\n    fill: url(#SVGID_34_);\n}\n.cover svg .st45[data-v-f703cbce] {\n    opacity: 0.38;\n    fill: url(#SVGID_35_);\n}\n.cover svg .st46[data-v-f703cbce] {\n    opacity: 0.78;\n    fill: #1E2326;\n}\n.cover svg .st47[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #34393C;\n}\n.cover svg .st48[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st49[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_36_);\n}\n.cover svg .st50[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_37_);\n}\n.cover svg .st51[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_38_);\n}\n.cover svg .st52[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_39_);\n}\n.cover svg .st53[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_40_);\n}\n.cover svg .st54[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_41_);\n}\n.cover svg .st55[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_42_);\n}\n.cover svg .st56[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_43_);\n}\n.cover svg .st57[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_44_);\n}\n.cover svg .st58[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_45_);\n}\n.cover svg .st59[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_46_);\n}\n.cover svg .st60[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_47_);\n}\n.cover svg .st61[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_48_);\n}\n.cover svg .st62[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_49_);\n}\n.cover svg .st63[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_50_);\n}\n.cover svg .st64[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_51_);\n}\n.cover svg .st65[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_52_);\n}\n.cover svg .st66[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_53_);\n}\n.cover svg .st67[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_54_);\n}\n.cover svg .st68[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_55_);\n}\n.cover svg .st69[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_56_);\n}\n.cover svg .st70[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_57_);\n}\n.cover svg .st71[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_58_);\n}\n.cover svg .st72[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_59_);\n}\n.cover svg .st73[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_60_);\n}\n.cover svg .st74[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_61_);\n}\n.cover svg .st75[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_62_);\n}\n.cover svg .st76[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_63_);\n}\n.cover svg .st77[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_64_);\n}\n.cover svg .st78[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_65_);\n}\n.cover svg .st79[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_66_);\n}\n.cover svg .st80[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_67_);\n}\n.cover svg .st81[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_68_);\n}\n.cover svg .st82[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_69_);\n}\n.cover svg .st83[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_70_);\n}\n.cover svg .st84[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_71_);\n}\n.cover svg .st85[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_72_);\n}\n.cover svg .st86[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_73_);\n}\n.cover svg .st87[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_74_);\n}\n.cover svg .st88[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_75_);\n}\n.cover svg .st89[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_76_);\n}\n.cover svg .st90[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_77_);\n}\n.cover svg .st91[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_78_);\n}\n.cover svg .st92[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_79_);\n}\n.cover svg .st93[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_80_);\n}\n.cover svg .st94[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_81_);\n}\n.cover svg .st95[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_82_);\n}\n.cover svg .st96[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_83_);\n}\n.cover svg .st97[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_84_);\n}\n.cover svg .st98[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_85_);\n}\n.cover svg .st99[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_86_);\n}\n.cover svg .st100[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_87_);\n}\n.cover svg .st101[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_88_);\n}\n.cover svg .st102[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_89_);\n}\n.cover svg .st103[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_90_);\n}\n.cover svg .st104[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_91_);\n}\n.cover svg .st105[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_93_);\n            clip-path: url(#SVGID_93_);\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st106[data-v-f703cbce] {\n    display: none;\n    fill: #00E0E9;\n}\n.cover svg .st107[data-v-f703cbce] {\n    font-family: 'SofiaPro-Bold';\n}\n.cover svg .st108[data-v-f703cbce] {\n    font-size: 5.444px;\n}\n.cover svg .st109[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: url(#SVGID_94_);\n}\n.cover svg .st110[data-v-f703cbce] {\n    fill: #33373A;\n    stroke: #33373A;\n    stroke-miterlimit: 10;\n}\n.cover svg .st111[data-v-f703cbce] {\n    fill: none;\n    stroke: #F7E9E1;\n    stroke-width: 1.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-miterlimit: 10;\n}\n.cover svg .st112[data-v-f703cbce] {\n    fill: none;\n    stroke: #34393C;\n    stroke-miterlimit: 10;\n}\n.cover svg .st113[data-v-f703cbce] {\n    fill: #34393C;\n}\n.cover svg .st114[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_95_);\n            clip-path: url(#SVGID_95_);\n}\n.cover svg #hi[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #programer[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 0.5s;\n    transition: -webkit-transform 0.5s;\n    transition: transform 0.5s;\n    transition: transform 0.5s, -webkit-transform 0.5s;\n}\n.cover svg #programer[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-0.5rem);\n              transform: translateY(-0.5rem);\n}\n.cover svg #programer:hover + #hi[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock #round[data-v-f703cbce] {\n      -webkit-animation: clock-data-v-f703cbce 60s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: clock-data-v-f703cbce 60s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: linear;\n              animation-timing-function: linear;\n      -webkit-transform-origin: 72.5px 92.9px 0px;\n              transform-origin: 72.5px 92.9px 0px;\n}\n@-webkit-keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n.cover svg #light #toplight[data-v-f703cbce] {\n    -webkit-animation: toplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: toplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #lightbulb[data-v-f703cbce] {\n    -webkit-animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #laptoplight[data-v-f703cbce] {\n    -webkit-animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n@-webkit-keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.cover svg #spider[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 1s;\n    transition: -webkit-transform 1s;\n    transition: transform 1s;\n    transition: transform 1s, -webkit-transform 1s;\n}\n.cover svg #spider[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-1rem);\n              transform: translateY(-1rem);\n}\n.cover svg #donttouch[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #books:hover + #donttouch[data-v-f703cbce] {\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-f703cbce] {\n  margin: 0px;\n}\n*[data-v-f703cbce] ::before,\n  *[data-v-f703cbce] ::after {\n    margin: 0px;\n}\nhtml[data-v-f703cbce] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-f703cbce]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-f703cbce]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-f703cbce]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-f703cbce] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-f703cbce] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-f703cbce] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-f703cbce] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-cover[data-v-f703cbce] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.home-cover .slogan[data-v-f703cbce] {\n    color: white;\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    bottom: 1%;\n    width: 100vw;\n}\n.home-cover .slogan .heading-light[data-v-f703cbce] {\n      text-align: center;\n      margin-top: -15px;\n}\n.home-cover .slogan .heading-bold[data-v-f703cbce] {\n      opacity: 0.1;\n      text-align: center;\n}\n.home-cover .scroll[data-v-f703cbce] {\n    position: absolute;\n    bottom: 15%;\n    right: 5vh;\n    color: white;\n}\n.home-cover .scroll svg[data-v-f703cbce] {\n      width: 1.2rem;\n      -webkit-animation: scroll-down-data-v-f703cbce 1s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: scroll-down-data-v-f703cbce 1s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: ease-in-out;\n              animation-timing-function: ease-in-out;\n}\n.home-cover .scroll svg .st0[data-v-f703cbce] {\n        enable-background: new;\n}\n.home-cover .scroll svg .st1[data-v-f703cbce] {\n        fill: #EBEBEB;\n}\n.home-cover .scroll svg .st2[data-v-f703cbce] {\n        fill: none;\n        stroke: #00E0E9;\n        stroke-width: 2.6491;\n        stroke-linecap: round;\n}\n.home-cover .scroll svg .st3[data-v-f703cbce] {\n        fill: none;\n        stroke: #00E0E9;\n        stroke-width: 3;\n        stroke-linecap: round;\n}\n@-webkit-keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n50% {\n    ms-transform: translate(0, 60px);\n    -webkit-transform: translate(0, 60px);\n    transform: translate(0, 60px);\n}\n100% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n}\n@keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n50% {\n    ms-transform: translate(0, 60px);\n    -webkit-transform: translate(0, 60px);\n    transform: translate(0, 60px);\n}\n100% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n}\n.cover svg[data-v-f703cbce] {\n  width: 100%;\n  height: 95vh;\n}\n.cover svg .st0[data-v-f703cbce] {\n    fill: #1E2326;\n}\n.cover svg .st1[data-v-f703cbce] {\n    fill: url(#SVGID_2_);\n}\n.cover svg .st2[data-v-f703cbce] {\n    opacity: 1;\n    fill: #34393C;\n}\n.cover svg .st3[data-v-f703cbce] {\n    fill: url(#SVGID_3_);\n}\n.cover svg .st4[data-v-f703cbce] {\n    fill: url(#hcSVGID_4_);\n}\n.cover svg .st5[data-v-f703cbce] {\n    fill: url(#SVGID_5_);\n}\n.cover svg .st6[data-v-f703cbce] {\n    fill: url(#SVGID_6_);\n}\n.cover svg .st7[data-v-f703cbce] {\n    fill: url(#SVGID_7_);\n}\n.cover svg .st8[data-v-f703cbce] {\n    fill: url(#SVGID_8_);\n}\n.cover svg .st9[data-v-f703cbce] {\n    fill: url(#SVGID_9_);\n}\n.cover svg .st10[data-v-f703cbce] {\n    fill: url(#SVGID_10_);\n}\n.cover svg .st11[data-v-f703cbce] {\n    fill: url(#SVGID_11_);\n}\n.cover svg .st12[data-v-f703cbce] {\n    fill: url(#SVGID_12_);\n}\n.cover svg .st13[data-v-f703cbce] {\n    fill: none;\n    stroke: #1E2326;\n    stroke-miterlimit: 10;\n}\n.cover svg .st14[data-v-f703cbce] {\n    fill: url(#SVGID_13_);\n}\n.cover svg .st15[data-v-f703cbce] {\n    fill: #1C2123;\n}\n.cover svg .st16[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_15_);\n            clip-path: url(#SVGID_15_);\n    fill: #151819;\n}\n.cover svg .st17[data-v-f703cbce] {\n    fill: #121516;\n}\n.cover svg .st18[data-v-f703cbce] {\n    fill: url(#SVGID_16_);\n}\n.cover svg .st19[data-v-f703cbce] {\n    fill: url(#SVGID_17_);\n}\n.cover svg .st20[data-v-f703cbce] {\n    fill: #FFFFFF;\n}\n.cover svg .st21[data-v-f703cbce] {\n    display: inline;\n}\n.cover svg .st22[data-v-f703cbce] {\n    display: inline;\n    opacity: 0.5;\n    fill: url(#SVGID_18_);\n}\n.cover svg .st23[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: #FDFEFF;\n}\n.cover svg .st24[data-v-f703cbce] {\n    opacity: 0.2;\n    -webkit-clip-path: url(#SVGID_20_);\n            clip-path: url(#SVGID_20_);\n    fill: url(#smoke_2_);\n}\n.cover svg .st25[data-v-f703cbce] {\n    opacity: 0.2;\n    fill: url(#SVGID_21_);\n}\n.cover svg .st26[data-v-f703cbce] {\n    fill: url(#SVGID_22_);\n}\n.cover svg .st27[data-v-f703cbce] {\n    fill: url(#SVGID_23_);\n}\n.cover svg .st28[data-v-f703cbce] {\n    fill: #BABABA;\n}\n.cover svg .st29[data-v-f703cbce] {\n    fill: #DEE7F9;\n}\n.cover svg .st30[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_25_);\n            clip-path: url(#SVGID_25_);\n    fill: #C46970;\n}\n.cover svg .st31[data-v-f703cbce] {\n    fill: url(#SVGID_26_);\n}\n.cover svg .st32[data-v-f703cbce] {\n    fill: url(#SVGID_27_);\n}\n.cover svg .st33[data-v-f703cbce] {\n    fill: #A3A5A6;\n}\n.cover svg .st34[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #C46970;\n}\n.cover svg .st35[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #A3A5A6;\n}\n.cover svg .st36[data-v-f703cbce] {\n    fill: url(#SVGID_30_);\n}\n.cover svg .st37[data-v-f703cbce] {\n    fill: url(#SVGID_31_);\n}\n.cover svg .st38[data-v-f703cbce] {\n    fill: #6D4930;\n}\n.cover svg .st39[data-v-f703cbce] {\n    fill: #CB8E55;\n}\n.cover svg .st40[data-v-f703cbce] {\n    fill: #2A3033;\n}\n.cover svg .st41[data-v-f703cbce] {\n    fill: #007075;\n}\n.cover svg .st42[data-v-f703cbce] {\n    fill: url(#SVGID_32_);\n}\n.cover svg .st43[data-v-f703cbce] {\n    fill: url(#SVGID_33_);\n}\n.cover svg .st44[data-v-f703cbce] {\n    fill: url(#SVGID_34_);\n}\n.cover svg .st45[data-v-f703cbce] {\n    opacity: 0.38;\n    fill: url(#SVGID_35_);\n}\n.cover svg .st46[data-v-f703cbce] {\n    opacity: 0.78;\n    fill: #1E2326;\n}\n.cover svg .st47[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #34393C;\n}\n.cover svg .st48[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st49[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_36_);\n}\n.cover svg .st50[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_37_);\n}\n.cover svg .st51[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_38_);\n}\n.cover svg .st52[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_39_);\n}\n.cover svg .st53[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_40_);\n}\n.cover svg .st54[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_41_);\n}\n.cover svg .st55[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_42_);\n}\n.cover svg .st56[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_43_);\n}\n.cover svg .st57[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_44_);\n}\n.cover svg .st58[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_45_);\n}\n.cover svg .st59[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_46_);\n}\n.cover svg .st60[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_47_);\n}\n.cover svg .st61[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_48_);\n}\n.cover svg .st62[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_49_);\n}\n.cover svg .st63[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_50_);\n}\n.cover svg .st64[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_51_);\n}\n.cover svg .st65[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_52_);\n}\n.cover svg .st66[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_53_);\n}\n.cover svg .st67[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_54_);\n}\n.cover svg .st68[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_55_);\n}\n.cover svg .st69[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_56_);\n}\n.cover svg .st70[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_57_);\n}\n.cover svg .st71[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_58_);\n}\n.cover svg .st72[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_59_);\n}\n.cover svg .st73[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_60_);\n}\n.cover svg .st74[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_61_);\n}\n.cover svg .st75[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_62_);\n}\n.cover svg .st76[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_63_);\n}\n.cover svg .st77[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_64_);\n}\n.cover svg .st78[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_65_);\n}\n.cover svg .st79[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_66_);\n}\n.cover svg .st80[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_67_);\n}\n.cover svg .st81[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_68_);\n}\n.cover svg .st82[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_69_);\n}\n.cover svg .st83[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_70_);\n}\n.cover svg .st84[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_71_);\n}\n.cover svg .st85[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_72_);\n}\n.cover svg .st86[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_73_);\n}\n.cover svg .st87[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_74_);\n}\n.cover svg .st88[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_75_);\n}\n.cover svg .st89[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_76_);\n}\n.cover svg .st90[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_77_);\n}\n.cover svg .st91[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_78_);\n}\n.cover svg .st92[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_79_);\n}\n.cover svg .st93[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_80_);\n}\n.cover svg .st94[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_81_);\n}\n.cover svg .st95[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_82_);\n}\n.cover svg .st96[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_83_);\n}\n.cover svg .st97[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_84_);\n}\n.cover svg .st98[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_85_);\n}\n.cover svg .st99[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_86_);\n}\n.cover svg .st100[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_87_);\n}\n.cover svg .st101[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_88_);\n}\n.cover svg .st102[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_89_);\n}\n.cover svg .st103[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_90_);\n}\n.cover svg .st104[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_91_);\n}\n.cover svg .st105[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_93_);\n            clip-path: url(#SVGID_93_);\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st106[data-v-f703cbce] {\n    display: none;\n    fill: #00E0E9;\n}\n.cover svg .st107[data-v-f703cbce] {\n    font-family: 'SofiaPro-Bold';\n}\n.cover svg .st108[data-v-f703cbce] {\n    font-size: 5.444px;\n}\n.cover svg .st109[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: url(#SVGID_94_);\n}\n.cover svg .st110[data-v-f703cbce] {\n    fill: #33373A;\n    stroke: #33373A;\n    stroke-miterlimit: 10;\n}\n.cover svg .st111[data-v-f703cbce] {\n    fill: none;\n    stroke: #F7E9E1;\n    stroke-width: 1.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-miterlimit: 10;\n}\n.cover svg .st112[data-v-f703cbce] {\n    fill: none;\n    stroke: #34393C;\n    stroke-miterlimit: 10;\n}\n.cover svg .st113[data-v-f703cbce] {\n    fill: #34393C;\n}\n.cover svg .st114[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_95_);\n            clip-path: url(#SVGID_95_);\n}\n.cover svg #hi[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #programer[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 0.5s;\n    transition: -webkit-transform 0.5s;\n    transition: transform 0.5s;\n    transition: transform 0.5s, -webkit-transform 0.5s;\n}\n.cover svg #programer[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-0.5rem);\n              transform: translateY(-0.5rem);\n}\n.cover svg #programer:hover + #hi[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock #round[data-v-f703cbce] {\n      -webkit-animation: clock-data-v-f703cbce 60s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: clock-data-v-f703cbce 60s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: linear;\n              animation-timing-function: linear;\n      -webkit-transform-origin: 72.5px 92.9px 0px;\n              transform-origin: 72.5px 92.9px 0px;\n}\n@-webkit-keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n.cover svg #light #toplight[data-v-f703cbce] {\n    -webkit-animation: toplight-data-v-f703cbce 2s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: toplight-data-v-f703cbce 2s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #lightbulb[data-v-f703cbce] {\n    -webkit-animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-delay: 2s;\n    /* Safari 4.0 - 8.0 */\n    animation-delay: 2s;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #laptoplight[data-v-f703cbce] {\n    -webkit-animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n@-webkit-keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.cover svg #spider[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 1s;\n    transition: -webkit-transform 1s;\n    transition: transform 1s;\n    transition: transform 1s, -webkit-transform 1s;\n}\n.cover svg #spider[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-1rem);\n              transform: translateY(-1rem);\n}\n.cover svg #donttouch[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #books:hover + #donttouch[data-v-f703cbce] {\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -48613,7 +48615,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_4_",
+                        id: "hcSVGID_4_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "312.05",
                         y1: "166.9832",
@@ -52840,7 +52842,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-28ae226b] {\n  margin: 0px;\n}\n*[data-v-28ae226b] ::before,\n  *[data-v-28ae226b] ::after {\n    margin: 0px;\n}\nhtml[data-v-28ae226b] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-28ae226b]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-28ae226b]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-28ae226b]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-28ae226b] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-28ae226b] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-28ae226b] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-28ae226b] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-28ae226b] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.graphic-designing[data-v-28ae226b] {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.graphic-designing .content[data-v-28ae226b] {\n    width: 25vw;\n}\n.graphic-designing .content .heading-light[data-v-28ae226b] {\n      text-align: left;\n      margin-bottom: -25px;\n}\n.graphic-designing .content .heading-bold[data-v-28ae226b] {\n      text-align: left;\n}\n.graphic-designing .content .para[data-v-28ae226b] {\n      color: white;\n      width: 60%;\n      margin: 2rem 0;\n}\n.graphic-designing .content .button[data-v-28ae226b] {\n      height: 3rem;\n      width: 12rem;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.graphic-designing .content .button[data-v-28ae226b]:hover {\n        position: relative;\n}\n.graphic-designing .content .button:hover .button-background[data-v-28ae226b] {\n          position: absolute;\n          height: 100%;\n          width: 100%;\n          -webkit-transition: height 1s;\n          transition: height 1s;\n          -webkit-transition: width 1s;\n          transition: width 1s;\n}\n.graphic-designing .content .button:hover .button-link[data-v-28ae226b] {\n          position: absolute;\n          width: 100%;\n          left: 100%;\n          -webkit-transform: translateX(-80%);\n                  transform: translateX(-80%);\n          -webkit-transition: left 1s;\n          transition: left 1s;\n}\n.graphic-designing .content .button .button-background[data-v-28ae226b] {\n        height: 4px;\n        width: 3rem;\n        background-color: #CB8E55;\n}\n.graphic-designing .content .button .button-link[data-v-28ae226b] {\n        padding: 0 1rem;\n}\n.graphic-designing .svg-cover[data-v-28ae226b] {\n    width: 50vw;\n}\n.graphic-designing .svg-cover svg[data-v-28ae226b] {\n      width: 80%;\n}\n.graphic-designing .svg-cover svg .st0[data-v-28ae226b] {\n        opacity: 0.58;\n        fill: #1A1F21;\n}\n.graphic-designing .svg-cover svg .st1[data-v-28ae226b] {\n        fill: #2C3438;\n}\n.graphic-designing .svg-cover svg .st2[data-v-28ae226b] {\n        fill: url(#SVGID_1_);\n}\n.graphic-designing .svg-cover svg .st3[data-v-28ae226b] {\n        fill: url(#SVGID_2_);\n}\n.graphic-designing .svg-cover svg .st4[data-v-28ae226b] {\n        fill: url(#SVGID_3_);\n}\n.graphic-designing .svg-cover svg .st5[data-v-28ae226b] {\n        fill: #4B4F51;\n}\n.graphic-designing .svg-cover svg .st6[data-v-28ae226b] {\n        fill: #1E2326;\n}\n.graphic-designing .svg-cover svg .st7[data-v-28ae226b] {\n        fill: url(#SVGID_4_);\n}\n.graphic-designing .svg-cover svg .st8[data-v-28ae226b] {\n        fill: url(#SVGID_5_);\n}\n.graphic-designing .svg-cover svg .st9[data-v-28ae226b] {\n        fill: #00E0E9;\n}\n.graphic-designing .svg-cover svg .st10[data-v-28ae226b] {\n        fill: url(#SVGID_6_);\n}\n.graphic-designing .svg-cover svg .st11[data-v-28ae226b] {\n        fill: none;\n        stroke: #34393C;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st12[data-v-28ae226b] {\n        fill: none;\n        stroke: #1E2326;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st13[data-v-28ae226b] {\n        fill: url(#SVGID_7_);\n}\n.graphic-designing .svg-cover svg .st14[data-v-28ae226b] {\n        fill: url(#SVGID_8_);\n}\n.graphic-designing .svg-cover svg .st15[data-v-28ae226b] {\n        fill: url(#SVGID_9_);\n}\n.graphic-designing .svg-cover svg .st16[data-v-28ae226b] {\n        opacity: 0.28;\n        fill: url(#SVGID_10_);\n        enable-background: new;\n}\n.graphic-designing .svg-cover svg .st17[data-v-28ae226b] {\n        fill: url(#SVGID_11_);\n}\n.graphic-designing .svg-cover svg .st18[data-v-28ae226b] {\n        fill: url(#SVGID_12_);\n}\n.graphic-designing .svg-cover svg .st19[data-v-28ae226b] {\n        fill: url(#SVGID_13_);\n}\n.graphic-designing .svg-cover svg .st20[data-v-28ae226b] {\n        fill: url(#SVGID_14_);\n}\n.graphic-designing .svg-cover svg .st21[data-v-28ae226b] {\n        fill: url(#SVGID_15_);\n}\n.graphic-designing .svg-cover svg .st22[data-v-28ae226b] {\n        fill: url(#SVGID_16_);\n}\n.graphic-designing .svg-cover svg .st23[data-v-28ae226b] {\n        fill: url(#SVGID_17_);\n}\n.graphic-designing .svg-cover svg .st24[data-v-28ae226b] {\n        fill: url(#SVGID_18_);\n}\n.graphic-designing .svg-cover svg .st25[data-v-28ae226b] {\n        fill: url(#SVGID_19_);\n}\n.graphic-designing .svg-cover svg .st26[data-v-28ae226b] {\n        fill: url(#SVGID_20_);\n}\n.graphic-designing .svg-cover svg .st27[data-v-28ae226b] {\n        fill: url(#SVGID_21_);\n}\n.graphic-designing .svg-cover svg .st28[data-v-28ae226b] {\n        fill: url(#SVGID_22_);\n}\n.graphic-designing .svg-cover svg .st29[data-v-28ae226b] {\n        fill: url(#SVGID_23_);\n}\n.graphic-designing .svg-cover svg .st30[data-v-28ae226b] {\n        fill: url(#SVGID_24_);\n}\n.graphic-designing .svg-cover svg .st31[data-v-28ae226b] {\n        fill: url(#SVGID_25_);\n}\n.graphic-designing .svg-cover svg .st32[data-v-28ae226b] {\n        fill: url(#SVGID_26_);\n}\n.graphic-designing .svg-cover svg .st33[data-v-28ae226b] {\n        fill: url(#SVGID_27_);\n}\n.graphic-designing .svg-cover svg .st34[data-v-28ae226b] {\n        fill: url(#SVGID_28_);\n}\n.graphic-designing .svg-cover svg .st35[data-v-28ae226b] {\n        fill: url(#SVGID_29_);\n}\n.graphic-designing .svg-cover svg .st36[data-v-28ae226b] {\n        fill: url(#SVGID_30_);\n}\n.graphic-designing .svg-cover svg .st37[data-v-28ae226b] {\n        fill: url(#SVGID_31_);\n}\n.graphic-designing .svg-cover svg .st38[data-v-28ae226b] {\n        fill: url(#SVGID_32_);\n}\n.graphic-designing .svg-cover svg .st39[data-v-28ae226b] {\n        fill: url(#SVGID_33_);\n}\n.graphic-designing .svg-cover svg .st40[data-v-28ae226b] {\n        fill: url(#SVGID_34_);\n}\n.graphic-designing .svg-cover svg .st41[data-v-28ae226b] {\n        fill: url(#SVGID_35_);\n}\n.graphic-designing .svg-cover svg .st42[data-v-28ae226b] {\n        fill: url(#SVGID_36_);\n}\n.graphic-designing .svg-cover svg .st43[data-v-28ae226b] {\n        fill: url(#SVGID_37_);\n}\n.graphic-designing .svg-cover svg .st44[data-v-28ae226b] {\n        fill: url(#SVGID_38_);\n}\n.graphic-designing .svg-cover svg .st45[data-v-28ae226b] {\n        fill: url(#SVGID_39_);\n}\n.graphic-designing .svg-cover svg .st46[data-v-28ae226b] {\n        fill: url(#SVGID_40_);\n}\n.graphic-designing .svg-cover svg .st47[data-v-28ae226b] {\n        fill: url(#SVGID_41_);\n}\n.graphic-designing .svg-cover svg .st48[data-v-28ae226b] {\n        fill: url(#SVGID_42_);\n}\n.graphic-designing .svg-cover svg .st49[data-v-28ae226b] {\n        fill: url(#SVGID_43_);\n}\n.graphic-designing .svg-cover svg .st50[data-v-28ae226b] {\n        fill: url(#SVGID_44_);\n}\n.graphic-designing .svg-cover svg .st51[data-v-28ae226b] {\n        fill: url(#SVGID_45_);\n}\n.graphic-designing .svg-cover svg .st52[data-v-28ae226b] {\n        fill: url(#SVGID_46_);\n}\n.graphic-designing .svg-cover svg .st53[data-v-28ae226b] {\n        fill: url(#SVGID_47_);\n}\n.graphic-designing .svg-cover svg .st54[data-v-28ae226b] {\n        fill: url(#SVGID_48_);\n}\n.graphic-designing .svg-cover svg .st55[data-v-28ae226b] {\n        fill: url(#SVGID_49_);\n}\n.graphic-designing .svg-cover svg .st56[data-v-28ae226b] {\n        fill: url(#SVGID_50_);\n}\n.graphic-designing .svg-cover svg .st57[data-v-28ae226b] {\n        fill: url(#SVGID_51_);\n}\n.graphic-designing .svg-cover svg .st58[data-v-28ae226b] {\n        fill: url(#SVGID_52_);\n}\n.graphic-designing .svg-cover svg .st59[data-v-28ae226b] {\n        fill: url(#SVGID_53_);\n}\n.graphic-designing .svg-cover svg .st60[data-v-28ae226b] {\n        fill: url(#SVGID_54_);\n}\n.graphic-designing .svg-cover svg .st61[data-v-28ae226b] {\n        fill: url(#SVGID_55_);\n}\n.graphic-designing .svg-cover svg .st62[data-v-28ae226b] {\n        fill: url(#SVGID_56_);\n}\n.graphic-designing .svg-cover svg .st63[data-v-28ae226b] {\n        fill: url(#SVGID_57_);\n}\n.graphic-designing .svg-cover svg .st64[data-v-28ae226b] {\n        fill: url(#SVGID_58_);\n}\n.graphic-designing .svg-cover svg .st65[data-v-28ae226b] {\n        fill: url(#SVGID_59_);\n}\n.graphic-designing .svg-cover svg .st66[data-v-28ae226b] {\n        fill: url(#SVGID_60_);\n}\n.graphic-designing .svg-cover svg .st67[data-v-28ae226b] {\n        fill: url(#SVGID_61_);\n}\n.graphic-designing .svg-cover svg .st68[data-v-28ae226b] {\n        fill: url(#SVGID_62_);\n}\n.graphic-designing .svg-cover svg .st69[data-v-28ae226b] {\n        fill: url(#SVGID_63_);\n}\n.graphic-designing .svg-cover svg .st70[data-v-28ae226b] {\n        fill: url(#SVGID_64_);\n}\n.graphic-designing .svg-cover svg .st71[data-v-28ae226b] {\n        fill: url(#SVGID_65_);\n}\n.graphic-designing .svg-cover svg .st72[data-v-28ae226b] {\n        fill: url(#SVGID_66_);\n}\n.graphic-designing .svg-cover svg .st73[data-v-28ae226b] {\n        fill: url(#SVGID_67_);\n}\n.graphic-designing .svg-cover svg .st74[data-v-28ae226b] {\n        fill: url(#SVGID_68_);\n}\n.graphic-designing .svg-cover svg .st75[data-v-28ae226b] {\n        fill: url(#SVGID_69_);\n}\n.graphic-designing .svg-cover svg .st76[data-v-28ae226b] {\n        fill: url(#SVGID_70_);\n}\n.graphic-designing .svg-cover svg .st77[data-v-28ae226b] {\n        fill: url(#SVGID_71_);\n}\n.graphic-designing .svg-cover svg .st78[data-v-28ae226b] {\n        fill: url(#SVGID_72_);\n}\n.graphic-designing .svg-cover svg .st79[data-v-28ae226b] {\n        fill: url(#SVGID_73_);\n}\n.graphic-designing .svg-cover svg .st80[data-v-28ae226b] {\n        fill: url(#SVGID_74_);\n}\n.graphic-designing .svg-cover svg .st81[data-v-28ae226b] {\n        fill: url(#SVGID_75_);\n}\n.graphic-designing .svg-cover svg .st82[data-v-28ae226b] {\n        fill: url(#SVGID_76_);\n}\n.graphic-designing .svg-cover svg .st83[data-v-28ae226b] {\n        fill: url(#SVGID_77_);\n}\n.graphic-designing .svg-cover svg .st84[data-v-28ae226b] {\n        fill: url(#SVGID_78_);\n}\n.graphic-designing .svg-cover svg .st85[data-v-28ae226b] {\n        fill: url(#SVGID_79_);\n}\n.graphic-designing .svg-cover svg .st86[data-v-28ae226b] {\n        fill: url(#SVGID_80_);\n}\n.graphic-designing .svg-cover svg .st87[data-v-28ae226b] {\n        fill: url(#SVGID_81_);\n}\n.graphic-designing .svg-cover svg .st88[data-v-28ae226b] {\n        fill: url(#SVGID_82_);\n}\n.graphic-designing .svg-cover svg .st89[data-v-28ae226b] {\n        fill: url(#SVGID_83_);\n}\n.graphic-designing .svg-cover svg .st90[data-v-28ae226b] {\n        fill: url(#SVGID_84_);\n}\n.graphic-designing .svg-cover svg .st91[data-v-28ae226b] {\n        fill: url(#SVGID_85_);\n}\n.graphic-designing .svg-cover svg .st92[data-v-28ae226b] {\n        fill: url(#SVGID_86_);\n}\n.graphic-designing .svg-cover svg .st93[data-v-28ae226b] {\n        fill: url(#SVGID_87_);\n}\n.graphic-designing .svg-cover svg .st94[data-v-28ae226b] {\n        fill: url(#SVGID_88_);\n}\n.graphic-designing .svg-cover svg .st95[data-v-28ae226b] {\n        fill: url(#SVGID_89_);\n}\n.graphic-designing .svg-cover svg .st96[data-v-28ae226b] {\n        fill: url(#SVGID_90_);\n}\n.graphic-designing .svg-cover svg .st97[data-v-28ae226b] {\n        fill: url(#SVGID_91_);\n}\n.graphic-designing .svg-cover svg .st98[data-v-28ae226b] {\n        fill: url(#SVGID_92_);\n}\n.graphic-designing .svg-cover svg .st99[data-v-28ae226b] {\n        fill: url(#SVGID_93_);\n}\n.graphic-designing .svg-cover svg .st100[data-v-28ae226b] {\n        fill: url(#SVGID_94_);\n}\n.graphic-designing .svg-cover svg .st101[data-v-28ae226b] {\n        fill: url(#SVGID_95_);\n}\n.graphic-designing .svg-cover svg .st102[data-v-28ae226b] {\n        fill: url(#SVGID_96_);\n}\n.graphic-designing .svg-cover svg .st103[data-v-28ae226b] {\n        fill: url(#SVGID_97_);\n}\n.graphic-designing .svg-cover svg .st104[data-v-28ae226b] {\n        fill: url(#SVGID_98_);\n}\n.graphic-designing .svg-cover svg .st105[data-v-28ae226b] {\n        fill: url(#SVGID_99_);\n}\n.graphic-designing .svg-cover svg .st106[data-v-28ae226b] {\n        fill: url(#SVGID_100_);\n}\n.graphic-designing .svg-cover svg .st107[data-v-28ae226b] {\n        fill: url(#SVGID_101_);\n}\n.graphic-designing .svg-cover svg .st108[data-v-28ae226b] {\n        fill: url(#SVGID_102_);\n}\n.graphic-designing .svg-cover svg .st109[data-v-28ae226b] {\n        fill: url(#SVGID_103_);\n}\n.graphic-designing .svg-cover svg .st110[data-v-28ae226b] {\n        fill: url(#SVGID_104_);\n}\n.graphic-designing .svg-cover svg .st111[data-v-28ae226b] {\n        fill: url(#SVGID_105_);\n}\n.graphic-designing .svg-cover svg .st112[data-v-28ae226b] {\n        fill: url(#SVGID_106_);\n}\n.graphic-designing .svg-cover svg .st113[data-v-28ae226b] {\n        fill: url(#SVGID_107_);\n}\n.graphic-designing .svg-cover svg .st114[data-v-28ae226b] {\n        fill: url(#SVGID_108_);\n}\n.graphic-designing .svg-cover svg .st115[data-v-28ae226b] {\n        fill: url(#SVGID_109_);\n}\n.graphic-designing .svg-cover svg .st116[data-v-28ae226b] {\n        fill: url(#SVGID_110_);\n}\n.graphic-designing .svg-cover svg .st117[data-v-28ae226b] {\n        fill: url(#SVGID_111_);\n}\n.graphic-designing .svg-cover svg .st118[data-v-28ae226b] {\n        fill: url(#SVGID_112_);\n}\n.graphic-designing .svg-cover svg .st119[data-v-28ae226b] {\n        fill: url(#SVGID_113_);\n}\n.graphic-designing .svg-cover svg .st120[data-v-28ae226b] {\n        fill: url(#SVGID_114_);\n}\n.graphic-designing .svg-cover svg .st121[data-v-28ae226b] {\n        fill: url(#SVGID_115_);\n}\n.graphic-designing .svg-cover svg .st122[data-v-28ae226b] {\n        fill: url(#SVGID_116_);\n}\n.graphic-designing .svg-cover svg .st123[data-v-28ae226b] {\n        fill: url(#SVGID_117_);\n}\n.graphic-designing .svg-cover svg .st124[data-v-28ae226b] {\n        opacity: 0.5;\n}\n.graphic-designing .svg-cover svg .st125[data-v-28ae226b] {\n        fill: #CB8E55;\n}\n.graphic-designing .svg-cover svg .st126[data-v-28ae226b] {\n        fill: url(#SVGID_118_);\n}\n.graphic-designing .svg-cover svg .st127[data-v-28ae226b] {\n        fill: #22272A;\n}\n.graphic-designing .svg-cover svg .st128[data-v-28ae226b] {\n        fill: url(#SVGID_119_);\n}\n.graphic-designing .svg-cover svg .st129[data-v-28ae226b] {\n        fill: url(#SVGID_120_);\n}\n.graphic-designing .svg-cover svg .st130[data-v-28ae226b] {\n        fill: url(#SVGID_121_);\n}\n.graphic-designing .svg-cover svg .st131[data-v-28ae226b] {\n        fill: url(#SVGID_122_);\n}\n.graphic-designing .svg-cover svg .st132[data-v-28ae226b] {\n        opacity: 0.24;\n}\n.graphic-designing .svg-cover svg .st133[data-v-28ae226b] {\n        fill: url(#SVGID_123_);\n}\n.graphic-designing .svg-cover svg .st134[data-v-28ae226b] {\n        fill: #676D70;\n}\n.graphic-designing .svg-cover svg .st135[data-v-28ae226b] {\n        fill: #005458;\n}\n.graphic-designing .svg-cover svg .st136[data-v-28ae226b] {\n        fill: url(#SVGID_124_);\n}\n.graphic-designing .svg-cover svg .st137[data-v-28ae226b] {\n        fill: #FFFFFF;\n}\n.graphic-designing .svg-cover svg .st138[data-v-28ae226b] {\n        fill: url(#SVGID_125_);\n}\n.graphic-designing .svg-cover svg .st139[data-v-28ae226b] {\n        fill: url(#SVGID_126_);\n}\n.graphic-designing .svg-cover svg .st140[data-v-28ae226b] {\n        fill: url(#SVGID_127_);\n}\n.graphic-designing .svg-cover svg .st141[data-v-28ae226b] {\n        fill: #E6E6E6;\n}\n.graphic-designing .svg-cover svg .st142[data-v-28ae226b] {\n        fill: url(#SVGID_128_);\n}\n.graphic-designing .svg-cover svg .st143[data-v-28ae226b] {\n        fill: url(#SVGID_129_);\n}\n.graphic-designing .svg-cover svg .st144[data-v-28ae226b] {\n        fill: url(#SVGID_130_);\n}\n.graphic-designing .svg-cover svg .st145[data-v-28ae226b] {\n        fill: url(#SVGID_131_);\n}\n.graphic-designing .svg-cover svg .st146[data-v-28ae226b] {\n        fill: url(#SVGID_132_);\n}\n.graphic-designing .svg-cover svg .st147[data-v-28ae226b] {\n        fill: url(#SVGID_133_);\n}\n.graphic-designing .svg-cover svg .st148[data-v-28ae226b] {\n        fill: url(#SVGID_134_);\n}\n.graphic-designing .svg-cover svg .st149[data-v-28ae226b] {\n        fill: url(#SVGID_135_);\n}\n.graphic-designing .svg-cover svg .st150[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#SVGID_136_);\n}\n.graphic-designing .svg-cover svg .st151[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#SVGID_137_);\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-28ae226b] {\n  margin: 0px;\n}\n*[data-v-28ae226b] ::before,\n  *[data-v-28ae226b] ::after {\n    margin: 0px;\n}\nhtml[data-v-28ae226b] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-28ae226b]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-28ae226b]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-28ae226b]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-28ae226b] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-28ae226b] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-28ae226b] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-28ae226b] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-28ae226b] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.graphic-designing[data-v-28ae226b] {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.graphic-designing .content[data-v-28ae226b] {\n    width: 25vw;\n}\n.graphic-designing .content .heading-light[data-v-28ae226b] {\n      text-align: left;\n      margin-bottom: -25px;\n}\n.graphic-designing .content .heading-bold[data-v-28ae226b] {\n      text-align: left;\n}\n.graphic-designing .content .para[data-v-28ae226b] {\n      color: white;\n      width: 60%;\n      margin: 2rem 0;\n}\n.graphic-designing .content .button[data-v-28ae226b] {\n      height: 3rem;\n      width: 12rem;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.graphic-designing .content .button[data-v-28ae226b]:hover {\n        position: relative;\n}\n.graphic-designing .content .button:hover .button-background[data-v-28ae226b] {\n          position: absolute;\n          height: 100%;\n          width: 100%;\n          -webkit-transition: height 1s;\n          transition: height 1s;\n          -webkit-transition: width 1s;\n          transition: width 1s;\n}\n.graphic-designing .content .button:hover .button-link[data-v-28ae226b] {\n          position: absolute;\n          width: 100%;\n          left: 100%;\n          -webkit-transform: translateX(-80%);\n                  transform: translateX(-80%);\n          -webkit-transition: left 1s;\n          transition: left 1s;\n}\n.graphic-designing .content .button .button-background[data-v-28ae226b] {\n        height: 4px;\n        width: 3rem;\n        background-color: #CB8E55;\n}\n.graphic-designing .content .button .button-link[data-v-28ae226b] {\n        padding: 0 1rem;\n}\n.graphic-designing .svg-cover[data-v-28ae226b] {\n    width: 50vw;\n}\n.graphic-designing .svg-cover svg[data-v-28ae226b] {\n      width: 80%;\n}\n.graphic-designing .svg-cover svg .st0[data-v-28ae226b] {\n        opacity: 0.58;\n        fill: #1A1F21;\n}\n.graphic-designing .svg-cover svg .st1[data-v-28ae226b] {\n        fill: #2C3438;\n}\n.graphic-designing .svg-cover svg .st2[data-v-28ae226b] {\n        fill: url(#gdSVGID_1_);\n}\n.graphic-designing .svg-cover svg .st3[data-v-28ae226b] {\n        fill: url(#gdSVGID_2_);\n}\n.graphic-designing .svg-cover svg .st4[data-v-28ae226b] {\n        fill: url(#gdSVGID_3_);\n}\n.graphic-designing .svg-cover svg .st5[data-v-28ae226b] {\n        fill: #4B4F51;\n}\n.graphic-designing .svg-cover svg .st6[data-v-28ae226b] {\n        fill: #1E2326;\n}\n.graphic-designing .svg-cover svg .st7[data-v-28ae226b] {\n        fill: url(#gdSVGID_4_);\n}\n.graphic-designing .svg-cover svg .st8[data-v-28ae226b] {\n        fill: url(#gdSVGID_5_);\n}\n.graphic-designing .svg-cover svg .st9[data-v-28ae226b] {\n        fill: #00E0E9;\n}\n.graphic-designing .svg-cover svg .st10[data-v-28ae226b] {\n        fill: url(#gdSVGID_6_);\n}\n.graphic-designing .svg-cover svg .st11[data-v-28ae226b] {\n        fill: none;\n        stroke: #34393C;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st12[data-v-28ae226b] {\n        fill: none;\n        stroke: #1E2326;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st13[data-v-28ae226b] {\n        fill: url(#gdSVGID_7_);\n}\n.graphic-designing .svg-cover svg .st14[data-v-28ae226b] {\n        fill: url(#gdSVGID_8_);\n}\n.graphic-designing .svg-cover svg .st15[data-v-28ae226b] {\n        fill: url(#gdSVGID_9_);\n}\n.graphic-designing .svg-cover svg .st16[data-v-28ae226b] {\n        opacity: 0.28;\n        fill: url(#gdSVGID_10_);\n        enable-background: new;\n}\n.graphic-designing .svg-cover svg .st17[data-v-28ae226b] {\n        fill: url(#gdSVGID_11_);\n}\n.graphic-designing .svg-cover svg .st18[data-v-28ae226b] {\n        fill: url(#gdSVGID_12_);\n}\n.graphic-designing .svg-cover svg .st19[data-v-28ae226b] {\n        fill: url(#gdSVGID_13_);\n}\n.graphic-designing .svg-cover svg .st20[data-v-28ae226b] {\n        fill: url(#gdSVGID_14_);\n}\n.graphic-designing .svg-cover svg .st21[data-v-28ae226b] {\n        fill: url(#gdSVGID_15_);\n}\n.graphic-designing .svg-cover svg .st22[data-v-28ae226b] {\n        fill: url(#gdSVGID_16_);\n}\n.graphic-designing .svg-cover svg .st23[data-v-28ae226b] {\n        fill: url(#gdSVGID_17_);\n}\n.graphic-designing .svg-cover svg .st24[data-v-28ae226b] {\n        fill: url(#gdSVGID_18_);\n}\n.graphic-designing .svg-cover svg .st25[data-v-28ae226b] {\n        fill: url(#gdSVGID_19_);\n}\n.graphic-designing .svg-cover svg .st26[data-v-28ae226b] {\n        fill: url(#gdSVGID_20_);\n}\n.graphic-designing .svg-cover svg .st27[data-v-28ae226b] {\n        fill: url(#gdSVGID_21_);\n}\n.graphic-designing .svg-cover svg .st28[data-v-28ae226b] {\n        fill: url(#gdSVGID_22_);\n}\n.graphic-designing .svg-cover svg .st29[data-v-28ae226b] {\n        fill: url(#gdSVGID_23_);\n}\n.graphic-designing .svg-cover svg .st30[data-v-28ae226b] {\n        fill: url(#gdSVGID_24_);\n}\n.graphic-designing .svg-cover svg .st31[data-v-28ae226b] {\n        fill: url(#gdSVGID_25_);\n}\n.graphic-designing .svg-cover svg .st32[data-v-28ae226b] {\n        fill: url(#gdSVGID_26_);\n}\n.graphic-designing .svg-cover svg .st33[data-v-28ae226b] {\n        fill: url(#gdSVGID_27_);\n}\n.graphic-designing .svg-cover svg .st34[data-v-28ae226b] {\n        fill: url(#gdSVGID_28_);\n}\n.graphic-designing .svg-cover svg .st35[data-v-28ae226b] {\n        fill: url(#gdSVGID_29_);\n}\n.graphic-designing .svg-cover svg .st36[data-v-28ae226b] {\n        fill: url(#gdSVGID_30_);\n}\n.graphic-designing .svg-cover svg .st37[data-v-28ae226b] {\n        fill: url(#gdSVGID_31_);\n}\n.graphic-designing .svg-cover svg .st38[data-v-28ae226b] {\n        fill: url(#gdSVGID_32_);\n}\n.graphic-designing .svg-cover svg .st39[data-v-28ae226b] {\n        fill: url(#gdSVGID_33_);\n}\n.graphic-designing .svg-cover svg .st40[data-v-28ae226b] {\n        fill: url(#gdSVGID_34_);\n}\n.graphic-designing .svg-cover svg .st41[data-v-28ae226b] {\n        fill: url(#gdSVGID_35_);\n}\n.graphic-designing .svg-cover svg .st42[data-v-28ae226b] {\n        fill: url(#gdSVGID_36_);\n}\n.graphic-designing .svg-cover svg .st43[data-v-28ae226b] {\n        fill: url(#gdSVGID_37_);\n}\n.graphic-designing .svg-cover svg .st44[data-v-28ae226b] {\n        fill: url(#gdSVGID_38_);\n}\n.graphic-designing .svg-cover svg .st45[data-v-28ae226b] {\n        fill: url(#gdSVGID_39_);\n}\n.graphic-designing .svg-cover svg .st46[data-v-28ae226b] {\n        fill: url(#gdSVGID_40_);\n}\n.graphic-designing .svg-cover svg .st47[data-v-28ae226b] {\n        fill: url(#gdSVGID_41_);\n}\n.graphic-designing .svg-cover svg .st48[data-v-28ae226b] {\n        fill: url(#gdSVGID_42_);\n}\n.graphic-designing .svg-cover svg .st49[data-v-28ae226b] {\n        fill: url(#gdSVGID_43_);\n}\n.graphic-designing .svg-cover svg .st50[data-v-28ae226b] {\n        fill: url(#gdSVGID_44_);\n}\n.graphic-designing .svg-cover svg .st51[data-v-28ae226b] {\n        fill: url(#gdSVGID_45_);\n}\n.graphic-designing .svg-cover svg .st52[data-v-28ae226b] {\n        fill: url(#gdSVGID_46_);\n}\n.graphic-designing .svg-cover svg .st53[data-v-28ae226b] {\n        fill: url(#gdSVGID_47_);\n}\n.graphic-designing .svg-cover svg .st54[data-v-28ae226b] {\n        fill: url(#gdSVGID_48_);\n}\n.graphic-designing .svg-cover svg .st55[data-v-28ae226b] {\n        fill: url(#gdSVGID_49_);\n}\n.graphic-designing .svg-cover svg .st56[data-v-28ae226b] {\n        fill: url(#gdSVGID_50_);\n}\n.graphic-designing .svg-cover svg .st57[data-v-28ae226b] {\n        fill: url(#gdSVGID_51_);\n}\n.graphic-designing .svg-cover svg .st58[data-v-28ae226b] {\n        fill: url(#gdSVGID_52_);\n}\n.graphic-designing .svg-cover svg .st59[data-v-28ae226b] {\n        fill: url(#gdSVGID_53_);\n}\n.graphic-designing .svg-cover svg .st60[data-v-28ae226b] {\n        fill: url(#gdSVGID_54_);\n}\n.graphic-designing .svg-cover svg .st61[data-v-28ae226b] {\n        fill: url(#gdSVGID_55_);\n}\n.graphic-designing .svg-cover svg .st62[data-v-28ae226b] {\n        fill: url(#gdSVGID_56_);\n}\n.graphic-designing .svg-cover svg .st63[data-v-28ae226b] {\n        fill: url(#gdSVGID_57_);\n}\n.graphic-designing .svg-cover svg .st64[data-v-28ae226b] {\n        fill: url(#gdSVGID_58_);\n}\n.graphic-designing .svg-cover svg .st65[data-v-28ae226b] {\n        fill: url(#gdSVGID_59_);\n}\n.graphic-designing .svg-cover svg .st66[data-v-28ae226b] {\n        fill: url(#gdSVGID_60_);\n}\n.graphic-designing .svg-cover svg .st67[data-v-28ae226b] {\n        fill: url(#gdSVGID_61_);\n}\n.graphic-designing .svg-cover svg .st68[data-v-28ae226b] {\n        fill: url(#gdSVGID_62_);\n}\n.graphic-designing .svg-cover svg .st69[data-v-28ae226b] {\n        fill: url(#gdSVGID_63_);\n}\n.graphic-designing .svg-cover svg .st70[data-v-28ae226b] {\n        fill: url(#gdSVGID_64_);\n}\n.graphic-designing .svg-cover svg .st71[data-v-28ae226b] {\n        fill: url(#gdSVGID_65_);\n}\n.graphic-designing .svg-cover svg .st72[data-v-28ae226b] {\n        fill: url(#gdSVGID_66_);\n}\n.graphic-designing .svg-cover svg .st73[data-v-28ae226b] {\n        fill: url(#gdSVGID_67_);\n}\n.graphic-designing .svg-cover svg .st74[data-v-28ae226b] {\n        fill: url(#gdSVGID_68_);\n}\n.graphic-designing .svg-cover svg .st75[data-v-28ae226b] {\n        fill: url(#gdSVGID_69_);\n}\n.graphic-designing .svg-cover svg .st76[data-v-28ae226b] {\n        fill: url(#gdSVGID_70_);\n}\n.graphic-designing .svg-cover svg .st77[data-v-28ae226b] {\n        fill: url(#gdSVGID_71_);\n}\n.graphic-designing .svg-cover svg .st78[data-v-28ae226b] {\n        fill: url(#gdSVGID_72_);\n}\n.graphic-designing .svg-cover svg .st79[data-v-28ae226b] {\n        fill: url(#gdSVGID_73_);\n}\n.graphic-designing .svg-cover svg .st80[data-v-28ae226b] {\n        fill: url(#gdSVGID_74_);\n}\n.graphic-designing .svg-cover svg .st81[data-v-28ae226b] {\n        fill: url(#gdSVGID_75_);\n}\n.graphic-designing .svg-cover svg .st82[data-v-28ae226b] {\n        fill: url(#gdSVGID_76_);\n}\n.graphic-designing .svg-cover svg .st83[data-v-28ae226b] {\n        fill: url(#gdSVGID_77_);\n}\n.graphic-designing .svg-cover svg .st84[data-v-28ae226b] {\n        fill: url(#gdSVGID_78_);\n}\n.graphic-designing .svg-cover svg .st85[data-v-28ae226b] {\n        fill: url(#gdSVGID_79_);\n}\n.graphic-designing .svg-cover svg .st86[data-v-28ae226b] {\n        fill: url(#gdSVGID_80_);\n}\n.graphic-designing .svg-cover svg .st87[data-v-28ae226b] {\n        fill: url(#gdSVGID_81_);\n}\n.graphic-designing .svg-cover svg .st88[data-v-28ae226b] {\n        fill: url(#gdSVGID_82_);\n}\n.graphic-designing .svg-cover svg .st89[data-v-28ae226b] {\n        fill: url(#gdSVGID_83_);\n}\n.graphic-designing .svg-cover svg .st90[data-v-28ae226b] {\n        fill: url(#gdSVGID_84_);\n}\n.graphic-designing .svg-cover svg .st91[data-v-28ae226b] {\n        fill: url(#gdSVGID_85_);\n}\n.graphic-designing .svg-cover svg .st92[data-v-28ae226b] {\n        fill: url(#gdSVGID_86_);\n}\n.graphic-designing .svg-cover svg .st93[data-v-28ae226b] {\n        fill: url(#gdSVGID_87_);\n}\n.graphic-designing .svg-cover svg .st94[data-v-28ae226b] {\n        fill: url(#gdSVGID_88_);\n}\n.graphic-designing .svg-cover svg .st95[data-v-28ae226b] {\n        fill: url(#gdSVGID_89_);\n}\n.graphic-designing .svg-cover svg .st96[data-v-28ae226b] {\n        fill: url(#gdSVGID_90_);\n}\n.graphic-designing .svg-cover svg .st97[data-v-28ae226b] {\n        fill: url(#gdSVGID_91_);\n}\n.graphic-designing .svg-cover svg .st98[data-v-28ae226b] {\n        fill: url(#gdSVGID_92_);\n}\n.graphic-designing .svg-cover svg .st99[data-v-28ae226b] {\n        fill: url(#gdSVGID_93_);\n}\n.graphic-designing .svg-cover svg .st100[data-v-28ae226b] {\n        fill: url(#gdSVGID_94_);\n}\n.graphic-designing .svg-cover svg .st101[data-v-28ae226b] {\n        fill: url(#gdSVGID_95_);\n}\n.graphic-designing .svg-cover svg .st102[data-v-28ae226b] {\n        fill: url(#gdSVGID_96_);\n}\n.graphic-designing .svg-cover svg .st103[data-v-28ae226b] {\n        fill: url(#gdSVGID_97_);\n}\n.graphic-designing .svg-cover svg .st104[data-v-28ae226b] {\n        fill: url(#gdSVGID_98_);\n}\n.graphic-designing .svg-cover svg .st105[data-v-28ae226b] {\n        fill: url(#gdSVGID_99_);\n}\n.graphic-designing .svg-cover svg .st106[data-v-28ae226b] {\n        fill: url(#gdSVGID_100_);\n}\n.graphic-designing .svg-cover svg .st107[data-v-28ae226b] {\n        fill: url(#gdSVGID_101_);\n}\n.graphic-designing .svg-cover svg .st108[data-v-28ae226b] {\n        fill: url(#gdSVGID_102_);\n}\n.graphic-designing .svg-cover svg .st109[data-v-28ae226b] {\n        fill: url(#gdSVGID_103_);\n}\n.graphic-designing .svg-cover svg .st110[data-v-28ae226b] {\n        fill: url(#gdSVGID_104_);\n}\n.graphic-designing .svg-cover svg .st111[data-v-28ae226b] {\n        fill: url(#gdSVGID_105_);\n}\n.graphic-designing .svg-cover svg .st112[data-v-28ae226b] {\n        fill: url(#gdSVGID_106_);\n}\n.graphic-designing .svg-cover svg .st113[data-v-28ae226b] {\n        fill: url(#gdSVGID_107_);\n}\n.graphic-designing .svg-cover svg .st114[data-v-28ae226b] {\n        fill: url(#gdSVGID_108_);\n}\n.graphic-designing .svg-cover svg .st115[data-v-28ae226b] {\n        fill: url(#gdSVGID_109_);\n}\n.graphic-designing .svg-cover svg .st116[data-v-28ae226b] {\n        fill: url(#gdSVGID_110_);\n}\n.graphic-designing .svg-cover svg .st117[data-v-28ae226b] {\n        fill: url(#gdSVGID_111_);\n}\n.graphic-designing .svg-cover svg .st118[data-v-28ae226b] {\n        fill: url(#gdSVGID_112_);\n}\n.graphic-designing .svg-cover svg .st119[data-v-28ae226b] {\n        fill: url(#gdSVGID_113_);\n}\n.graphic-designing .svg-cover svg .st120[data-v-28ae226b] {\n        fill: url(#gdSVGID_114_);\n}\n.graphic-designing .svg-cover svg .st121[data-v-28ae226b] {\n        fill: url(#gdSVGID_115_);\n}\n.graphic-designing .svg-cover svg .st122[data-v-28ae226b] {\n        fill: url(#gdSVGID_116_);\n}\n.graphic-designing .svg-cover svg .st123[data-v-28ae226b] {\n        fill: url(#gdSVGID_117_);\n}\n.graphic-designing .svg-cover svg .st124[data-v-28ae226b] {\n        opacity: 0.5;\n}\n.graphic-designing .svg-cover svg .st125[data-v-28ae226b] {\n        fill: #CB8E55;\n}\n.graphic-designing .svg-cover svg .st126[data-v-28ae226b] {\n        fill: url(#gdSVGID_118_);\n}\n.graphic-designing .svg-cover svg .st127[data-v-28ae226b] {\n        fill: #22272A;\n}\n.graphic-designing .svg-cover svg .st128[data-v-28ae226b] {\n        fill: url(#gdSVGID_119_);\n}\n.graphic-designing .svg-cover svg .st129[data-v-28ae226b] {\n        fill: url(#gdSVGID_120_);\n}\n.graphic-designing .svg-cover svg .st130[data-v-28ae226b] {\n        fill: url(#gdSVGID_121_);\n}\n.graphic-designing .svg-cover svg .st131[data-v-28ae226b] {\n        fill: url(#gdSVGID_122_);\n}\n.graphic-designing .svg-cover svg .st132[data-v-28ae226b] {\n        opacity: 0.24;\n}\n.graphic-designing .svg-cover svg .st133[data-v-28ae226b] {\n        fill: url(#gdSVGID_123_);\n}\n.graphic-designing .svg-cover svg .st134[data-v-28ae226b] {\n        fill: #676D70;\n}\n.graphic-designing .svg-cover svg .st135[data-v-28ae226b] {\n        fill: #005458;\n}\n.graphic-designing .svg-cover svg .st136[data-v-28ae226b] {\n        fill: url(#gdSVGID_124_);\n}\n.graphic-designing .svg-cover svg .st137[data-v-28ae226b] {\n        fill: #FFFFFF;\n}\n.graphic-designing .svg-cover svg .st138[data-v-28ae226b] {\n        fill: url(#gdSVGID_125_);\n}\n.graphic-designing .svg-cover svg .st139[data-v-28ae226b] {\n        fill: url(#gdSVGID_126_);\n}\n.graphic-designing .svg-cover svg .st140[data-v-28ae226b] {\n        fill: url(#gdSVGID_127_);\n}\n.graphic-designing .svg-cover svg .st141[data-v-28ae226b] {\n        fill: #E6E6E6;\n}\n.graphic-designing .svg-cover svg .st142[data-v-28ae226b] {\n        fill: url(#gdSVGID_128_);\n}\n.graphic-designing .svg-cover svg .st143[data-v-28ae226b] {\n        fill: url(#gdSVGID_129_);\n}\n.graphic-designing .svg-cover svg .st144[data-v-28ae226b] {\n        fill: url(#gdSVGID_130_);\n}\n.graphic-designing .svg-cover svg .st145[data-v-28ae226b] {\n        fill: url(#gdSVGID_131_);\n}\n.graphic-designing .svg-cover svg .st146[data-v-28ae226b] {\n        fill: url(#gdSVGID_132_);\n}\n.graphic-designing .svg-cover svg .st147[data-v-28ae226b] {\n        fill: url(#gdSVGID_133_);\n}\n.graphic-designing .svg-cover svg .st148[data-v-28ae226b] {\n        fill: url(#gdSVGID_134_);\n}\n.graphic-designing .svg-cover svg .st149[data-v-28ae226b] {\n        fill: url(#gdSVGID_135_);\n}\n.graphic-designing .svg-cover svg .st150[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#gdSVGID_136_);\n}\n.graphic-designing .svg-cover svg .st151[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#gdSVGID_137_);\n}\n", ""]);
 
 // exports
 
@@ -52906,7 +52908,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_1_",
+                    id: "gdSVGID_1_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "503.6757",
                     y1: "362.6411",
@@ -52949,7 +52951,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_2_",
+                    id: "gdSVGID_2_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "719.2141",
                     y1: "740.9352",
@@ -52984,7 +52986,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_3_",
+                    id: "gdSVGID_3_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "295.8386",
                     y1: "504.9346",
@@ -53056,7 +53058,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_4_",
+                    id: "gdSVGID_4_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "582.4431",
                     y1: "442.559",
@@ -53603,7 +53605,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_5_",
+                    id: "gdSVGID_5_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "469.041",
                     y1: "210.8054",
@@ -53702,7 +53704,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_6_",
+                    id: "gdSVGID_6_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "63.7921",
                     y1: "444.6815",
@@ -53775,7 +53777,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_7_",
+                    id: "gdSVGID_7_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "242.1929",
                     y1: "924.7576",
@@ -53807,7 +53809,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_8_",
+                    id: "gdSVGID_8_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "325.1759",
                     y1: "682.1182",
@@ -53846,7 +53848,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_9_",
+                    id: "gdSVGID_9_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "324.6824",
                     y1: "725.0119",
@@ -53881,7 +53883,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_10_",
+                    id: "gdSVGID_10_",
                     cx: "366.2444",
                     cy: "717.9653",
                     r: "56.2134",
@@ -53912,7 +53914,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_11_",
+                    id: "gdSVGID_11_",
                     cx: "414.992",
                     cy: "692.0073",
                     r: "10.7518",
@@ -53946,7 +53948,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_12_",
+                    id: "gdSVGID_12_",
                     cx: "384.7687",
                     cy: "688.3611",
                     r: "12.5482",
@@ -53980,7 +53982,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_13_",
+                    id: "gdSVGID_13_",
                     cx: "-3443.1787",
                     cy: "757.9764",
                     r: "15.643",
@@ -54014,7 +54016,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_14_",
+                    id: "gdSVGID_14_",
                     cx: "-3430.208",
                     cy: "764.3261",
                     r: "19.6182",
@@ -54048,7 +54050,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_15_",
+                    id: "gdSVGID_15_",
                     cx: "-21.2356",
                     cy: "3487.3103",
                     r: "13.2241",
@@ -54083,7 +54085,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_16_",
+                    id: "gdSVGID_16_",
                     cx: "12.9629",
                     cy: "3480.1289",
                     r: "10.4583",
@@ -54118,7 +54120,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_17_",
+                    id: "gdSVGID_17_",
                     cx: "373.9369",
                     cy: "827.5518",
                     r: "15.6163",
@@ -54152,7 +54154,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_18_",
+                    id: "gdSVGID_18_",
                     cx: "408.3043",
                     cy: "835.3555",
                     r: "12.1124",
@@ -54186,7 +54188,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_19_",
+                    id: "gdSVGID_19_",
                     cx: "-3872.3848",
                     cy: "734.0095",
                     r: "14.3713",
@@ -54220,7 +54222,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_20_",
+                    id: "gdSVGID_20_",
                     cx: "-3858.1514",
                     cy: "755.393",
                     r: "9.4667",
@@ -54254,7 +54256,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_21_",
+                    id: "gdSVGID_21_",
                     cx: "-3844.1936",
                     cy: "750.3417",
                     r: "11.8101",
@@ -54288,7 +54290,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_22_",
+                    id: "gdSVGID_22_",
                     cx: "295.0416",
                     cy: "793.958",
                     r: "12.8817",
@@ -54322,7 +54324,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_23_",
+                    id: "gdSVGID_23_",
                     cx: "-3646.0354",
                     cy: "834.494",
                     r: "15.812",
@@ -54357,7 +54359,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_24_",
+                    id: "gdSVGID_24_",
                     cx: "-3843.1353",
                     cy: "735.9705",
                     r: "14.2646",
@@ -54391,7 +54393,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_25_",
+                    id: "gdSVGID_25_",
                     cx: "301.4936",
                     cy: "734.7521",
                     r: "31.6106",
@@ -54425,7 +54427,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_26_",
+                    id: "gdSVGID_26_",
                     cx: "-3309.4814",
                     cy: "116.3276",
                     r: "19.8094",
@@ -54460,7 +54462,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_27_",
+                    id: "gdSVGID_27_",
                     cx: "-1793.9425",
                     cy: "-695.1017",
                     r: "23.3178",
@@ -54495,7 +54497,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_28_",
+                    id: "gdSVGID_28_",
                     cx: "-3317.5295",
                     cy: "103.4593",
                     r: "23.3178",
@@ -54530,7 +54532,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_29_",
+                    id: "gdSVGID_29_",
                     cx: "-3323.3726",
                     cy: "101.0048",
                     r: "32.2153",
@@ -54565,7 +54567,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_30_",
+                    id: "gdSVGID_30_",
                     cx: "-3346.8345",
                     cy: "213.7198",
                     r: "12.4103",
@@ -54600,7 +54602,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_31_",
+                    id: "gdSVGID_31_",
                     cx: "-3274.4958",
                     cy: "91.3513",
                     r: "18.4488",
@@ -54635,7 +54637,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_32_",
+                    id: "gdSVGID_32_",
                     cx: "-3282.4583",
                     cy: "556.0615",
                     r: "18.4488",
@@ -54670,7 +54672,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_33_",
+                    id: "gdSVGID_33_",
                     cx: "-3274.8694",
                     cy: "102.8723",
                     r: "16.4967",
@@ -54705,7 +54707,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_34_",
+                    id: "gdSVGID_34_",
                     cx: "-3276.6523",
                     cy: "70.2035",
                     r: "14.9271",
@@ -54740,7 +54742,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_35_",
+                    id: "gdSVGID_35_",
                     cx: "-3788.219",
                     cy: "730.1899",
                     r: "10.7251",
@@ -54774,7 +54776,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_36_",
+                    id: "gdSVGID_36_",
                     cx: "-3775.7241",
                     cy: "729.5852",
                     r: "8.6397",
@@ -54808,7 +54810,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_37_",
+                    id: "gdSVGID_37_",
                     cx: "-3785.9111",
                     cy: "719.9584",
                     r: "6.1096",
@@ -54842,7 +54844,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_38_",
+                    id: "gdSVGID_38_",
                     cx: "-3769.8413",
                     cy: "711.5411",
                     r: "11.2854",
@@ -54876,7 +54878,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_39_",
+                    id: "gdSVGID_39_",
                     cx: "-3778.6812",
                     cy: "707.4102",
                     r: "7.4613",
@@ -54910,7 +54912,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_40_",
+                    id: "gdSVGID_40_",
                     cx: "-3786.6895",
                     cy: "705.0847",
                     r: "7.8749",
@@ -54944,7 +54946,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_41_",
+                    id: "gdSVGID_41_",
                     cx: "327.5504",
                     cy: "738.2204",
                     r: "15.3051",
@@ -54978,7 +54980,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_42_",
+                    id: "gdSVGID_42_",
                     cx: "372.9586",
                     cy: "732.6177",
                     r: "8.0794",
@@ -55012,7 +55014,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_43_",
+                    id: "gdSVGID_43_",
                     cx: "347.4576",
                     cy: "753.4854",
                     r: "9.3244",
@@ -55046,7 +55048,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_44_",
+                    id: "gdSVGID_44_",
                     cx: "-1137.1746",
                     cy: "-499.5808",
                     r: "9.3244",
@@ -55081,7 +55083,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_45_",
+                    id: "gdSVGID_45_",
                     cx: "549.0927",
                     cy: "1510.1273",
                     r: "9.3244",
@@ -55116,7 +55118,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_46_",
+                    id: "gdSVGID_46_",
                     cx: "537.1848",
                     cy: "1516.8861",
                     r: "9.3244",
@@ -55151,7 +55153,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_47_",
+                    id: "gdSVGID_47_",
                     cx: "356.0662",
                     cy: "742.0978",
                     r: "13.1218",
@@ -55185,7 +55187,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_48_",
+                    id: "gdSVGID_48_",
                     cx: "381.7895",
                     cy: "716.3122",
                     r: "13.3886",
@@ -55219,7 +55221,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_49_",
+                    id: "gdSVGID_49_",
                     cx: "388.3971",
                     cy: "728.3579",
                     r: "13.3886",
@@ -55253,7 +55255,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_50_",
+                    id: "gdSVGID_50_",
                     cx: "362.9939",
                     cy: "706.2319",
                     r: "13.5709",
@@ -55287,7 +55289,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_51_",
+                    id: "gdSVGID_51_",
                     cx: "352.42",
                     cy: "735.1256",
                     r: "12.0235",
@@ -55321,7 +55323,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_52_",
+                    id: "gdSVGID_52_",
                     cx: "389.7889",
                     cy: "736.3217",
                     r: "12.0591",
@@ -55355,7 +55357,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_53_",
+                    id: "gdSVGID_53_",
                     cx: "402.2704",
                     cy: "705.5871",
                     r: "14.3713",
@@ -55389,7 +55391,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_54_",
+                    id: "gdSVGID_54_",
                     cx: "416.4994",
                     cy: "726.9706",
                     r: "9.4667",
@@ -55423,7 +55425,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_55_",
+                    id: "gdSVGID_55_",
                     cx: "424.721",
                     cy: "818.8054",
                     r: "15.2695",
@@ -55457,7 +55459,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_56_",
+                    id: "gdSVGID_56_",
                     cx: "-3283.8679",
                     cy: "2778.2292",
                     r: "15.2695",
@@ -55492,7 +55494,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_57_",
+                    id: "gdSVGID_57_",
                     cx: "-3331.6816",
                     cy: "2762.6218",
                     r: "15.2695",
@@ -55527,7 +55529,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_58_",
+                    id: "gdSVGID_58_",
                     cx: "-3342.5359",
                     cy: "2730.1885",
                     r: "15.2695",
@@ -55562,7 +55564,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_59_",
+                    id: "gdSVGID_59_",
                     cx: "420.0032",
                     cy: "810.0901",
                     r: "15.2695",
@@ -55596,7 +55598,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_60_",
+                    id: "gdSVGID_60_",
                     cx: "430.4571",
                     cy: "721.9193",
                     r: "11.8101",
@@ -55630,7 +55632,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_61_",
+                    id: "gdSVGID_61_",
                     cx: "431.5198",
                     cy: "707.548",
                     r: "14.2646",
@@ -55664,7 +55666,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_62_",
+                    id: "gdSVGID_62_",
                     cx: "316.6741",
                     cy: "716.9125",
                     r: "11.9435",
@@ -55698,7 +55700,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_63_",
+                    id: "gdSVGID_63_",
                     cx: "407.0282",
                     cy: "832.2918",
                     r: "25.3543",
@@ -55732,7 +55734,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_64_",
+                    id: "gdSVGID_64_",
                     cx: "-3461.9214",
                     cy: "113.1901",
                     r: "21.7125",
@@ -55767,7 +55769,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_65_",
+                    id: "gdSVGID_65_",
                     cx: "407.5306",
                     cy: "785.1849",
                     r: "15.2695",
@@ -55801,7 +55803,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_66_",
+                    id: "gdSVGID_66_",
                     cx: "-465.3837",
                     cy: "-145.7476",
                     r: "15.2695",
@@ -55836,7 +55838,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_67_",
+                    id: "gdSVGID_67_",
                     cx: "328.0884",
                     cy: "790.4719",
                     r: "28.5825",
@@ -55870,7 +55872,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_68_",
+                    id: "gdSVGID_68_",
                     cx: "-2878.0774",
                     cy: "-251.8379",
                     r: "21.0989",
@@ -55905,7 +55907,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_69_",
+                    id: "gdSVGID_69_",
                     cx: "416.1747",
                     cy: "808.4805",
                     r: "21.0989",
@@ -55939,7 +55941,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_70_",
+                    id: "gdSVGID_70_",
                     cx: "443.1831",
                     cy: "776.4208",
                     r: "10.9652",
@@ -55973,7 +55975,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_71_",
+                    id: "gdSVGID_71_",
                     cx: "425.3213",
                     cy: "784.3268",
                     r: "12.2992",
@@ -56007,7 +56009,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_72_",
+                    id: "gdSVGID_72_",
                     cx: "410.8167",
                     cy: "770.618",
                     r: "8.6975",
@@ -56041,7 +56043,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_73_",
+                    id: "gdSVGID_73_",
                     cx: "433.6942",
                     cy: "758.6345",
                     r: "16.0654",
@@ -56075,7 +56077,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_74_",
+                    id: "gdSVGID_74_",
                     cx: "604.7714",
                     cy: "1806.8894",
                     r: "16.0654",
@@ -56110,7 +56112,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_75_",
+                    id: "gdSVGID_75_",
                     cx: "447.9099",
                     cy: "747.8294",
                     r: "13.9889",
@@ -56144,7 +56146,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_76_",
+                    id: "gdSVGID_76_",
                     cx: "421.106",
                     cy: "752.7518",
                     r: "10.6184",
@@ -56178,7 +56180,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_77_",
+                    id: "gdSVGID_77_",
                     cx: "409.705",
                     cy: "749.4479",
                     r: "11.2098",
@@ -56212,7 +56214,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_78_",
+                    id: "gdSVGID_78_",
                     cx: "367.6984",
                     cy: "838.2991",
                     r: "33.0335",
@@ -56248,7 +56250,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_79_",
+                    id: "gdSVGID_79_",
                     cx: "392.7058",
                     cy: "797.4041",
                     r: "15.3851",
@@ -56282,7 +56284,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_80_",
+                    id: "gdSVGID_80_",
                     cx: "379.9975",
                     cy: "813.465",
                     r: "11.0541",
@@ -56316,7 +56318,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_81_",
+                    id: "gdSVGID_81_",
                     cx: "395.147",
                     cy: "780.8184",
                     r: "11.0541",
@@ -56350,7 +56352,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_82_",
+                    id: "gdSVGID_82_",
                     cx: "644.6599",
                     cy: "1594.2323",
                     r: "11.0541",
@@ -56385,7 +56387,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_83_",
+                    id: "gdSVGID_83_",
                     cx: "358.4807",
                     cy: "804.1184",
                     r: "9.1377",
@@ -56419,7 +56421,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_84_",
+                    id: "gdSVGID_84_",
                     cx: "375.5287",
                     cy: "771.9476",
                     r: "9.1377",
@@ -56453,7 +56455,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_85_",
+                    id: "gdSVGID_85_",
                     cx: "349.6631",
                     cy: "826.1911",
                     r: "13.0684",
@@ -56487,7 +56489,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_86_",
+                    id: "gdSVGID_86_",
                     cx: "360.4193",
                     cy: "790.2941",
                     r: "13.2241",
@@ -56521,7 +56523,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_87_",
+                    id: "gdSVGID_87_",
                     cx: "-25.113",
                     cy: "3451.0264",
                     r: "13.2241",
@@ -56556,7 +56558,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_88_",
+                    id: "gdSVGID_88_",
                     cx: "448.4879",
                     cy: "819.7125",
                     r: "8.1283",
@@ -56590,7 +56592,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_89_",
+                    id: "gdSVGID_89_",
                     cx: "439.6036",
                     cy: "817.3513",
                     r: "13.1129",
@@ -56624,7 +56626,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_90_",
+                    id: "gdSVGID_90_",
                     cx: "448.1855",
                     cy: "802.1575",
                     r: "12.0813",
@@ -56658,7 +56660,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_91_",
+                    id: "gdSVGID_91_",
                     cx: "444.4593",
                     cy: "1074.7084",
                     r: "12.0813",
@@ -56692,7 +56694,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_92_",
+                    id: "gdSVGID_92_",
                     cx: "-577.1212",
                     cy: "359.9548",
                     r: "12.0813",
@@ -56727,7 +56729,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_93_",
+                    id: "gdSVGID_93_",
                     cx: "450.6801",
                     cy: "811.8865",
                     r: "10.8051",
@@ -56761,7 +56763,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_94_",
+                    id: "gdSVGID_94_",
                     cx: "477.8218",
                     cy: "731.4305",
                     r: "12.0591",
@@ -56795,7 +56797,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_95_",
+                    id: "gdSVGID_95_",
                     cx: "458.6972",
                     cy: "740.3814",
                     r: "13.7665",
@@ -56829,7 +56831,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_96_",
+                    id: "gdSVGID_96_",
                     cx: "462.7035",
                     cy: "722.3106",
                     r: "8.7375",
@@ -56863,7 +56865,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_97_",
+                    id: "gdSVGID_97_",
                     cx: "474.3491",
                     cy: "747.5004",
                     r: "12.2147",
@@ -56897,7 +56899,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_98_",
+                    id: "gdSVGID_98_",
                     cx: "446.7715",
                     cy: "788.3109",
                     r: "9.7735",
@@ -56931,7 +56933,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_99_",
+                    id: "gdSVGID_99_",
                     cx: "452.2763",
                     cy: "780.8718",
                     r: "13.7488",
@@ -56965,7 +56967,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_100_",
+                    id: "gdSVGID_100_",
                     cx: "406.1389",
                     cy: "816.1819",
                     r: "11.5788",
@@ -56999,7 +57001,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_101_",
+                    id: "gdSVGID_101_",
                     cx: "386.1071",
                     cy: "819.8726",
                     r: "10.0581",
@@ -57033,7 +57035,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_102_",
+                    id: "gdSVGID_102_",
                     cx: "462.4189",
                     cy: "768.7994",
                     r: "12.0813",
@@ -57067,7 +57069,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_103_",
+                    id: "gdSVGID_103_",
                     cx: "448.728",
                     cy: "706.7166",
                     r: "10.4805",
@@ -57101,7 +57103,7 @@ var render = function() {
                 "radialGradient",
                 {
                   attrs: {
-                    id: "SVGID_104_",
+                    id: "gdSVGID_104_",
                     cx: "455.1444",
                     cy: "726.6016",
                     r: "6.9722",
@@ -57176,7 +57178,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_105_",
+                        id: "gdSVGID_105_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "651.0385",
                         y1: "266.2409",
@@ -57211,7 +57213,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_106_",
+                        id: "gdSVGID_106_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "587.1913",
                         y1: "195.2261",
@@ -57314,7 +57316,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_107_",
+                        id: "gdSVGID_107_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "817.331",
                         y1: "184.626",
@@ -57349,7 +57351,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_108_",
+                        id: "gdSVGID_108_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "779.6019",
                         y1: "170.2364",
@@ -57384,7 +57386,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_109_",
+                        id: "gdSVGID_109_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "839.3318",
                         y1: "150.8253",
@@ -57419,7 +57421,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_110_",
+                        id: "gdSVGID_110_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "788.2238",
                         y1: "188.4223",
@@ -57454,7 +57456,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_111_",
+                        id: "gdSVGID_111_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "776.6711",
                         y1: "164.5255",
@@ -57489,7 +57491,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_112_",
+                        id: "gdSVGID_112_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "806.2416",
                         y1: "148.1555",
@@ -57561,7 +57563,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_113_",
+                        id: "gdSVGID_113_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "939.6649",
                         y1: "406.9879",
@@ -57601,7 +57603,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_114_",
+                        id: "gdSVGID_114_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "844.9182",
                         y1: "427.8881",
@@ -57641,7 +57643,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_115_",
+                        id: "gdSVGID_115_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "980.4493",
                         y1: "434.0897",
@@ -57681,7 +57683,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_116_",
+                        id: "gdSVGID_116_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "987.4286",
                         y1: "459.4055",
@@ -57750,7 +57752,7 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "SVGID_117_",
+                        id: "gdSVGID_117_",
                         gradientUnits: "userSpaceOnUse",
                         x1: "691.0217",
                         y1: "177.5862",
@@ -58465,7 +58467,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_118_",
+                          id: "gdSVGID_118_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "191.8796",
                           y1: "576.1255",
@@ -58516,7 +58518,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_119_",
+                          id: "gdSVGID_119_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "191.8789",
                           y1: "621.8361",
@@ -58556,7 +58558,7 @@ var render = function() {
                             "linearGradient",
                             {
                               attrs: {
-                                id: "SVGID_120_",
+                                id: "gdSVGID_120_",
                                 gradientUnits: "userSpaceOnUse",
                                 x1: "261.0641",
                                 y1: "568.8512",
@@ -58603,7 +58605,7 @@ var render = function() {
                             "linearGradient",
                             {
                               attrs: {
-                                id: "SVGID_121_",
+                                id: "gdSVGID_121_",
                                 gradientUnits: "userSpaceOnUse",
                                 x1: "253.4728",
                                 y1: "584.7734",
@@ -58650,7 +58652,7 @@ var render = function() {
                             "linearGradient",
                             {
                               attrs: {
-                                id: "SVGID_122_",
+                                id: "gdSVGID_122_",
                                 gradientUnits: "userSpaceOnUse",
                                 x1: "264.813",
                                 y1: "589.625",
@@ -58698,7 +58700,7 @@ var render = function() {
                           "linearGradient",
                           {
                             attrs: {
-                              id: "SVGID_123_",
+                              id: "gdSVGID_123_",
                               gradientUnits: "userSpaceOnUse",
                               x1: "213.5571",
                               y1: "602.2401",
@@ -58755,7 +58757,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_124_",
+                          id: "gdSVGID_124_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "179.3142",
                           y1: "558.4228",
@@ -58833,7 +58835,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_125_",
+                          id: "gdSVGID_125_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "514.0715",
                           y1: "191.8126",
@@ -58868,7 +58870,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_126_",
+                          id: "gdSVGID_126_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "479.3531",
                           y1: "83.4634",
@@ -58903,7 +58905,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_127_",
+                          id: "gdSVGID_127_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "574.8643",
                           y1: "111.7786",
@@ -58955,7 +58957,7 @@ var render = function() {
                       "linearGradient",
                       {
                         attrs: {
-                          id: "SVGID_128_",
+                          id: "gdSVGID_128_",
                           gradientUnits: "userSpaceOnUse",
                           x1: "511.6809",
                           y1: "118.5024",
@@ -59044,7 +59046,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_129_",
+                    id: "gdSVGID_129_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "160.5344",
                     y1: "463.5082",
@@ -59085,7 +59087,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_130_",
+                    id: "gdSVGID_130_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "155.5246",
                     y1: "480.398",
@@ -59126,7 +59128,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_131_",
+                    id: "gdSVGID_131_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "12.763",
                     y1: "463.5082",
@@ -59167,7 +59169,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_132_",
+                    id: "gdSVGID_132_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "17.7728",
                     y1: "480.398",
@@ -59208,7 +59210,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_133_",
+                    id: "gdSVGID_133_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "78.9054",
                     y1: "464.7877",
@@ -59249,7 +59251,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_134_",
+                    id: "gdSVGID_134_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "1315.4594",
                     y1: "464.7877",
@@ -59290,7 +59292,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_135_",
+                    id: "gdSVGID_135_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "96.8175",
                     y1: "455.3345",
@@ -59331,7 +59333,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_136_",
+                    id: "gdSVGID_136_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "74.3632",
                     y1: "465.571",
@@ -59367,7 +59369,7 @@ var render = function() {
                 "linearGradient",
                 {
                   attrs: {
-                    id: "SVGID_137_",
+                    id: "gdSVGID_137_",
                     gradientUnits: "userSpaceOnUse",
                     x1: "151.6608",
                     y1: "465.571",
@@ -59443,6 +59445,1213 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+$(function () {
+
+    var offset = $('.scroll').offset().top;
+    $(window).scroll(function () {
+        $(".scroll").css({
+            'opacity': 1 - $(window).scrollTop() * 3 / $(window).height()
+        });
+        if ($(window).scrollTop() > offset - 400) {} else {
+
+            //$(".scroll").fadeIn();
+        }
+        if ($(window).scrollTop() < offset + 400) {}
+    });
+});
 
 /***/ })
 /******/ ]);

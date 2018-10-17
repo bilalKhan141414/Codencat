@@ -175,6 +175,7 @@
             }
             }
             .menu-button{
+                cursor: pointer;
                 position: absolute;
                 right:0;
                 top:50%;
@@ -317,10 +318,11 @@ $(function(){
             })
             isActive = !isActive;
         }
-        else{
+        else {
             $(this).parents(".header").children(".menu-section").css({
                 'transform': 'translateX(-90rem)'
             })
+            $(".header .menu-links .heading-bold").clearQueue();
             $(".header .menu-links .heading-bold").animate({
                 'left': '-26rem',
             })

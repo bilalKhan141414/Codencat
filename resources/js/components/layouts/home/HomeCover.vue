@@ -22,7 +22,7 @@
                 <path class="st3" d="M370.1,151.5v77.9h64.7v-77.9H370.1z M426.7,220.1h-48v-59.3h48V220.1z"/>
                 <polygon class="st2" points="378.7,220.1 426.7,160.7 378.7,160.7 	"/>
                 <g>
-                    <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="312.05" y1="166.9832" x2="359.0356" y2="166.9832">
+                    <linearGradient id="hcSVGID_4_" gradientUnits="userSpaceOnUse" x1="312.05" y1="166.9832" x2="359.0356" y2="166.9832">
                         <stop  offset="0" style="stop-color:#33373A"/>
                         <stop  offset="0.32" style="stop-color:#2C3134"/>
                         <stop  offset="1" style="stop-color:#1E2326"/>
@@ -932,7 +932,7 @@
         .st1{fill:url(#SVGID_2_);}
         .st2{opacity:1;fill:#34393C;}
         .st3{fill:url(#SVGID_3_);}
-        .st4{fill:url(#SVGID_4_);}
+        .st4{fill:url(#hcSVGID_4_);}
         .st5{fill:url(#SVGID_5_);}
         .st6{fill:url(#SVGID_6_);}
         .st7{fill:url(#SVGID_7_);}
@@ -1084,11 +1084,19 @@
             }
         }
         #light{
+
+            $delay: random(10) + s;
             #toplight{
-                -webkit-animation: toplight 3s infinite; /* Safari 4+ */
-                -moz-animation:    toplight 3s infinite; /* Fx 5+ */
-                -o-animation:      toplight 3s infinite; /* Opera 12+ */
-                animation:         toplight 3s infinite; /* IE 10+, Fx 29+ */
+                -webkit-animation: toplight $delay infinite; /* Safari 4+ */
+                -moz-animation:    toplight $delay infinite; /* Fx 5+ */
+                -o-animation:      toplight $delay infinite; /* Opera 12+ */
+                animation:         toplight $delay infinite; /* IE 10+, Fx 29+ */
+
+                -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+                animation-direction: alternate;
+                // -webkit-animation-delay: $delay; /* Safari 4.0 - 8.0 */
+                // animation-delay: $delay;
+
                 animation-timing-function: linear;
             }
             #lightbulb{
@@ -1096,6 +1104,12 @@
                 -moz-animation:    lightbulb 3s infinite; /* Fx 5+ */
                 -o-animation:      lightbulb 3s infinite; /* Opera 12+ */
                 animation:         lightbulb 3s infinite; /* IE 10+, Fx 29+ */
+
+                -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+                animation-direction: alternate;
+                -webkit-animation-delay: $delay; /* Safari 4.0 - 8.0 */
+                animation-delay: $delay;
+
                 animation-timing-function: linear;
             }
             #laptoplight{
@@ -1167,3 +1181,22 @@
     }
 }
 </style>
+
+<script>
+$(function(){
+
+    var offset = $('.scroll').offset().top;
+    $(window).scroll(function () {
+        $(".scroll").css({
+    'opacity':1-(($(window).scrollTop()*3)/$(window).height())
+        });
+        if($(window).scrollTop() >(offset-400)){
+        }else{
+
+            //$(".scroll").fadeIn();
+            }
+        if($(window).scrollTop() < (offset+400)){
+        }
+    });
+})
+</script>
