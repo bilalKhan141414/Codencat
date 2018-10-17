@@ -3,6 +3,7 @@
 
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap-4-grid/scss/grid';
 
 *{
     margin: 0px;
@@ -11,6 +12,10 @@
         margin: 0px;
     }
 }
+
+
+
+// hide scrollbar
 html {
     overflow: scroll;
     overflow-x: hidden;
@@ -20,6 +25,8 @@ html {
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+
+// change selection colors
 ::-moz-selection { /* Code for Firefox */
     color: $white;
     background: $secondary;
@@ -33,7 +40,7 @@ html {
 
 body{
     background: $black;
-    position: relative;
+
     font-family: Sofia Pro !important;
 }
 
@@ -41,20 +48,31 @@ body{
 .verticle-lines{
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     top:0;
     width:100%;
     height:100%;
     z-index: -1;
-}
-.verticle-line{
-    border-left: 1px solid white;
-    height: 100vh;
-    opacity: 0.1;
-    position: sticky;
-    top: 0;
+    .verticle-line{
+        border-left: 1px solid white;
+        height: 100vh;
+        opacity: 0.1;
+        flex:2;
+    }
+    .verticle-line:nth-child(1),.verticle-line:nth-child(6){
+        flex: 0.5;
+    }
 }
 
+
+
+.theme-container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 //fonts size
 .heading-light{
     font-size: $font-size-small;
@@ -75,7 +93,7 @@ body{
 }
 
 //button font
-.button-link{
+.button-link, .button-text{
     font-size: $font-size-small;
     color: $white;
     font-weight:$font-weight-bold;

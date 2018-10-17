@@ -18,6 +18,7 @@
         <div class="verticle-line"></div>
         <div class="verticle-line"></div>
         <div class="verticle-line"></div>
+        <div class="verticle-line"></div>
     </div>
 
     @yield('content')

@@ -14298,7 +14298,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(56);
+module.exports = __webpack_require__(57);
 
 
 /***/ }),
@@ -14323,7 +14323,7 @@ window.Vue = __webpack_require__(39);
  */
 Vue.component('main-header', __webpack_require__(42));
 Vue.component('cover', __webpack_require__(48));
-Vue.component('graphic-designing', __webpack_require__(52));
+Vue.component('graphic-designing', __webpack_require__(53));
 
 var app = new Vue({
   el: '#app'
@@ -47686,7 +47686,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-66898320] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .header-left[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n}\n.header-fixed .header .header-left .logo[data-v-66898320] {\n        margin: 1rem;\n        position: absolute;\n        z-index: 99999;\n}\n.header-fixed .header .header-left .logo svg[data-v-66898320] {\n          width: 7em;\n}\n.header-fixed .header .header-left .logo svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n}\n.header-fixed .header .header-left .logo svg .st1[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320] {\n        background-color: #00E0E9;\n        padding: 1rem 0rem 1rem 1rem;\n        width: 2.5em;\n        position: absolute;\n        top: 50%;\n        left: 0;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: background-color 0.3s ease-in-out;\n        transition: background-color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg[data-v-66898320] {\n          width: 1.5rem;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n            fill: #1E2326;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg path[data-v-66898320] {\n            -webkit-transition: fill .3s ease-in-out;\n            transition: fill .3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .button-link[data-v-66898320] {\n          color: #1E2326;\n          text-orientation: rtl;\n          -webkit-writing-mode: vertical-lr;\n              -ms-writing-mode: tb-lr;\n                  writing-mode: vertical-lr;\n          -webkit-transform: rotate(180deg);\n                  transform: rotate(180deg);\n          font-size: 0.7rem;\n          letter-spacing: 2px;\n          line-height: 21px;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320]:hover {\n          background-color: #CB8E55;\n}\n.header-fixed .header .header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button:hover .button-link[data-v-66898320] {\n            color: #ebebeb;\n}\n.header-fixed .header .header-right[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n      top: 0;\n      right: 0;\n      margin-right: 0.5rem;\n}\n.header-fixed .header .header-right .social-links[data-v-66898320] {\n        position: absolute;\n        top: 0;\n        right: 0;\n        margin: 1rem 1rem 0 0;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-orient: vertical;\n          -webkit-box-direction: normal;\n              -ms-flex-direction: column;\n                  flex-direction: column;\n}\n.header-fixed .header .header-right .social-links .social-button i[data-v-66898320] {\n            font-size: 0.9rem;\n            color: #ebebeb;\n            text-align: center;\n            padding: 0.5em;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] :hover {\n            color: #00E0E9;\n}\n.header-fixed .header .header-right .menu-button[data-v-66898320] {\n        cursor: pointer;\n        position: absolute;\n        right: 0;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        margin-right: 1rem;\n        z-index: 99999;\n}\n.header-fixed .header .header-right .menu-button svg[data-v-66898320] {\n          width: 2.1rem;\n}\n.header-fixed .header .header-right .menu-button svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n            -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button .menu-text[data-v-66898320] {\n          font-size: 10px;\n          letter-spacing: 2px;\n          font-weight: 700;\n          margin-top: 0.3rem;\n          color: #ebebeb;\n          text-align: center;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n          width: 38px;\n          x: 1;\n}\n.header-fixed .header .header-right .menu-button:hover .menu-text[data-v-66898320] {\n          color: #00E0E9;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n      -webkit-transform: translateX(-90rem);\n              transform: translateX(-90rem);\n      -webkit-transition: -webkit-transform 0.5s ease-in-out;\n      transition: -webkit-transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;\n}\n.header-fixed .header .menu-section .menu-links[data-v-66898320] {\n        height: 85vh;\n        padding-top: 15vh;\n        width: 95vw;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-links .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 50px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n          -webkit-transform: scaleX(0) translateY(0px);\n                  transform: scaleX(0) translateY(0px);\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320] {\n          font-size: 3.5rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n          left: -26rem;\n          position: relative;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:last-child {\n            position: relative;\n            width: 100%;\n            height: 58%;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold:last-child p[data-v-66898320] {\n              position: absolute;\n              bottom: 43px;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n\n/*!\n * Bootstrap Grid v4.1.2 (https://getbootstrap.com/)\n * Copyright 2011-2018 The Bootstrap Authors\n * Copyright 2011-2018 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\n */\n@-ms-viewport {\n  width: device-width;\n}\nhtml[data-v-66898320] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -ms-overflow-style: scrollbar;\n}\n*[data-v-66898320],\n*[data-v-66898320]::before,\n*[data-v-66898320]::after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n.container[data-v-66898320] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container[data-v-66898320] {\n      max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container[data-v-66898320] {\n      max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container[data-v-66898320] {\n      max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container[data-v-66898320] {\n      max-width: 1140px;\n}\n}\n.container-fluid[data-v-66898320] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.row[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters[data-v-66898320] {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col[data-v-66898320],\n  .no-gutters > [class*=\"col-\"][data-v-66898320] {\n    padding-right: 0;\n    padding-left: 0;\n}\n.col-1[data-v-66898320], .col-2[data-v-66898320], .col-3[data-v-66898320], .col-4[data-v-66898320], .col-5[data-v-66898320], .col-6[data-v-66898320], .col-7[data-v-66898320], .col-8[data-v-66898320], .col-9[data-v-66898320], .col-10[data-v-66898320], .col-11[data-v-66898320], .col-12[data-v-66898320], .col[data-v-66898320],\n.col-auto[data-v-66898320], .col-sm-1[data-v-66898320], .col-sm-2[data-v-66898320], .col-sm-3[data-v-66898320], .col-sm-4[data-v-66898320], .col-sm-5[data-v-66898320], .col-sm-6[data-v-66898320], .col-sm-7[data-v-66898320], .col-sm-8[data-v-66898320], .col-sm-9[data-v-66898320], .col-sm-10[data-v-66898320], .col-sm-11[data-v-66898320], .col-sm-12[data-v-66898320], .col-sm[data-v-66898320],\n.col-sm-auto[data-v-66898320], .col-md-1[data-v-66898320], .col-md-2[data-v-66898320], .col-md-3[data-v-66898320], .col-md-4[data-v-66898320], .col-md-5[data-v-66898320], .col-md-6[data-v-66898320], .col-md-7[data-v-66898320], .col-md-8[data-v-66898320], .col-md-9[data-v-66898320], .col-md-10[data-v-66898320], .col-md-11[data-v-66898320], .col-md-12[data-v-66898320], .col-md[data-v-66898320],\n.col-md-auto[data-v-66898320], .col-lg-1[data-v-66898320], .col-lg-2[data-v-66898320], .col-lg-3[data-v-66898320], .col-lg-4[data-v-66898320], .col-lg-5[data-v-66898320], .col-lg-6[data-v-66898320], .col-lg-7[data-v-66898320], .col-lg-8[data-v-66898320], .col-lg-9[data-v-66898320], .col-lg-10[data-v-66898320], .col-lg-11[data-v-66898320], .col-lg-12[data-v-66898320], .col-lg[data-v-66898320],\n.col-lg-auto[data-v-66898320], .col-xl-1[data-v-66898320], .col-xl-2[data-v-66898320], .col-xl-3[data-v-66898320], .col-xl-4[data-v-66898320], .col-xl-5[data-v-66898320], .col-xl-6[data-v-66898320], .col-xl-7[data-v-66898320], .col-xl-8[data-v-66898320], .col-xl-9[data-v-66898320], .col-xl-10[data-v-66898320], .col-xl-11[data-v-66898320], .col-xl-12[data-v-66898320], .col-xl[data-v-66898320],\n.col-xl-auto[data-v-66898320] {\n  position: relative;\n  width: 100%;\n  min-height: 1px;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col[data-v-66898320] {\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  max-width: 100%;\n}\n.col-auto[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  width: auto;\n  max-width: none;\n}\n.col-1[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 8.33333%;\n          flex: 0 0 8.33333%;\n  max-width: 8.33333%;\n}\n.col-2[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 16.66667%;\n          flex: 0 0 16.66667%;\n  max-width: 16.66667%;\n}\n.col-3[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 25%;\n          flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 33.33333%;\n          flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n}\n.col-5[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 41.66667%;\n          flex: 0 0 41.66667%;\n  max-width: 41.66667%;\n}\n.col-6[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 50%;\n          flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 58.33333%;\n          flex: 0 0 58.33333%;\n  max-width: 58.33333%;\n}\n.col-8[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 66.66667%;\n          flex: 0 0 66.66667%;\n  max-width: 66.66667%;\n}\n.col-9[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 75%;\n          flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 83.33333%;\n          flex: 0 0 83.33333%;\n  max-width: 83.33333%;\n}\n.col-11[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 91.66667%;\n          flex: 0 0 91.66667%;\n  max-width: 91.66667%;\n}\n.col-12[data-v-66898320] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 100%;\n          flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first[data-v-66898320] {\n  -webkit-box-ordinal-group: 0;\n      -ms-flex-order: -1;\n          order: -1;\n}\n.order-last[data-v-66898320] {\n  -webkit-box-ordinal-group: 14;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.order-0[data-v-66898320] {\n  -webkit-box-ordinal-group: 1;\n      -ms-flex-order: 0;\n          order: 0;\n}\n.order-1[data-v-66898320] {\n  -webkit-box-ordinal-group: 2;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.order-2[data-v-66898320] {\n  -webkit-box-ordinal-group: 3;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.order-3[data-v-66898320] {\n  -webkit-box-ordinal-group: 4;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.order-4[data-v-66898320] {\n  -webkit-box-ordinal-group: 5;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.order-5[data-v-66898320] {\n  -webkit-box-ordinal-group: 6;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.order-6[data-v-66898320] {\n  -webkit-box-ordinal-group: 7;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.order-7[data-v-66898320] {\n  -webkit-box-ordinal-group: 8;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.order-8[data-v-66898320] {\n  -webkit-box-ordinal-group: 9;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.order-9[data-v-66898320] {\n  -webkit-box-ordinal-group: 10;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.order-10[data-v-66898320] {\n  -webkit-box-ordinal-group: 11;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.order-11[data-v-66898320] {\n  -webkit-box-ordinal-group: 12;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.order-12[data-v-66898320] {\n  -webkit-box-ordinal-group: 13;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.offset-1[data-v-66898320] {\n  margin-left: 8.33333%;\n}\n.offset-2[data-v-66898320] {\n  margin-left: 16.66667%;\n}\n.offset-3[data-v-66898320] {\n  margin-left: 25%;\n}\n.offset-4[data-v-66898320] {\n  margin-left: 33.33333%;\n}\n.offset-5[data-v-66898320] {\n  margin-left: 41.66667%;\n}\n.offset-6[data-v-66898320] {\n  margin-left: 50%;\n}\n.offset-7[data-v-66898320] {\n  margin-left: 58.33333%;\n}\n.offset-8[data-v-66898320] {\n  margin-left: 66.66667%;\n}\n.offset-9[data-v-66898320] {\n  margin-left: 75%;\n}\n.offset-10[data-v-66898320] {\n  margin-left: 83.33333%;\n}\n.offset-11[data-v-66898320] {\n  margin-left: 91.66667%;\n}\n@media (min-width: 576px) {\n.col-sm[data-v-66898320] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-sm-auto[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-sm-1[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-sm-2[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-sm-3[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-sm-5[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-sm-6[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-sm-8[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-sm-9[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-sm-11[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-sm-12[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first[data-v-66898320] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-sm-last[data-v-66898320] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-sm-0[data-v-66898320] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-sm-1[data-v-66898320] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-sm-2[data-v-66898320] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-sm-3[data-v-66898320] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-sm-4[data-v-66898320] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-sm-5[data-v-66898320] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-sm-6[data-v-66898320] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-sm-7[data-v-66898320] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-sm-8[data-v-66898320] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-sm-9[data-v-66898320] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-sm-10[data-v-66898320] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-sm-11[data-v-66898320] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-sm-12[data-v-66898320] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-sm-0[data-v-66898320] {\n    margin-left: 0;\n}\n.offset-sm-1[data-v-66898320] {\n    margin-left: 8.33333%;\n}\n.offset-sm-2[data-v-66898320] {\n    margin-left: 16.66667%;\n}\n.offset-sm-3[data-v-66898320] {\n    margin-left: 25%;\n}\n.offset-sm-4[data-v-66898320] {\n    margin-left: 33.33333%;\n}\n.offset-sm-5[data-v-66898320] {\n    margin-left: 41.66667%;\n}\n.offset-sm-6[data-v-66898320] {\n    margin-left: 50%;\n}\n.offset-sm-7[data-v-66898320] {\n    margin-left: 58.33333%;\n}\n.offset-sm-8[data-v-66898320] {\n    margin-left: 66.66667%;\n}\n.offset-sm-9[data-v-66898320] {\n    margin-left: 75%;\n}\n.offset-sm-10[data-v-66898320] {\n    margin-left: 83.33333%;\n}\n.offset-sm-11[data-v-66898320] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 768px) {\n.col-md[data-v-66898320] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-md-auto[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-md-1[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-md-2[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-md-3[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-md-5[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-md-6[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-md-8[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-md-9[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-md-11[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-md-12[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first[data-v-66898320] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-md-last[data-v-66898320] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-md-0[data-v-66898320] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-md-1[data-v-66898320] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-md-2[data-v-66898320] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-md-3[data-v-66898320] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-md-4[data-v-66898320] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-md-5[data-v-66898320] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-md-6[data-v-66898320] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-md-7[data-v-66898320] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-md-8[data-v-66898320] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-md-9[data-v-66898320] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-md-10[data-v-66898320] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-md-11[data-v-66898320] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-md-12[data-v-66898320] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-md-0[data-v-66898320] {\n    margin-left: 0;\n}\n.offset-md-1[data-v-66898320] {\n    margin-left: 8.33333%;\n}\n.offset-md-2[data-v-66898320] {\n    margin-left: 16.66667%;\n}\n.offset-md-3[data-v-66898320] {\n    margin-left: 25%;\n}\n.offset-md-4[data-v-66898320] {\n    margin-left: 33.33333%;\n}\n.offset-md-5[data-v-66898320] {\n    margin-left: 41.66667%;\n}\n.offset-md-6[data-v-66898320] {\n    margin-left: 50%;\n}\n.offset-md-7[data-v-66898320] {\n    margin-left: 58.33333%;\n}\n.offset-md-8[data-v-66898320] {\n    margin-left: 66.66667%;\n}\n.offset-md-9[data-v-66898320] {\n    margin-left: 75%;\n}\n.offset-md-10[data-v-66898320] {\n    margin-left: 83.33333%;\n}\n.offset-md-11[data-v-66898320] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg[data-v-66898320] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-lg-auto[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-lg-1[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-lg-2[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-lg-3[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-lg-5[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-lg-6[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-lg-8[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-lg-9[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-lg-11[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-lg-12[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first[data-v-66898320] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-lg-last[data-v-66898320] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-lg-0[data-v-66898320] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-lg-1[data-v-66898320] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-lg-2[data-v-66898320] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-lg-3[data-v-66898320] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-lg-4[data-v-66898320] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-lg-5[data-v-66898320] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-lg-6[data-v-66898320] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-lg-7[data-v-66898320] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-lg-8[data-v-66898320] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-lg-9[data-v-66898320] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-lg-10[data-v-66898320] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-lg-11[data-v-66898320] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-lg-12[data-v-66898320] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-lg-0[data-v-66898320] {\n    margin-left: 0;\n}\n.offset-lg-1[data-v-66898320] {\n    margin-left: 8.33333%;\n}\n.offset-lg-2[data-v-66898320] {\n    margin-left: 16.66667%;\n}\n.offset-lg-3[data-v-66898320] {\n    margin-left: 25%;\n}\n.offset-lg-4[data-v-66898320] {\n    margin-left: 33.33333%;\n}\n.offset-lg-5[data-v-66898320] {\n    margin-left: 41.66667%;\n}\n.offset-lg-6[data-v-66898320] {\n    margin-left: 50%;\n}\n.offset-lg-7[data-v-66898320] {\n    margin-left: 58.33333%;\n}\n.offset-lg-8[data-v-66898320] {\n    margin-left: 66.66667%;\n}\n.offset-lg-9[data-v-66898320] {\n    margin-left: 75%;\n}\n.offset-lg-10[data-v-66898320] {\n    margin-left: 83.33333%;\n}\n.offset-lg-11[data-v-66898320] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl[data-v-66898320] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-xl-auto[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-xl-1[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-xl-2[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-xl-3[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-xl-5[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-xl-6[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-xl-8[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-xl-9[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-xl-11[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-xl-12[data-v-66898320] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first[data-v-66898320] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-xl-last[data-v-66898320] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-xl-0[data-v-66898320] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-xl-1[data-v-66898320] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-xl-2[data-v-66898320] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-xl-3[data-v-66898320] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-xl-4[data-v-66898320] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-xl-5[data-v-66898320] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-xl-6[data-v-66898320] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-xl-7[data-v-66898320] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-xl-8[data-v-66898320] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-xl-9[data-v-66898320] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-xl-10[data-v-66898320] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-xl-11[data-v-66898320] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-xl-12[data-v-66898320] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-xl-0[data-v-66898320] {\n    margin-left: 0;\n}\n.offset-xl-1[data-v-66898320] {\n    margin-left: 8.33333%;\n}\n.offset-xl-2[data-v-66898320] {\n    margin-left: 16.66667%;\n}\n.offset-xl-3[data-v-66898320] {\n    margin-left: 25%;\n}\n.offset-xl-4[data-v-66898320] {\n    margin-left: 33.33333%;\n}\n.offset-xl-5[data-v-66898320] {\n    margin-left: 41.66667%;\n}\n.offset-xl-6[data-v-66898320] {\n    margin-left: 50%;\n}\n.offset-xl-7[data-v-66898320] {\n    margin-left: 58.33333%;\n}\n.offset-xl-8[data-v-66898320] {\n    margin-left: 66.66667%;\n}\n.offset-xl-9[data-v-66898320] {\n    margin-left: 75%;\n}\n.offset-xl-10[data-v-66898320] {\n    margin-left: 83.33333%;\n}\n.offset-xl-11[data-v-66898320] {\n    margin-left: 91.66667%;\n}\n}\n.d-none[data-v-66898320] {\n  display: none !important;\n}\n.d-inline[data-v-66898320] {\n  display: inline !important;\n}\n.d-inline-block[data-v-66898320] {\n  display: inline-block !important;\n}\n.d-block[data-v-66898320] {\n  display: block !important;\n}\n.d-table[data-v-66898320] {\n  display: table !important;\n}\n.d-table-row[data-v-66898320] {\n  display: table-row !important;\n}\n.d-table-cell[data-v-66898320] {\n  display: table-cell !important;\n}\n.d-flex[data-v-66898320] {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.d-inline-flex[data-v-66898320] {\n  display: -webkit-inline-box !important;\n  display: -ms-inline-flexbox !important;\n  display: inline-flex !important;\n}\n@media (min-width: 576px) {\n.d-sm-none[data-v-66898320] {\n    display: none !important;\n}\n.d-sm-inline[data-v-66898320] {\n    display: inline !important;\n}\n.d-sm-inline-block[data-v-66898320] {\n    display: inline-block !important;\n}\n.d-sm-block[data-v-66898320] {\n    display: block !important;\n}\n.d-sm-table[data-v-66898320] {\n    display: table !important;\n}\n.d-sm-table-row[data-v-66898320] {\n    display: table-row !important;\n}\n.d-sm-table-cell[data-v-66898320] {\n    display: table-cell !important;\n}\n.d-sm-flex[data-v-66898320] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-sm-inline-flex[data-v-66898320] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 768px) {\n.d-md-none[data-v-66898320] {\n    display: none !important;\n}\n.d-md-inline[data-v-66898320] {\n    display: inline !important;\n}\n.d-md-inline-block[data-v-66898320] {\n    display: inline-block !important;\n}\n.d-md-block[data-v-66898320] {\n    display: block !important;\n}\n.d-md-table[data-v-66898320] {\n    display: table !important;\n}\n.d-md-table-row[data-v-66898320] {\n    display: table-row !important;\n}\n.d-md-table-cell[data-v-66898320] {\n    display: table-cell !important;\n}\n.d-md-flex[data-v-66898320] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-md-inline-flex[data-v-66898320] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 992px) {\n.d-lg-none[data-v-66898320] {\n    display: none !important;\n}\n.d-lg-inline[data-v-66898320] {\n    display: inline !important;\n}\n.d-lg-inline-block[data-v-66898320] {\n    display: inline-block !important;\n}\n.d-lg-block[data-v-66898320] {\n    display: block !important;\n}\n.d-lg-table[data-v-66898320] {\n    display: table !important;\n}\n.d-lg-table-row[data-v-66898320] {\n    display: table-row !important;\n}\n.d-lg-table-cell[data-v-66898320] {\n    display: table-cell !important;\n}\n.d-lg-flex[data-v-66898320] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-lg-inline-flex[data-v-66898320] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 1200px) {\n.d-xl-none[data-v-66898320] {\n    display: none !important;\n}\n.d-xl-inline[data-v-66898320] {\n    display: inline !important;\n}\n.d-xl-inline-block[data-v-66898320] {\n    display: inline-block !important;\n}\n.d-xl-block[data-v-66898320] {\n    display: block !important;\n}\n.d-xl-table[data-v-66898320] {\n    display: table !important;\n}\n.d-xl-table-row[data-v-66898320] {\n    display: table-row !important;\n}\n.d-xl-table-cell[data-v-66898320] {\n    display: table-cell !important;\n}\n.d-xl-flex[data-v-66898320] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-xl-inline-flex[data-v-66898320] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media print {\n.d-print-none[data-v-66898320] {\n    display: none !important;\n}\n.d-print-inline[data-v-66898320] {\n    display: inline !important;\n}\n.d-print-inline-block[data-v-66898320] {\n    display: inline-block !important;\n}\n.d-print-block[data-v-66898320] {\n    display: block !important;\n}\n.d-print-table[data-v-66898320] {\n    display: table !important;\n}\n.d-print-table-row[data-v-66898320] {\n    display: table-row !important;\n}\n.d-print-table-cell[data-v-66898320] {\n    display: table-cell !important;\n}\n.d-print-flex[data-v-66898320] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-print-inline-flex[data-v-66898320] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n.flex-row[data-v-66898320] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: row !important;\n          flex-direction: row !important;\n}\n.flex-column[data-v-66898320] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: column !important;\n          flex-direction: column !important;\n}\n.flex-row-reverse[data-v-66898320] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: row-reverse !important;\n          flex-direction: row-reverse !important;\n}\n.flex-column-reverse[data-v-66898320] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: column-reverse !important;\n          flex-direction: column-reverse !important;\n}\n.flex-wrap[data-v-66898320] {\n  -ms-flex-wrap: wrap !important;\n      flex-wrap: wrap !important;\n}\n.flex-nowrap[data-v-66898320] {\n  -ms-flex-wrap: nowrap !important;\n      flex-wrap: nowrap !important;\n}\n.flex-wrap-reverse[data-v-66898320] {\n  -ms-flex-wrap: wrap-reverse !important;\n      flex-wrap: wrap-reverse !important;\n}\n.flex-fill[data-v-66898320] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex: 1 1 auto !important;\n          flex: 1 1 auto !important;\n}\n.flex-grow-0[data-v-66898320] {\n  -webkit-box-flex: 0 !important;\n      -ms-flex-positive: 0 !important;\n          flex-grow: 0 !important;\n}\n.flex-grow-1[data-v-66898320] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex-positive: 1 !important;\n          flex-grow: 1 !important;\n}\n.flex-shrink-0[data-v-66898320] {\n  -ms-flex-negative: 0 !important;\n      flex-shrink: 0 !important;\n}\n.flex-shrink-1[data-v-66898320] {\n  -ms-flex-negative: 1 !important;\n      flex-shrink: 1 !important;\n}\n.justify-content-start[data-v-66898320] {\n  -webkit-box-pack: start !important;\n      -ms-flex-pack: start !important;\n          justify-content: flex-start !important;\n}\n.justify-content-end[data-v-66898320] {\n  -webkit-box-pack: end !important;\n      -ms-flex-pack: end !important;\n          justify-content: flex-end !important;\n}\n.justify-content-center[data-v-66898320] {\n  -webkit-box-pack: center !important;\n      -ms-flex-pack: center !important;\n          justify-content: center !important;\n}\n.justify-content-between[data-v-66898320] {\n  -webkit-box-pack: justify !important;\n      -ms-flex-pack: justify !important;\n          justify-content: space-between !important;\n}\n.justify-content-around[data-v-66898320] {\n  -ms-flex-pack: distribute !important;\n      justify-content: space-around !important;\n}\n.align-items-start[data-v-66898320] {\n  -webkit-box-align: start !important;\n      -ms-flex-align: start !important;\n          align-items: flex-start !important;\n}\n.align-items-end[data-v-66898320] {\n  -webkit-box-align: end !important;\n      -ms-flex-align: end !important;\n          align-items: flex-end !important;\n}\n.align-items-center[data-v-66898320] {\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important;\n}\n.align-items-baseline[data-v-66898320] {\n  -webkit-box-align: baseline !important;\n      -ms-flex-align: baseline !important;\n          align-items: baseline !important;\n}\n.align-items-stretch[data-v-66898320] {\n  -webkit-box-align: stretch !important;\n      -ms-flex-align: stretch !important;\n          align-items: stretch !important;\n}\n.align-content-start[data-v-66898320] {\n  -ms-flex-line-pack: start !important;\n      align-content: flex-start !important;\n}\n.align-content-end[data-v-66898320] {\n  -ms-flex-line-pack: end !important;\n      align-content: flex-end !important;\n}\n.align-content-center[data-v-66898320] {\n  -ms-flex-line-pack: center !important;\n      align-content: center !important;\n}\n.align-content-between[data-v-66898320] {\n  -ms-flex-line-pack: justify !important;\n      align-content: space-between !important;\n}\n.align-content-around[data-v-66898320] {\n  -ms-flex-line-pack: distribute !important;\n      align-content: space-around !important;\n}\n.align-content-stretch[data-v-66898320] {\n  -ms-flex-line-pack: stretch !important;\n      align-content: stretch !important;\n}\n.align-self-auto[data-v-66898320] {\n  -ms-flex-item-align: auto !important;\n      align-self: auto !important;\n}\n.align-self-start[data-v-66898320] {\n  -ms-flex-item-align: start !important;\n      align-self: flex-start !important;\n}\n.align-self-end[data-v-66898320] {\n  -ms-flex-item-align: end !important;\n      align-self: flex-end !important;\n}\n.align-self-center[data-v-66898320] {\n  -ms-flex-item-align: center !important;\n      align-self: center !important;\n}\n.align-self-baseline[data-v-66898320] {\n  -ms-flex-item-align: baseline !important;\n      align-self: baseline !important;\n}\n.align-self-stretch[data-v-66898320] {\n  -ms-flex-item-align: stretch !important;\n      align-self: stretch !important;\n}\n@media (min-width: 576px) {\n.flex-sm-row[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-sm-column[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-sm-row-reverse[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-sm-column-reverse[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-sm-wrap[data-v-66898320] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-sm-nowrap[data-v-66898320] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-sm-wrap-reverse[data-v-66898320] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-sm-fill[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-sm-grow-0[data-v-66898320] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-sm-grow-1[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-sm-shrink-0[data-v-66898320] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-sm-shrink-1[data-v-66898320] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-sm-start[data-v-66898320] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-sm-end[data-v-66898320] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-sm-center[data-v-66898320] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-sm-between[data-v-66898320] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-sm-around[data-v-66898320] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-sm-start[data-v-66898320] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-sm-end[data-v-66898320] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-sm-center[data-v-66898320] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-sm-baseline[data-v-66898320] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-sm-stretch[data-v-66898320] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-sm-start[data-v-66898320] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-sm-end[data-v-66898320] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-sm-center[data-v-66898320] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-sm-between[data-v-66898320] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-sm-around[data-v-66898320] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-sm-stretch[data-v-66898320] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-sm-auto[data-v-66898320] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-sm-start[data-v-66898320] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-sm-end[data-v-66898320] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-sm-center[data-v-66898320] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-sm-baseline[data-v-66898320] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-sm-stretch[data-v-66898320] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 768px) {\n.flex-md-row[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-md-column[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-md-row-reverse[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-md-column-reverse[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-md-wrap[data-v-66898320] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-md-nowrap[data-v-66898320] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-md-wrap-reverse[data-v-66898320] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-md-fill[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-md-grow-0[data-v-66898320] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-md-grow-1[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-md-shrink-0[data-v-66898320] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-md-shrink-1[data-v-66898320] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-md-start[data-v-66898320] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-md-end[data-v-66898320] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-md-center[data-v-66898320] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-md-between[data-v-66898320] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-md-around[data-v-66898320] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-md-start[data-v-66898320] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-md-end[data-v-66898320] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-md-center[data-v-66898320] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-md-baseline[data-v-66898320] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-md-stretch[data-v-66898320] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-md-start[data-v-66898320] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-md-end[data-v-66898320] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-md-center[data-v-66898320] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-md-between[data-v-66898320] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-md-around[data-v-66898320] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-md-stretch[data-v-66898320] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-md-auto[data-v-66898320] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-md-start[data-v-66898320] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-md-end[data-v-66898320] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-md-center[data-v-66898320] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-md-baseline[data-v-66898320] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-md-stretch[data-v-66898320] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 992px) {\n.flex-lg-row[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-lg-column[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-lg-row-reverse[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-lg-column-reverse[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-lg-wrap[data-v-66898320] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-lg-nowrap[data-v-66898320] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-lg-wrap-reverse[data-v-66898320] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-lg-fill[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-lg-grow-0[data-v-66898320] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-lg-grow-1[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-lg-shrink-0[data-v-66898320] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-lg-shrink-1[data-v-66898320] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-lg-start[data-v-66898320] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-lg-end[data-v-66898320] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-lg-center[data-v-66898320] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-lg-between[data-v-66898320] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-lg-around[data-v-66898320] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-lg-start[data-v-66898320] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-lg-end[data-v-66898320] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-lg-center[data-v-66898320] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-lg-baseline[data-v-66898320] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-lg-stretch[data-v-66898320] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-lg-start[data-v-66898320] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-lg-end[data-v-66898320] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-lg-center[data-v-66898320] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-lg-between[data-v-66898320] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-lg-around[data-v-66898320] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-lg-stretch[data-v-66898320] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-lg-auto[data-v-66898320] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-lg-start[data-v-66898320] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-lg-end[data-v-66898320] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-lg-center[data-v-66898320] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-lg-baseline[data-v-66898320] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-lg-stretch[data-v-66898320] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 1200px) {\n.flex-xl-row[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-xl-column[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-xl-row-reverse[data-v-66898320] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-xl-column-reverse[data-v-66898320] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-xl-wrap[data-v-66898320] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-xl-nowrap[data-v-66898320] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-xl-wrap-reverse[data-v-66898320] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-xl-fill[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-xl-grow-0[data-v-66898320] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-xl-grow-1[data-v-66898320] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-xl-shrink-0[data-v-66898320] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-xl-shrink-1[data-v-66898320] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-xl-start[data-v-66898320] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-xl-end[data-v-66898320] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-xl-center[data-v-66898320] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-xl-between[data-v-66898320] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-xl-around[data-v-66898320] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-xl-start[data-v-66898320] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-xl-end[data-v-66898320] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-xl-center[data-v-66898320] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-xl-baseline[data-v-66898320] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-xl-stretch[data-v-66898320] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-xl-start[data-v-66898320] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-xl-end[data-v-66898320] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-xl-center[data-v-66898320] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-xl-between[data-v-66898320] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-xl-around[data-v-66898320] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-xl-stretch[data-v-66898320] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-xl-auto[data-v-66898320] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-xl-start[data-v-66898320] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-xl-end[data-v-66898320] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-xl-center[data-v-66898320] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-xl-baseline[data-v-66898320] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-xl-stretch[data-v-66898320] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n.w-25[data-v-66898320] {\n  width: 25% !important;\n}\n.w-50[data-v-66898320] {\n  width: 50% !important;\n}\n.w-75[data-v-66898320] {\n  width: 75% !important;\n}\n.w-100[data-v-66898320] {\n  width: 100% !important;\n}\n.w-auto[data-v-66898320] {\n  width: auto !important;\n}\n.h-25[data-v-66898320] {\n  height: 25% !important;\n}\n.h-50[data-v-66898320] {\n  height: 50% !important;\n}\n.h-75[data-v-66898320] {\n  height: 75% !important;\n}\n.h-100[data-v-66898320] {\n  height: 100% !important;\n}\n.h-auto[data-v-66898320] {\n  height: auto !important;\n}\n.mw-100[data-v-66898320] {\n  max-width: 100% !important;\n}\n.mh-100[data-v-66898320] {\n  max-height: 100% !important;\n}\n.m-0[data-v-66898320] {\n  margin: 0 !important;\n}\n.mt-0[data-v-66898320],\n.my-0[data-v-66898320] {\n  margin-top: 0 !important;\n}\n.mr-0[data-v-66898320],\n.mx-0[data-v-66898320] {\n  margin-right: 0 !important;\n}\n.mb-0[data-v-66898320],\n.my-0[data-v-66898320] {\n  margin-bottom: 0 !important;\n}\n.ml-0[data-v-66898320],\n.mx-0[data-v-66898320] {\n  margin-left: 0 !important;\n}\n.m-1[data-v-66898320] {\n  margin: 0.25rem !important;\n}\n.mt-1[data-v-66898320],\n.my-1[data-v-66898320] {\n  margin-top: 0.25rem !important;\n}\n.mr-1[data-v-66898320],\n.mx-1[data-v-66898320] {\n  margin-right: 0.25rem !important;\n}\n.mb-1[data-v-66898320],\n.my-1[data-v-66898320] {\n  margin-bottom: 0.25rem !important;\n}\n.ml-1[data-v-66898320],\n.mx-1[data-v-66898320] {\n  margin-left: 0.25rem !important;\n}\n.m-2[data-v-66898320] {\n  margin: 0.5rem !important;\n}\n.mt-2[data-v-66898320],\n.my-2[data-v-66898320] {\n  margin-top: 0.5rem !important;\n}\n.mr-2[data-v-66898320],\n.mx-2[data-v-66898320] {\n  margin-right: 0.5rem !important;\n}\n.mb-2[data-v-66898320],\n.my-2[data-v-66898320] {\n  margin-bottom: 0.5rem !important;\n}\n.ml-2[data-v-66898320],\n.mx-2[data-v-66898320] {\n  margin-left: 0.5rem !important;\n}\n.m-3[data-v-66898320] {\n  margin: 1rem !important;\n}\n.mt-3[data-v-66898320],\n.my-3[data-v-66898320] {\n  margin-top: 1rem !important;\n}\n.mr-3[data-v-66898320],\n.mx-3[data-v-66898320] {\n  margin-right: 1rem !important;\n}\n.mb-3[data-v-66898320],\n.my-3[data-v-66898320] {\n  margin-bottom: 1rem !important;\n}\n.ml-3[data-v-66898320],\n.mx-3[data-v-66898320] {\n  margin-left: 1rem !important;\n}\n.m-4[data-v-66898320] {\n  margin: 1.5rem !important;\n}\n.mt-4[data-v-66898320],\n.my-4[data-v-66898320] {\n  margin-top: 1.5rem !important;\n}\n.mr-4[data-v-66898320],\n.mx-4[data-v-66898320] {\n  margin-right: 1.5rem !important;\n}\n.mb-4[data-v-66898320],\n.my-4[data-v-66898320] {\n  margin-bottom: 1.5rem !important;\n}\n.ml-4[data-v-66898320],\n.mx-4[data-v-66898320] {\n  margin-left: 1.5rem !important;\n}\n.m-5[data-v-66898320] {\n  margin: 3rem !important;\n}\n.mt-5[data-v-66898320],\n.my-5[data-v-66898320] {\n  margin-top: 3rem !important;\n}\n.mr-5[data-v-66898320],\n.mx-5[data-v-66898320] {\n  margin-right: 3rem !important;\n}\n.mb-5[data-v-66898320],\n.my-5[data-v-66898320] {\n  margin-bottom: 3rem !important;\n}\n.ml-5[data-v-66898320],\n.mx-5[data-v-66898320] {\n  margin-left: 3rem !important;\n}\n.p-0[data-v-66898320] {\n  padding: 0 !important;\n}\n.pt-0[data-v-66898320],\n.py-0[data-v-66898320] {\n  padding-top: 0 !important;\n}\n.pr-0[data-v-66898320],\n.px-0[data-v-66898320] {\n  padding-right: 0 !important;\n}\n.pb-0[data-v-66898320],\n.py-0[data-v-66898320] {\n  padding-bottom: 0 !important;\n}\n.pl-0[data-v-66898320],\n.px-0[data-v-66898320] {\n  padding-left: 0 !important;\n}\n.p-1[data-v-66898320] {\n  padding: 0.25rem !important;\n}\n.pt-1[data-v-66898320],\n.py-1[data-v-66898320] {\n  padding-top: 0.25rem !important;\n}\n.pr-1[data-v-66898320],\n.px-1[data-v-66898320] {\n  padding-right: 0.25rem !important;\n}\n.pb-1[data-v-66898320],\n.py-1[data-v-66898320] {\n  padding-bottom: 0.25rem !important;\n}\n.pl-1[data-v-66898320],\n.px-1[data-v-66898320] {\n  padding-left: 0.25rem !important;\n}\n.p-2[data-v-66898320] {\n  padding: 0.5rem !important;\n}\n.pt-2[data-v-66898320],\n.py-2[data-v-66898320] {\n  padding-top: 0.5rem !important;\n}\n.pr-2[data-v-66898320],\n.px-2[data-v-66898320] {\n  padding-right: 0.5rem !important;\n}\n.pb-2[data-v-66898320],\n.py-2[data-v-66898320] {\n  padding-bottom: 0.5rem !important;\n}\n.pl-2[data-v-66898320],\n.px-2[data-v-66898320] {\n  padding-left: 0.5rem !important;\n}\n.p-3[data-v-66898320] {\n  padding: 1rem !important;\n}\n.pt-3[data-v-66898320],\n.py-3[data-v-66898320] {\n  padding-top: 1rem !important;\n}\n.pr-3[data-v-66898320],\n.px-3[data-v-66898320] {\n  padding-right: 1rem !important;\n}\n.pb-3[data-v-66898320],\n.py-3[data-v-66898320] {\n  padding-bottom: 1rem !important;\n}\n.pl-3[data-v-66898320],\n.px-3[data-v-66898320] {\n  padding-left: 1rem !important;\n}\n.p-4[data-v-66898320] {\n  padding: 1.5rem !important;\n}\n.pt-4[data-v-66898320],\n.py-4[data-v-66898320] {\n  padding-top: 1.5rem !important;\n}\n.pr-4[data-v-66898320],\n.px-4[data-v-66898320] {\n  padding-right: 1.5rem !important;\n}\n.pb-4[data-v-66898320],\n.py-4[data-v-66898320] {\n  padding-bottom: 1.5rem !important;\n}\n.pl-4[data-v-66898320],\n.px-4[data-v-66898320] {\n  padding-left: 1.5rem !important;\n}\n.p-5[data-v-66898320] {\n  padding: 3rem !important;\n}\n.pt-5[data-v-66898320],\n.py-5[data-v-66898320] {\n  padding-top: 3rem !important;\n}\n.pr-5[data-v-66898320],\n.px-5[data-v-66898320] {\n  padding-right: 3rem !important;\n}\n.pb-5[data-v-66898320],\n.py-5[data-v-66898320] {\n  padding-bottom: 3rem !important;\n}\n.pl-5[data-v-66898320],\n.px-5[data-v-66898320] {\n  padding-left: 3rem !important;\n}\n.m-auto[data-v-66898320] {\n  margin: auto !important;\n}\n.mt-auto[data-v-66898320],\n.my-auto[data-v-66898320] {\n  margin-top: auto !important;\n}\n.mr-auto[data-v-66898320],\n.mx-auto[data-v-66898320] {\n  margin-right: auto !important;\n}\n.mb-auto[data-v-66898320],\n.my-auto[data-v-66898320] {\n  margin-bottom: auto !important;\n}\n.ml-auto[data-v-66898320],\n.mx-auto[data-v-66898320] {\n  margin-left: auto !important;\n}\n@media (min-width: 576px) {\n.m-sm-0[data-v-66898320] {\n    margin: 0 !important;\n}\n.mt-sm-0[data-v-66898320],\n  .my-sm-0[data-v-66898320] {\n    margin-top: 0 !important;\n}\n.mr-sm-0[data-v-66898320],\n  .mx-sm-0[data-v-66898320] {\n    margin-right: 0 !important;\n}\n.mb-sm-0[data-v-66898320],\n  .my-sm-0[data-v-66898320] {\n    margin-bottom: 0 !important;\n}\n.ml-sm-0[data-v-66898320],\n  .mx-sm-0[data-v-66898320] {\n    margin-left: 0 !important;\n}\n.m-sm-1[data-v-66898320] {\n    margin: 0.25rem !important;\n}\n.mt-sm-1[data-v-66898320],\n  .my-sm-1[data-v-66898320] {\n    margin-top: 0.25rem !important;\n}\n.mr-sm-1[data-v-66898320],\n  .mx-sm-1[data-v-66898320] {\n    margin-right: 0.25rem !important;\n}\n.mb-sm-1[data-v-66898320],\n  .my-sm-1[data-v-66898320] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-sm-1[data-v-66898320],\n  .mx-sm-1[data-v-66898320] {\n    margin-left: 0.25rem !important;\n}\n.m-sm-2[data-v-66898320] {\n    margin: 0.5rem !important;\n}\n.mt-sm-2[data-v-66898320],\n  .my-sm-2[data-v-66898320] {\n    margin-top: 0.5rem !important;\n}\n.mr-sm-2[data-v-66898320],\n  .mx-sm-2[data-v-66898320] {\n    margin-right: 0.5rem !important;\n}\n.mb-sm-2[data-v-66898320],\n  .my-sm-2[data-v-66898320] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-sm-2[data-v-66898320],\n  .mx-sm-2[data-v-66898320] {\n    margin-left: 0.5rem !important;\n}\n.m-sm-3[data-v-66898320] {\n    margin: 1rem !important;\n}\n.mt-sm-3[data-v-66898320],\n  .my-sm-3[data-v-66898320] {\n    margin-top: 1rem !important;\n}\n.mr-sm-3[data-v-66898320],\n  .mx-sm-3[data-v-66898320] {\n    margin-right: 1rem !important;\n}\n.mb-sm-3[data-v-66898320],\n  .my-sm-3[data-v-66898320] {\n    margin-bottom: 1rem !important;\n}\n.ml-sm-3[data-v-66898320],\n  .mx-sm-3[data-v-66898320] {\n    margin-left: 1rem !important;\n}\n.m-sm-4[data-v-66898320] {\n    margin: 1.5rem !important;\n}\n.mt-sm-4[data-v-66898320],\n  .my-sm-4[data-v-66898320] {\n    margin-top: 1.5rem !important;\n}\n.mr-sm-4[data-v-66898320],\n  .mx-sm-4[data-v-66898320] {\n    margin-right: 1.5rem !important;\n}\n.mb-sm-4[data-v-66898320],\n  .my-sm-4[data-v-66898320] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-sm-4[data-v-66898320],\n  .mx-sm-4[data-v-66898320] {\n    margin-left: 1.5rem !important;\n}\n.m-sm-5[data-v-66898320] {\n    margin: 3rem !important;\n}\n.mt-sm-5[data-v-66898320],\n  .my-sm-5[data-v-66898320] {\n    margin-top: 3rem !important;\n}\n.mr-sm-5[data-v-66898320],\n  .mx-sm-5[data-v-66898320] {\n    margin-right: 3rem !important;\n}\n.mb-sm-5[data-v-66898320],\n  .my-sm-5[data-v-66898320] {\n    margin-bottom: 3rem !important;\n}\n.ml-sm-5[data-v-66898320],\n  .mx-sm-5[data-v-66898320] {\n    margin-left: 3rem !important;\n}\n.p-sm-0[data-v-66898320] {\n    padding: 0 !important;\n}\n.pt-sm-0[data-v-66898320],\n  .py-sm-0[data-v-66898320] {\n    padding-top: 0 !important;\n}\n.pr-sm-0[data-v-66898320],\n  .px-sm-0[data-v-66898320] {\n    padding-right: 0 !important;\n}\n.pb-sm-0[data-v-66898320],\n  .py-sm-0[data-v-66898320] {\n    padding-bottom: 0 !important;\n}\n.pl-sm-0[data-v-66898320],\n  .px-sm-0[data-v-66898320] {\n    padding-left: 0 !important;\n}\n.p-sm-1[data-v-66898320] {\n    padding: 0.25rem !important;\n}\n.pt-sm-1[data-v-66898320],\n  .py-sm-1[data-v-66898320] {\n    padding-top: 0.25rem !important;\n}\n.pr-sm-1[data-v-66898320],\n  .px-sm-1[data-v-66898320] {\n    padding-right: 0.25rem !important;\n}\n.pb-sm-1[data-v-66898320],\n  .py-sm-1[data-v-66898320] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-sm-1[data-v-66898320],\n  .px-sm-1[data-v-66898320] {\n    padding-left: 0.25rem !important;\n}\n.p-sm-2[data-v-66898320] {\n    padding: 0.5rem !important;\n}\n.pt-sm-2[data-v-66898320],\n  .py-sm-2[data-v-66898320] {\n    padding-top: 0.5rem !important;\n}\n.pr-sm-2[data-v-66898320],\n  .px-sm-2[data-v-66898320] {\n    padding-right: 0.5rem !important;\n}\n.pb-sm-2[data-v-66898320],\n  .py-sm-2[data-v-66898320] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-sm-2[data-v-66898320],\n  .px-sm-2[data-v-66898320] {\n    padding-left: 0.5rem !important;\n}\n.p-sm-3[data-v-66898320] {\n    padding: 1rem !important;\n}\n.pt-sm-3[data-v-66898320],\n  .py-sm-3[data-v-66898320] {\n    padding-top: 1rem !important;\n}\n.pr-sm-3[data-v-66898320],\n  .px-sm-3[data-v-66898320] {\n    padding-right: 1rem !important;\n}\n.pb-sm-3[data-v-66898320],\n  .py-sm-3[data-v-66898320] {\n    padding-bottom: 1rem !important;\n}\n.pl-sm-3[data-v-66898320],\n  .px-sm-3[data-v-66898320] {\n    padding-left: 1rem !important;\n}\n.p-sm-4[data-v-66898320] {\n    padding: 1.5rem !important;\n}\n.pt-sm-4[data-v-66898320],\n  .py-sm-4[data-v-66898320] {\n    padding-top: 1.5rem !important;\n}\n.pr-sm-4[data-v-66898320],\n  .px-sm-4[data-v-66898320] {\n    padding-right: 1.5rem !important;\n}\n.pb-sm-4[data-v-66898320],\n  .py-sm-4[data-v-66898320] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-sm-4[data-v-66898320],\n  .px-sm-4[data-v-66898320] {\n    padding-left: 1.5rem !important;\n}\n.p-sm-5[data-v-66898320] {\n    padding: 3rem !important;\n}\n.pt-sm-5[data-v-66898320],\n  .py-sm-5[data-v-66898320] {\n    padding-top: 3rem !important;\n}\n.pr-sm-5[data-v-66898320],\n  .px-sm-5[data-v-66898320] {\n    padding-right: 3rem !important;\n}\n.pb-sm-5[data-v-66898320],\n  .py-sm-5[data-v-66898320] {\n    padding-bottom: 3rem !important;\n}\n.pl-sm-5[data-v-66898320],\n  .px-sm-5[data-v-66898320] {\n    padding-left: 3rem !important;\n}\n.m-sm-auto[data-v-66898320] {\n    margin: auto !important;\n}\n.mt-sm-auto[data-v-66898320],\n  .my-sm-auto[data-v-66898320] {\n    margin-top: auto !important;\n}\n.mr-sm-auto[data-v-66898320],\n  .mx-sm-auto[data-v-66898320] {\n    margin-right: auto !important;\n}\n.mb-sm-auto[data-v-66898320],\n  .my-sm-auto[data-v-66898320] {\n    margin-bottom: auto !important;\n}\n.ml-sm-auto[data-v-66898320],\n  .mx-sm-auto[data-v-66898320] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 768px) {\n.m-md-0[data-v-66898320] {\n    margin: 0 !important;\n}\n.mt-md-0[data-v-66898320],\n  .my-md-0[data-v-66898320] {\n    margin-top: 0 !important;\n}\n.mr-md-0[data-v-66898320],\n  .mx-md-0[data-v-66898320] {\n    margin-right: 0 !important;\n}\n.mb-md-0[data-v-66898320],\n  .my-md-0[data-v-66898320] {\n    margin-bottom: 0 !important;\n}\n.ml-md-0[data-v-66898320],\n  .mx-md-0[data-v-66898320] {\n    margin-left: 0 !important;\n}\n.m-md-1[data-v-66898320] {\n    margin: 0.25rem !important;\n}\n.mt-md-1[data-v-66898320],\n  .my-md-1[data-v-66898320] {\n    margin-top: 0.25rem !important;\n}\n.mr-md-1[data-v-66898320],\n  .mx-md-1[data-v-66898320] {\n    margin-right: 0.25rem !important;\n}\n.mb-md-1[data-v-66898320],\n  .my-md-1[data-v-66898320] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-md-1[data-v-66898320],\n  .mx-md-1[data-v-66898320] {\n    margin-left: 0.25rem !important;\n}\n.m-md-2[data-v-66898320] {\n    margin: 0.5rem !important;\n}\n.mt-md-2[data-v-66898320],\n  .my-md-2[data-v-66898320] {\n    margin-top: 0.5rem !important;\n}\n.mr-md-2[data-v-66898320],\n  .mx-md-2[data-v-66898320] {\n    margin-right: 0.5rem !important;\n}\n.mb-md-2[data-v-66898320],\n  .my-md-2[data-v-66898320] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-md-2[data-v-66898320],\n  .mx-md-2[data-v-66898320] {\n    margin-left: 0.5rem !important;\n}\n.m-md-3[data-v-66898320] {\n    margin: 1rem !important;\n}\n.mt-md-3[data-v-66898320],\n  .my-md-3[data-v-66898320] {\n    margin-top: 1rem !important;\n}\n.mr-md-3[data-v-66898320],\n  .mx-md-3[data-v-66898320] {\n    margin-right: 1rem !important;\n}\n.mb-md-3[data-v-66898320],\n  .my-md-3[data-v-66898320] {\n    margin-bottom: 1rem !important;\n}\n.ml-md-3[data-v-66898320],\n  .mx-md-3[data-v-66898320] {\n    margin-left: 1rem !important;\n}\n.m-md-4[data-v-66898320] {\n    margin: 1.5rem !important;\n}\n.mt-md-4[data-v-66898320],\n  .my-md-4[data-v-66898320] {\n    margin-top: 1.5rem !important;\n}\n.mr-md-4[data-v-66898320],\n  .mx-md-4[data-v-66898320] {\n    margin-right: 1.5rem !important;\n}\n.mb-md-4[data-v-66898320],\n  .my-md-4[data-v-66898320] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-md-4[data-v-66898320],\n  .mx-md-4[data-v-66898320] {\n    margin-left: 1.5rem !important;\n}\n.m-md-5[data-v-66898320] {\n    margin: 3rem !important;\n}\n.mt-md-5[data-v-66898320],\n  .my-md-5[data-v-66898320] {\n    margin-top: 3rem !important;\n}\n.mr-md-5[data-v-66898320],\n  .mx-md-5[data-v-66898320] {\n    margin-right: 3rem !important;\n}\n.mb-md-5[data-v-66898320],\n  .my-md-5[data-v-66898320] {\n    margin-bottom: 3rem !important;\n}\n.ml-md-5[data-v-66898320],\n  .mx-md-5[data-v-66898320] {\n    margin-left: 3rem !important;\n}\n.p-md-0[data-v-66898320] {\n    padding: 0 !important;\n}\n.pt-md-0[data-v-66898320],\n  .py-md-0[data-v-66898320] {\n    padding-top: 0 !important;\n}\n.pr-md-0[data-v-66898320],\n  .px-md-0[data-v-66898320] {\n    padding-right: 0 !important;\n}\n.pb-md-0[data-v-66898320],\n  .py-md-0[data-v-66898320] {\n    padding-bottom: 0 !important;\n}\n.pl-md-0[data-v-66898320],\n  .px-md-0[data-v-66898320] {\n    padding-left: 0 !important;\n}\n.p-md-1[data-v-66898320] {\n    padding: 0.25rem !important;\n}\n.pt-md-1[data-v-66898320],\n  .py-md-1[data-v-66898320] {\n    padding-top: 0.25rem !important;\n}\n.pr-md-1[data-v-66898320],\n  .px-md-1[data-v-66898320] {\n    padding-right: 0.25rem !important;\n}\n.pb-md-1[data-v-66898320],\n  .py-md-1[data-v-66898320] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-md-1[data-v-66898320],\n  .px-md-1[data-v-66898320] {\n    padding-left: 0.25rem !important;\n}\n.p-md-2[data-v-66898320] {\n    padding: 0.5rem !important;\n}\n.pt-md-2[data-v-66898320],\n  .py-md-2[data-v-66898320] {\n    padding-top: 0.5rem !important;\n}\n.pr-md-2[data-v-66898320],\n  .px-md-2[data-v-66898320] {\n    padding-right: 0.5rem !important;\n}\n.pb-md-2[data-v-66898320],\n  .py-md-2[data-v-66898320] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-md-2[data-v-66898320],\n  .px-md-2[data-v-66898320] {\n    padding-left: 0.5rem !important;\n}\n.p-md-3[data-v-66898320] {\n    padding: 1rem !important;\n}\n.pt-md-3[data-v-66898320],\n  .py-md-3[data-v-66898320] {\n    padding-top: 1rem !important;\n}\n.pr-md-3[data-v-66898320],\n  .px-md-3[data-v-66898320] {\n    padding-right: 1rem !important;\n}\n.pb-md-3[data-v-66898320],\n  .py-md-3[data-v-66898320] {\n    padding-bottom: 1rem !important;\n}\n.pl-md-3[data-v-66898320],\n  .px-md-3[data-v-66898320] {\n    padding-left: 1rem !important;\n}\n.p-md-4[data-v-66898320] {\n    padding: 1.5rem !important;\n}\n.pt-md-4[data-v-66898320],\n  .py-md-4[data-v-66898320] {\n    padding-top: 1.5rem !important;\n}\n.pr-md-4[data-v-66898320],\n  .px-md-4[data-v-66898320] {\n    padding-right: 1.5rem !important;\n}\n.pb-md-4[data-v-66898320],\n  .py-md-4[data-v-66898320] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-md-4[data-v-66898320],\n  .px-md-4[data-v-66898320] {\n    padding-left: 1.5rem !important;\n}\n.p-md-5[data-v-66898320] {\n    padding: 3rem !important;\n}\n.pt-md-5[data-v-66898320],\n  .py-md-5[data-v-66898320] {\n    padding-top: 3rem !important;\n}\n.pr-md-5[data-v-66898320],\n  .px-md-5[data-v-66898320] {\n    padding-right: 3rem !important;\n}\n.pb-md-5[data-v-66898320],\n  .py-md-5[data-v-66898320] {\n    padding-bottom: 3rem !important;\n}\n.pl-md-5[data-v-66898320],\n  .px-md-5[data-v-66898320] {\n    padding-left: 3rem !important;\n}\n.m-md-auto[data-v-66898320] {\n    margin: auto !important;\n}\n.mt-md-auto[data-v-66898320],\n  .my-md-auto[data-v-66898320] {\n    margin-top: auto !important;\n}\n.mr-md-auto[data-v-66898320],\n  .mx-md-auto[data-v-66898320] {\n    margin-right: auto !important;\n}\n.mb-md-auto[data-v-66898320],\n  .my-md-auto[data-v-66898320] {\n    margin-bottom: auto !important;\n}\n.ml-md-auto[data-v-66898320],\n  .mx-md-auto[data-v-66898320] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 992px) {\n.m-lg-0[data-v-66898320] {\n    margin: 0 !important;\n}\n.mt-lg-0[data-v-66898320],\n  .my-lg-0[data-v-66898320] {\n    margin-top: 0 !important;\n}\n.mr-lg-0[data-v-66898320],\n  .mx-lg-0[data-v-66898320] {\n    margin-right: 0 !important;\n}\n.mb-lg-0[data-v-66898320],\n  .my-lg-0[data-v-66898320] {\n    margin-bottom: 0 !important;\n}\n.ml-lg-0[data-v-66898320],\n  .mx-lg-0[data-v-66898320] {\n    margin-left: 0 !important;\n}\n.m-lg-1[data-v-66898320] {\n    margin: 0.25rem !important;\n}\n.mt-lg-1[data-v-66898320],\n  .my-lg-1[data-v-66898320] {\n    margin-top: 0.25rem !important;\n}\n.mr-lg-1[data-v-66898320],\n  .mx-lg-1[data-v-66898320] {\n    margin-right: 0.25rem !important;\n}\n.mb-lg-1[data-v-66898320],\n  .my-lg-1[data-v-66898320] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-lg-1[data-v-66898320],\n  .mx-lg-1[data-v-66898320] {\n    margin-left: 0.25rem !important;\n}\n.m-lg-2[data-v-66898320] {\n    margin: 0.5rem !important;\n}\n.mt-lg-2[data-v-66898320],\n  .my-lg-2[data-v-66898320] {\n    margin-top: 0.5rem !important;\n}\n.mr-lg-2[data-v-66898320],\n  .mx-lg-2[data-v-66898320] {\n    margin-right: 0.5rem !important;\n}\n.mb-lg-2[data-v-66898320],\n  .my-lg-2[data-v-66898320] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-lg-2[data-v-66898320],\n  .mx-lg-2[data-v-66898320] {\n    margin-left: 0.5rem !important;\n}\n.m-lg-3[data-v-66898320] {\n    margin: 1rem !important;\n}\n.mt-lg-3[data-v-66898320],\n  .my-lg-3[data-v-66898320] {\n    margin-top: 1rem !important;\n}\n.mr-lg-3[data-v-66898320],\n  .mx-lg-3[data-v-66898320] {\n    margin-right: 1rem !important;\n}\n.mb-lg-3[data-v-66898320],\n  .my-lg-3[data-v-66898320] {\n    margin-bottom: 1rem !important;\n}\n.ml-lg-3[data-v-66898320],\n  .mx-lg-3[data-v-66898320] {\n    margin-left: 1rem !important;\n}\n.m-lg-4[data-v-66898320] {\n    margin: 1.5rem !important;\n}\n.mt-lg-4[data-v-66898320],\n  .my-lg-4[data-v-66898320] {\n    margin-top: 1.5rem !important;\n}\n.mr-lg-4[data-v-66898320],\n  .mx-lg-4[data-v-66898320] {\n    margin-right: 1.5rem !important;\n}\n.mb-lg-4[data-v-66898320],\n  .my-lg-4[data-v-66898320] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-lg-4[data-v-66898320],\n  .mx-lg-4[data-v-66898320] {\n    margin-left: 1.5rem !important;\n}\n.m-lg-5[data-v-66898320] {\n    margin: 3rem !important;\n}\n.mt-lg-5[data-v-66898320],\n  .my-lg-5[data-v-66898320] {\n    margin-top: 3rem !important;\n}\n.mr-lg-5[data-v-66898320],\n  .mx-lg-5[data-v-66898320] {\n    margin-right: 3rem !important;\n}\n.mb-lg-5[data-v-66898320],\n  .my-lg-5[data-v-66898320] {\n    margin-bottom: 3rem !important;\n}\n.ml-lg-5[data-v-66898320],\n  .mx-lg-5[data-v-66898320] {\n    margin-left: 3rem !important;\n}\n.p-lg-0[data-v-66898320] {\n    padding: 0 !important;\n}\n.pt-lg-0[data-v-66898320],\n  .py-lg-0[data-v-66898320] {\n    padding-top: 0 !important;\n}\n.pr-lg-0[data-v-66898320],\n  .px-lg-0[data-v-66898320] {\n    padding-right: 0 !important;\n}\n.pb-lg-0[data-v-66898320],\n  .py-lg-0[data-v-66898320] {\n    padding-bottom: 0 !important;\n}\n.pl-lg-0[data-v-66898320],\n  .px-lg-0[data-v-66898320] {\n    padding-left: 0 !important;\n}\n.p-lg-1[data-v-66898320] {\n    padding: 0.25rem !important;\n}\n.pt-lg-1[data-v-66898320],\n  .py-lg-1[data-v-66898320] {\n    padding-top: 0.25rem !important;\n}\n.pr-lg-1[data-v-66898320],\n  .px-lg-1[data-v-66898320] {\n    padding-right: 0.25rem !important;\n}\n.pb-lg-1[data-v-66898320],\n  .py-lg-1[data-v-66898320] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-lg-1[data-v-66898320],\n  .px-lg-1[data-v-66898320] {\n    padding-left: 0.25rem !important;\n}\n.p-lg-2[data-v-66898320] {\n    padding: 0.5rem !important;\n}\n.pt-lg-2[data-v-66898320],\n  .py-lg-2[data-v-66898320] {\n    padding-top: 0.5rem !important;\n}\n.pr-lg-2[data-v-66898320],\n  .px-lg-2[data-v-66898320] {\n    padding-right: 0.5rem !important;\n}\n.pb-lg-2[data-v-66898320],\n  .py-lg-2[data-v-66898320] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-lg-2[data-v-66898320],\n  .px-lg-2[data-v-66898320] {\n    padding-left: 0.5rem !important;\n}\n.p-lg-3[data-v-66898320] {\n    padding: 1rem !important;\n}\n.pt-lg-3[data-v-66898320],\n  .py-lg-3[data-v-66898320] {\n    padding-top: 1rem !important;\n}\n.pr-lg-3[data-v-66898320],\n  .px-lg-3[data-v-66898320] {\n    padding-right: 1rem !important;\n}\n.pb-lg-3[data-v-66898320],\n  .py-lg-3[data-v-66898320] {\n    padding-bottom: 1rem !important;\n}\n.pl-lg-3[data-v-66898320],\n  .px-lg-3[data-v-66898320] {\n    padding-left: 1rem !important;\n}\n.p-lg-4[data-v-66898320] {\n    padding: 1.5rem !important;\n}\n.pt-lg-4[data-v-66898320],\n  .py-lg-4[data-v-66898320] {\n    padding-top: 1.5rem !important;\n}\n.pr-lg-4[data-v-66898320],\n  .px-lg-4[data-v-66898320] {\n    padding-right: 1.5rem !important;\n}\n.pb-lg-4[data-v-66898320],\n  .py-lg-4[data-v-66898320] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-lg-4[data-v-66898320],\n  .px-lg-4[data-v-66898320] {\n    padding-left: 1.5rem !important;\n}\n.p-lg-5[data-v-66898320] {\n    padding: 3rem !important;\n}\n.pt-lg-5[data-v-66898320],\n  .py-lg-5[data-v-66898320] {\n    padding-top: 3rem !important;\n}\n.pr-lg-5[data-v-66898320],\n  .px-lg-5[data-v-66898320] {\n    padding-right: 3rem !important;\n}\n.pb-lg-5[data-v-66898320],\n  .py-lg-5[data-v-66898320] {\n    padding-bottom: 3rem !important;\n}\n.pl-lg-5[data-v-66898320],\n  .px-lg-5[data-v-66898320] {\n    padding-left: 3rem !important;\n}\n.m-lg-auto[data-v-66898320] {\n    margin: auto !important;\n}\n.mt-lg-auto[data-v-66898320],\n  .my-lg-auto[data-v-66898320] {\n    margin-top: auto !important;\n}\n.mr-lg-auto[data-v-66898320],\n  .mx-lg-auto[data-v-66898320] {\n    margin-right: auto !important;\n}\n.mb-lg-auto[data-v-66898320],\n  .my-lg-auto[data-v-66898320] {\n    margin-bottom: auto !important;\n}\n.ml-lg-auto[data-v-66898320],\n  .mx-lg-auto[data-v-66898320] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 1200px) {\n.m-xl-0[data-v-66898320] {\n    margin: 0 !important;\n}\n.mt-xl-0[data-v-66898320],\n  .my-xl-0[data-v-66898320] {\n    margin-top: 0 !important;\n}\n.mr-xl-0[data-v-66898320],\n  .mx-xl-0[data-v-66898320] {\n    margin-right: 0 !important;\n}\n.mb-xl-0[data-v-66898320],\n  .my-xl-0[data-v-66898320] {\n    margin-bottom: 0 !important;\n}\n.ml-xl-0[data-v-66898320],\n  .mx-xl-0[data-v-66898320] {\n    margin-left: 0 !important;\n}\n.m-xl-1[data-v-66898320] {\n    margin: 0.25rem !important;\n}\n.mt-xl-1[data-v-66898320],\n  .my-xl-1[data-v-66898320] {\n    margin-top: 0.25rem !important;\n}\n.mr-xl-1[data-v-66898320],\n  .mx-xl-1[data-v-66898320] {\n    margin-right: 0.25rem !important;\n}\n.mb-xl-1[data-v-66898320],\n  .my-xl-1[data-v-66898320] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-xl-1[data-v-66898320],\n  .mx-xl-1[data-v-66898320] {\n    margin-left: 0.25rem !important;\n}\n.m-xl-2[data-v-66898320] {\n    margin: 0.5rem !important;\n}\n.mt-xl-2[data-v-66898320],\n  .my-xl-2[data-v-66898320] {\n    margin-top: 0.5rem !important;\n}\n.mr-xl-2[data-v-66898320],\n  .mx-xl-2[data-v-66898320] {\n    margin-right: 0.5rem !important;\n}\n.mb-xl-2[data-v-66898320],\n  .my-xl-2[data-v-66898320] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-xl-2[data-v-66898320],\n  .mx-xl-2[data-v-66898320] {\n    margin-left: 0.5rem !important;\n}\n.m-xl-3[data-v-66898320] {\n    margin: 1rem !important;\n}\n.mt-xl-3[data-v-66898320],\n  .my-xl-3[data-v-66898320] {\n    margin-top: 1rem !important;\n}\n.mr-xl-3[data-v-66898320],\n  .mx-xl-3[data-v-66898320] {\n    margin-right: 1rem !important;\n}\n.mb-xl-3[data-v-66898320],\n  .my-xl-3[data-v-66898320] {\n    margin-bottom: 1rem !important;\n}\n.ml-xl-3[data-v-66898320],\n  .mx-xl-3[data-v-66898320] {\n    margin-left: 1rem !important;\n}\n.m-xl-4[data-v-66898320] {\n    margin: 1.5rem !important;\n}\n.mt-xl-4[data-v-66898320],\n  .my-xl-4[data-v-66898320] {\n    margin-top: 1.5rem !important;\n}\n.mr-xl-4[data-v-66898320],\n  .mx-xl-4[data-v-66898320] {\n    margin-right: 1.5rem !important;\n}\n.mb-xl-4[data-v-66898320],\n  .my-xl-4[data-v-66898320] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-xl-4[data-v-66898320],\n  .mx-xl-4[data-v-66898320] {\n    margin-left: 1.5rem !important;\n}\n.m-xl-5[data-v-66898320] {\n    margin: 3rem !important;\n}\n.mt-xl-5[data-v-66898320],\n  .my-xl-5[data-v-66898320] {\n    margin-top: 3rem !important;\n}\n.mr-xl-5[data-v-66898320],\n  .mx-xl-5[data-v-66898320] {\n    margin-right: 3rem !important;\n}\n.mb-xl-5[data-v-66898320],\n  .my-xl-5[data-v-66898320] {\n    margin-bottom: 3rem !important;\n}\n.ml-xl-5[data-v-66898320],\n  .mx-xl-5[data-v-66898320] {\n    margin-left: 3rem !important;\n}\n.p-xl-0[data-v-66898320] {\n    padding: 0 !important;\n}\n.pt-xl-0[data-v-66898320],\n  .py-xl-0[data-v-66898320] {\n    padding-top: 0 !important;\n}\n.pr-xl-0[data-v-66898320],\n  .px-xl-0[data-v-66898320] {\n    padding-right: 0 !important;\n}\n.pb-xl-0[data-v-66898320],\n  .py-xl-0[data-v-66898320] {\n    padding-bottom: 0 !important;\n}\n.pl-xl-0[data-v-66898320],\n  .px-xl-0[data-v-66898320] {\n    padding-left: 0 !important;\n}\n.p-xl-1[data-v-66898320] {\n    padding: 0.25rem !important;\n}\n.pt-xl-1[data-v-66898320],\n  .py-xl-1[data-v-66898320] {\n    padding-top: 0.25rem !important;\n}\n.pr-xl-1[data-v-66898320],\n  .px-xl-1[data-v-66898320] {\n    padding-right: 0.25rem !important;\n}\n.pb-xl-1[data-v-66898320],\n  .py-xl-1[data-v-66898320] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-xl-1[data-v-66898320],\n  .px-xl-1[data-v-66898320] {\n    padding-left: 0.25rem !important;\n}\n.p-xl-2[data-v-66898320] {\n    padding: 0.5rem !important;\n}\n.pt-xl-2[data-v-66898320],\n  .py-xl-2[data-v-66898320] {\n    padding-top: 0.5rem !important;\n}\n.pr-xl-2[data-v-66898320],\n  .px-xl-2[data-v-66898320] {\n    padding-right: 0.5rem !important;\n}\n.pb-xl-2[data-v-66898320],\n  .py-xl-2[data-v-66898320] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-xl-2[data-v-66898320],\n  .px-xl-2[data-v-66898320] {\n    padding-left: 0.5rem !important;\n}\n.p-xl-3[data-v-66898320] {\n    padding: 1rem !important;\n}\n.pt-xl-3[data-v-66898320],\n  .py-xl-3[data-v-66898320] {\n    padding-top: 1rem !important;\n}\n.pr-xl-3[data-v-66898320],\n  .px-xl-3[data-v-66898320] {\n    padding-right: 1rem !important;\n}\n.pb-xl-3[data-v-66898320],\n  .py-xl-3[data-v-66898320] {\n    padding-bottom: 1rem !important;\n}\n.pl-xl-3[data-v-66898320],\n  .px-xl-3[data-v-66898320] {\n    padding-left: 1rem !important;\n}\n.p-xl-4[data-v-66898320] {\n    padding: 1.5rem !important;\n}\n.pt-xl-4[data-v-66898320],\n  .py-xl-4[data-v-66898320] {\n    padding-top: 1.5rem !important;\n}\n.pr-xl-4[data-v-66898320],\n  .px-xl-4[data-v-66898320] {\n    padding-right: 1.5rem !important;\n}\n.pb-xl-4[data-v-66898320],\n  .py-xl-4[data-v-66898320] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-xl-4[data-v-66898320],\n  .px-xl-4[data-v-66898320] {\n    padding-left: 1.5rem !important;\n}\n.p-xl-5[data-v-66898320] {\n    padding: 3rem !important;\n}\n.pt-xl-5[data-v-66898320],\n  .py-xl-5[data-v-66898320] {\n    padding-top: 3rem !important;\n}\n.pr-xl-5[data-v-66898320],\n  .px-xl-5[data-v-66898320] {\n    padding-right: 3rem !important;\n}\n.pb-xl-5[data-v-66898320],\n  .py-xl-5[data-v-66898320] {\n    padding-bottom: 3rem !important;\n}\n.pl-xl-5[data-v-66898320],\n  .px-xl-5[data-v-66898320] {\n    padding-left: 3rem !important;\n}\n.m-xl-auto[data-v-66898320] {\n    margin: auto !important;\n}\n.mt-xl-auto[data-v-66898320],\n  .my-xl-auto[data-v-66898320] {\n    margin-top: auto !important;\n}\n.mr-xl-auto[data-v-66898320],\n  .mx-xl-auto[data-v-66898320] {\n    margin-right: auto !important;\n}\n.mb-xl-auto[data-v-66898320],\n  .my-xl-auto[data-v-66898320] {\n    margin-bottom: auto !important;\n}\n.ml-xl-auto[data-v-66898320],\n  .mx-xl-auto[data-v-66898320] {\n    margin-left: auto !important;\n}\n}\n.visible[data-v-66898320] {\n  visibility: visible !important;\n}\n.invisible[data-v-66898320] {\n  visibility: hidden !important;\n}\n*[data-v-66898320] {\n  margin: 0px;\n}\n*[data-v-66898320] ::before,\n  *[data-v-66898320] ::after {\n    margin: 0px;\n}\nhtml[data-v-66898320] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-66898320]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-66898320]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-66898320]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-66898320] {\n  background: #1E2326;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-66898320] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-lines .verticle-line[data-v-66898320] {\n    border-left: 1px solid white;\n    height: 100vh;\n    opacity: 0.1;\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.verticle-lines .verticle-line[data-v-66898320]:nth-child(1), .verticle-lines .verticle-line[data-v-66898320]:nth-child(6) {\n    -webkit-box-flex: 0.5;\n        -ms-flex: 0.5;\n            flex: 0.5;\n}\n.theme-container[data-v-66898320] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.heading-light[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-66898320] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-66898320] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-66898320], .button-text[data-v-66898320] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.header-fixed[data-v-66898320] {\n  position: fixed;\n  z-index: 9999999;\n  width: 100vw;\n}\n.header-fixed .header[data-v-66898320] {\n    position: relative;\n}\n.header-fixed .header .header-left[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n}\n.header-fixed .header .header-left .logo[data-v-66898320] {\n        margin: 1rem;\n        position: absolute;\n        z-index: 99999;\n}\n.header-fixed .header .header-left .logo svg[data-v-66898320] {\n          width: 5rem;\n}\n.header-fixed .header .header-left .logo svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n}\n.header-fixed .header .header-left .logo svg .st1[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320] {\n        background-color: #00E0E9;\n        padding: 1rem 2.5rem 1rem 1rem;\n        width: 2.5em;\n        position: absolute;\n        top: 50%;\n        left: 0;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: background-color 0.3s ease-in-out;\n        transition: background-color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg[data-v-66898320] {\n          width: 1.5rem;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg .st0[data-v-66898320] {\n            fill: #1E2326;\n}\n.header-fixed .header .header-left .contact-button .contact-sign svg path[data-v-66898320] {\n            -webkit-transition: fill .3s ease-in-out;\n            transition: fill .3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button .button-link[data-v-66898320] {\n          color: #1E2326;\n          text-orientation: rtl;\n          -webkit-writing-mode: vertical-lr;\n              -ms-writing-mode: tb-lr;\n                  writing-mode: vertical-lr;\n          -webkit-transform: rotate(180deg);\n                  transform: rotate(180deg);\n          font-size: 0.7rem;\n          letter-spacing: 2px;\n          line-height: 21px;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-left .contact-button[data-v-66898320]:hover {\n          background-color: #CB8E55;\n}\n.header-fixed .header .header-left .contact-button:hover .contact-sign .st0[data-v-66898320] {\n            fill: #ebebeb;\n}\n.header-fixed .header .header-left .contact-button:hover .button-link[data-v-66898320] {\n            color: #ebebeb;\n}\n.header-fixed .header .header-right[data-v-66898320] {\n      position: absolute;\n      height: 100vh;\n      top: 0;\n      right: 0;\n}\n.header-fixed .header .header-right .social-links[data-v-66898320] {\n        position: absolute;\n        top: 0;\n        right: 0;\n        margin: 1rem 1.5vw 0 0;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] {\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          -webkit-box-orient: vertical;\n          -webkit-box-direction: normal;\n              -ms-flex-direction: column;\n                  flex-direction: column;\n}\n.header-fixed .header .header-right .social-links .social-button i[data-v-66898320] {\n            font-size: 0.9rem;\n            color: #ebebeb;\n            text-align: center;\n            padding: 0.5em;\n}\n.header-fixed .header .header-right .social-links .social-button[data-v-66898320] :hover {\n            color: #00E0E9;\n}\n.header-fixed .header .header-right .menu-button[data-v-66898320] {\n        cursor: pointer;\n        position: absolute;\n        right: 0;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        margin-right: 1.3vw;\n        z-index: 99999;\n}\n.header-fixed .header .header-right .menu-button svg[data-v-66898320] {\n          padding-left: 0.05vw;\n          width: 2.1rem;\n}\n.header-fixed .header .header-right .menu-button svg .st0[data-v-66898320] {\n            fill: #00E0E9;\n            -webkit-transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;\n            transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button .menu-text[data-v-66898320] {\n          font-size: 10px;\n          letter-spacing: 2px;\n          font-weight: 700;\n          margin-top: 0.3rem;\n          color: #ebebeb;\n          text-align: center;\n          -webkit-transition: color 0.3s ease-in-out;\n          transition: color 0.3s ease-in-out;\n}\n.header-fixed .header .header-right .menu-button:hover svg .mid-line[data-v-66898320] {\n          width: 38px;\n          x: 1;\n}\n.header-fixed .header .header-right .menu-button:hover .menu-text[data-v-66898320] {\n          color: #00E0E9;\n}\n.header-fixed .header .menu-section[data-v-66898320] {\n      height: 100vh;\n      width: 100vw;\n      background-color: #1E2326;\n      position: absolute;\n      z-index: 9999;\n      -webkit-transform: translateX(-90rem);\n              transform: translateX(-90rem);\n      -webkit-transition: -webkit-transform 0.5s ease-in-out;\n      transition: -webkit-transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out;\n      transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;\n}\n.header-fixed .header .menu-section .menu-links[data-v-66898320] {\n        height: 85vh;\n        padding-top: 15vh;\n        width: 95vw;\n        position: relative;\n}\n.header-fixed .header .menu-section .menu-links .background[data-v-66898320] {\n          background-color: #00E0E9;\n          height: 50px;\n          position: absolute;\n          -webkit-transform: scaleX(0);\n                  transform: scaleX(0);\n          -webkit-transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: width 0.3s ease, -webkit-transform 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease;\n          transition: transform 0.3s ease, width 0.3s ease, -webkit-transform 0.3s ease;\n          -webkit-transform-origin: left;\n                  transform-origin: left;\n          -webkit-transform: scaleX(0) translateY(0px);\n                  transform: scaleX(0) translateY(0px);\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320] {\n          font-size: 3.5rem;\n          line-height: 0.8;\n          -webkit-transition: color 0.3s ease;\n          transition: color 0.3s ease;\n          left: -26rem;\n          position: relative;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:last-child {\n            position: relative;\n            width: 100%;\n            height: 58%;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold:last-child p[data-v-66898320] {\n              position: absolute;\n              bottom: 43px;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold p[data-v-66898320] {\n            padding: 0 1rem 0.2rem 1rem;\n            position: relative;\n            z-index: 2;\n}\n.header-fixed .header .menu-section .menu-links .heading-bold[data-v-66898320]:hover {\n            color: #1E2326;\n}\n", ""]);
 
 // exports
 
@@ -48396,9 +48396,9 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48471,13 +48471,1191 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-f703cbce] {\n  margin: 0px;\n}\n*[data-v-f703cbce] ::before,\n  *[data-v-f703cbce] ::after {\n    margin: 0px;\n}\nhtml[data-v-f703cbce] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-f703cbce]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-f703cbce]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-f703cbce]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-f703cbce] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-f703cbce] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-f703cbce] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-f703cbce] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-cover[data-v-f703cbce] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.home-cover .slogan[data-v-f703cbce] {\n    color: white;\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    bottom: 1%;\n    width: 100vw;\n}\n.home-cover .slogan .heading-light[data-v-f703cbce] {\n      text-align: center;\n      margin-top: -15px;\n}\n.home-cover .slogan .heading-bold[data-v-f703cbce] {\n      opacity: 0.1;\n      text-align: center;\n}\n.home-cover .scroll[data-v-f703cbce] {\n    position: absolute;\n    bottom: 15%;\n    right: 5vh;\n    color: white;\n}\n.home-cover .scroll svg[data-v-f703cbce] {\n      width: 1.2rem;\n      -webkit-animation: scroll-down-data-v-f703cbce 1s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: scroll-down-data-v-f703cbce 1s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: ease-in-out;\n              animation-timing-function: ease-in-out;\n}\n.home-cover .scroll svg .st0[data-v-f703cbce] {\n        enable-background: new;\n}\n.home-cover .scroll svg .st1[data-v-f703cbce] {\n        fill: #EBEBEB;\n}\n.home-cover .scroll svg .st2[data-v-f703cbce] {\n        fill: none;\n        stroke: #00E0E9;\n        stroke-width: 2.6491;\n        stroke-linecap: round;\n}\n.home-cover .scroll svg .st3[data-v-f703cbce] {\n        fill: none;\n        stroke: #00E0E9;\n        stroke-width: 3;\n        stroke-linecap: round;\n}\n@-webkit-keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n50% {\n    ms-transform: translate(0, 60px);\n    -webkit-transform: translate(0, 60px);\n    transform: translate(0, 60px);\n}\n100% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n}\n@keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n50% {\n    ms-transform: translate(0, 60px);\n    -webkit-transform: translate(0, 60px);\n    transform: translate(0, 60px);\n}\n100% {\n    ms-transform: translate(0, 50px);\n    -webkit-transform: translate(0, 50px);\n    transform: translate(0, 50px);\n}\n}\n.cover svg[data-v-f703cbce] {\n  width: 100%;\n  height: 95vh;\n}\n.cover svg .st0[data-v-f703cbce] {\n    fill: #1E2326;\n}\n.cover svg .st1[data-v-f703cbce] {\n    fill: url(#SVGID_2_);\n}\n.cover svg .st2[data-v-f703cbce] {\n    opacity: 1;\n    fill: #34393C;\n}\n.cover svg .st3[data-v-f703cbce] {\n    fill: url(#SVGID_3_);\n}\n.cover svg .st4[data-v-f703cbce] {\n    fill: url(#hcSVGID_4_);\n}\n.cover svg .st5[data-v-f703cbce] {\n    fill: url(#SVGID_5_);\n}\n.cover svg .st6[data-v-f703cbce] {\n    fill: url(#SVGID_6_);\n}\n.cover svg .st7[data-v-f703cbce] {\n    fill: url(#SVGID_7_);\n}\n.cover svg .st8[data-v-f703cbce] {\n    fill: url(#SVGID_8_);\n}\n.cover svg .st9[data-v-f703cbce] {\n    fill: url(#SVGID_9_);\n}\n.cover svg .st10[data-v-f703cbce] {\n    fill: url(#SVGID_10_);\n}\n.cover svg .st11[data-v-f703cbce] {\n    fill: url(#SVGID_11_);\n}\n.cover svg .st12[data-v-f703cbce] {\n    fill: url(#SVGID_12_);\n}\n.cover svg .st13[data-v-f703cbce] {\n    fill: none;\n    stroke: #1E2326;\n    stroke-miterlimit: 10;\n}\n.cover svg .st14[data-v-f703cbce] {\n    fill: url(#SVGID_13_);\n}\n.cover svg .st15[data-v-f703cbce] {\n    fill: #1C2123;\n}\n.cover svg .st16[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_15_);\n            clip-path: url(#SVGID_15_);\n    fill: #151819;\n}\n.cover svg .st17[data-v-f703cbce] {\n    fill: #121516;\n}\n.cover svg .st18[data-v-f703cbce] {\n    fill: url(#SVGID_16_);\n}\n.cover svg .st19[data-v-f703cbce] {\n    fill: url(#SVGID_17_);\n}\n.cover svg .st20[data-v-f703cbce] {\n    fill: #FFFFFF;\n}\n.cover svg .st21[data-v-f703cbce] {\n    display: inline;\n}\n.cover svg .st22[data-v-f703cbce] {\n    display: inline;\n    opacity: 0.5;\n    fill: url(#SVGID_18_);\n}\n.cover svg .st23[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: #FDFEFF;\n}\n.cover svg .st24[data-v-f703cbce] {\n    opacity: 0.2;\n    -webkit-clip-path: url(#SVGID_20_);\n            clip-path: url(#SVGID_20_);\n    fill: url(#smoke_2_);\n}\n.cover svg .st25[data-v-f703cbce] {\n    opacity: 0.2;\n    fill: url(#SVGID_21_);\n}\n.cover svg .st26[data-v-f703cbce] {\n    fill: url(#SVGID_22_);\n}\n.cover svg .st27[data-v-f703cbce] {\n    fill: url(#SVGID_23_);\n}\n.cover svg .st28[data-v-f703cbce] {\n    fill: #BABABA;\n}\n.cover svg .st29[data-v-f703cbce] {\n    fill: #DEE7F9;\n}\n.cover svg .st30[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_25_);\n            clip-path: url(#SVGID_25_);\n    fill: #C46970;\n}\n.cover svg .st31[data-v-f703cbce] {\n    fill: url(#SVGID_26_);\n}\n.cover svg .st32[data-v-f703cbce] {\n    fill: url(#SVGID_27_);\n}\n.cover svg .st33[data-v-f703cbce] {\n    fill: #A3A5A6;\n}\n.cover svg .st34[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #C46970;\n}\n.cover svg .st35[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #A3A5A6;\n}\n.cover svg .st36[data-v-f703cbce] {\n    fill: url(#SVGID_30_);\n}\n.cover svg .st37[data-v-f703cbce] {\n    fill: url(#SVGID_31_);\n}\n.cover svg .st38[data-v-f703cbce] {\n    fill: #6D4930;\n}\n.cover svg .st39[data-v-f703cbce] {\n    fill: #CB8E55;\n}\n.cover svg .st40[data-v-f703cbce] {\n    fill: #2A3033;\n}\n.cover svg .st41[data-v-f703cbce] {\n    fill: #007075;\n}\n.cover svg .st42[data-v-f703cbce] {\n    fill: url(#SVGID_32_);\n}\n.cover svg .st43[data-v-f703cbce] {\n    fill: url(#SVGID_33_);\n}\n.cover svg .st44[data-v-f703cbce] {\n    fill: url(#SVGID_34_);\n}\n.cover svg .st45[data-v-f703cbce] {\n    opacity: 0.38;\n    fill: url(#SVGID_35_);\n}\n.cover svg .st46[data-v-f703cbce] {\n    opacity: 0.78;\n    fill: #1E2326;\n}\n.cover svg .st47[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #34393C;\n}\n.cover svg .st48[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st49[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_36_);\n}\n.cover svg .st50[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_37_);\n}\n.cover svg .st51[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_38_);\n}\n.cover svg .st52[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_39_);\n}\n.cover svg .st53[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_40_);\n}\n.cover svg .st54[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_41_);\n}\n.cover svg .st55[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_42_);\n}\n.cover svg .st56[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_43_);\n}\n.cover svg .st57[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_44_);\n}\n.cover svg .st58[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_45_);\n}\n.cover svg .st59[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_46_);\n}\n.cover svg .st60[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_47_);\n}\n.cover svg .st61[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_48_);\n}\n.cover svg .st62[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_49_);\n}\n.cover svg .st63[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_50_);\n}\n.cover svg .st64[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_51_);\n}\n.cover svg .st65[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_52_);\n}\n.cover svg .st66[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_53_);\n}\n.cover svg .st67[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_54_);\n}\n.cover svg .st68[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_55_);\n}\n.cover svg .st69[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_56_);\n}\n.cover svg .st70[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_57_);\n}\n.cover svg .st71[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_58_);\n}\n.cover svg .st72[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_59_);\n}\n.cover svg .st73[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_60_);\n}\n.cover svg .st74[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_61_);\n}\n.cover svg .st75[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_62_);\n}\n.cover svg .st76[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_63_);\n}\n.cover svg .st77[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_64_);\n}\n.cover svg .st78[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_65_);\n}\n.cover svg .st79[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_66_);\n}\n.cover svg .st80[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_67_);\n}\n.cover svg .st81[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_68_);\n}\n.cover svg .st82[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_69_);\n}\n.cover svg .st83[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_70_);\n}\n.cover svg .st84[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_71_);\n}\n.cover svg .st85[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_72_);\n}\n.cover svg .st86[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_73_);\n}\n.cover svg .st87[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_74_);\n}\n.cover svg .st88[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_75_);\n}\n.cover svg .st89[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_76_);\n}\n.cover svg .st90[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_77_);\n}\n.cover svg .st91[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_78_);\n}\n.cover svg .st92[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_79_);\n}\n.cover svg .st93[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_80_);\n}\n.cover svg .st94[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_81_);\n}\n.cover svg .st95[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_82_);\n}\n.cover svg .st96[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_83_);\n}\n.cover svg .st97[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_84_);\n}\n.cover svg .st98[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_85_);\n}\n.cover svg .st99[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_86_);\n}\n.cover svg .st100[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_87_);\n}\n.cover svg .st101[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_88_);\n}\n.cover svg .st102[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_89_);\n}\n.cover svg .st103[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_90_);\n}\n.cover svg .st104[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_91_);\n}\n.cover svg .st105[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_93_);\n            clip-path: url(#SVGID_93_);\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st106[data-v-f703cbce] {\n    display: none;\n    fill: #00E0E9;\n}\n.cover svg .st107[data-v-f703cbce] {\n    font-family: 'SofiaPro-Bold';\n}\n.cover svg .st108[data-v-f703cbce] {\n    font-size: 5.444px;\n}\n.cover svg .st109[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: url(#SVGID_94_);\n}\n.cover svg .st110[data-v-f703cbce] {\n    fill: #33373A;\n    stroke: #33373A;\n    stroke-miterlimit: 10;\n}\n.cover svg .st111[data-v-f703cbce] {\n    fill: none;\n    stroke: #F7E9E1;\n    stroke-width: 1.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-miterlimit: 10;\n}\n.cover svg .st112[data-v-f703cbce] {\n    fill: none;\n    stroke: #34393C;\n    stroke-miterlimit: 10;\n}\n.cover svg .st113[data-v-f703cbce] {\n    fill: #34393C;\n}\n.cover svg .st114[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_95_);\n            clip-path: url(#SVGID_95_);\n}\n.cover svg #hi[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #programer[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 0.5s;\n    transition: -webkit-transform 0.5s;\n    transition: transform 0.5s;\n    transition: transform 0.5s, -webkit-transform 0.5s;\n}\n.cover svg #programer[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-0.5rem);\n              transform: translateY(-0.5rem);\n}\n.cover svg #programer:hover + #hi[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock #round[data-v-f703cbce] {\n      -webkit-animation: clock-data-v-f703cbce 60s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: clock-data-v-f703cbce 60s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: linear;\n              animation-timing-function: linear;\n      -webkit-transform-origin: 72.5px 92.9px 0px;\n              transform-origin: 72.5px 92.9px 0px;\n}\n@-webkit-keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n.cover svg #light #toplight[data-v-f703cbce] {\n    -webkit-animation: toplight-data-v-f703cbce 2s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: toplight-data-v-f703cbce 2s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #lightbulb[data-v-f703cbce] {\n    -webkit-animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-delay: 2s;\n    /* Safari 4.0 - 8.0 */\n    animation-delay: 2s;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #laptoplight[data-v-f703cbce] {\n    -webkit-animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n@-webkit-keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.cover svg #spider[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 1s;\n    transition: -webkit-transform 1s;\n    transition: transform 1s;\n    transition: transform 1s, -webkit-transform 1s;\n}\n.cover svg #spider[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-1rem);\n              transform: translateY(-1rem);\n}\n.cover svg #donttouch[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #books:hover + #donttouch[data-v-f703cbce] {\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n\n/*!\n * Bootstrap Grid v4.1.2 (https://getbootstrap.com/)\n * Copyright 2011-2018 The Bootstrap Authors\n * Copyright 2011-2018 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\n */\n@-ms-viewport {\n  width: device-width;\n}\nhtml[data-v-f703cbce] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -ms-overflow-style: scrollbar;\n}\n*[data-v-f703cbce],\n*[data-v-f703cbce]::before,\n*[data-v-f703cbce]::after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n.container[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container[data-v-f703cbce] {\n      max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container[data-v-f703cbce] {\n      max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container[data-v-f703cbce] {\n      max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container[data-v-f703cbce] {\n      max-width: 1140px;\n}\n}\n.container-fluid[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.row[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters[data-v-f703cbce] {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col[data-v-f703cbce],\n  .no-gutters > [class*=\"col-\"][data-v-f703cbce] {\n    padding-right: 0;\n    padding-left: 0;\n}\n.col-1[data-v-f703cbce], .col-2[data-v-f703cbce], .col-3[data-v-f703cbce], .col-4[data-v-f703cbce], .col-5[data-v-f703cbce], .col-6[data-v-f703cbce], .col-7[data-v-f703cbce], .col-8[data-v-f703cbce], .col-9[data-v-f703cbce], .col-10[data-v-f703cbce], .col-11[data-v-f703cbce], .col-12[data-v-f703cbce], .col[data-v-f703cbce],\n.col-auto[data-v-f703cbce], .col-sm-1[data-v-f703cbce], .col-sm-2[data-v-f703cbce], .col-sm-3[data-v-f703cbce], .col-sm-4[data-v-f703cbce], .col-sm-5[data-v-f703cbce], .col-sm-6[data-v-f703cbce], .col-sm-7[data-v-f703cbce], .col-sm-8[data-v-f703cbce], .col-sm-9[data-v-f703cbce], .col-sm-10[data-v-f703cbce], .col-sm-11[data-v-f703cbce], .col-sm-12[data-v-f703cbce], .col-sm[data-v-f703cbce],\n.col-sm-auto[data-v-f703cbce], .col-md-1[data-v-f703cbce], .col-md-2[data-v-f703cbce], .col-md-3[data-v-f703cbce], .col-md-4[data-v-f703cbce], .col-md-5[data-v-f703cbce], .col-md-6[data-v-f703cbce], .col-md-7[data-v-f703cbce], .col-md-8[data-v-f703cbce], .col-md-9[data-v-f703cbce], .col-md-10[data-v-f703cbce], .col-md-11[data-v-f703cbce], .col-md-12[data-v-f703cbce], .col-md[data-v-f703cbce],\n.col-md-auto[data-v-f703cbce], .col-lg-1[data-v-f703cbce], .col-lg-2[data-v-f703cbce], .col-lg-3[data-v-f703cbce], .col-lg-4[data-v-f703cbce], .col-lg-5[data-v-f703cbce], .col-lg-6[data-v-f703cbce], .col-lg-7[data-v-f703cbce], .col-lg-8[data-v-f703cbce], .col-lg-9[data-v-f703cbce], .col-lg-10[data-v-f703cbce], .col-lg-11[data-v-f703cbce], .col-lg-12[data-v-f703cbce], .col-lg[data-v-f703cbce],\n.col-lg-auto[data-v-f703cbce], .col-xl-1[data-v-f703cbce], .col-xl-2[data-v-f703cbce], .col-xl-3[data-v-f703cbce], .col-xl-4[data-v-f703cbce], .col-xl-5[data-v-f703cbce], .col-xl-6[data-v-f703cbce], .col-xl-7[data-v-f703cbce], .col-xl-8[data-v-f703cbce], .col-xl-9[data-v-f703cbce], .col-xl-10[data-v-f703cbce], .col-xl-11[data-v-f703cbce], .col-xl-12[data-v-f703cbce], .col-xl[data-v-f703cbce],\n.col-xl-auto[data-v-f703cbce] {\n  position: relative;\n  width: 100%;\n  min-height: 1px;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col[data-v-f703cbce] {\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  max-width: 100%;\n}\n.col-auto[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  width: auto;\n  max-width: none;\n}\n.col-1[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 8.33333%;\n          flex: 0 0 8.33333%;\n  max-width: 8.33333%;\n}\n.col-2[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 16.66667%;\n          flex: 0 0 16.66667%;\n  max-width: 16.66667%;\n}\n.col-3[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 25%;\n          flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 33.33333%;\n          flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n}\n.col-5[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 41.66667%;\n          flex: 0 0 41.66667%;\n  max-width: 41.66667%;\n}\n.col-6[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 50%;\n          flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 58.33333%;\n          flex: 0 0 58.33333%;\n  max-width: 58.33333%;\n}\n.col-8[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 66.66667%;\n          flex: 0 0 66.66667%;\n  max-width: 66.66667%;\n}\n.col-9[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 75%;\n          flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 83.33333%;\n          flex: 0 0 83.33333%;\n  max-width: 83.33333%;\n}\n.col-11[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 91.66667%;\n          flex: 0 0 91.66667%;\n  max-width: 91.66667%;\n}\n.col-12[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 100%;\n          flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 0;\n      -ms-flex-order: -1;\n          order: -1;\n}\n.order-last[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 14;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.order-0[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 1;\n      -ms-flex-order: 0;\n          order: 0;\n}\n.order-1[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 2;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.order-2[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 3;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.order-3[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 4;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.order-4[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 5;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.order-5[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 6;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.order-6[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 7;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.order-7[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 8;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.order-8[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 9;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.order-9[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 10;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.order-10[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 11;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.order-11[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 12;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.order-12[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 13;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.offset-1[data-v-f703cbce] {\n  margin-left: 8.33333%;\n}\n.offset-2[data-v-f703cbce] {\n  margin-left: 16.66667%;\n}\n.offset-3[data-v-f703cbce] {\n  margin-left: 25%;\n}\n.offset-4[data-v-f703cbce] {\n  margin-left: 33.33333%;\n}\n.offset-5[data-v-f703cbce] {\n  margin-left: 41.66667%;\n}\n.offset-6[data-v-f703cbce] {\n  margin-left: 50%;\n}\n.offset-7[data-v-f703cbce] {\n  margin-left: 58.33333%;\n}\n.offset-8[data-v-f703cbce] {\n  margin-left: 66.66667%;\n}\n.offset-9[data-v-f703cbce] {\n  margin-left: 75%;\n}\n.offset-10[data-v-f703cbce] {\n  margin-left: 83.33333%;\n}\n.offset-11[data-v-f703cbce] {\n  margin-left: 91.66667%;\n}\n@media (min-width: 576px) {\n.col-sm[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-sm-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-sm-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-sm-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-sm-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-sm-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-sm-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-sm-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-sm-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-sm-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-sm-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-sm-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-sm-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-sm-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-sm-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-sm-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-sm-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-sm-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-sm-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-sm-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-sm-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-sm-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-sm-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-sm-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-sm-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-sm-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-sm-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-sm-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-sm-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-sm-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-sm-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-sm-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-sm-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-sm-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-sm-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-sm-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-sm-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 768px) {\n.col-md[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-md-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-md-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-md-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-md-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-md-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-md-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-md-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-md-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-md-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-md-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-md-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-md-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-md-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-md-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-md-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-md-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-md-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-md-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-md-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-md-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-md-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-md-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-md-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-md-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-md-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-md-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-md-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-md-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-md-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-md-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-md-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-md-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-md-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-md-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-md-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-md-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-lg-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-lg-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-lg-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-lg-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-lg-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-lg-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-lg-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-lg-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-lg-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-lg-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-lg-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-lg-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-lg-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-lg-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-lg-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-lg-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-lg-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-lg-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-lg-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-lg-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-lg-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-lg-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-lg-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-lg-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-lg-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-lg-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-lg-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-lg-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-lg-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-lg-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-lg-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-lg-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-lg-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-lg-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-lg-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-lg-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-xl-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-xl-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-xl-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-xl-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-xl-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-xl-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-xl-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-xl-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-xl-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-xl-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-xl-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-xl-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-xl-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-xl-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-xl-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-xl-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-xl-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-xl-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-xl-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-xl-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-xl-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-xl-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-xl-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-xl-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-xl-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-xl-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-xl-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-xl-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-xl-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-xl-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-xl-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-xl-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-xl-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-xl-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-xl-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-xl-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n.d-none[data-v-f703cbce] {\n  display: none !important;\n}\n.d-inline[data-v-f703cbce] {\n  display: inline !important;\n}\n.d-inline-block[data-v-f703cbce] {\n  display: inline-block !important;\n}\n.d-block[data-v-f703cbce] {\n  display: block !important;\n}\n.d-table[data-v-f703cbce] {\n  display: table !important;\n}\n.d-table-row[data-v-f703cbce] {\n  display: table-row !important;\n}\n.d-table-cell[data-v-f703cbce] {\n  display: table-cell !important;\n}\n.d-flex[data-v-f703cbce] {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.d-inline-flex[data-v-f703cbce] {\n  display: -webkit-inline-box !important;\n  display: -ms-inline-flexbox !important;\n  display: inline-flex !important;\n}\n@media (min-width: 576px) {\n.d-sm-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-sm-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-sm-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-sm-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-sm-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-sm-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-sm-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-sm-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-sm-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 768px) {\n.d-md-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-md-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-md-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-md-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-md-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-md-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-md-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-md-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-md-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 992px) {\n.d-lg-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-lg-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-lg-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-lg-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-lg-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-lg-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-lg-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-lg-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-lg-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 1200px) {\n.d-xl-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-xl-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-xl-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-xl-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-xl-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-xl-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-xl-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-xl-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-xl-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media print {\n.d-print-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-print-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-print-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-print-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-print-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-print-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-print-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-print-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-print-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n.flex-row[data-v-f703cbce] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: row !important;\n          flex-direction: row !important;\n}\n.flex-column[data-v-f703cbce] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: column !important;\n          flex-direction: column !important;\n}\n.flex-row-reverse[data-v-f703cbce] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: row-reverse !important;\n          flex-direction: row-reverse !important;\n}\n.flex-column-reverse[data-v-f703cbce] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: column-reverse !important;\n          flex-direction: column-reverse !important;\n}\n.flex-wrap[data-v-f703cbce] {\n  -ms-flex-wrap: wrap !important;\n      flex-wrap: wrap !important;\n}\n.flex-nowrap[data-v-f703cbce] {\n  -ms-flex-wrap: nowrap !important;\n      flex-wrap: nowrap !important;\n}\n.flex-wrap-reverse[data-v-f703cbce] {\n  -ms-flex-wrap: wrap-reverse !important;\n      flex-wrap: wrap-reverse !important;\n}\n.flex-fill[data-v-f703cbce] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex: 1 1 auto !important;\n          flex: 1 1 auto !important;\n}\n.flex-grow-0[data-v-f703cbce] {\n  -webkit-box-flex: 0 !important;\n      -ms-flex-positive: 0 !important;\n          flex-grow: 0 !important;\n}\n.flex-grow-1[data-v-f703cbce] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex-positive: 1 !important;\n          flex-grow: 1 !important;\n}\n.flex-shrink-0[data-v-f703cbce] {\n  -ms-flex-negative: 0 !important;\n      flex-shrink: 0 !important;\n}\n.flex-shrink-1[data-v-f703cbce] {\n  -ms-flex-negative: 1 !important;\n      flex-shrink: 1 !important;\n}\n.justify-content-start[data-v-f703cbce] {\n  -webkit-box-pack: start !important;\n      -ms-flex-pack: start !important;\n          justify-content: flex-start !important;\n}\n.justify-content-end[data-v-f703cbce] {\n  -webkit-box-pack: end !important;\n      -ms-flex-pack: end !important;\n          justify-content: flex-end !important;\n}\n.justify-content-center[data-v-f703cbce] {\n  -webkit-box-pack: center !important;\n      -ms-flex-pack: center !important;\n          justify-content: center !important;\n}\n.justify-content-between[data-v-f703cbce] {\n  -webkit-box-pack: justify !important;\n      -ms-flex-pack: justify !important;\n          justify-content: space-between !important;\n}\n.justify-content-around[data-v-f703cbce] {\n  -ms-flex-pack: distribute !important;\n      justify-content: space-around !important;\n}\n.align-items-start[data-v-f703cbce] {\n  -webkit-box-align: start !important;\n      -ms-flex-align: start !important;\n          align-items: flex-start !important;\n}\n.align-items-end[data-v-f703cbce] {\n  -webkit-box-align: end !important;\n      -ms-flex-align: end !important;\n          align-items: flex-end !important;\n}\n.align-items-center[data-v-f703cbce] {\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important;\n}\n.align-items-baseline[data-v-f703cbce] {\n  -webkit-box-align: baseline !important;\n      -ms-flex-align: baseline !important;\n          align-items: baseline !important;\n}\n.align-items-stretch[data-v-f703cbce] {\n  -webkit-box-align: stretch !important;\n      -ms-flex-align: stretch !important;\n          align-items: stretch !important;\n}\n.align-content-start[data-v-f703cbce] {\n  -ms-flex-line-pack: start !important;\n      align-content: flex-start !important;\n}\n.align-content-end[data-v-f703cbce] {\n  -ms-flex-line-pack: end !important;\n      align-content: flex-end !important;\n}\n.align-content-center[data-v-f703cbce] {\n  -ms-flex-line-pack: center !important;\n      align-content: center !important;\n}\n.align-content-between[data-v-f703cbce] {\n  -ms-flex-line-pack: justify !important;\n      align-content: space-between !important;\n}\n.align-content-around[data-v-f703cbce] {\n  -ms-flex-line-pack: distribute !important;\n      align-content: space-around !important;\n}\n.align-content-stretch[data-v-f703cbce] {\n  -ms-flex-line-pack: stretch !important;\n      align-content: stretch !important;\n}\n.align-self-auto[data-v-f703cbce] {\n  -ms-flex-item-align: auto !important;\n      align-self: auto !important;\n}\n.align-self-start[data-v-f703cbce] {\n  -ms-flex-item-align: start !important;\n      align-self: flex-start !important;\n}\n.align-self-end[data-v-f703cbce] {\n  -ms-flex-item-align: end !important;\n      align-self: flex-end !important;\n}\n.align-self-center[data-v-f703cbce] {\n  -ms-flex-item-align: center !important;\n      align-self: center !important;\n}\n.align-self-baseline[data-v-f703cbce] {\n  -ms-flex-item-align: baseline !important;\n      align-self: baseline !important;\n}\n.align-self-stretch[data-v-f703cbce] {\n  -ms-flex-item-align: stretch !important;\n      align-self: stretch !important;\n}\n@media (min-width: 576px) {\n.flex-sm-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-sm-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-sm-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-sm-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-sm-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-sm-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-sm-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-sm-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-sm-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-sm-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-sm-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-sm-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-sm-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-sm-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-sm-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-sm-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-sm-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-sm-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-sm-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-sm-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-sm-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-sm-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-sm-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-sm-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-sm-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-sm-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-sm-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-sm-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-sm-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-sm-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-sm-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-sm-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-sm-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-sm-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 768px) {\n.flex-md-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-md-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-md-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-md-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-md-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-md-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-md-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-md-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-md-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-md-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-md-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-md-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-md-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-md-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-md-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-md-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-md-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-md-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-md-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-md-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-md-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-md-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-md-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-md-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-md-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-md-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-md-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-md-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-md-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-md-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-md-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-md-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-md-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-md-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 992px) {\n.flex-lg-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-lg-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-lg-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-lg-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-lg-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-lg-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-lg-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-lg-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-lg-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-lg-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-lg-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-lg-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-lg-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-lg-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-lg-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-lg-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-lg-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-lg-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-lg-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-lg-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-lg-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-lg-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-lg-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-lg-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-lg-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-lg-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-lg-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-lg-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-lg-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-lg-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-lg-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-lg-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-lg-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-lg-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 1200px) {\n.flex-xl-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-xl-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-xl-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-xl-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-xl-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-xl-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-xl-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-xl-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-xl-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-xl-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-xl-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-xl-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-xl-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-xl-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-xl-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-xl-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-xl-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-xl-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-xl-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-xl-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-xl-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-xl-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-xl-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-xl-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-xl-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-xl-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-xl-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-xl-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-xl-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-xl-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-xl-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-xl-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-xl-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-xl-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n.w-25[data-v-f703cbce] {\n  width: 25% !important;\n}\n.w-50[data-v-f703cbce] {\n  width: 50% !important;\n}\n.w-75[data-v-f703cbce] {\n  width: 75% !important;\n}\n.w-100[data-v-f703cbce] {\n  width: 100% !important;\n}\n.w-auto[data-v-f703cbce] {\n  width: auto !important;\n}\n.h-25[data-v-f703cbce] {\n  height: 25% !important;\n}\n.h-50[data-v-f703cbce] {\n  height: 50% !important;\n}\n.h-75[data-v-f703cbce] {\n  height: 75% !important;\n}\n.h-100[data-v-f703cbce] {\n  height: 100% !important;\n}\n.h-auto[data-v-f703cbce] {\n  height: auto !important;\n}\n.mw-100[data-v-f703cbce] {\n  max-width: 100% !important;\n}\n.mh-100[data-v-f703cbce] {\n  max-height: 100% !important;\n}\n.m-0[data-v-f703cbce] {\n  margin: 0 !important;\n}\n.mt-0[data-v-f703cbce],\n.my-0[data-v-f703cbce] {\n  margin-top: 0 !important;\n}\n.mr-0[data-v-f703cbce],\n.mx-0[data-v-f703cbce] {\n  margin-right: 0 !important;\n}\n.mb-0[data-v-f703cbce],\n.my-0[data-v-f703cbce] {\n  margin-bottom: 0 !important;\n}\n.ml-0[data-v-f703cbce],\n.mx-0[data-v-f703cbce] {\n  margin-left: 0 !important;\n}\n.m-1[data-v-f703cbce] {\n  margin: 0.25rem !important;\n}\n.mt-1[data-v-f703cbce],\n.my-1[data-v-f703cbce] {\n  margin-top: 0.25rem !important;\n}\n.mr-1[data-v-f703cbce],\n.mx-1[data-v-f703cbce] {\n  margin-right: 0.25rem !important;\n}\n.mb-1[data-v-f703cbce],\n.my-1[data-v-f703cbce] {\n  margin-bottom: 0.25rem !important;\n}\n.ml-1[data-v-f703cbce],\n.mx-1[data-v-f703cbce] {\n  margin-left: 0.25rem !important;\n}\n.m-2[data-v-f703cbce] {\n  margin: 0.5rem !important;\n}\n.mt-2[data-v-f703cbce],\n.my-2[data-v-f703cbce] {\n  margin-top: 0.5rem !important;\n}\n.mr-2[data-v-f703cbce],\n.mx-2[data-v-f703cbce] {\n  margin-right: 0.5rem !important;\n}\n.mb-2[data-v-f703cbce],\n.my-2[data-v-f703cbce] {\n  margin-bottom: 0.5rem !important;\n}\n.ml-2[data-v-f703cbce],\n.mx-2[data-v-f703cbce] {\n  margin-left: 0.5rem !important;\n}\n.m-3[data-v-f703cbce] {\n  margin: 1rem !important;\n}\n.mt-3[data-v-f703cbce],\n.my-3[data-v-f703cbce] {\n  margin-top: 1rem !important;\n}\n.mr-3[data-v-f703cbce],\n.mx-3[data-v-f703cbce] {\n  margin-right: 1rem !important;\n}\n.mb-3[data-v-f703cbce],\n.my-3[data-v-f703cbce] {\n  margin-bottom: 1rem !important;\n}\n.ml-3[data-v-f703cbce],\n.mx-3[data-v-f703cbce] {\n  margin-left: 1rem !important;\n}\n.m-4[data-v-f703cbce] {\n  margin: 1.5rem !important;\n}\n.mt-4[data-v-f703cbce],\n.my-4[data-v-f703cbce] {\n  margin-top: 1.5rem !important;\n}\n.mr-4[data-v-f703cbce],\n.mx-4[data-v-f703cbce] {\n  margin-right: 1.5rem !important;\n}\n.mb-4[data-v-f703cbce],\n.my-4[data-v-f703cbce] {\n  margin-bottom: 1.5rem !important;\n}\n.ml-4[data-v-f703cbce],\n.mx-4[data-v-f703cbce] {\n  margin-left: 1.5rem !important;\n}\n.m-5[data-v-f703cbce] {\n  margin: 3rem !important;\n}\n.mt-5[data-v-f703cbce],\n.my-5[data-v-f703cbce] {\n  margin-top: 3rem !important;\n}\n.mr-5[data-v-f703cbce],\n.mx-5[data-v-f703cbce] {\n  margin-right: 3rem !important;\n}\n.mb-5[data-v-f703cbce],\n.my-5[data-v-f703cbce] {\n  margin-bottom: 3rem !important;\n}\n.ml-5[data-v-f703cbce],\n.mx-5[data-v-f703cbce] {\n  margin-left: 3rem !important;\n}\n.p-0[data-v-f703cbce] {\n  padding: 0 !important;\n}\n.pt-0[data-v-f703cbce],\n.py-0[data-v-f703cbce] {\n  padding-top: 0 !important;\n}\n.pr-0[data-v-f703cbce],\n.px-0[data-v-f703cbce] {\n  padding-right: 0 !important;\n}\n.pb-0[data-v-f703cbce],\n.py-0[data-v-f703cbce] {\n  padding-bottom: 0 !important;\n}\n.pl-0[data-v-f703cbce],\n.px-0[data-v-f703cbce] {\n  padding-left: 0 !important;\n}\n.p-1[data-v-f703cbce] {\n  padding: 0.25rem !important;\n}\n.pt-1[data-v-f703cbce],\n.py-1[data-v-f703cbce] {\n  padding-top: 0.25rem !important;\n}\n.pr-1[data-v-f703cbce],\n.px-1[data-v-f703cbce] {\n  padding-right: 0.25rem !important;\n}\n.pb-1[data-v-f703cbce],\n.py-1[data-v-f703cbce] {\n  padding-bottom: 0.25rem !important;\n}\n.pl-1[data-v-f703cbce],\n.px-1[data-v-f703cbce] {\n  padding-left: 0.25rem !important;\n}\n.p-2[data-v-f703cbce] {\n  padding: 0.5rem !important;\n}\n.pt-2[data-v-f703cbce],\n.py-2[data-v-f703cbce] {\n  padding-top: 0.5rem !important;\n}\n.pr-2[data-v-f703cbce],\n.px-2[data-v-f703cbce] {\n  padding-right: 0.5rem !important;\n}\n.pb-2[data-v-f703cbce],\n.py-2[data-v-f703cbce] {\n  padding-bottom: 0.5rem !important;\n}\n.pl-2[data-v-f703cbce],\n.px-2[data-v-f703cbce] {\n  padding-left: 0.5rem !important;\n}\n.p-3[data-v-f703cbce] {\n  padding: 1rem !important;\n}\n.pt-3[data-v-f703cbce],\n.py-3[data-v-f703cbce] {\n  padding-top: 1rem !important;\n}\n.pr-3[data-v-f703cbce],\n.px-3[data-v-f703cbce] {\n  padding-right: 1rem !important;\n}\n.pb-3[data-v-f703cbce],\n.py-3[data-v-f703cbce] {\n  padding-bottom: 1rem !important;\n}\n.pl-3[data-v-f703cbce],\n.px-3[data-v-f703cbce] {\n  padding-left: 1rem !important;\n}\n.p-4[data-v-f703cbce] {\n  padding: 1.5rem !important;\n}\n.pt-4[data-v-f703cbce],\n.py-4[data-v-f703cbce] {\n  padding-top: 1.5rem !important;\n}\n.pr-4[data-v-f703cbce],\n.px-4[data-v-f703cbce] {\n  padding-right: 1.5rem !important;\n}\n.pb-4[data-v-f703cbce],\n.py-4[data-v-f703cbce] {\n  padding-bottom: 1.5rem !important;\n}\n.pl-4[data-v-f703cbce],\n.px-4[data-v-f703cbce] {\n  padding-left: 1.5rem !important;\n}\n.p-5[data-v-f703cbce] {\n  padding: 3rem !important;\n}\n.pt-5[data-v-f703cbce],\n.py-5[data-v-f703cbce] {\n  padding-top: 3rem !important;\n}\n.pr-5[data-v-f703cbce],\n.px-5[data-v-f703cbce] {\n  padding-right: 3rem !important;\n}\n.pb-5[data-v-f703cbce],\n.py-5[data-v-f703cbce] {\n  padding-bottom: 3rem !important;\n}\n.pl-5[data-v-f703cbce],\n.px-5[data-v-f703cbce] {\n  padding-left: 3rem !important;\n}\n.m-auto[data-v-f703cbce] {\n  margin: auto !important;\n}\n.mt-auto[data-v-f703cbce],\n.my-auto[data-v-f703cbce] {\n  margin-top: auto !important;\n}\n.mr-auto[data-v-f703cbce],\n.mx-auto[data-v-f703cbce] {\n  margin-right: auto !important;\n}\n.mb-auto[data-v-f703cbce],\n.my-auto[data-v-f703cbce] {\n  margin-bottom: auto !important;\n}\n.ml-auto[data-v-f703cbce],\n.mx-auto[data-v-f703cbce] {\n  margin-left: auto !important;\n}\n@media (min-width: 576px) {\n.m-sm-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-sm-0[data-v-f703cbce],\n  .my-sm-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-sm-0[data-v-f703cbce],\n  .mx-sm-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-sm-0[data-v-f703cbce],\n  .my-sm-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-sm-0[data-v-f703cbce],\n  .mx-sm-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-sm-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-sm-1[data-v-f703cbce],\n  .my-sm-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-sm-1[data-v-f703cbce],\n  .mx-sm-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-sm-1[data-v-f703cbce],\n  .my-sm-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-sm-1[data-v-f703cbce],\n  .mx-sm-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-sm-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-sm-2[data-v-f703cbce],\n  .my-sm-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-sm-2[data-v-f703cbce],\n  .mx-sm-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-sm-2[data-v-f703cbce],\n  .my-sm-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-sm-2[data-v-f703cbce],\n  .mx-sm-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-sm-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-sm-3[data-v-f703cbce],\n  .my-sm-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-sm-3[data-v-f703cbce],\n  .mx-sm-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-sm-3[data-v-f703cbce],\n  .my-sm-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-sm-3[data-v-f703cbce],\n  .mx-sm-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-sm-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-sm-4[data-v-f703cbce],\n  .my-sm-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-sm-4[data-v-f703cbce],\n  .mx-sm-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-sm-4[data-v-f703cbce],\n  .my-sm-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-sm-4[data-v-f703cbce],\n  .mx-sm-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-sm-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-sm-5[data-v-f703cbce],\n  .my-sm-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-sm-5[data-v-f703cbce],\n  .mx-sm-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-sm-5[data-v-f703cbce],\n  .my-sm-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-sm-5[data-v-f703cbce],\n  .mx-sm-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-sm-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-sm-0[data-v-f703cbce],\n  .py-sm-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-sm-0[data-v-f703cbce],\n  .px-sm-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-sm-0[data-v-f703cbce],\n  .py-sm-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-sm-0[data-v-f703cbce],\n  .px-sm-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-sm-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-sm-1[data-v-f703cbce],\n  .py-sm-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-sm-1[data-v-f703cbce],\n  .px-sm-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-sm-1[data-v-f703cbce],\n  .py-sm-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-sm-1[data-v-f703cbce],\n  .px-sm-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-sm-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-sm-2[data-v-f703cbce],\n  .py-sm-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-sm-2[data-v-f703cbce],\n  .px-sm-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-sm-2[data-v-f703cbce],\n  .py-sm-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-sm-2[data-v-f703cbce],\n  .px-sm-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-sm-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-sm-3[data-v-f703cbce],\n  .py-sm-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-sm-3[data-v-f703cbce],\n  .px-sm-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-sm-3[data-v-f703cbce],\n  .py-sm-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-sm-3[data-v-f703cbce],\n  .px-sm-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-sm-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-sm-4[data-v-f703cbce],\n  .py-sm-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-sm-4[data-v-f703cbce],\n  .px-sm-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-sm-4[data-v-f703cbce],\n  .py-sm-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-sm-4[data-v-f703cbce],\n  .px-sm-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-sm-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-sm-5[data-v-f703cbce],\n  .py-sm-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-sm-5[data-v-f703cbce],\n  .px-sm-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-sm-5[data-v-f703cbce],\n  .py-sm-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-sm-5[data-v-f703cbce],\n  .px-sm-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-sm-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-sm-auto[data-v-f703cbce],\n  .my-sm-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-sm-auto[data-v-f703cbce],\n  .mx-sm-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-sm-auto[data-v-f703cbce],\n  .my-sm-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-sm-auto[data-v-f703cbce],\n  .mx-sm-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 768px) {\n.m-md-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-md-0[data-v-f703cbce],\n  .my-md-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-md-0[data-v-f703cbce],\n  .mx-md-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-md-0[data-v-f703cbce],\n  .my-md-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-md-0[data-v-f703cbce],\n  .mx-md-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-md-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-md-1[data-v-f703cbce],\n  .my-md-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-md-1[data-v-f703cbce],\n  .mx-md-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-md-1[data-v-f703cbce],\n  .my-md-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-md-1[data-v-f703cbce],\n  .mx-md-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-md-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-md-2[data-v-f703cbce],\n  .my-md-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-md-2[data-v-f703cbce],\n  .mx-md-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-md-2[data-v-f703cbce],\n  .my-md-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-md-2[data-v-f703cbce],\n  .mx-md-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-md-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-md-3[data-v-f703cbce],\n  .my-md-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-md-3[data-v-f703cbce],\n  .mx-md-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-md-3[data-v-f703cbce],\n  .my-md-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-md-3[data-v-f703cbce],\n  .mx-md-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-md-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-md-4[data-v-f703cbce],\n  .my-md-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-md-4[data-v-f703cbce],\n  .mx-md-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-md-4[data-v-f703cbce],\n  .my-md-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-md-4[data-v-f703cbce],\n  .mx-md-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-md-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-md-5[data-v-f703cbce],\n  .my-md-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-md-5[data-v-f703cbce],\n  .mx-md-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-md-5[data-v-f703cbce],\n  .my-md-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-md-5[data-v-f703cbce],\n  .mx-md-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-md-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-md-0[data-v-f703cbce],\n  .py-md-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-md-0[data-v-f703cbce],\n  .px-md-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-md-0[data-v-f703cbce],\n  .py-md-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-md-0[data-v-f703cbce],\n  .px-md-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-md-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-md-1[data-v-f703cbce],\n  .py-md-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-md-1[data-v-f703cbce],\n  .px-md-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-md-1[data-v-f703cbce],\n  .py-md-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-md-1[data-v-f703cbce],\n  .px-md-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-md-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-md-2[data-v-f703cbce],\n  .py-md-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-md-2[data-v-f703cbce],\n  .px-md-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-md-2[data-v-f703cbce],\n  .py-md-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-md-2[data-v-f703cbce],\n  .px-md-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-md-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-md-3[data-v-f703cbce],\n  .py-md-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-md-3[data-v-f703cbce],\n  .px-md-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-md-3[data-v-f703cbce],\n  .py-md-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-md-3[data-v-f703cbce],\n  .px-md-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-md-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-md-4[data-v-f703cbce],\n  .py-md-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-md-4[data-v-f703cbce],\n  .px-md-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-md-4[data-v-f703cbce],\n  .py-md-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-md-4[data-v-f703cbce],\n  .px-md-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-md-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-md-5[data-v-f703cbce],\n  .py-md-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-md-5[data-v-f703cbce],\n  .px-md-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-md-5[data-v-f703cbce],\n  .py-md-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-md-5[data-v-f703cbce],\n  .px-md-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-md-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-md-auto[data-v-f703cbce],\n  .my-md-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-md-auto[data-v-f703cbce],\n  .mx-md-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-md-auto[data-v-f703cbce],\n  .my-md-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-md-auto[data-v-f703cbce],\n  .mx-md-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 992px) {\n.m-lg-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-lg-0[data-v-f703cbce],\n  .my-lg-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-lg-0[data-v-f703cbce],\n  .mx-lg-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-lg-0[data-v-f703cbce],\n  .my-lg-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-lg-0[data-v-f703cbce],\n  .mx-lg-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-lg-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-lg-1[data-v-f703cbce],\n  .my-lg-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-lg-1[data-v-f703cbce],\n  .mx-lg-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-lg-1[data-v-f703cbce],\n  .my-lg-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-lg-1[data-v-f703cbce],\n  .mx-lg-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-lg-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-lg-2[data-v-f703cbce],\n  .my-lg-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-lg-2[data-v-f703cbce],\n  .mx-lg-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-lg-2[data-v-f703cbce],\n  .my-lg-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-lg-2[data-v-f703cbce],\n  .mx-lg-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-lg-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-lg-3[data-v-f703cbce],\n  .my-lg-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-lg-3[data-v-f703cbce],\n  .mx-lg-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-lg-3[data-v-f703cbce],\n  .my-lg-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-lg-3[data-v-f703cbce],\n  .mx-lg-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-lg-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-lg-4[data-v-f703cbce],\n  .my-lg-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-lg-4[data-v-f703cbce],\n  .mx-lg-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-lg-4[data-v-f703cbce],\n  .my-lg-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-lg-4[data-v-f703cbce],\n  .mx-lg-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-lg-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-lg-5[data-v-f703cbce],\n  .my-lg-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-lg-5[data-v-f703cbce],\n  .mx-lg-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-lg-5[data-v-f703cbce],\n  .my-lg-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-lg-5[data-v-f703cbce],\n  .mx-lg-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-lg-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-lg-0[data-v-f703cbce],\n  .py-lg-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-lg-0[data-v-f703cbce],\n  .px-lg-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-lg-0[data-v-f703cbce],\n  .py-lg-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-lg-0[data-v-f703cbce],\n  .px-lg-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-lg-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-lg-1[data-v-f703cbce],\n  .py-lg-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-lg-1[data-v-f703cbce],\n  .px-lg-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-lg-1[data-v-f703cbce],\n  .py-lg-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-lg-1[data-v-f703cbce],\n  .px-lg-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-lg-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-lg-2[data-v-f703cbce],\n  .py-lg-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-lg-2[data-v-f703cbce],\n  .px-lg-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-lg-2[data-v-f703cbce],\n  .py-lg-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-lg-2[data-v-f703cbce],\n  .px-lg-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-lg-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-lg-3[data-v-f703cbce],\n  .py-lg-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-lg-3[data-v-f703cbce],\n  .px-lg-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-lg-3[data-v-f703cbce],\n  .py-lg-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-lg-3[data-v-f703cbce],\n  .px-lg-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-lg-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-lg-4[data-v-f703cbce],\n  .py-lg-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-lg-4[data-v-f703cbce],\n  .px-lg-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-lg-4[data-v-f703cbce],\n  .py-lg-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-lg-4[data-v-f703cbce],\n  .px-lg-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-lg-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-lg-5[data-v-f703cbce],\n  .py-lg-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-lg-5[data-v-f703cbce],\n  .px-lg-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-lg-5[data-v-f703cbce],\n  .py-lg-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-lg-5[data-v-f703cbce],\n  .px-lg-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-lg-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-lg-auto[data-v-f703cbce],\n  .my-lg-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-lg-auto[data-v-f703cbce],\n  .mx-lg-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-lg-auto[data-v-f703cbce],\n  .my-lg-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-lg-auto[data-v-f703cbce],\n  .mx-lg-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 1200px) {\n.m-xl-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-xl-0[data-v-f703cbce],\n  .my-xl-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-xl-0[data-v-f703cbce],\n  .mx-xl-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-xl-0[data-v-f703cbce],\n  .my-xl-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-xl-0[data-v-f703cbce],\n  .mx-xl-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-xl-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-xl-1[data-v-f703cbce],\n  .my-xl-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-xl-1[data-v-f703cbce],\n  .mx-xl-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-xl-1[data-v-f703cbce],\n  .my-xl-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-xl-1[data-v-f703cbce],\n  .mx-xl-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-xl-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-xl-2[data-v-f703cbce],\n  .my-xl-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-xl-2[data-v-f703cbce],\n  .mx-xl-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-xl-2[data-v-f703cbce],\n  .my-xl-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-xl-2[data-v-f703cbce],\n  .mx-xl-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-xl-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-xl-3[data-v-f703cbce],\n  .my-xl-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-xl-3[data-v-f703cbce],\n  .mx-xl-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-xl-3[data-v-f703cbce],\n  .my-xl-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-xl-3[data-v-f703cbce],\n  .mx-xl-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-xl-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-xl-4[data-v-f703cbce],\n  .my-xl-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-xl-4[data-v-f703cbce],\n  .mx-xl-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-xl-4[data-v-f703cbce],\n  .my-xl-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-xl-4[data-v-f703cbce],\n  .mx-xl-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-xl-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-xl-5[data-v-f703cbce],\n  .my-xl-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-xl-5[data-v-f703cbce],\n  .mx-xl-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-xl-5[data-v-f703cbce],\n  .my-xl-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-xl-5[data-v-f703cbce],\n  .mx-xl-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-xl-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-xl-0[data-v-f703cbce],\n  .py-xl-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-xl-0[data-v-f703cbce],\n  .px-xl-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-xl-0[data-v-f703cbce],\n  .py-xl-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-xl-0[data-v-f703cbce],\n  .px-xl-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-xl-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-xl-1[data-v-f703cbce],\n  .py-xl-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-xl-1[data-v-f703cbce],\n  .px-xl-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-xl-1[data-v-f703cbce],\n  .py-xl-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-xl-1[data-v-f703cbce],\n  .px-xl-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-xl-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-xl-2[data-v-f703cbce],\n  .py-xl-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-xl-2[data-v-f703cbce],\n  .px-xl-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-xl-2[data-v-f703cbce],\n  .py-xl-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-xl-2[data-v-f703cbce],\n  .px-xl-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-xl-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-xl-3[data-v-f703cbce],\n  .py-xl-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-xl-3[data-v-f703cbce],\n  .px-xl-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-xl-3[data-v-f703cbce],\n  .py-xl-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-xl-3[data-v-f703cbce],\n  .px-xl-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-xl-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-xl-4[data-v-f703cbce],\n  .py-xl-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-xl-4[data-v-f703cbce],\n  .px-xl-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-xl-4[data-v-f703cbce],\n  .py-xl-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-xl-4[data-v-f703cbce],\n  .px-xl-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-xl-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-xl-5[data-v-f703cbce],\n  .py-xl-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-xl-5[data-v-f703cbce],\n  .px-xl-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-xl-5[data-v-f703cbce],\n  .py-xl-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-xl-5[data-v-f703cbce],\n  .px-xl-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-xl-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-xl-auto[data-v-f703cbce],\n  .my-xl-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-xl-auto[data-v-f703cbce],\n  .mx-xl-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-xl-auto[data-v-f703cbce],\n  .my-xl-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-xl-auto[data-v-f703cbce],\n  .mx-xl-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n.visible[data-v-f703cbce] {\n  visibility: visible !important;\n}\n.invisible[data-v-f703cbce] {\n  visibility: hidden !important;\n}\n*[data-v-f703cbce] {\n  margin: 0px;\n}\n*[data-v-f703cbce] ::before,\n  *[data-v-f703cbce] ::after {\n    margin: 0px;\n}\nhtml[data-v-f703cbce] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-f703cbce]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-f703cbce]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-f703cbce]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-f703cbce] {\n  background: #1E2326;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-lines .verticle-line[data-v-f703cbce] {\n    border-left: 1px solid white;\n    height: 100vh;\n    opacity: 0.1;\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.verticle-lines .verticle-line[data-v-f703cbce]:nth-child(1), .verticle-lines .verticle-line[data-v-f703cbce]:nth-child(6) {\n    -webkit-box-flex: 0.5;\n        -ms-flex: 0.5;\n            flex: 0.5;\n}\n.theme-container[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.heading-light[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-f703cbce] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-f703cbce] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-f703cbce], .button-text[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-cover[data-v-f703cbce] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.home-cover .slogan[data-v-f703cbce] {\n    color: white;\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    bottom: 1%;\n    width: 100vw;\n}\n.home-cover .slogan .heading-light[data-v-f703cbce] {\n      text-align: center;\n      margin-top: -15px;\n}\n.home-cover .slogan .heading-bold[data-v-f703cbce] {\n      opacity: 0.1;\n      text-align: center;\n}\n.home-cover .scroll[data-v-f703cbce] {\n    position: absolute;\n    bottom: 5%;\n    right: 1.5vw;\n    -webkit-animation: scroll-down-data-v-f703cbce 1s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: scroll-down-data-v-f703cbce 1s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: ease-in-out;\n            animation-timing-function: ease-in-out;\n}\n.home-cover .scroll .text[data-v-f703cbce] {\n      color: #ebebeb;\n      text-orientation: rtl;\n      -webkit-writing-mode: vertical-lr;\n          -ms-writing-mode: tb-lr;\n              writing-mode: vertical-lr;\n      -webkit-transform: rotate(180deg);\n              transform: rotate(180deg);\n      font-size: 0.7rem;\n      letter-spacing: 2px;\n      line-height: 21px;\n      margin: 0 0 1rem 0.4rem;\n}\n.home-cover .scroll svg[data-v-f703cbce] {\n      width: 2.1rem;\n}\n.home-cover .scroll svg .st0[data-v-f703cbce] {\n        fill: #00E0E9;\n}\n@-webkit-keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n50% {\n    ms-transform: translate(0, 10px);\n    -webkit-transform: translate(0, 10px);\n    transform: translate(0, 10px);\n}\n100% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n}\n@keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n50% {\n    ms-transform: translate(0, 10px);\n    -webkit-transform: translate(0, 10px);\n    transform: translate(0, 10px);\n}\n100% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n}\n.cover svg[data-v-f703cbce] {\n  width: 100%;\n  height: 95vh;\n}\n.cover svg .st0[data-v-f703cbce] {\n    fill: #1E2326;\n}\n.cover svg .st1[data-v-f703cbce] {\n    fill: url(#SVGID_2_);\n}\n.cover svg .st2[data-v-f703cbce] {\n    opacity: 1;\n    fill: #34393C;\n}\n.cover svg .st3[data-v-f703cbce] {\n    fill: url(#SVGID_3_);\n}\n.cover svg .st4[data-v-f703cbce] {\n    fill: url(#hcSVGID_4_);\n}\n.cover svg .st5[data-v-f703cbce] {\n    fill: url(#SVGID_5_);\n}\n.cover svg .st6[data-v-f703cbce] {\n    fill: url(#SVGID_6_);\n}\n.cover svg .st7[data-v-f703cbce] {\n    fill: url(#SVGID_7_);\n}\n.cover svg .st8[data-v-f703cbce] {\n    fill: url(#SVGID_8_);\n}\n.cover svg .st9[data-v-f703cbce] {\n    fill: url(#SVGID_9_);\n}\n.cover svg .st10[data-v-f703cbce] {\n    fill: url(#SVGID_10_);\n}\n.cover svg .st11[data-v-f703cbce] {\n    fill: url(#SVGID_11_);\n}\n.cover svg .st12[data-v-f703cbce] {\n    fill: url(#SVGID_12_);\n}\n.cover svg .st13[data-v-f703cbce] {\n    fill: none;\n    stroke: #1E2326;\n    stroke-miterlimit: 10;\n}\n.cover svg .st14[data-v-f703cbce] {\n    fill: url(#SVGID_13_);\n}\n.cover svg .st15[data-v-f703cbce] {\n    fill: #1C2123;\n}\n.cover svg .st16[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_15_);\n            clip-path: url(#SVGID_15_);\n    fill: #151819;\n}\n.cover svg .st17[data-v-f703cbce] {\n    fill: #121516;\n}\n.cover svg .st18[data-v-f703cbce] {\n    fill: url(#SVGID_16_);\n}\n.cover svg .st19[data-v-f703cbce] {\n    fill: url(#SVGID_17_);\n}\n.cover svg .st20[data-v-f703cbce] {\n    fill: #FFFFFF;\n}\n.cover svg .st21[data-v-f703cbce] {\n    display: inline;\n}\n.cover svg .st22[data-v-f703cbce] {\n    display: inline;\n    opacity: 0.5;\n    fill: url(#SVGID_18_);\n}\n.cover svg .st23[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: #FDFEFF;\n}\n.cover svg .st24[data-v-f703cbce] {\n    opacity: 0.2;\n    -webkit-clip-path: url(#SVGID_20_);\n            clip-path: url(#SVGID_20_);\n    fill: url(#smoke_2_);\n}\n.cover svg .st25[data-v-f703cbce] {\n    opacity: 0.2;\n    fill: url(#SVGID_21_);\n}\n.cover svg .st26[data-v-f703cbce] {\n    fill: url(#SVGID_22_);\n}\n.cover svg .st27[data-v-f703cbce] {\n    fill: url(#SVGID_23_);\n}\n.cover svg .st28[data-v-f703cbce] {\n    fill: #BABABA;\n}\n.cover svg .st29[data-v-f703cbce] {\n    fill: #DEE7F9;\n}\n.cover svg .st30[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_25_);\n            clip-path: url(#SVGID_25_);\n    fill: #C46970;\n}\n.cover svg .st31[data-v-f703cbce] {\n    fill: url(#SVGID_26_);\n}\n.cover svg .st32[data-v-f703cbce] {\n    fill: url(#SVGID_27_);\n}\n.cover svg .st33[data-v-f703cbce] {\n    fill: #A3A5A6;\n}\n.cover svg .st34[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #C46970;\n}\n.cover svg .st35[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #A3A5A6;\n}\n.cover svg .st36[data-v-f703cbce] {\n    fill: url(#SVGID_30_);\n}\n.cover svg .st37[data-v-f703cbce] {\n    fill: url(#SVGID_31_);\n}\n.cover svg .st38[data-v-f703cbce] {\n    fill: #6D4930;\n}\n.cover svg .st39[data-v-f703cbce] {\n    fill: #CB8E55;\n}\n.cover svg .st40[data-v-f703cbce] {\n    fill: #2A3033;\n}\n.cover svg .st41[data-v-f703cbce] {\n    fill: #007075;\n}\n.cover svg .st42[data-v-f703cbce] {\n    fill: url(#SVGID_32_);\n}\n.cover svg .st43[data-v-f703cbce] {\n    fill: url(#SVGID_33_);\n}\n.cover svg .st44[data-v-f703cbce] {\n    fill: url(#SVGID_34_);\n}\n.cover svg .st45[data-v-f703cbce] {\n    opacity: 0.38;\n    fill: url(#SVGID_35_);\n}\n.cover svg .st46[data-v-f703cbce] {\n    opacity: 0.78;\n    fill: #1E2326;\n}\n.cover svg .st47[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #34393C;\n}\n.cover svg .st48[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st49[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_36_);\n}\n.cover svg .st50[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_37_);\n}\n.cover svg .st51[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_38_);\n}\n.cover svg .st52[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_39_);\n}\n.cover svg .st53[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_40_);\n}\n.cover svg .st54[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_41_);\n}\n.cover svg .st55[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_42_);\n}\n.cover svg .st56[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_43_);\n}\n.cover svg .st57[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_44_);\n}\n.cover svg .st58[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_45_);\n}\n.cover svg .st59[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_46_);\n}\n.cover svg .st60[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_47_);\n}\n.cover svg .st61[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_48_);\n}\n.cover svg .st62[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_49_);\n}\n.cover svg .st63[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_50_);\n}\n.cover svg .st64[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_51_);\n}\n.cover svg .st65[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_52_);\n}\n.cover svg .st66[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_53_);\n}\n.cover svg .st67[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_54_);\n}\n.cover svg .st68[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_55_);\n}\n.cover svg .st69[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_56_);\n}\n.cover svg .st70[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_57_);\n}\n.cover svg .st71[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_58_);\n}\n.cover svg .st72[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_59_);\n}\n.cover svg .st73[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_60_);\n}\n.cover svg .st74[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_61_);\n}\n.cover svg .st75[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_62_);\n}\n.cover svg .st76[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_63_);\n}\n.cover svg .st77[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_64_);\n}\n.cover svg .st78[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_65_);\n}\n.cover svg .st79[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_66_);\n}\n.cover svg .st80[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_67_);\n}\n.cover svg .st81[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_68_);\n}\n.cover svg .st82[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_69_);\n}\n.cover svg .st83[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_70_);\n}\n.cover svg .st84[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_71_);\n}\n.cover svg .st85[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_72_);\n}\n.cover svg .st86[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_73_);\n}\n.cover svg .st87[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_74_);\n}\n.cover svg .st88[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_75_);\n}\n.cover svg .st89[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_76_);\n}\n.cover svg .st90[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_77_);\n}\n.cover svg .st91[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_78_);\n}\n.cover svg .st92[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_79_);\n}\n.cover svg .st93[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_80_);\n}\n.cover svg .st94[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_81_);\n}\n.cover svg .st95[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_82_);\n}\n.cover svg .st96[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_83_);\n}\n.cover svg .st97[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_84_);\n}\n.cover svg .st98[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_85_);\n}\n.cover svg .st99[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_86_);\n}\n.cover svg .st100[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_87_);\n}\n.cover svg .st101[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_88_);\n}\n.cover svg .st102[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_89_);\n}\n.cover svg .st103[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_90_);\n}\n.cover svg .st104[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_91_);\n}\n.cover svg .st105[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_93_);\n            clip-path: url(#SVGID_93_);\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st106[data-v-f703cbce] {\n    display: none;\n    fill: #00E0E9;\n}\n.cover svg .st107[data-v-f703cbce] {\n    font-family: 'SofiaPro-Bold';\n}\n.cover svg .st108[data-v-f703cbce] {\n    font-size: 5.444px;\n}\n.cover svg .st109[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: url(#SVGID_94_);\n}\n.cover svg .st110[data-v-f703cbce] {\n    fill: #33373A;\n    stroke: #33373A;\n    stroke-miterlimit: 10;\n}\n.cover svg .st111[data-v-f703cbce] {\n    fill: none;\n    stroke: #F7E9E1;\n    stroke-width: 1.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-miterlimit: 10;\n}\n.cover svg .st112[data-v-f703cbce] {\n    fill: none;\n    stroke: #34393C;\n    stroke-miterlimit: 10;\n}\n.cover svg .st113[data-v-f703cbce] {\n    fill: #34393C;\n}\n.cover svg .st114[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_95_);\n            clip-path: url(#SVGID_95_);\n}\n.cover svg #hi[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #programer[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 0.5s;\n    transition: -webkit-transform 0.5s;\n    transition: transform 0.5s;\n    transition: transform 0.5s, -webkit-transform 0.5s;\n}\n.cover svg #programer[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-0.5rem);\n              transform: translateY(-0.5rem);\n}\n.cover svg #programer:hover + #hi[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock #round[data-v-f703cbce] {\n      -webkit-animation: clock-data-v-f703cbce 60s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: clock-data-v-f703cbce 60s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: linear;\n              animation-timing-function: linear;\n      -webkit-transform-origin: 72.5px 92.9px 0px;\n              transform-origin: 72.5px 92.9px 0px;\n}\n@-webkit-keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n.cover svg #light #toplight[data-v-f703cbce] {\n    -webkit-animation: toplight-data-v-f703cbce 6s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: toplight-data-v-f703cbce 6s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #lightbulb[data-v-f703cbce] {\n    -webkit-animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-delay: 6s;\n    /* Safari 4.0 - 8.0 */\n    animation-delay: 6s;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #laptoplight[data-v-f703cbce] {\n    -webkit-animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n@-webkit-keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.cover svg #spider[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 1s;\n    transition: -webkit-transform 1s;\n    transition: transform 1s;\n    transition: transform 1s, -webkit-transform 1s;\n}\n.cover svg #spider[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-1rem);\n              transform: translateY(-1rem);\n}\n.cover svg #donttouch[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #books:hover + #donttouch[data-v-f703cbce] {\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 /* 51 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+$(function () {
+
+    var offset = $('.scroll').offset().top;
+    $(window).scroll(function () {
+        $(".scroll").css({
+            'opacity': 1 - $(window).scrollTop() * 3 / $(window).height()
+        });
+        if ($(window).scrollTop() > offset - 400) {} else {
+
+            //$(".scroll").fadeIn();
+        }
+        if ($(window).scrollTop() < offset + 400) {}
+    });
+});
+
+/***/ }),
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52590,10 +53768,14 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "scroll" }, [
+      _c("div", { staticClass: "text" }, [
+        _vm._v("\n                SCROLL DOWN\n            ")
+      ]),
+      _vm._v(" "),
       _c(
         "svg",
         {
-          staticStyle: { "enable-background": "new 0 0 21.9 182.7" },
+          staticStyle: { "enable-background": "new 0 0 40 48.3" },
           attrs: {
             version: "1.1",
             id: "Layer_1",
@@ -52601,136 +53783,38 @@ var render = function() {
             "xmlns:xlink": "http://www.w3.org/1999/xlink",
             x: "0px",
             y: "0px",
-            viewBox: "0 0 21.9 182.7",
+            viewBox: "0 0 40 48.3",
             "xml:space": "preserve"
           }
         },
         [
-          _c(
-            "g",
-            {
-              attrs: {
-                id: "Group_71",
-                transform: "translate(-1227.793 -602.5)"
-              }
-            },
-            [
-              _c("g", { staticClass: "st0" }, [
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1241.3,708.4c0.6,0,1.2-0.6,1.2-1.4c0-0.8-0.4-1.3-1-1.4c-0.5,0-0.9,0.3-1.1,1.1l-0.3,1\n                            c-0.4,1.4-1.2,2.1-2.3,2.1c-0.7,0-1.3-0.3-1.7-0.8c-0.5-0.5-0.7-1.2-0.7-2c0-0.8,0.2-1.5,0.7-2c0.4-0.5,1.1-0.8,1.8-0.8v1.5\n                            c-0.7,0-1.1,0.5-1.1,1.2c0,0.7,0.4,1.2,1,1.2c0.5,0,0.8-0.3,0.9-1l0.3-1c0.5-1.7,1.4-2.3,2.5-2.3c0.7,0,1.3,0.3,1.7,0.9\n                            c0.4,0.6,0.6,1.2,0.6,2c0,0.9-0.2,1.6-0.7,2.1c-0.5,0.6-1.1,0.8-1.8,0.8V708.4z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1242.2,693.1c1,0.7,1.7,2,1.7,3.4c0,1.2-0.4,2.2-1.2,3c-0.8,0.8-1.8,1.2-3,1.2c-1.2,0-2.2-0.4-3-1.2\n                            s-1.2-1.8-1.2-3c0-1.4,0.6-2.6,1.6-3.3l0.9,1.2c-0.7,0.5-1.1,1.2-1.1,2.1c0,0.7,0.3,1.4,0.8,1.9s1.2,0.8,2,0.8\n                            c0.8,0,1.4-0.3,2-0.8s0.8-1.1,0.8-1.9c0-0.9-0.4-1.7-1.1-2.1L1242.2,693.1z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1243.8,683.5v1.8l-2.9,1.9v0.6h2.9v1.5h-8.3v-3.3c0-0.9,0.3-1.5,0.8-2c0.5-0.5,1.2-0.7,1.9-0.7\n                            c0.6,0,1.2,0.2,1.7,0.5c0.5,0.3,0.8,0.9,0.9,1.6L1243.8,683.5z M1236.9,687.9h2.6v-1.7c0-0.8-0.6-1.2-1.3-1.2\n                            c-0.7,0-1.3,0.4-1.3,1.1V687.9z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1236.6,678.7c-0.8-0.8-1.2-1.8-1.2-3s0.4-2.2,1.2-3c0.8-0.8,1.8-1.2,3-1.2c1.2,0,2.2,0.4,3,1.2\n                            c0.8,0.8,1.2,1.8,1.2,3s-0.4,2.2-1.2,3c-0.8,0.8-1.8,1.2-3,1.2C1238.5,680,1237.5,679.6,1236.6,678.7z M1239.6,678.4\n                            c0.8,0,1.4-0.3,1.9-0.8c0.5-0.5,0.8-1.2,0.8-1.9s-0.3-1.4-0.8-1.9c-0.5-0.5-1.2-0.8-1.9-0.8c-0.8,0-1.4,0.3-1.9,0.8\n                            c-0.5,0.5-0.8,1.1-0.8,1.9s0.3,1.4,0.8,1.9C1238.2,678.2,1238.9,678.4,1239.6,678.4z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: { d: "M1243.8,667.6h-8.3v-1.5h6.9v-3.2h1.4V667.6z" }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: { d: "M1243.8,659.1h-8.3v-1.5h6.9v-3.2h1.4V659.1z" }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1243.8,645.6h-8.3v-3.2c0-1.2,0.4-2.1,1.2-2.7c0.8-0.7,1.8-1,3-1c1.2,0,2.2,0.3,3,1c0.8,0.7,1.2,1.6,1.2,2.7\n                            V645.6z M1236.9,644.1h5.5v-1.7c0-0.7-0.3-1.2-0.8-1.6c-0.5-0.4-1.2-0.6-1.9-0.6c-0.8,0-1.5,0.2-2,0.6c-0.5,0.4-0.8,0.9-0.8,1.6\n                            V644.1z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1236.6,634c-0.8-0.8-1.2-1.8-1.2-3s0.4-2.2,1.2-3c0.8-0.8,1.8-1.2,3-1.2c1.2,0,2.2,0.4,3,1.2\n                            c0.8,0.8,1.2,1.8,1.2,3c0,1.2-0.4,2.2-1.2,3c-0.8,0.8-1.8,1.2-3,1.2C1238.5,635.2,1237.5,634.8,1236.6,634z M1239.6,633.6\n                            c0.8,0,1.4-0.3,1.9-0.8c0.5-0.5,0.8-1.2,0.8-1.9s-0.3-1.4-0.8-1.9c-0.5-0.5-1.2-0.8-1.9-0.8c-0.8,0-1.4,0.3-1.9,0.8\n                            c-0.5,0.5-0.8,1.1-0.8,1.9s0.3,1.4,0.8,1.9C1238.2,633.4,1238.9,633.6,1239.6,633.6z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1241.2,616.8l-5.8-1.8v-1.7l8.3,2.8v1.2l-4.7,1.3l4.7,1.2v1.2l-8.3,2.8v-1.7l5.8-1.8l-4.6-1.3V618\n                            L1241.2,616.8z"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  staticClass: "st1",
-                  attrs: {
-                    d:
-                      "M1235.5,603.7h8.3v1.4l-5.4,3.2h5.4v1.5h-8.3v-1.4l5.4-3.2h-5.4V603.7z"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "g",
-                { attrs: { id: "Group_3", transform: "translate(10)" } },
-                [
-                  _c("line", {
-                    staticClass: "st2",
-                    attrs: {
-                      id: "Line_4",
-                      x1: "1228.8",
-                      y1: "744.8",
-                      x2: "1228.8",
-                      y2: "777.5"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("line", {
-                    staticClass: "st3",
-                    attrs: {
-                      id: "Line_5",
-                      x1: "1236.8",
-                      y1: "769.5",
-                      x2: "1228.8",
-                      y2: "777.5"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("line", {
-                    staticClass: "st3",
-                    attrs: {
-                      id: "Line_6",
-                      x1: "1228.8",
-                      y1: "777.5",
-                      x2: "1220.8",
-                      y2: "769.5"
-                    }
-                  })
-                ]
-              )
-            ]
-          )
+          _c("rect", {
+            staticClass: "st0",
+            attrs: {
+              x: "15.9",
+              y: "38.6",
+              transform: "matrix(0.7071 -0.7071 0.7071 0.7071 -21.38 29.5247)",
+              width: "18",
+              height: "4"
+            }
+          }),
+          _vm._v(" "),
+          _c("rect", {
+            staticClass: "st0",
+            attrs: {
+              x: "13.1",
+              y: "31.6",
+              transform:
+                "matrix(0.7071 -0.7071 0.7071 0.7071 -24.2795 22.5248)",
+              width: "4",
+              height: "18"
+            }
+          }),
+          _vm._v(" "),
+          _c("rect", {
+            staticClass: "st0",
+            attrs: { x: "18", width: "4", height: "43.7" }
+          })
         ]
       )
     ])
@@ -52757,19 +53841,19 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(53)
+  __webpack_require__(54)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52808,13 +53892,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(54);
+var content = __webpack_require__(55);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -52834,7 +53918,7 @@ if(false) {
 }
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -52842,4335 +53926,67 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n*[data-v-28ae226b] {\n  margin: 0px;\n}\n*[data-v-28ae226b] ::before,\n  *[data-v-28ae226b] ::after {\n    margin: 0px;\n}\nhtml[data-v-28ae226b] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-28ae226b]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-28ae226b]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-28ae226b]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-28ae226b] {\n  background: #1E2326;\n  position: relative;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-28ae226b] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-line[data-v-28ae226b] {\n  border-left: 1px solid white;\n  height: 100vh;\n  opacity: 0.1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.heading-light[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-28ae226b] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-28ae226b] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.graphic-designing[data-v-28ae226b] {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.graphic-designing .content[data-v-28ae226b] {\n    width: 25vw;\n}\n.graphic-designing .content .heading-light[data-v-28ae226b] {\n      text-align: left;\n      margin-bottom: -25px;\n}\n.graphic-designing .content .heading-bold[data-v-28ae226b] {\n      text-align: left;\n}\n.graphic-designing .content .para[data-v-28ae226b] {\n      color: white;\n      width: 60%;\n      margin: 2rem 0;\n}\n.graphic-designing .content .button[data-v-28ae226b] {\n      height: 3rem;\n      width: 12rem;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.graphic-designing .content .button[data-v-28ae226b]:hover {\n        position: relative;\n}\n.graphic-designing .content .button:hover .button-background[data-v-28ae226b] {\n          position: absolute;\n          height: 100%;\n          width: 100%;\n          -webkit-transition: height 1s;\n          transition: height 1s;\n          -webkit-transition: width 1s;\n          transition: width 1s;\n}\n.graphic-designing .content .button:hover .button-link[data-v-28ae226b] {\n          position: absolute;\n          width: 100%;\n          left: 100%;\n          -webkit-transform: translateX(-80%);\n                  transform: translateX(-80%);\n          -webkit-transition: left 1s;\n          transition: left 1s;\n}\n.graphic-designing .content .button .button-background[data-v-28ae226b] {\n        height: 4px;\n        width: 3rem;\n        background-color: #CB8E55;\n}\n.graphic-designing .content .button .button-link[data-v-28ae226b] {\n        padding: 0 1rem;\n}\n.graphic-designing .svg-cover[data-v-28ae226b] {\n    width: 50vw;\n}\n.graphic-designing .svg-cover svg[data-v-28ae226b] {\n      width: 80%;\n}\n.graphic-designing .svg-cover svg .st0[data-v-28ae226b] {\n        opacity: 0.58;\n        fill: #1A1F21;\n}\n.graphic-designing .svg-cover svg .st1[data-v-28ae226b] {\n        fill: #2C3438;\n}\n.graphic-designing .svg-cover svg .st2[data-v-28ae226b] {\n        fill: url(#gdSVGID_1_);\n}\n.graphic-designing .svg-cover svg .st3[data-v-28ae226b] {\n        fill: url(#gdSVGID_2_);\n}\n.graphic-designing .svg-cover svg .st4[data-v-28ae226b] {\n        fill: url(#gdSVGID_3_);\n}\n.graphic-designing .svg-cover svg .st5[data-v-28ae226b] {\n        fill: #4B4F51;\n}\n.graphic-designing .svg-cover svg .st6[data-v-28ae226b] {\n        fill: #1E2326;\n}\n.graphic-designing .svg-cover svg .st7[data-v-28ae226b] {\n        fill: url(#gdSVGID_4_);\n}\n.graphic-designing .svg-cover svg .st8[data-v-28ae226b] {\n        fill: url(#gdSVGID_5_);\n}\n.graphic-designing .svg-cover svg .st9[data-v-28ae226b] {\n        fill: #00E0E9;\n}\n.graphic-designing .svg-cover svg .st10[data-v-28ae226b] {\n        fill: url(#gdSVGID_6_);\n}\n.graphic-designing .svg-cover svg .st11[data-v-28ae226b] {\n        fill: none;\n        stroke: #34393C;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st12[data-v-28ae226b] {\n        fill: none;\n        stroke: #1E2326;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st13[data-v-28ae226b] {\n        fill: url(#gdSVGID_7_);\n}\n.graphic-designing .svg-cover svg .st14[data-v-28ae226b] {\n        fill: url(#gdSVGID_8_);\n}\n.graphic-designing .svg-cover svg .st15[data-v-28ae226b] {\n        fill: url(#gdSVGID_9_);\n}\n.graphic-designing .svg-cover svg .st16[data-v-28ae226b] {\n        opacity: 0.28;\n        fill: url(#gdSVGID_10_);\n        enable-background: new;\n}\n.graphic-designing .svg-cover svg .st17[data-v-28ae226b] {\n        fill: url(#gdSVGID_11_);\n}\n.graphic-designing .svg-cover svg .st18[data-v-28ae226b] {\n        fill: url(#gdSVGID_12_);\n}\n.graphic-designing .svg-cover svg .st19[data-v-28ae226b] {\n        fill: url(#gdSVGID_13_);\n}\n.graphic-designing .svg-cover svg .st20[data-v-28ae226b] {\n        fill: url(#gdSVGID_14_);\n}\n.graphic-designing .svg-cover svg .st21[data-v-28ae226b] {\n        fill: url(#gdSVGID_15_);\n}\n.graphic-designing .svg-cover svg .st22[data-v-28ae226b] {\n        fill: url(#gdSVGID_16_);\n}\n.graphic-designing .svg-cover svg .st23[data-v-28ae226b] {\n        fill: url(#gdSVGID_17_);\n}\n.graphic-designing .svg-cover svg .st24[data-v-28ae226b] {\n        fill: url(#gdSVGID_18_);\n}\n.graphic-designing .svg-cover svg .st25[data-v-28ae226b] {\n        fill: url(#gdSVGID_19_);\n}\n.graphic-designing .svg-cover svg .st26[data-v-28ae226b] {\n        fill: url(#gdSVGID_20_);\n}\n.graphic-designing .svg-cover svg .st27[data-v-28ae226b] {\n        fill: url(#gdSVGID_21_);\n}\n.graphic-designing .svg-cover svg .st28[data-v-28ae226b] {\n        fill: url(#gdSVGID_22_);\n}\n.graphic-designing .svg-cover svg .st29[data-v-28ae226b] {\n        fill: url(#gdSVGID_23_);\n}\n.graphic-designing .svg-cover svg .st30[data-v-28ae226b] {\n        fill: url(#gdSVGID_24_);\n}\n.graphic-designing .svg-cover svg .st31[data-v-28ae226b] {\n        fill: url(#gdSVGID_25_);\n}\n.graphic-designing .svg-cover svg .st32[data-v-28ae226b] {\n        fill: url(#gdSVGID_26_);\n}\n.graphic-designing .svg-cover svg .st33[data-v-28ae226b] {\n        fill: url(#gdSVGID_27_);\n}\n.graphic-designing .svg-cover svg .st34[data-v-28ae226b] {\n        fill: url(#gdSVGID_28_);\n}\n.graphic-designing .svg-cover svg .st35[data-v-28ae226b] {\n        fill: url(#gdSVGID_29_);\n}\n.graphic-designing .svg-cover svg .st36[data-v-28ae226b] {\n        fill: url(#gdSVGID_30_);\n}\n.graphic-designing .svg-cover svg .st37[data-v-28ae226b] {\n        fill: url(#gdSVGID_31_);\n}\n.graphic-designing .svg-cover svg .st38[data-v-28ae226b] {\n        fill: url(#gdSVGID_32_);\n}\n.graphic-designing .svg-cover svg .st39[data-v-28ae226b] {\n        fill: url(#gdSVGID_33_);\n}\n.graphic-designing .svg-cover svg .st40[data-v-28ae226b] {\n        fill: url(#gdSVGID_34_);\n}\n.graphic-designing .svg-cover svg .st41[data-v-28ae226b] {\n        fill: url(#gdSVGID_35_);\n}\n.graphic-designing .svg-cover svg .st42[data-v-28ae226b] {\n        fill: url(#gdSVGID_36_);\n}\n.graphic-designing .svg-cover svg .st43[data-v-28ae226b] {\n        fill: url(#gdSVGID_37_);\n}\n.graphic-designing .svg-cover svg .st44[data-v-28ae226b] {\n        fill: url(#gdSVGID_38_);\n}\n.graphic-designing .svg-cover svg .st45[data-v-28ae226b] {\n        fill: url(#gdSVGID_39_);\n}\n.graphic-designing .svg-cover svg .st46[data-v-28ae226b] {\n        fill: url(#gdSVGID_40_);\n}\n.graphic-designing .svg-cover svg .st47[data-v-28ae226b] {\n        fill: url(#gdSVGID_41_);\n}\n.graphic-designing .svg-cover svg .st48[data-v-28ae226b] {\n        fill: url(#gdSVGID_42_);\n}\n.graphic-designing .svg-cover svg .st49[data-v-28ae226b] {\n        fill: url(#gdSVGID_43_);\n}\n.graphic-designing .svg-cover svg .st50[data-v-28ae226b] {\n        fill: url(#gdSVGID_44_);\n}\n.graphic-designing .svg-cover svg .st51[data-v-28ae226b] {\n        fill: url(#gdSVGID_45_);\n}\n.graphic-designing .svg-cover svg .st52[data-v-28ae226b] {\n        fill: url(#gdSVGID_46_);\n}\n.graphic-designing .svg-cover svg .st53[data-v-28ae226b] {\n        fill: url(#gdSVGID_47_);\n}\n.graphic-designing .svg-cover svg .st54[data-v-28ae226b] {\n        fill: url(#gdSVGID_48_);\n}\n.graphic-designing .svg-cover svg .st55[data-v-28ae226b] {\n        fill: url(#gdSVGID_49_);\n}\n.graphic-designing .svg-cover svg .st56[data-v-28ae226b] {\n        fill: url(#gdSVGID_50_);\n}\n.graphic-designing .svg-cover svg .st57[data-v-28ae226b] {\n        fill: url(#gdSVGID_51_);\n}\n.graphic-designing .svg-cover svg .st58[data-v-28ae226b] {\n        fill: url(#gdSVGID_52_);\n}\n.graphic-designing .svg-cover svg .st59[data-v-28ae226b] {\n        fill: url(#gdSVGID_53_);\n}\n.graphic-designing .svg-cover svg .st60[data-v-28ae226b] {\n        fill: url(#gdSVGID_54_);\n}\n.graphic-designing .svg-cover svg .st61[data-v-28ae226b] {\n        fill: url(#gdSVGID_55_);\n}\n.graphic-designing .svg-cover svg .st62[data-v-28ae226b] {\n        fill: url(#gdSVGID_56_);\n}\n.graphic-designing .svg-cover svg .st63[data-v-28ae226b] {\n        fill: url(#gdSVGID_57_);\n}\n.graphic-designing .svg-cover svg .st64[data-v-28ae226b] {\n        fill: url(#gdSVGID_58_);\n}\n.graphic-designing .svg-cover svg .st65[data-v-28ae226b] {\n        fill: url(#gdSVGID_59_);\n}\n.graphic-designing .svg-cover svg .st66[data-v-28ae226b] {\n        fill: url(#gdSVGID_60_);\n}\n.graphic-designing .svg-cover svg .st67[data-v-28ae226b] {\n        fill: url(#gdSVGID_61_);\n}\n.graphic-designing .svg-cover svg .st68[data-v-28ae226b] {\n        fill: url(#gdSVGID_62_);\n}\n.graphic-designing .svg-cover svg .st69[data-v-28ae226b] {\n        fill: url(#gdSVGID_63_);\n}\n.graphic-designing .svg-cover svg .st70[data-v-28ae226b] {\n        fill: url(#gdSVGID_64_);\n}\n.graphic-designing .svg-cover svg .st71[data-v-28ae226b] {\n        fill: url(#gdSVGID_65_);\n}\n.graphic-designing .svg-cover svg .st72[data-v-28ae226b] {\n        fill: url(#gdSVGID_66_);\n}\n.graphic-designing .svg-cover svg .st73[data-v-28ae226b] {\n        fill: url(#gdSVGID_67_);\n}\n.graphic-designing .svg-cover svg .st74[data-v-28ae226b] {\n        fill: url(#gdSVGID_68_);\n}\n.graphic-designing .svg-cover svg .st75[data-v-28ae226b] {\n        fill: url(#gdSVGID_69_);\n}\n.graphic-designing .svg-cover svg .st76[data-v-28ae226b] {\n        fill: url(#gdSVGID_70_);\n}\n.graphic-designing .svg-cover svg .st77[data-v-28ae226b] {\n        fill: url(#gdSVGID_71_);\n}\n.graphic-designing .svg-cover svg .st78[data-v-28ae226b] {\n        fill: url(#gdSVGID_72_);\n}\n.graphic-designing .svg-cover svg .st79[data-v-28ae226b] {\n        fill: url(#gdSVGID_73_);\n}\n.graphic-designing .svg-cover svg .st80[data-v-28ae226b] {\n        fill: url(#gdSVGID_74_);\n}\n.graphic-designing .svg-cover svg .st81[data-v-28ae226b] {\n        fill: url(#gdSVGID_75_);\n}\n.graphic-designing .svg-cover svg .st82[data-v-28ae226b] {\n        fill: url(#gdSVGID_76_);\n}\n.graphic-designing .svg-cover svg .st83[data-v-28ae226b] {\n        fill: url(#gdSVGID_77_);\n}\n.graphic-designing .svg-cover svg .st84[data-v-28ae226b] {\n        fill: url(#gdSVGID_78_);\n}\n.graphic-designing .svg-cover svg .st85[data-v-28ae226b] {\n        fill: url(#gdSVGID_79_);\n}\n.graphic-designing .svg-cover svg .st86[data-v-28ae226b] {\n        fill: url(#gdSVGID_80_);\n}\n.graphic-designing .svg-cover svg .st87[data-v-28ae226b] {\n        fill: url(#gdSVGID_81_);\n}\n.graphic-designing .svg-cover svg .st88[data-v-28ae226b] {\n        fill: url(#gdSVGID_82_);\n}\n.graphic-designing .svg-cover svg .st89[data-v-28ae226b] {\n        fill: url(#gdSVGID_83_);\n}\n.graphic-designing .svg-cover svg .st90[data-v-28ae226b] {\n        fill: url(#gdSVGID_84_);\n}\n.graphic-designing .svg-cover svg .st91[data-v-28ae226b] {\n        fill: url(#gdSVGID_85_);\n}\n.graphic-designing .svg-cover svg .st92[data-v-28ae226b] {\n        fill: url(#gdSVGID_86_);\n}\n.graphic-designing .svg-cover svg .st93[data-v-28ae226b] {\n        fill: url(#gdSVGID_87_);\n}\n.graphic-designing .svg-cover svg .st94[data-v-28ae226b] {\n        fill: url(#gdSVGID_88_);\n}\n.graphic-designing .svg-cover svg .st95[data-v-28ae226b] {\n        fill: url(#gdSVGID_89_);\n}\n.graphic-designing .svg-cover svg .st96[data-v-28ae226b] {\n        fill: url(#gdSVGID_90_);\n}\n.graphic-designing .svg-cover svg .st97[data-v-28ae226b] {\n        fill: url(#gdSVGID_91_);\n}\n.graphic-designing .svg-cover svg .st98[data-v-28ae226b] {\n        fill: url(#gdSVGID_92_);\n}\n.graphic-designing .svg-cover svg .st99[data-v-28ae226b] {\n        fill: url(#gdSVGID_93_);\n}\n.graphic-designing .svg-cover svg .st100[data-v-28ae226b] {\n        fill: url(#gdSVGID_94_);\n}\n.graphic-designing .svg-cover svg .st101[data-v-28ae226b] {\n        fill: url(#gdSVGID_95_);\n}\n.graphic-designing .svg-cover svg .st102[data-v-28ae226b] {\n        fill: url(#gdSVGID_96_);\n}\n.graphic-designing .svg-cover svg .st103[data-v-28ae226b] {\n        fill: url(#gdSVGID_97_);\n}\n.graphic-designing .svg-cover svg .st104[data-v-28ae226b] {\n        fill: url(#gdSVGID_98_);\n}\n.graphic-designing .svg-cover svg .st105[data-v-28ae226b] {\n        fill: url(#gdSVGID_99_);\n}\n.graphic-designing .svg-cover svg .st106[data-v-28ae226b] {\n        fill: url(#gdSVGID_100_);\n}\n.graphic-designing .svg-cover svg .st107[data-v-28ae226b] {\n        fill: url(#gdSVGID_101_);\n}\n.graphic-designing .svg-cover svg .st108[data-v-28ae226b] {\n        fill: url(#gdSVGID_102_);\n}\n.graphic-designing .svg-cover svg .st109[data-v-28ae226b] {\n        fill: url(#gdSVGID_103_);\n}\n.graphic-designing .svg-cover svg .st110[data-v-28ae226b] {\n        fill: url(#gdSVGID_104_);\n}\n.graphic-designing .svg-cover svg .st111[data-v-28ae226b] {\n        fill: url(#gdSVGID_105_);\n}\n.graphic-designing .svg-cover svg .st112[data-v-28ae226b] {\n        fill: url(#gdSVGID_106_);\n}\n.graphic-designing .svg-cover svg .st113[data-v-28ae226b] {\n        fill: url(#gdSVGID_107_);\n}\n.graphic-designing .svg-cover svg .st114[data-v-28ae226b] {\n        fill: url(#gdSVGID_108_);\n}\n.graphic-designing .svg-cover svg .st115[data-v-28ae226b] {\n        fill: url(#gdSVGID_109_);\n}\n.graphic-designing .svg-cover svg .st116[data-v-28ae226b] {\n        fill: url(#gdSVGID_110_);\n}\n.graphic-designing .svg-cover svg .st117[data-v-28ae226b] {\n        fill: url(#gdSVGID_111_);\n}\n.graphic-designing .svg-cover svg .st118[data-v-28ae226b] {\n        fill: url(#gdSVGID_112_);\n}\n.graphic-designing .svg-cover svg .st119[data-v-28ae226b] {\n        fill: url(#gdSVGID_113_);\n}\n.graphic-designing .svg-cover svg .st120[data-v-28ae226b] {\n        fill: url(#gdSVGID_114_);\n}\n.graphic-designing .svg-cover svg .st121[data-v-28ae226b] {\n        fill: url(#gdSVGID_115_);\n}\n.graphic-designing .svg-cover svg .st122[data-v-28ae226b] {\n        fill: url(#gdSVGID_116_);\n}\n.graphic-designing .svg-cover svg .st123[data-v-28ae226b] {\n        fill: url(#gdSVGID_117_);\n}\n.graphic-designing .svg-cover svg .st124[data-v-28ae226b] {\n        opacity: 0.5;\n}\n.graphic-designing .svg-cover svg .st125[data-v-28ae226b] {\n        fill: #CB8E55;\n}\n.graphic-designing .svg-cover svg .st126[data-v-28ae226b] {\n        fill: url(#gdSVGID_118_);\n}\n.graphic-designing .svg-cover svg .st127[data-v-28ae226b] {\n        fill: #22272A;\n}\n.graphic-designing .svg-cover svg .st128[data-v-28ae226b] {\n        fill: url(#gdSVGID_119_);\n}\n.graphic-designing .svg-cover svg .st129[data-v-28ae226b] {\n        fill: url(#gdSVGID_120_);\n}\n.graphic-designing .svg-cover svg .st130[data-v-28ae226b] {\n        fill: url(#gdSVGID_121_);\n}\n.graphic-designing .svg-cover svg .st131[data-v-28ae226b] {\n        fill: url(#gdSVGID_122_);\n}\n.graphic-designing .svg-cover svg .st132[data-v-28ae226b] {\n        opacity: 0.24;\n}\n.graphic-designing .svg-cover svg .st133[data-v-28ae226b] {\n        fill: url(#gdSVGID_123_);\n}\n.graphic-designing .svg-cover svg .st134[data-v-28ae226b] {\n        fill: #676D70;\n}\n.graphic-designing .svg-cover svg .st135[data-v-28ae226b] {\n        fill: #005458;\n}\n.graphic-designing .svg-cover svg .st136[data-v-28ae226b] {\n        fill: url(#gdSVGID_124_);\n}\n.graphic-designing .svg-cover svg .st137[data-v-28ae226b] {\n        fill: #FFFFFF;\n}\n.graphic-designing .svg-cover svg .st138[data-v-28ae226b] {\n        fill: url(#gdSVGID_125_);\n}\n.graphic-designing .svg-cover svg .st139[data-v-28ae226b] {\n        fill: url(#gdSVGID_126_);\n}\n.graphic-designing .svg-cover svg .st140[data-v-28ae226b] {\n        fill: url(#gdSVGID_127_);\n}\n.graphic-designing .svg-cover svg .st141[data-v-28ae226b] {\n        fill: #E6E6E6;\n}\n.graphic-designing .svg-cover svg .st142[data-v-28ae226b] {\n        fill: url(#gdSVGID_128_);\n}\n.graphic-designing .svg-cover svg .st143[data-v-28ae226b] {\n        fill: url(#gdSVGID_129_);\n}\n.graphic-designing .svg-cover svg .st144[data-v-28ae226b] {\n        fill: url(#gdSVGID_130_);\n}\n.graphic-designing .svg-cover svg .st145[data-v-28ae226b] {\n        fill: url(#gdSVGID_131_);\n}\n.graphic-designing .svg-cover svg .st146[data-v-28ae226b] {\n        fill: url(#gdSVGID_132_);\n}\n.graphic-designing .svg-cover svg .st147[data-v-28ae226b] {\n        fill: url(#gdSVGID_133_);\n}\n.graphic-designing .svg-cover svg .st148[data-v-28ae226b] {\n        fill: url(#gdSVGID_134_);\n}\n.graphic-designing .svg-cover svg .st149[data-v-28ae226b] {\n        fill: url(#gdSVGID_135_);\n}\n.graphic-designing .svg-cover svg .st150[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#gdSVGID_136_);\n}\n.graphic-designing .svg-cover svg .st151[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#gdSVGID_137_);\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n\n/*!\n * Bootstrap Grid v4.1.2 (https://getbootstrap.com/)\n * Copyright 2011-2018 The Bootstrap Authors\n * Copyright 2011-2018 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\n */\n@-ms-viewport {\n  width: device-width;\n}\nhtml[data-v-28ae226b] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -ms-overflow-style: scrollbar;\n}\n*[data-v-28ae226b],\n*[data-v-28ae226b]::before,\n*[data-v-28ae226b]::after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n.container[data-v-28ae226b] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container[data-v-28ae226b] {\n      max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container[data-v-28ae226b] {\n      max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container[data-v-28ae226b] {\n      max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container[data-v-28ae226b] {\n      max-width: 1140px;\n}\n}\n.container-fluid[data-v-28ae226b] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.row[data-v-28ae226b] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters[data-v-28ae226b] {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col[data-v-28ae226b],\n  .no-gutters > [class*=\"col-\"][data-v-28ae226b] {\n    padding-right: 0;\n    padding-left: 0;\n}\n.col-1[data-v-28ae226b], .col-2[data-v-28ae226b], .col-3[data-v-28ae226b], .col-4[data-v-28ae226b], .col-5[data-v-28ae226b], .col-6[data-v-28ae226b], .col-7[data-v-28ae226b], .col-8[data-v-28ae226b], .col-9[data-v-28ae226b], .col-10[data-v-28ae226b], .col-11[data-v-28ae226b], .col-12[data-v-28ae226b], .col[data-v-28ae226b],\n.col-auto[data-v-28ae226b], .col-sm-1[data-v-28ae226b], .col-sm-2[data-v-28ae226b], .col-sm-3[data-v-28ae226b], .col-sm-4[data-v-28ae226b], .col-sm-5[data-v-28ae226b], .col-sm-6[data-v-28ae226b], .col-sm-7[data-v-28ae226b], .col-sm-8[data-v-28ae226b], .col-sm-9[data-v-28ae226b], .col-sm-10[data-v-28ae226b], .col-sm-11[data-v-28ae226b], .col-sm-12[data-v-28ae226b], .col-sm[data-v-28ae226b],\n.col-sm-auto[data-v-28ae226b], .col-md-1[data-v-28ae226b], .col-md-2[data-v-28ae226b], .col-md-3[data-v-28ae226b], .col-md-4[data-v-28ae226b], .col-md-5[data-v-28ae226b], .col-md-6[data-v-28ae226b], .col-md-7[data-v-28ae226b], .col-md-8[data-v-28ae226b], .col-md-9[data-v-28ae226b], .col-md-10[data-v-28ae226b], .col-md-11[data-v-28ae226b], .col-md-12[data-v-28ae226b], .col-md[data-v-28ae226b],\n.col-md-auto[data-v-28ae226b], .col-lg-1[data-v-28ae226b], .col-lg-2[data-v-28ae226b], .col-lg-3[data-v-28ae226b], .col-lg-4[data-v-28ae226b], .col-lg-5[data-v-28ae226b], .col-lg-6[data-v-28ae226b], .col-lg-7[data-v-28ae226b], .col-lg-8[data-v-28ae226b], .col-lg-9[data-v-28ae226b], .col-lg-10[data-v-28ae226b], .col-lg-11[data-v-28ae226b], .col-lg-12[data-v-28ae226b], .col-lg[data-v-28ae226b],\n.col-lg-auto[data-v-28ae226b], .col-xl-1[data-v-28ae226b], .col-xl-2[data-v-28ae226b], .col-xl-3[data-v-28ae226b], .col-xl-4[data-v-28ae226b], .col-xl-5[data-v-28ae226b], .col-xl-6[data-v-28ae226b], .col-xl-7[data-v-28ae226b], .col-xl-8[data-v-28ae226b], .col-xl-9[data-v-28ae226b], .col-xl-10[data-v-28ae226b], .col-xl-11[data-v-28ae226b], .col-xl-12[data-v-28ae226b], .col-xl[data-v-28ae226b],\n.col-xl-auto[data-v-28ae226b] {\n  position: relative;\n  width: 100%;\n  min-height: 1px;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col[data-v-28ae226b] {\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  max-width: 100%;\n}\n.col-auto[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  width: auto;\n  max-width: none;\n}\n.col-1[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 8.33333%;\n          flex: 0 0 8.33333%;\n  max-width: 8.33333%;\n}\n.col-2[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 16.66667%;\n          flex: 0 0 16.66667%;\n  max-width: 16.66667%;\n}\n.col-3[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 25%;\n          flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 33.33333%;\n          flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n}\n.col-5[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 41.66667%;\n          flex: 0 0 41.66667%;\n  max-width: 41.66667%;\n}\n.col-6[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 50%;\n          flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 58.33333%;\n          flex: 0 0 58.33333%;\n  max-width: 58.33333%;\n}\n.col-8[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 66.66667%;\n          flex: 0 0 66.66667%;\n  max-width: 66.66667%;\n}\n.col-9[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 75%;\n          flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 83.33333%;\n          flex: 0 0 83.33333%;\n  max-width: 83.33333%;\n}\n.col-11[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 91.66667%;\n          flex: 0 0 91.66667%;\n  max-width: 91.66667%;\n}\n.col-12[data-v-28ae226b] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 100%;\n          flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 0;\n      -ms-flex-order: -1;\n          order: -1;\n}\n.order-last[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 14;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.order-0[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 1;\n      -ms-flex-order: 0;\n          order: 0;\n}\n.order-1[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 2;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.order-2[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 3;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.order-3[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 4;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.order-4[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 5;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.order-5[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 6;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.order-6[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 7;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.order-7[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 8;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.order-8[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 9;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.order-9[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 10;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.order-10[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 11;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.order-11[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 12;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.order-12[data-v-28ae226b] {\n  -webkit-box-ordinal-group: 13;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.offset-1[data-v-28ae226b] {\n  margin-left: 8.33333%;\n}\n.offset-2[data-v-28ae226b] {\n  margin-left: 16.66667%;\n}\n.offset-3[data-v-28ae226b] {\n  margin-left: 25%;\n}\n.offset-4[data-v-28ae226b] {\n  margin-left: 33.33333%;\n}\n.offset-5[data-v-28ae226b] {\n  margin-left: 41.66667%;\n}\n.offset-6[data-v-28ae226b] {\n  margin-left: 50%;\n}\n.offset-7[data-v-28ae226b] {\n  margin-left: 58.33333%;\n}\n.offset-8[data-v-28ae226b] {\n  margin-left: 66.66667%;\n}\n.offset-9[data-v-28ae226b] {\n  margin-left: 75%;\n}\n.offset-10[data-v-28ae226b] {\n  margin-left: 83.33333%;\n}\n.offset-11[data-v-28ae226b] {\n  margin-left: 91.66667%;\n}\n@media (min-width: 576px) {\n.col-sm[data-v-28ae226b] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-sm-auto[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-sm-1[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-sm-2[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-sm-3[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-sm-5[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-sm-6[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-sm-8[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-sm-9[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-sm-11[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-sm-12[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-sm-last[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-sm-0[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-sm-1[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-sm-2[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-sm-3[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-sm-4[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-sm-5[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-sm-6[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-sm-7[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-sm-8[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-sm-9[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-sm-10[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-sm-11[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-sm-12[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-sm-0[data-v-28ae226b] {\n    margin-left: 0;\n}\n.offset-sm-1[data-v-28ae226b] {\n    margin-left: 8.33333%;\n}\n.offset-sm-2[data-v-28ae226b] {\n    margin-left: 16.66667%;\n}\n.offset-sm-3[data-v-28ae226b] {\n    margin-left: 25%;\n}\n.offset-sm-4[data-v-28ae226b] {\n    margin-left: 33.33333%;\n}\n.offset-sm-5[data-v-28ae226b] {\n    margin-left: 41.66667%;\n}\n.offset-sm-6[data-v-28ae226b] {\n    margin-left: 50%;\n}\n.offset-sm-7[data-v-28ae226b] {\n    margin-left: 58.33333%;\n}\n.offset-sm-8[data-v-28ae226b] {\n    margin-left: 66.66667%;\n}\n.offset-sm-9[data-v-28ae226b] {\n    margin-left: 75%;\n}\n.offset-sm-10[data-v-28ae226b] {\n    margin-left: 83.33333%;\n}\n.offset-sm-11[data-v-28ae226b] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 768px) {\n.col-md[data-v-28ae226b] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-md-auto[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-md-1[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-md-2[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-md-3[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-md-5[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-md-6[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-md-8[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-md-9[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-md-11[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-md-12[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-md-last[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-md-0[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-md-1[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-md-2[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-md-3[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-md-4[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-md-5[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-md-6[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-md-7[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-md-8[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-md-9[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-md-10[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-md-11[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-md-12[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-md-0[data-v-28ae226b] {\n    margin-left: 0;\n}\n.offset-md-1[data-v-28ae226b] {\n    margin-left: 8.33333%;\n}\n.offset-md-2[data-v-28ae226b] {\n    margin-left: 16.66667%;\n}\n.offset-md-3[data-v-28ae226b] {\n    margin-left: 25%;\n}\n.offset-md-4[data-v-28ae226b] {\n    margin-left: 33.33333%;\n}\n.offset-md-5[data-v-28ae226b] {\n    margin-left: 41.66667%;\n}\n.offset-md-6[data-v-28ae226b] {\n    margin-left: 50%;\n}\n.offset-md-7[data-v-28ae226b] {\n    margin-left: 58.33333%;\n}\n.offset-md-8[data-v-28ae226b] {\n    margin-left: 66.66667%;\n}\n.offset-md-9[data-v-28ae226b] {\n    margin-left: 75%;\n}\n.offset-md-10[data-v-28ae226b] {\n    margin-left: 83.33333%;\n}\n.offset-md-11[data-v-28ae226b] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg[data-v-28ae226b] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-lg-auto[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-lg-1[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-lg-2[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-lg-3[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-lg-5[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-lg-6[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-lg-8[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-lg-9[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-lg-11[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-lg-12[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-lg-last[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-lg-0[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-lg-1[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-lg-2[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-lg-3[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-lg-4[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-lg-5[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-lg-6[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-lg-7[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-lg-8[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-lg-9[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-lg-10[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-lg-11[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-lg-12[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-lg-0[data-v-28ae226b] {\n    margin-left: 0;\n}\n.offset-lg-1[data-v-28ae226b] {\n    margin-left: 8.33333%;\n}\n.offset-lg-2[data-v-28ae226b] {\n    margin-left: 16.66667%;\n}\n.offset-lg-3[data-v-28ae226b] {\n    margin-left: 25%;\n}\n.offset-lg-4[data-v-28ae226b] {\n    margin-left: 33.33333%;\n}\n.offset-lg-5[data-v-28ae226b] {\n    margin-left: 41.66667%;\n}\n.offset-lg-6[data-v-28ae226b] {\n    margin-left: 50%;\n}\n.offset-lg-7[data-v-28ae226b] {\n    margin-left: 58.33333%;\n}\n.offset-lg-8[data-v-28ae226b] {\n    margin-left: 66.66667%;\n}\n.offset-lg-9[data-v-28ae226b] {\n    margin-left: 75%;\n}\n.offset-lg-10[data-v-28ae226b] {\n    margin-left: 83.33333%;\n}\n.offset-lg-11[data-v-28ae226b] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl[data-v-28ae226b] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-xl-auto[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-xl-1[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-xl-2[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-xl-3[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-xl-5[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-xl-6[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-xl-8[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-xl-9[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-xl-11[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-xl-12[data-v-28ae226b] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-xl-last[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-xl-0[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-xl-1[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-xl-2[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-xl-3[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-xl-4[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-xl-5[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-xl-6[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-xl-7[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-xl-8[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-xl-9[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-xl-10[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-xl-11[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-xl-12[data-v-28ae226b] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-xl-0[data-v-28ae226b] {\n    margin-left: 0;\n}\n.offset-xl-1[data-v-28ae226b] {\n    margin-left: 8.33333%;\n}\n.offset-xl-2[data-v-28ae226b] {\n    margin-left: 16.66667%;\n}\n.offset-xl-3[data-v-28ae226b] {\n    margin-left: 25%;\n}\n.offset-xl-4[data-v-28ae226b] {\n    margin-left: 33.33333%;\n}\n.offset-xl-5[data-v-28ae226b] {\n    margin-left: 41.66667%;\n}\n.offset-xl-6[data-v-28ae226b] {\n    margin-left: 50%;\n}\n.offset-xl-7[data-v-28ae226b] {\n    margin-left: 58.33333%;\n}\n.offset-xl-8[data-v-28ae226b] {\n    margin-left: 66.66667%;\n}\n.offset-xl-9[data-v-28ae226b] {\n    margin-left: 75%;\n}\n.offset-xl-10[data-v-28ae226b] {\n    margin-left: 83.33333%;\n}\n.offset-xl-11[data-v-28ae226b] {\n    margin-left: 91.66667%;\n}\n}\n.d-none[data-v-28ae226b] {\n  display: none !important;\n}\n.d-inline[data-v-28ae226b] {\n  display: inline !important;\n}\n.d-inline-block[data-v-28ae226b] {\n  display: inline-block !important;\n}\n.d-block[data-v-28ae226b] {\n  display: block !important;\n}\n.d-table[data-v-28ae226b] {\n  display: table !important;\n}\n.d-table-row[data-v-28ae226b] {\n  display: table-row !important;\n}\n.d-table-cell[data-v-28ae226b] {\n  display: table-cell !important;\n}\n.d-flex[data-v-28ae226b] {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.d-inline-flex[data-v-28ae226b] {\n  display: -webkit-inline-box !important;\n  display: -ms-inline-flexbox !important;\n  display: inline-flex !important;\n}\n@media (min-width: 576px) {\n.d-sm-none[data-v-28ae226b] {\n    display: none !important;\n}\n.d-sm-inline[data-v-28ae226b] {\n    display: inline !important;\n}\n.d-sm-inline-block[data-v-28ae226b] {\n    display: inline-block !important;\n}\n.d-sm-block[data-v-28ae226b] {\n    display: block !important;\n}\n.d-sm-table[data-v-28ae226b] {\n    display: table !important;\n}\n.d-sm-table-row[data-v-28ae226b] {\n    display: table-row !important;\n}\n.d-sm-table-cell[data-v-28ae226b] {\n    display: table-cell !important;\n}\n.d-sm-flex[data-v-28ae226b] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-sm-inline-flex[data-v-28ae226b] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 768px) {\n.d-md-none[data-v-28ae226b] {\n    display: none !important;\n}\n.d-md-inline[data-v-28ae226b] {\n    display: inline !important;\n}\n.d-md-inline-block[data-v-28ae226b] {\n    display: inline-block !important;\n}\n.d-md-block[data-v-28ae226b] {\n    display: block !important;\n}\n.d-md-table[data-v-28ae226b] {\n    display: table !important;\n}\n.d-md-table-row[data-v-28ae226b] {\n    display: table-row !important;\n}\n.d-md-table-cell[data-v-28ae226b] {\n    display: table-cell !important;\n}\n.d-md-flex[data-v-28ae226b] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-md-inline-flex[data-v-28ae226b] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 992px) {\n.d-lg-none[data-v-28ae226b] {\n    display: none !important;\n}\n.d-lg-inline[data-v-28ae226b] {\n    display: inline !important;\n}\n.d-lg-inline-block[data-v-28ae226b] {\n    display: inline-block !important;\n}\n.d-lg-block[data-v-28ae226b] {\n    display: block !important;\n}\n.d-lg-table[data-v-28ae226b] {\n    display: table !important;\n}\n.d-lg-table-row[data-v-28ae226b] {\n    display: table-row !important;\n}\n.d-lg-table-cell[data-v-28ae226b] {\n    display: table-cell !important;\n}\n.d-lg-flex[data-v-28ae226b] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-lg-inline-flex[data-v-28ae226b] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 1200px) {\n.d-xl-none[data-v-28ae226b] {\n    display: none !important;\n}\n.d-xl-inline[data-v-28ae226b] {\n    display: inline !important;\n}\n.d-xl-inline-block[data-v-28ae226b] {\n    display: inline-block !important;\n}\n.d-xl-block[data-v-28ae226b] {\n    display: block !important;\n}\n.d-xl-table[data-v-28ae226b] {\n    display: table !important;\n}\n.d-xl-table-row[data-v-28ae226b] {\n    display: table-row !important;\n}\n.d-xl-table-cell[data-v-28ae226b] {\n    display: table-cell !important;\n}\n.d-xl-flex[data-v-28ae226b] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-xl-inline-flex[data-v-28ae226b] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media print {\n.d-print-none[data-v-28ae226b] {\n    display: none !important;\n}\n.d-print-inline[data-v-28ae226b] {\n    display: inline !important;\n}\n.d-print-inline-block[data-v-28ae226b] {\n    display: inline-block !important;\n}\n.d-print-block[data-v-28ae226b] {\n    display: block !important;\n}\n.d-print-table[data-v-28ae226b] {\n    display: table !important;\n}\n.d-print-table-row[data-v-28ae226b] {\n    display: table-row !important;\n}\n.d-print-table-cell[data-v-28ae226b] {\n    display: table-cell !important;\n}\n.d-print-flex[data-v-28ae226b] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-print-inline-flex[data-v-28ae226b] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n.flex-row[data-v-28ae226b] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: row !important;\n          flex-direction: row !important;\n}\n.flex-column[data-v-28ae226b] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: column !important;\n          flex-direction: column !important;\n}\n.flex-row-reverse[data-v-28ae226b] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: row-reverse !important;\n          flex-direction: row-reverse !important;\n}\n.flex-column-reverse[data-v-28ae226b] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: column-reverse !important;\n          flex-direction: column-reverse !important;\n}\n.flex-wrap[data-v-28ae226b] {\n  -ms-flex-wrap: wrap !important;\n      flex-wrap: wrap !important;\n}\n.flex-nowrap[data-v-28ae226b] {\n  -ms-flex-wrap: nowrap !important;\n      flex-wrap: nowrap !important;\n}\n.flex-wrap-reverse[data-v-28ae226b] {\n  -ms-flex-wrap: wrap-reverse !important;\n      flex-wrap: wrap-reverse !important;\n}\n.flex-fill[data-v-28ae226b] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex: 1 1 auto !important;\n          flex: 1 1 auto !important;\n}\n.flex-grow-0[data-v-28ae226b] {\n  -webkit-box-flex: 0 !important;\n      -ms-flex-positive: 0 !important;\n          flex-grow: 0 !important;\n}\n.flex-grow-1[data-v-28ae226b] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex-positive: 1 !important;\n          flex-grow: 1 !important;\n}\n.flex-shrink-0[data-v-28ae226b] {\n  -ms-flex-negative: 0 !important;\n      flex-shrink: 0 !important;\n}\n.flex-shrink-1[data-v-28ae226b] {\n  -ms-flex-negative: 1 !important;\n      flex-shrink: 1 !important;\n}\n.justify-content-start[data-v-28ae226b] {\n  -webkit-box-pack: start !important;\n      -ms-flex-pack: start !important;\n          justify-content: flex-start !important;\n}\n.justify-content-end[data-v-28ae226b] {\n  -webkit-box-pack: end !important;\n      -ms-flex-pack: end !important;\n          justify-content: flex-end !important;\n}\n.justify-content-center[data-v-28ae226b] {\n  -webkit-box-pack: center !important;\n      -ms-flex-pack: center !important;\n          justify-content: center !important;\n}\n.justify-content-between[data-v-28ae226b] {\n  -webkit-box-pack: justify !important;\n      -ms-flex-pack: justify !important;\n          justify-content: space-between !important;\n}\n.justify-content-around[data-v-28ae226b] {\n  -ms-flex-pack: distribute !important;\n      justify-content: space-around !important;\n}\n.align-items-start[data-v-28ae226b] {\n  -webkit-box-align: start !important;\n      -ms-flex-align: start !important;\n          align-items: flex-start !important;\n}\n.align-items-end[data-v-28ae226b] {\n  -webkit-box-align: end !important;\n      -ms-flex-align: end !important;\n          align-items: flex-end !important;\n}\n.align-items-center[data-v-28ae226b] {\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important;\n}\n.align-items-baseline[data-v-28ae226b] {\n  -webkit-box-align: baseline !important;\n      -ms-flex-align: baseline !important;\n          align-items: baseline !important;\n}\n.align-items-stretch[data-v-28ae226b] {\n  -webkit-box-align: stretch !important;\n      -ms-flex-align: stretch !important;\n          align-items: stretch !important;\n}\n.align-content-start[data-v-28ae226b] {\n  -ms-flex-line-pack: start !important;\n      align-content: flex-start !important;\n}\n.align-content-end[data-v-28ae226b] {\n  -ms-flex-line-pack: end !important;\n      align-content: flex-end !important;\n}\n.align-content-center[data-v-28ae226b] {\n  -ms-flex-line-pack: center !important;\n      align-content: center !important;\n}\n.align-content-between[data-v-28ae226b] {\n  -ms-flex-line-pack: justify !important;\n      align-content: space-between !important;\n}\n.align-content-around[data-v-28ae226b] {\n  -ms-flex-line-pack: distribute !important;\n      align-content: space-around !important;\n}\n.align-content-stretch[data-v-28ae226b] {\n  -ms-flex-line-pack: stretch !important;\n      align-content: stretch !important;\n}\n.align-self-auto[data-v-28ae226b] {\n  -ms-flex-item-align: auto !important;\n      align-self: auto !important;\n}\n.align-self-start[data-v-28ae226b] {\n  -ms-flex-item-align: start !important;\n      align-self: flex-start !important;\n}\n.align-self-end[data-v-28ae226b] {\n  -ms-flex-item-align: end !important;\n      align-self: flex-end !important;\n}\n.align-self-center[data-v-28ae226b] {\n  -ms-flex-item-align: center !important;\n      align-self: center !important;\n}\n.align-self-baseline[data-v-28ae226b] {\n  -ms-flex-item-align: baseline !important;\n      align-self: baseline !important;\n}\n.align-self-stretch[data-v-28ae226b] {\n  -ms-flex-item-align: stretch !important;\n      align-self: stretch !important;\n}\n@media (min-width: 576px) {\n.flex-sm-row[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-sm-column[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-sm-row-reverse[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-sm-column-reverse[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-sm-wrap[data-v-28ae226b] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-sm-nowrap[data-v-28ae226b] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-sm-wrap-reverse[data-v-28ae226b] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-sm-fill[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-sm-grow-0[data-v-28ae226b] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-sm-grow-1[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-sm-shrink-0[data-v-28ae226b] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-sm-shrink-1[data-v-28ae226b] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-sm-start[data-v-28ae226b] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-sm-end[data-v-28ae226b] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-sm-center[data-v-28ae226b] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-sm-between[data-v-28ae226b] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-sm-around[data-v-28ae226b] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-sm-start[data-v-28ae226b] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-sm-end[data-v-28ae226b] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-sm-center[data-v-28ae226b] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-sm-baseline[data-v-28ae226b] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-sm-stretch[data-v-28ae226b] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-sm-start[data-v-28ae226b] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-sm-end[data-v-28ae226b] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-sm-center[data-v-28ae226b] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-sm-between[data-v-28ae226b] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-sm-around[data-v-28ae226b] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-sm-stretch[data-v-28ae226b] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-sm-auto[data-v-28ae226b] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-sm-start[data-v-28ae226b] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-sm-end[data-v-28ae226b] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-sm-center[data-v-28ae226b] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-sm-baseline[data-v-28ae226b] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-sm-stretch[data-v-28ae226b] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 768px) {\n.flex-md-row[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-md-column[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-md-row-reverse[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-md-column-reverse[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-md-wrap[data-v-28ae226b] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-md-nowrap[data-v-28ae226b] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-md-wrap-reverse[data-v-28ae226b] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-md-fill[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-md-grow-0[data-v-28ae226b] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-md-grow-1[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-md-shrink-0[data-v-28ae226b] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-md-shrink-1[data-v-28ae226b] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-md-start[data-v-28ae226b] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-md-end[data-v-28ae226b] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-md-center[data-v-28ae226b] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-md-between[data-v-28ae226b] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-md-around[data-v-28ae226b] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-md-start[data-v-28ae226b] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-md-end[data-v-28ae226b] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-md-center[data-v-28ae226b] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-md-baseline[data-v-28ae226b] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-md-stretch[data-v-28ae226b] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-md-start[data-v-28ae226b] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-md-end[data-v-28ae226b] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-md-center[data-v-28ae226b] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-md-between[data-v-28ae226b] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-md-around[data-v-28ae226b] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-md-stretch[data-v-28ae226b] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-md-auto[data-v-28ae226b] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-md-start[data-v-28ae226b] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-md-end[data-v-28ae226b] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-md-center[data-v-28ae226b] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-md-baseline[data-v-28ae226b] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-md-stretch[data-v-28ae226b] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 992px) {\n.flex-lg-row[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-lg-column[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-lg-row-reverse[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-lg-column-reverse[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-lg-wrap[data-v-28ae226b] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-lg-nowrap[data-v-28ae226b] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-lg-wrap-reverse[data-v-28ae226b] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-lg-fill[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-lg-grow-0[data-v-28ae226b] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-lg-grow-1[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-lg-shrink-0[data-v-28ae226b] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-lg-shrink-1[data-v-28ae226b] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-lg-start[data-v-28ae226b] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-lg-end[data-v-28ae226b] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-lg-center[data-v-28ae226b] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-lg-between[data-v-28ae226b] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-lg-around[data-v-28ae226b] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-lg-start[data-v-28ae226b] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-lg-end[data-v-28ae226b] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-lg-center[data-v-28ae226b] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-lg-baseline[data-v-28ae226b] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-lg-stretch[data-v-28ae226b] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-lg-start[data-v-28ae226b] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-lg-end[data-v-28ae226b] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-lg-center[data-v-28ae226b] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-lg-between[data-v-28ae226b] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-lg-around[data-v-28ae226b] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-lg-stretch[data-v-28ae226b] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-lg-auto[data-v-28ae226b] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-lg-start[data-v-28ae226b] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-lg-end[data-v-28ae226b] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-lg-center[data-v-28ae226b] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-lg-baseline[data-v-28ae226b] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-lg-stretch[data-v-28ae226b] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 1200px) {\n.flex-xl-row[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-xl-column[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-xl-row-reverse[data-v-28ae226b] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-xl-column-reverse[data-v-28ae226b] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-xl-wrap[data-v-28ae226b] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-xl-nowrap[data-v-28ae226b] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-xl-wrap-reverse[data-v-28ae226b] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-xl-fill[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-xl-grow-0[data-v-28ae226b] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-xl-grow-1[data-v-28ae226b] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-xl-shrink-0[data-v-28ae226b] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-xl-shrink-1[data-v-28ae226b] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-xl-start[data-v-28ae226b] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-xl-end[data-v-28ae226b] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-xl-center[data-v-28ae226b] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-xl-between[data-v-28ae226b] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-xl-around[data-v-28ae226b] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-xl-start[data-v-28ae226b] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-xl-end[data-v-28ae226b] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-xl-center[data-v-28ae226b] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-xl-baseline[data-v-28ae226b] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-xl-stretch[data-v-28ae226b] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-xl-start[data-v-28ae226b] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-xl-end[data-v-28ae226b] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-xl-center[data-v-28ae226b] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-xl-between[data-v-28ae226b] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-xl-around[data-v-28ae226b] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-xl-stretch[data-v-28ae226b] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-xl-auto[data-v-28ae226b] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-xl-start[data-v-28ae226b] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-xl-end[data-v-28ae226b] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-xl-center[data-v-28ae226b] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-xl-baseline[data-v-28ae226b] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-xl-stretch[data-v-28ae226b] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n.w-25[data-v-28ae226b] {\n  width: 25% !important;\n}\n.w-50[data-v-28ae226b] {\n  width: 50% !important;\n}\n.w-75[data-v-28ae226b] {\n  width: 75% !important;\n}\n.w-100[data-v-28ae226b] {\n  width: 100% !important;\n}\n.w-auto[data-v-28ae226b] {\n  width: auto !important;\n}\n.h-25[data-v-28ae226b] {\n  height: 25% !important;\n}\n.h-50[data-v-28ae226b] {\n  height: 50% !important;\n}\n.h-75[data-v-28ae226b] {\n  height: 75% !important;\n}\n.h-100[data-v-28ae226b] {\n  height: 100% !important;\n}\n.h-auto[data-v-28ae226b] {\n  height: auto !important;\n}\n.mw-100[data-v-28ae226b] {\n  max-width: 100% !important;\n}\n.mh-100[data-v-28ae226b] {\n  max-height: 100% !important;\n}\n.m-0[data-v-28ae226b] {\n  margin: 0 !important;\n}\n.mt-0[data-v-28ae226b],\n.my-0[data-v-28ae226b] {\n  margin-top: 0 !important;\n}\n.mr-0[data-v-28ae226b],\n.mx-0[data-v-28ae226b] {\n  margin-right: 0 !important;\n}\n.mb-0[data-v-28ae226b],\n.my-0[data-v-28ae226b] {\n  margin-bottom: 0 !important;\n}\n.ml-0[data-v-28ae226b],\n.mx-0[data-v-28ae226b] {\n  margin-left: 0 !important;\n}\n.m-1[data-v-28ae226b] {\n  margin: 0.25rem !important;\n}\n.mt-1[data-v-28ae226b],\n.my-1[data-v-28ae226b] {\n  margin-top: 0.25rem !important;\n}\n.mr-1[data-v-28ae226b],\n.mx-1[data-v-28ae226b] {\n  margin-right: 0.25rem !important;\n}\n.mb-1[data-v-28ae226b],\n.my-1[data-v-28ae226b] {\n  margin-bottom: 0.25rem !important;\n}\n.ml-1[data-v-28ae226b],\n.mx-1[data-v-28ae226b] {\n  margin-left: 0.25rem !important;\n}\n.m-2[data-v-28ae226b] {\n  margin: 0.5rem !important;\n}\n.mt-2[data-v-28ae226b],\n.my-2[data-v-28ae226b] {\n  margin-top: 0.5rem !important;\n}\n.mr-2[data-v-28ae226b],\n.mx-2[data-v-28ae226b] {\n  margin-right: 0.5rem !important;\n}\n.mb-2[data-v-28ae226b],\n.my-2[data-v-28ae226b] {\n  margin-bottom: 0.5rem !important;\n}\n.ml-2[data-v-28ae226b],\n.mx-2[data-v-28ae226b] {\n  margin-left: 0.5rem !important;\n}\n.m-3[data-v-28ae226b] {\n  margin: 1rem !important;\n}\n.mt-3[data-v-28ae226b],\n.my-3[data-v-28ae226b] {\n  margin-top: 1rem !important;\n}\n.mr-3[data-v-28ae226b],\n.mx-3[data-v-28ae226b] {\n  margin-right: 1rem !important;\n}\n.mb-3[data-v-28ae226b],\n.my-3[data-v-28ae226b] {\n  margin-bottom: 1rem !important;\n}\n.ml-3[data-v-28ae226b],\n.mx-3[data-v-28ae226b] {\n  margin-left: 1rem !important;\n}\n.m-4[data-v-28ae226b] {\n  margin: 1.5rem !important;\n}\n.mt-4[data-v-28ae226b],\n.my-4[data-v-28ae226b] {\n  margin-top: 1.5rem !important;\n}\n.mr-4[data-v-28ae226b],\n.mx-4[data-v-28ae226b] {\n  margin-right: 1.5rem !important;\n}\n.mb-4[data-v-28ae226b],\n.my-4[data-v-28ae226b] {\n  margin-bottom: 1.5rem !important;\n}\n.ml-4[data-v-28ae226b],\n.mx-4[data-v-28ae226b] {\n  margin-left: 1.5rem !important;\n}\n.m-5[data-v-28ae226b] {\n  margin: 3rem !important;\n}\n.mt-5[data-v-28ae226b],\n.my-5[data-v-28ae226b] {\n  margin-top: 3rem !important;\n}\n.mr-5[data-v-28ae226b],\n.mx-5[data-v-28ae226b] {\n  margin-right: 3rem !important;\n}\n.mb-5[data-v-28ae226b],\n.my-5[data-v-28ae226b] {\n  margin-bottom: 3rem !important;\n}\n.ml-5[data-v-28ae226b],\n.mx-5[data-v-28ae226b] {\n  margin-left: 3rem !important;\n}\n.p-0[data-v-28ae226b] {\n  padding: 0 !important;\n}\n.pt-0[data-v-28ae226b],\n.py-0[data-v-28ae226b] {\n  padding-top: 0 !important;\n}\n.pr-0[data-v-28ae226b],\n.px-0[data-v-28ae226b] {\n  padding-right: 0 !important;\n}\n.pb-0[data-v-28ae226b],\n.py-0[data-v-28ae226b] {\n  padding-bottom: 0 !important;\n}\n.pl-0[data-v-28ae226b],\n.px-0[data-v-28ae226b] {\n  padding-left: 0 !important;\n}\n.p-1[data-v-28ae226b] {\n  padding: 0.25rem !important;\n}\n.pt-1[data-v-28ae226b],\n.py-1[data-v-28ae226b] {\n  padding-top: 0.25rem !important;\n}\n.pr-1[data-v-28ae226b],\n.px-1[data-v-28ae226b] {\n  padding-right: 0.25rem !important;\n}\n.pb-1[data-v-28ae226b],\n.py-1[data-v-28ae226b] {\n  padding-bottom: 0.25rem !important;\n}\n.pl-1[data-v-28ae226b],\n.px-1[data-v-28ae226b] {\n  padding-left: 0.25rem !important;\n}\n.p-2[data-v-28ae226b] {\n  padding: 0.5rem !important;\n}\n.pt-2[data-v-28ae226b],\n.py-2[data-v-28ae226b] {\n  padding-top: 0.5rem !important;\n}\n.pr-2[data-v-28ae226b],\n.px-2[data-v-28ae226b] {\n  padding-right: 0.5rem !important;\n}\n.pb-2[data-v-28ae226b],\n.py-2[data-v-28ae226b] {\n  padding-bottom: 0.5rem !important;\n}\n.pl-2[data-v-28ae226b],\n.px-2[data-v-28ae226b] {\n  padding-left: 0.5rem !important;\n}\n.p-3[data-v-28ae226b] {\n  padding: 1rem !important;\n}\n.pt-3[data-v-28ae226b],\n.py-3[data-v-28ae226b] {\n  padding-top: 1rem !important;\n}\n.pr-3[data-v-28ae226b],\n.px-3[data-v-28ae226b] {\n  padding-right: 1rem !important;\n}\n.pb-3[data-v-28ae226b],\n.py-3[data-v-28ae226b] {\n  padding-bottom: 1rem !important;\n}\n.pl-3[data-v-28ae226b],\n.px-3[data-v-28ae226b] {\n  padding-left: 1rem !important;\n}\n.p-4[data-v-28ae226b] {\n  padding: 1.5rem !important;\n}\n.pt-4[data-v-28ae226b],\n.py-4[data-v-28ae226b] {\n  padding-top: 1.5rem !important;\n}\n.pr-4[data-v-28ae226b],\n.px-4[data-v-28ae226b] {\n  padding-right: 1.5rem !important;\n}\n.pb-4[data-v-28ae226b],\n.py-4[data-v-28ae226b] {\n  padding-bottom: 1.5rem !important;\n}\n.pl-4[data-v-28ae226b],\n.px-4[data-v-28ae226b] {\n  padding-left: 1.5rem !important;\n}\n.p-5[data-v-28ae226b] {\n  padding: 3rem !important;\n}\n.pt-5[data-v-28ae226b],\n.py-5[data-v-28ae226b] {\n  padding-top: 3rem !important;\n}\n.pr-5[data-v-28ae226b],\n.px-5[data-v-28ae226b] {\n  padding-right: 3rem !important;\n}\n.pb-5[data-v-28ae226b],\n.py-5[data-v-28ae226b] {\n  padding-bottom: 3rem !important;\n}\n.pl-5[data-v-28ae226b],\n.px-5[data-v-28ae226b] {\n  padding-left: 3rem !important;\n}\n.m-auto[data-v-28ae226b] {\n  margin: auto !important;\n}\n.mt-auto[data-v-28ae226b],\n.my-auto[data-v-28ae226b] {\n  margin-top: auto !important;\n}\n.mr-auto[data-v-28ae226b],\n.mx-auto[data-v-28ae226b] {\n  margin-right: auto !important;\n}\n.mb-auto[data-v-28ae226b],\n.my-auto[data-v-28ae226b] {\n  margin-bottom: auto !important;\n}\n.ml-auto[data-v-28ae226b],\n.mx-auto[data-v-28ae226b] {\n  margin-left: auto !important;\n}\n@media (min-width: 576px) {\n.m-sm-0[data-v-28ae226b] {\n    margin: 0 !important;\n}\n.mt-sm-0[data-v-28ae226b],\n  .my-sm-0[data-v-28ae226b] {\n    margin-top: 0 !important;\n}\n.mr-sm-0[data-v-28ae226b],\n  .mx-sm-0[data-v-28ae226b] {\n    margin-right: 0 !important;\n}\n.mb-sm-0[data-v-28ae226b],\n  .my-sm-0[data-v-28ae226b] {\n    margin-bottom: 0 !important;\n}\n.ml-sm-0[data-v-28ae226b],\n  .mx-sm-0[data-v-28ae226b] {\n    margin-left: 0 !important;\n}\n.m-sm-1[data-v-28ae226b] {\n    margin: 0.25rem !important;\n}\n.mt-sm-1[data-v-28ae226b],\n  .my-sm-1[data-v-28ae226b] {\n    margin-top: 0.25rem !important;\n}\n.mr-sm-1[data-v-28ae226b],\n  .mx-sm-1[data-v-28ae226b] {\n    margin-right: 0.25rem !important;\n}\n.mb-sm-1[data-v-28ae226b],\n  .my-sm-1[data-v-28ae226b] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-sm-1[data-v-28ae226b],\n  .mx-sm-1[data-v-28ae226b] {\n    margin-left: 0.25rem !important;\n}\n.m-sm-2[data-v-28ae226b] {\n    margin: 0.5rem !important;\n}\n.mt-sm-2[data-v-28ae226b],\n  .my-sm-2[data-v-28ae226b] {\n    margin-top: 0.5rem !important;\n}\n.mr-sm-2[data-v-28ae226b],\n  .mx-sm-2[data-v-28ae226b] {\n    margin-right: 0.5rem !important;\n}\n.mb-sm-2[data-v-28ae226b],\n  .my-sm-2[data-v-28ae226b] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-sm-2[data-v-28ae226b],\n  .mx-sm-2[data-v-28ae226b] {\n    margin-left: 0.5rem !important;\n}\n.m-sm-3[data-v-28ae226b] {\n    margin: 1rem !important;\n}\n.mt-sm-3[data-v-28ae226b],\n  .my-sm-3[data-v-28ae226b] {\n    margin-top: 1rem !important;\n}\n.mr-sm-3[data-v-28ae226b],\n  .mx-sm-3[data-v-28ae226b] {\n    margin-right: 1rem !important;\n}\n.mb-sm-3[data-v-28ae226b],\n  .my-sm-3[data-v-28ae226b] {\n    margin-bottom: 1rem !important;\n}\n.ml-sm-3[data-v-28ae226b],\n  .mx-sm-3[data-v-28ae226b] {\n    margin-left: 1rem !important;\n}\n.m-sm-4[data-v-28ae226b] {\n    margin: 1.5rem !important;\n}\n.mt-sm-4[data-v-28ae226b],\n  .my-sm-4[data-v-28ae226b] {\n    margin-top: 1.5rem !important;\n}\n.mr-sm-4[data-v-28ae226b],\n  .mx-sm-4[data-v-28ae226b] {\n    margin-right: 1.5rem !important;\n}\n.mb-sm-4[data-v-28ae226b],\n  .my-sm-4[data-v-28ae226b] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-sm-4[data-v-28ae226b],\n  .mx-sm-4[data-v-28ae226b] {\n    margin-left: 1.5rem !important;\n}\n.m-sm-5[data-v-28ae226b] {\n    margin: 3rem !important;\n}\n.mt-sm-5[data-v-28ae226b],\n  .my-sm-5[data-v-28ae226b] {\n    margin-top: 3rem !important;\n}\n.mr-sm-5[data-v-28ae226b],\n  .mx-sm-5[data-v-28ae226b] {\n    margin-right: 3rem !important;\n}\n.mb-sm-5[data-v-28ae226b],\n  .my-sm-5[data-v-28ae226b] {\n    margin-bottom: 3rem !important;\n}\n.ml-sm-5[data-v-28ae226b],\n  .mx-sm-5[data-v-28ae226b] {\n    margin-left: 3rem !important;\n}\n.p-sm-0[data-v-28ae226b] {\n    padding: 0 !important;\n}\n.pt-sm-0[data-v-28ae226b],\n  .py-sm-0[data-v-28ae226b] {\n    padding-top: 0 !important;\n}\n.pr-sm-0[data-v-28ae226b],\n  .px-sm-0[data-v-28ae226b] {\n    padding-right: 0 !important;\n}\n.pb-sm-0[data-v-28ae226b],\n  .py-sm-0[data-v-28ae226b] {\n    padding-bottom: 0 !important;\n}\n.pl-sm-0[data-v-28ae226b],\n  .px-sm-0[data-v-28ae226b] {\n    padding-left: 0 !important;\n}\n.p-sm-1[data-v-28ae226b] {\n    padding: 0.25rem !important;\n}\n.pt-sm-1[data-v-28ae226b],\n  .py-sm-1[data-v-28ae226b] {\n    padding-top: 0.25rem !important;\n}\n.pr-sm-1[data-v-28ae226b],\n  .px-sm-1[data-v-28ae226b] {\n    padding-right: 0.25rem !important;\n}\n.pb-sm-1[data-v-28ae226b],\n  .py-sm-1[data-v-28ae226b] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-sm-1[data-v-28ae226b],\n  .px-sm-1[data-v-28ae226b] {\n    padding-left: 0.25rem !important;\n}\n.p-sm-2[data-v-28ae226b] {\n    padding: 0.5rem !important;\n}\n.pt-sm-2[data-v-28ae226b],\n  .py-sm-2[data-v-28ae226b] {\n    padding-top: 0.5rem !important;\n}\n.pr-sm-2[data-v-28ae226b],\n  .px-sm-2[data-v-28ae226b] {\n    padding-right: 0.5rem !important;\n}\n.pb-sm-2[data-v-28ae226b],\n  .py-sm-2[data-v-28ae226b] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-sm-2[data-v-28ae226b],\n  .px-sm-2[data-v-28ae226b] {\n    padding-left: 0.5rem !important;\n}\n.p-sm-3[data-v-28ae226b] {\n    padding: 1rem !important;\n}\n.pt-sm-3[data-v-28ae226b],\n  .py-sm-3[data-v-28ae226b] {\n    padding-top: 1rem !important;\n}\n.pr-sm-3[data-v-28ae226b],\n  .px-sm-3[data-v-28ae226b] {\n    padding-right: 1rem !important;\n}\n.pb-sm-3[data-v-28ae226b],\n  .py-sm-3[data-v-28ae226b] {\n    padding-bottom: 1rem !important;\n}\n.pl-sm-3[data-v-28ae226b],\n  .px-sm-3[data-v-28ae226b] {\n    padding-left: 1rem !important;\n}\n.p-sm-4[data-v-28ae226b] {\n    padding: 1.5rem !important;\n}\n.pt-sm-4[data-v-28ae226b],\n  .py-sm-4[data-v-28ae226b] {\n    padding-top: 1.5rem !important;\n}\n.pr-sm-4[data-v-28ae226b],\n  .px-sm-4[data-v-28ae226b] {\n    padding-right: 1.5rem !important;\n}\n.pb-sm-4[data-v-28ae226b],\n  .py-sm-4[data-v-28ae226b] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-sm-4[data-v-28ae226b],\n  .px-sm-4[data-v-28ae226b] {\n    padding-left: 1.5rem !important;\n}\n.p-sm-5[data-v-28ae226b] {\n    padding: 3rem !important;\n}\n.pt-sm-5[data-v-28ae226b],\n  .py-sm-5[data-v-28ae226b] {\n    padding-top: 3rem !important;\n}\n.pr-sm-5[data-v-28ae226b],\n  .px-sm-5[data-v-28ae226b] {\n    padding-right: 3rem !important;\n}\n.pb-sm-5[data-v-28ae226b],\n  .py-sm-5[data-v-28ae226b] {\n    padding-bottom: 3rem !important;\n}\n.pl-sm-5[data-v-28ae226b],\n  .px-sm-5[data-v-28ae226b] {\n    padding-left: 3rem !important;\n}\n.m-sm-auto[data-v-28ae226b] {\n    margin: auto !important;\n}\n.mt-sm-auto[data-v-28ae226b],\n  .my-sm-auto[data-v-28ae226b] {\n    margin-top: auto !important;\n}\n.mr-sm-auto[data-v-28ae226b],\n  .mx-sm-auto[data-v-28ae226b] {\n    margin-right: auto !important;\n}\n.mb-sm-auto[data-v-28ae226b],\n  .my-sm-auto[data-v-28ae226b] {\n    margin-bottom: auto !important;\n}\n.ml-sm-auto[data-v-28ae226b],\n  .mx-sm-auto[data-v-28ae226b] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 768px) {\n.m-md-0[data-v-28ae226b] {\n    margin: 0 !important;\n}\n.mt-md-0[data-v-28ae226b],\n  .my-md-0[data-v-28ae226b] {\n    margin-top: 0 !important;\n}\n.mr-md-0[data-v-28ae226b],\n  .mx-md-0[data-v-28ae226b] {\n    margin-right: 0 !important;\n}\n.mb-md-0[data-v-28ae226b],\n  .my-md-0[data-v-28ae226b] {\n    margin-bottom: 0 !important;\n}\n.ml-md-0[data-v-28ae226b],\n  .mx-md-0[data-v-28ae226b] {\n    margin-left: 0 !important;\n}\n.m-md-1[data-v-28ae226b] {\n    margin: 0.25rem !important;\n}\n.mt-md-1[data-v-28ae226b],\n  .my-md-1[data-v-28ae226b] {\n    margin-top: 0.25rem !important;\n}\n.mr-md-1[data-v-28ae226b],\n  .mx-md-1[data-v-28ae226b] {\n    margin-right: 0.25rem !important;\n}\n.mb-md-1[data-v-28ae226b],\n  .my-md-1[data-v-28ae226b] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-md-1[data-v-28ae226b],\n  .mx-md-1[data-v-28ae226b] {\n    margin-left: 0.25rem !important;\n}\n.m-md-2[data-v-28ae226b] {\n    margin: 0.5rem !important;\n}\n.mt-md-2[data-v-28ae226b],\n  .my-md-2[data-v-28ae226b] {\n    margin-top: 0.5rem !important;\n}\n.mr-md-2[data-v-28ae226b],\n  .mx-md-2[data-v-28ae226b] {\n    margin-right: 0.5rem !important;\n}\n.mb-md-2[data-v-28ae226b],\n  .my-md-2[data-v-28ae226b] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-md-2[data-v-28ae226b],\n  .mx-md-2[data-v-28ae226b] {\n    margin-left: 0.5rem !important;\n}\n.m-md-3[data-v-28ae226b] {\n    margin: 1rem !important;\n}\n.mt-md-3[data-v-28ae226b],\n  .my-md-3[data-v-28ae226b] {\n    margin-top: 1rem !important;\n}\n.mr-md-3[data-v-28ae226b],\n  .mx-md-3[data-v-28ae226b] {\n    margin-right: 1rem !important;\n}\n.mb-md-3[data-v-28ae226b],\n  .my-md-3[data-v-28ae226b] {\n    margin-bottom: 1rem !important;\n}\n.ml-md-3[data-v-28ae226b],\n  .mx-md-3[data-v-28ae226b] {\n    margin-left: 1rem !important;\n}\n.m-md-4[data-v-28ae226b] {\n    margin: 1.5rem !important;\n}\n.mt-md-4[data-v-28ae226b],\n  .my-md-4[data-v-28ae226b] {\n    margin-top: 1.5rem !important;\n}\n.mr-md-4[data-v-28ae226b],\n  .mx-md-4[data-v-28ae226b] {\n    margin-right: 1.5rem !important;\n}\n.mb-md-4[data-v-28ae226b],\n  .my-md-4[data-v-28ae226b] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-md-4[data-v-28ae226b],\n  .mx-md-4[data-v-28ae226b] {\n    margin-left: 1.5rem !important;\n}\n.m-md-5[data-v-28ae226b] {\n    margin: 3rem !important;\n}\n.mt-md-5[data-v-28ae226b],\n  .my-md-5[data-v-28ae226b] {\n    margin-top: 3rem !important;\n}\n.mr-md-5[data-v-28ae226b],\n  .mx-md-5[data-v-28ae226b] {\n    margin-right: 3rem !important;\n}\n.mb-md-5[data-v-28ae226b],\n  .my-md-5[data-v-28ae226b] {\n    margin-bottom: 3rem !important;\n}\n.ml-md-5[data-v-28ae226b],\n  .mx-md-5[data-v-28ae226b] {\n    margin-left: 3rem !important;\n}\n.p-md-0[data-v-28ae226b] {\n    padding: 0 !important;\n}\n.pt-md-0[data-v-28ae226b],\n  .py-md-0[data-v-28ae226b] {\n    padding-top: 0 !important;\n}\n.pr-md-0[data-v-28ae226b],\n  .px-md-0[data-v-28ae226b] {\n    padding-right: 0 !important;\n}\n.pb-md-0[data-v-28ae226b],\n  .py-md-0[data-v-28ae226b] {\n    padding-bottom: 0 !important;\n}\n.pl-md-0[data-v-28ae226b],\n  .px-md-0[data-v-28ae226b] {\n    padding-left: 0 !important;\n}\n.p-md-1[data-v-28ae226b] {\n    padding: 0.25rem !important;\n}\n.pt-md-1[data-v-28ae226b],\n  .py-md-1[data-v-28ae226b] {\n    padding-top: 0.25rem !important;\n}\n.pr-md-1[data-v-28ae226b],\n  .px-md-1[data-v-28ae226b] {\n    padding-right: 0.25rem !important;\n}\n.pb-md-1[data-v-28ae226b],\n  .py-md-1[data-v-28ae226b] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-md-1[data-v-28ae226b],\n  .px-md-1[data-v-28ae226b] {\n    padding-left: 0.25rem !important;\n}\n.p-md-2[data-v-28ae226b] {\n    padding: 0.5rem !important;\n}\n.pt-md-2[data-v-28ae226b],\n  .py-md-2[data-v-28ae226b] {\n    padding-top: 0.5rem !important;\n}\n.pr-md-2[data-v-28ae226b],\n  .px-md-2[data-v-28ae226b] {\n    padding-right: 0.5rem !important;\n}\n.pb-md-2[data-v-28ae226b],\n  .py-md-2[data-v-28ae226b] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-md-2[data-v-28ae226b],\n  .px-md-2[data-v-28ae226b] {\n    padding-left: 0.5rem !important;\n}\n.p-md-3[data-v-28ae226b] {\n    padding: 1rem !important;\n}\n.pt-md-3[data-v-28ae226b],\n  .py-md-3[data-v-28ae226b] {\n    padding-top: 1rem !important;\n}\n.pr-md-3[data-v-28ae226b],\n  .px-md-3[data-v-28ae226b] {\n    padding-right: 1rem !important;\n}\n.pb-md-3[data-v-28ae226b],\n  .py-md-3[data-v-28ae226b] {\n    padding-bottom: 1rem !important;\n}\n.pl-md-3[data-v-28ae226b],\n  .px-md-3[data-v-28ae226b] {\n    padding-left: 1rem !important;\n}\n.p-md-4[data-v-28ae226b] {\n    padding: 1.5rem !important;\n}\n.pt-md-4[data-v-28ae226b],\n  .py-md-4[data-v-28ae226b] {\n    padding-top: 1.5rem !important;\n}\n.pr-md-4[data-v-28ae226b],\n  .px-md-4[data-v-28ae226b] {\n    padding-right: 1.5rem !important;\n}\n.pb-md-4[data-v-28ae226b],\n  .py-md-4[data-v-28ae226b] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-md-4[data-v-28ae226b],\n  .px-md-4[data-v-28ae226b] {\n    padding-left: 1.5rem !important;\n}\n.p-md-5[data-v-28ae226b] {\n    padding: 3rem !important;\n}\n.pt-md-5[data-v-28ae226b],\n  .py-md-5[data-v-28ae226b] {\n    padding-top: 3rem !important;\n}\n.pr-md-5[data-v-28ae226b],\n  .px-md-5[data-v-28ae226b] {\n    padding-right: 3rem !important;\n}\n.pb-md-5[data-v-28ae226b],\n  .py-md-5[data-v-28ae226b] {\n    padding-bottom: 3rem !important;\n}\n.pl-md-5[data-v-28ae226b],\n  .px-md-5[data-v-28ae226b] {\n    padding-left: 3rem !important;\n}\n.m-md-auto[data-v-28ae226b] {\n    margin: auto !important;\n}\n.mt-md-auto[data-v-28ae226b],\n  .my-md-auto[data-v-28ae226b] {\n    margin-top: auto !important;\n}\n.mr-md-auto[data-v-28ae226b],\n  .mx-md-auto[data-v-28ae226b] {\n    margin-right: auto !important;\n}\n.mb-md-auto[data-v-28ae226b],\n  .my-md-auto[data-v-28ae226b] {\n    margin-bottom: auto !important;\n}\n.ml-md-auto[data-v-28ae226b],\n  .mx-md-auto[data-v-28ae226b] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 992px) {\n.m-lg-0[data-v-28ae226b] {\n    margin: 0 !important;\n}\n.mt-lg-0[data-v-28ae226b],\n  .my-lg-0[data-v-28ae226b] {\n    margin-top: 0 !important;\n}\n.mr-lg-0[data-v-28ae226b],\n  .mx-lg-0[data-v-28ae226b] {\n    margin-right: 0 !important;\n}\n.mb-lg-0[data-v-28ae226b],\n  .my-lg-0[data-v-28ae226b] {\n    margin-bottom: 0 !important;\n}\n.ml-lg-0[data-v-28ae226b],\n  .mx-lg-0[data-v-28ae226b] {\n    margin-left: 0 !important;\n}\n.m-lg-1[data-v-28ae226b] {\n    margin: 0.25rem !important;\n}\n.mt-lg-1[data-v-28ae226b],\n  .my-lg-1[data-v-28ae226b] {\n    margin-top: 0.25rem !important;\n}\n.mr-lg-1[data-v-28ae226b],\n  .mx-lg-1[data-v-28ae226b] {\n    margin-right: 0.25rem !important;\n}\n.mb-lg-1[data-v-28ae226b],\n  .my-lg-1[data-v-28ae226b] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-lg-1[data-v-28ae226b],\n  .mx-lg-1[data-v-28ae226b] {\n    margin-left: 0.25rem !important;\n}\n.m-lg-2[data-v-28ae226b] {\n    margin: 0.5rem !important;\n}\n.mt-lg-2[data-v-28ae226b],\n  .my-lg-2[data-v-28ae226b] {\n    margin-top: 0.5rem !important;\n}\n.mr-lg-2[data-v-28ae226b],\n  .mx-lg-2[data-v-28ae226b] {\n    margin-right: 0.5rem !important;\n}\n.mb-lg-2[data-v-28ae226b],\n  .my-lg-2[data-v-28ae226b] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-lg-2[data-v-28ae226b],\n  .mx-lg-2[data-v-28ae226b] {\n    margin-left: 0.5rem !important;\n}\n.m-lg-3[data-v-28ae226b] {\n    margin: 1rem !important;\n}\n.mt-lg-3[data-v-28ae226b],\n  .my-lg-3[data-v-28ae226b] {\n    margin-top: 1rem !important;\n}\n.mr-lg-3[data-v-28ae226b],\n  .mx-lg-3[data-v-28ae226b] {\n    margin-right: 1rem !important;\n}\n.mb-lg-3[data-v-28ae226b],\n  .my-lg-3[data-v-28ae226b] {\n    margin-bottom: 1rem !important;\n}\n.ml-lg-3[data-v-28ae226b],\n  .mx-lg-3[data-v-28ae226b] {\n    margin-left: 1rem !important;\n}\n.m-lg-4[data-v-28ae226b] {\n    margin: 1.5rem !important;\n}\n.mt-lg-4[data-v-28ae226b],\n  .my-lg-4[data-v-28ae226b] {\n    margin-top: 1.5rem !important;\n}\n.mr-lg-4[data-v-28ae226b],\n  .mx-lg-4[data-v-28ae226b] {\n    margin-right: 1.5rem !important;\n}\n.mb-lg-4[data-v-28ae226b],\n  .my-lg-4[data-v-28ae226b] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-lg-4[data-v-28ae226b],\n  .mx-lg-4[data-v-28ae226b] {\n    margin-left: 1.5rem !important;\n}\n.m-lg-5[data-v-28ae226b] {\n    margin: 3rem !important;\n}\n.mt-lg-5[data-v-28ae226b],\n  .my-lg-5[data-v-28ae226b] {\n    margin-top: 3rem !important;\n}\n.mr-lg-5[data-v-28ae226b],\n  .mx-lg-5[data-v-28ae226b] {\n    margin-right: 3rem !important;\n}\n.mb-lg-5[data-v-28ae226b],\n  .my-lg-5[data-v-28ae226b] {\n    margin-bottom: 3rem !important;\n}\n.ml-lg-5[data-v-28ae226b],\n  .mx-lg-5[data-v-28ae226b] {\n    margin-left: 3rem !important;\n}\n.p-lg-0[data-v-28ae226b] {\n    padding: 0 !important;\n}\n.pt-lg-0[data-v-28ae226b],\n  .py-lg-0[data-v-28ae226b] {\n    padding-top: 0 !important;\n}\n.pr-lg-0[data-v-28ae226b],\n  .px-lg-0[data-v-28ae226b] {\n    padding-right: 0 !important;\n}\n.pb-lg-0[data-v-28ae226b],\n  .py-lg-0[data-v-28ae226b] {\n    padding-bottom: 0 !important;\n}\n.pl-lg-0[data-v-28ae226b],\n  .px-lg-0[data-v-28ae226b] {\n    padding-left: 0 !important;\n}\n.p-lg-1[data-v-28ae226b] {\n    padding: 0.25rem !important;\n}\n.pt-lg-1[data-v-28ae226b],\n  .py-lg-1[data-v-28ae226b] {\n    padding-top: 0.25rem !important;\n}\n.pr-lg-1[data-v-28ae226b],\n  .px-lg-1[data-v-28ae226b] {\n    padding-right: 0.25rem !important;\n}\n.pb-lg-1[data-v-28ae226b],\n  .py-lg-1[data-v-28ae226b] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-lg-1[data-v-28ae226b],\n  .px-lg-1[data-v-28ae226b] {\n    padding-left: 0.25rem !important;\n}\n.p-lg-2[data-v-28ae226b] {\n    padding: 0.5rem !important;\n}\n.pt-lg-2[data-v-28ae226b],\n  .py-lg-2[data-v-28ae226b] {\n    padding-top: 0.5rem !important;\n}\n.pr-lg-2[data-v-28ae226b],\n  .px-lg-2[data-v-28ae226b] {\n    padding-right: 0.5rem !important;\n}\n.pb-lg-2[data-v-28ae226b],\n  .py-lg-2[data-v-28ae226b] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-lg-2[data-v-28ae226b],\n  .px-lg-2[data-v-28ae226b] {\n    padding-left: 0.5rem !important;\n}\n.p-lg-3[data-v-28ae226b] {\n    padding: 1rem !important;\n}\n.pt-lg-3[data-v-28ae226b],\n  .py-lg-3[data-v-28ae226b] {\n    padding-top: 1rem !important;\n}\n.pr-lg-3[data-v-28ae226b],\n  .px-lg-3[data-v-28ae226b] {\n    padding-right: 1rem !important;\n}\n.pb-lg-3[data-v-28ae226b],\n  .py-lg-3[data-v-28ae226b] {\n    padding-bottom: 1rem !important;\n}\n.pl-lg-3[data-v-28ae226b],\n  .px-lg-3[data-v-28ae226b] {\n    padding-left: 1rem !important;\n}\n.p-lg-4[data-v-28ae226b] {\n    padding: 1.5rem !important;\n}\n.pt-lg-4[data-v-28ae226b],\n  .py-lg-4[data-v-28ae226b] {\n    padding-top: 1.5rem !important;\n}\n.pr-lg-4[data-v-28ae226b],\n  .px-lg-4[data-v-28ae226b] {\n    padding-right: 1.5rem !important;\n}\n.pb-lg-4[data-v-28ae226b],\n  .py-lg-4[data-v-28ae226b] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-lg-4[data-v-28ae226b],\n  .px-lg-4[data-v-28ae226b] {\n    padding-left: 1.5rem !important;\n}\n.p-lg-5[data-v-28ae226b] {\n    padding: 3rem !important;\n}\n.pt-lg-5[data-v-28ae226b],\n  .py-lg-5[data-v-28ae226b] {\n    padding-top: 3rem !important;\n}\n.pr-lg-5[data-v-28ae226b],\n  .px-lg-5[data-v-28ae226b] {\n    padding-right: 3rem !important;\n}\n.pb-lg-5[data-v-28ae226b],\n  .py-lg-5[data-v-28ae226b] {\n    padding-bottom: 3rem !important;\n}\n.pl-lg-5[data-v-28ae226b],\n  .px-lg-5[data-v-28ae226b] {\n    padding-left: 3rem !important;\n}\n.m-lg-auto[data-v-28ae226b] {\n    margin: auto !important;\n}\n.mt-lg-auto[data-v-28ae226b],\n  .my-lg-auto[data-v-28ae226b] {\n    margin-top: auto !important;\n}\n.mr-lg-auto[data-v-28ae226b],\n  .mx-lg-auto[data-v-28ae226b] {\n    margin-right: auto !important;\n}\n.mb-lg-auto[data-v-28ae226b],\n  .my-lg-auto[data-v-28ae226b] {\n    margin-bottom: auto !important;\n}\n.ml-lg-auto[data-v-28ae226b],\n  .mx-lg-auto[data-v-28ae226b] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 1200px) {\n.m-xl-0[data-v-28ae226b] {\n    margin: 0 !important;\n}\n.mt-xl-0[data-v-28ae226b],\n  .my-xl-0[data-v-28ae226b] {\n    margin-top: 0 !important;\n}\n.mr-xl-0[data-v-28ae226b],\n  .mx-xl-0[data-v-28ae226b] {\n    margin-right: 0 !important;\n}\n.mb-xl-0[data-v-28ae226b],\n  .my-xl-0[data-v-28ae226b] {\n    margin-bottom: 0 !important;\n}\n.ml-xl-0[data-v-28ae226b],\n  .mx-xl-0[data-v-28ae226b] {\n    margin-left: 0 !important;\n}\n.m-xl-1[data-v-28ae226b] {\n    margin: 0.25rem !important;\n}\n.mt-xl-1[data-v-28ae226b],\n  .my-xl-1[data-v-28ae226b] {\n    margin-top: 0.25rem !important;\n}\n.mr-xl-1[data-v-28ae226b],\n  .mx-xl-1[data-v-28ae226b] {\n    margin-right: 0.25rem !important;\n}\n.mb-xl-1[data-v-28ae226b],\n  .my-xl-1[data-v-28ae226b] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-xl-1[data-v-28ae226b],\n  .mx-xl-1[data-v-28ae226b] {\n    margin-left: 0.25rem !important;\n}\n.m-xl-2[data-v-28ae226b] {\n    margin: 0.5rem !important;\n}\n.mt-xl-2[data-v-28ae226b],\n  .my-xl-2[data-v-28ae226b] {\n    margin-top: 0.5rem !important;\n}\n.mr-xl-2[data-v-28ae226b],\n  .mx-xl-2[data-v-28ae226b] {\n    margin-right: 0.5rem !important;\n}\n.mb-xl-2[data-v-28ae226b],\n  .my-xl-2[data-v-28ae226b] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-xl-2[data-v-28ae226b],\n  .mx-xl-2[data-v-28ae226b] {\n    margin-left: 0.5rem !important;\n}\n.m-xl-3[data-v-28ae226b] {\n    margin: 1rem !important;\n}\n.mt-xl-3[data-v-28ae226b],\n  .my-xl-3[data-v-28ae226b] {\n    margin-top: 1rem !important;\n}\n.mr-xl-3[data-v-28ae226b],\n  .mx-xl-3[data-v-28ae226b] {\n    margin-right: 1rem !important;\n}\n.mb-xl-3[data-v-28ae226b],\n  .my-xl-3[data-v-28ae226b] {\n    margin-bottom: 1rem !important;\n}\n.ml-xl-3[data-v-28ae226b],\n  .mx-xl-3[data-v-28ae226b] {\n    margin-left: 1rem !important;\n}\n.m-xl-4[data-v-28ae226b] {\n    margin: 1.5rem !important;\n}\n.mt-xl-4[data-v-28ae226b],\n  .my-xl-4[data-v-28ae226b] {\n    margin-top: 1.5rem !important;\n}\n.mr-xl-4[data-v-28ae226b],\n  .mx-xl-4[data-v-28ae226b] {\n    margin-right: 1.5rem !important;\n}\n.mb-xl-4[data-v-28ae226b],\n  .my-xl-4[data-v-28ae226b] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-xl-4[data-v-28ae226b],\n  .mx-xl-4[data-v-28ae226b] {\n    margin-left: 1.5rem !important;\n}\n.m-xl-5[data-v-28ae226b] {\n    margin: 3rem !important;\n}\n.mt-xl-5[data-v-28ae226b],\n  .my-xl-5[data-v-28ae226b] {\n    margin-top: 3rem !important;\n}\n.mr-xl-5[data-v-28ae226b],\n  .mx-xl-5[data-v-28ae226b] {\n    margin-right: 3rem !important;\n}\n.mb-xl-5[data-v-28ae226b],\n  .my-xl-5[data-v-28ae226b] {\n    margin-bottom: 3rem !important;\n}\n.ml-xl-5[data-v-28ae226b],\n  .mx-xl-5[data-v-28ae226b] {\n    margin-left: 3rem !important;\n}\n.p-xl-0[data-v-28ae226b] {\n    padding: 0 !important;\n}\n.pt-xl-0[data-v-28ae226b],\n  .py-xl-0[data-v-28ae226b] {\n    padding-top: 0 !important;\n}\n.pr-xl-0[data-v-28ae226b],\n  .px-xl-0[data-v-28ae226b] {\n    padding-right: 0 !important;\n}\n.pb-xl-0[data-v-28ae226b],\n  .py-xl-0[data-v-28ae226b] {\n    padding-bottom: 0 !important;\n}\n.pl-xl-0[data-v-28ae226b],\n  .px-xl-0[data-v-28ae226b] {\n    padding-left: 0 !important;\n}\n.p-xl-1[data-v-28ae226b] {\n    padding: 0.25rem !important;\n}\n.pt-xl-1[data-v-28ae226b],\n  .py-xl-1[data-v-28ae226b] {\n    padding-top: 0.25rem !important;\n}\n.pr-xl-1[data-v-28ae226b],\n  .px-xl-1[data-v-28ae226b] {\n    padding-right: 0.25rem !important;\n}\n.pb-xl-1[data-v-28ae226b],\n  .py-xl-1[data-v-28ae226b] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-xl-1[data-v-28ae226b],\n  .px-xl-1[data-v-28ae226b] {\n    padding-left: 0.25rem !important;\n}\n.p-xl-2[data-v-28ae226b] {\n    padding: 0.5rem !important;\n}\n.pt-xl-2[data-v-28ae226b],\n  .py-xl-2[data-v-28ae226b] {\n    padding-top: 0.5rem !important;\n}\n.pr-xl-2[data-v-28ae226b],\n  .px-xl-2[data-v-28ae226b] {\n    padding-right: 0.5rem !important;\n}\n.pb-xl-2[data-v-28ae226b],\n  .py-xl-2[data-v-28ae226b] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-xl-2[data-v-28ae226b],\n  .px-xl-2[data-v-28ae226b] {\n    padding-left: 0.5rem !important;\n}\n.p-xl-3[data-v-28ae226b] {\n    padding: 1rem !important;\n}\n.pt-xl-3[data-v-28ae226b],\n  .py-xl-3[data-v-28ae226b] {\n    padding-top: 1rem !important;\n}\n.pr-xl-3[data-v-28ae226b],\n  .px-xl-3[data-v-28ae226b] {\n    padding-right: 1rem !important;\n}\n.pb-xl-3[data-v-28ae226b],\n  .py-xl-3[data-v-28ae226b] {\n    padding-bottom: 1rem !important;\n}\n.pl-xl-3[data-v-28ae226b],\n  .px-xl-3[data-v-28ae226b] {\n    padding-left: 1rem !important;\n}\n.p-xl-4[data-v-28ae226b] {\n    padding: 1.5rem !important;\n}\n.pt-xl-4[data-v-28ae226b],\n  .py-xl-4[data-v-28ae226b] {\n    padding-top: 1.5rem !important;\n}\n.pr-xl-4[data-v-28ae226b],\n  .px-xl-4[data-v-28ae226b] {\n    padding-right: 1.5rem !important;\n}\n.pb-xl-4[data-v-28ae226b],\n  .py-xl-4[data-v-28ae226b] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-xl-4[data-v-28ae226b],\n  .px-xl-4[data-v-28ae226b] {\n    padding-left: 1.5rem !important;\n}\n.p-xl-5[data-v-28ae226b] {\n    padding: 3rem !important;\n}\n.pt-xl-5[data-v-28ae226b],\n  .py-xl-5[data-v-28ae226b] {\n    padding-top: 3rem !important;\n}\n.pr-xl-5[data-v-28ae226b],\n  .px-xl-5[data-v-28ae226b] {\n    padding-right: 3rem !important;\n}\n.pb-xl-5[data-v-28ae226b],\n  .py-xl-5[data-v-28ae226b] {\n    padding-bottom: 3rem !important;\n}\n.pl-xl-5[data-v-28ae226b],\n  .px-xl-5[data-v-28ae226b] {\n    padding-left: 3rem !important;\n}\n.m-xl-auto[data-v-28ae226b] {\n    margin: auto !important;\n}\n.mt-xl-auto[data-v-28ae226b],\n  .my-xl-auto[data-v-28ae226b] {\n    margin-top: auto !important;\n}\n.mr-xl-auto[data-v-28ae226b],\n  .mx-xl-auto[data-v-28ae226b] {\n    margin-right: auto !important;\n}\n.mb-xl-auto[data-v-28ae226b],\n  .my-xl-auto[data-v-28ae226b] {\n    margin-bottom: auto !important;\n}\n.ml-xl-auto[data-v-28ae226b],\n  .mx-xl-auto[data-v-28ae226b] {\n    margin-left: auto !important;\n}\n}\n.visible[data-v-28ae226b] {\n  visibility: visible !important;\n}\n.invisible[data-v-28ae226b] {\n  visibility: hidden !important;\n}\n*[data-v-28ae226b] {\n  margin: 0px;\n}\n*[data-v-28ae226b] ::before,\n  *[data-v-28ae226b] ::after {\n    margin: 0px;\n}\nhtml[data-v-28ae226b] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-28ae226b]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-28ae226b]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-28ae226b]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\nbody[data-v-28ae226b] {\n  background: #1E2326;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-28ae226b] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-lines .verticle-line[data-v-28ae226b] {\n    border-left: 1px solid white;\n    height: 100vh;\n    opacity: 0.1;\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.verticle-lines .verticle-line[data-v-28ae226b]:nth-child(1), .verticle-lines .verticle-line[data-v-28ae226b]:nth-child(6) {\n    -webkit-box-flex: 0.5;\n        -ms-flex: 0.5;\n            flex: 0.5;\n}\n.theme-container[data-v-28ae226b] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.heading-light[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n}\n.heading-bold[data-v-28ae226b] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-28ae226b] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.button-link[data-v-28ae226b], .button-text[data-v-28ae226b] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-container[data-v-28ae226b] {\n  width: 88%;\n  margin-right: auto;\n  margin-left: auto;\n}\n.graphic-designing[data-v-28ae226b] {\n  height: 100vh;\n  overflow: hidden;\n}\n.graphic-designing .content[data-v-28ae226b] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n}\n.graphic-designing .content .heading-light[data-v-28ae226b] {\n      text-align: left;\n      margin-bottom: -20px;\n      padding: 0 0 0 5px;\n}\n.graphic-designing .content .heading-bold[data-v-28ae226b] {\n      text-align: left;\n}\n.graphic-designing .content .para[data-v-28ae226b] {\n      color: #ebebeb;\n      margin: 2rem 0;\n}\n.graphic-designing .content .button[data-v-28ae226b] {\n      height: 3rem;\n      width: 10rem;\n      position: relative;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n.graphic-designing .content .button .button-background[data-v-28ae226b] {\n        background-color: #CB8E55;\n        width: 50px;\n        height: 3px;\n        position: absolute;\n        left: 0;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: background-color 0.3s ease-in-out, height 0.3s ease-in-out,width 0.1s ease-in-out;\n        transition: background-color 0.3s ease-in-out, height 0.3s ease-in-out,width 0.1s ease-in-out;\n}\n.graphic-designing .content .button .button-text[data-v-28ae226b] {\n        position: absolute;\n        right: 0;\n        width: 7.4em;\n        top: 50%;\n        -webkit-transform: translateY(-50%);\n                transform: translateY(-50%);\n        -webkit-transition: right 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;\n        transition: right 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;\n        transition: transform 0.3s ease-in-out, right 0.3s ease-in-out;\n        transition: transform 0.3s ease-in-out, right 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;\n}\n.graphic-designing .content .button:hover .button-background[data-v-28ae226b] {\n        background-color: #00E0E9;\n        width: 100%;\n        height: 100%;\n}\n.graphic-designing .content .button:hover .button-text[data-v-28ae226b] {\n        right: 50%;\n        -webkit-transform: translate(50%, -50%);\n                transform: translate(50%, -50%);\n}\n.graphic-designing .svg-cover[data-v-28ae226b] {\n    position: absolute;\n    top: 50%;\n    right: 0;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    width: 80%;\n}\n.graphic-designing .svg-cover svg[data-v-28ae226b] {\n      width: 80%;\n}\n.graphic-designing .svg-cover svg .st0[data-v-28ae226b] {\n        opacity: 0.58;\n        fill: #1A1F21;\n}\n.graphic-designing .svg-cover svg .st1[data-v-28ae226b] {\n        fill: #2C3438;\n}\n.graphic-designing .svg-cover svg .st2[data-v-28ae226b] {\n        fill: url(#gdSVGID_1_);\n}\n.graphic-designing .svg-cover svg .st3[data-v-28ae226b] {\n        fill: url(#gdSVGID_2_);\n}\n.graphic-designing .svg-cover svg .st4[data-v-28ae226b] {\n        fill: url(#gdSVGID_3_);\n}\n.graphic-designing .svg-cover svg .st5[data-v-28ae226b] {\n        fill: #4B4F51;\n}\n.graphic-designing .svg-cover svg .st6[data-v-28ae226b] {\n        fill: #1E2326;\n}\n.graphic-designing .svg-cover svg .st7[data-v-28ae226b] {\n        fill: url(#gdSVGID_4_);\n}\n.graphic-designing .svg-cover svg .st8[data-v-28ae226b] {\n        fill: url(#gdSVGID_5_);\n}\n.graphic-designing .svg-cover svg .st9[data-v-28ae226b] {\n        fill: #00E0E9;\n}\n.graphic-designing .svg-cover svg .st10[data-v-28ae226b] {\n        fill: url(#gdSVGID_6_);\n}\n.graphic-designing .svg-cover svg .st11[data-v-28ae226b] {\n        fill: none;\n        stroke: #34393C;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st12[data-v-28ae226b] {\n        fill: none;\n        stroke: #1E2326;\n        stroke-width: 4.1291;\n        stroke-miterlimit: 10;\n}\n.graphic-designing .svg-cover svg .st13[data-v-28ae226b] {\n        fill: url(#gdSVGID_7_);\n}\n.graphic-designing .svg-cover svg .st14[data-v-28ae226b] {\n        fill: url(#gdSVGID_8_);\n}\n.graphic-designing .svg-cover svg .st15[data-v-28ae226b] {\n        fill: url(#gdSVGID_9_);\n}\n.graphic-designing .svg-cover svg .st16[data-v-28ae226b] {\n        opacity: 0.28;\n        fill: url(#gdSVGID_10_);\n        enable-background: new;\n}\n.graphic-designing .svg-cover svg .st17[data-v-28ae226b] {\n        fill: url(#gdSVGID_11_);\n}\n.graphic-designing .svg-cover svg .st18[data-v-28ae226b] {\n        fill: url(#gdSVGID_12_);\n}\n.graphic-designing .svg-cover svg .st19[data-v-28ae226b] {\n        fill: url(#gdSVGID_13_);\n}\n.graphic-designing .svg-cover svg .st20[data-v-28ae226b] {\n        fill: url(#gdSVGID_14_);\n}\n.graphic-designing .svg-cover svg .st21[data-v-28ae226b] {\n        fill: url(#gdSVGID_15_);\n}\n.graphic-designing .svg-cover svg .st22[data-v-28ae226b] {\n        fill: url(#gdSVGID_16_);\n}\n.graphic-designing .svg-cover svg .st23[data-v-28ae226b] {\n        fill: url(#gdSVGID_17_);\n}\n.graphic-designing .svg-cover svg .st24[data-v-28ae226b] {\n        fill: url(#gdSVGID_18_);\n}\n.graphic-designing .svg-cover svg .st25[data-v-28ae226b] {\n        fill: url(#gdSVGID_19_);\n}\n.graphic-designing .svg-cover svg .st26[data-v-28ae226b] {\n        fill: url(#gdSVGID_20_);\n}\n.graphic-designing .svg-cover svg .st27[data-v-28ae226b] {\n        fill: url(#gdSVGID_21_);\n}\n.graphic-designing .svg-cover svg .st28[data-v-28ae226b] {\n        fill: url(#gdSVGID_22_);\n}\n.graphic-designing .svg-cover svg .st29[data-v-28ae226b] {\n        fill: url(#gdSVGID_23_);\n}\n.graphic-designing .svg-cover svg .st30[data-v-28ae226b] {\n        fill: url(#gdSVGID_24_);\n}\n.graphic-designing .svg-cover svg .st31[data-v-28ae226b] {\n        fill: url(#gdSVGID_25_);\n}\n.graphic-designing .svg-cover svg .st32[data-v-28ae226b] {\n        fill: url(#gdSVGID_26_);\n}\n.graphic-designing .svg-cover svg .st33[data-v-28ae226b] {\n        fill: url(#gdSVGID_27_);\n}\n.graphic-designing .svg-cover svg .st34[data-v-28ae226b] {\n        fill: url(#gdSVGID_28_);\n}\n.graphic-designing .svg-cover svg .st35[data-v-28ae226b] {\n        fill: url(#gdSVGID_29_);\n}\n.graphic-designing .svg-cover svg .st36[data-v-28ae226b] {\n        fill: url(#gdSVGID_30_);\n}\n.graphic-designing .svg-cover svg .st37[data-v-28ae226b] {\n        fill: url(#gdSVGID_31_);\n}\n.graphic-designing .svg-cover svg .st38[data-v-28ae226b] {\n        fill: url(#gdSVGID_32_);\n}\n.graphic-designing .svg-cover svg .st39[data-v-28ae226b] {\n        fill: url(#gdSVGID_33_);\n}\n.graphic-designing .svg-cover svg .st40[data-v-28ae226b] {\n        fill: url(#gdSVGID_34_);\n}\n.graphic-designing .svg-cover svg .st41[data-v-28ae226b] {\n        fill: url(#gdSVGID_35_);\n}\n.graphic-designing .svg-cover svg .st42[data-v-28ae226b] {\n        fill: url(#gdSVGID_36_);\n}\n.graphic-designing .svg-cover svg .st43[data-v-28ae226b] {\n        fill: url(#gdSVGID_37_);\n}\n.graphic-designing .svg-cover svg .st44[data-v-28ae226b] {\n        fill: url(#gdSVGID_38_);\n}\n.graphic-designing .svg-cover svg .st45[data-v-28ae226b] {\n        fill: url(#gdSVGID_39_);\n}\n.graphic-designing .svg-cover svg .st46[data-v-28ae226b] {\n        fill: url(#gdSVGID_40_);\n}\n.graphic-designing .svg-cover svg .st47[data-v-28ae226b] {\n        fill: url(#gdSVGID_41_);\n}\n.graphic-designing .svg-cover svg .st48[data-v-28ae226b] {\n        fill: url(#gdSVGID_42_);\n}\n.graphic-designing .svg-cover svg .st49[data-v-28ae226b] {\n        fill: url(#gdSVGID_43_);\n}\n.graphic-designing .svg-cover svg .st50[data-v-28ae226b] {\n        fill: url(#gdSVGID_44_);\n}\n.graphic-designing .svg-cover svg .st51[data-v-28ae226b] {\n        fill: url(#gdSVGID_45_);\n}\n.graphic-designing .svg-cover svg .st52[data-v-28ae226b] {\n        fill: url(#gdSVGID_46_);\n}\n.graphic-designing .svg-cover svg .st53[data-v-28ae226b] {\n        fill: url(#gdSVGID_47_);\n}\n.graphic-designing .svg-cover svg .st54[data-v-28ae226b] {\n        fill: url(#gdSVGID_48_);\n}\n.graphic-designing .svg-cover svg .st55[data-v-28ae226b] {\n        fill: url(#gdSVGID_49_);\n}\n.graphic-designing .svg-cover svg .st56[data-v-28ae226b] {\n        fill: url(#gdSVGID_50_);\n}\n.graphic-designing .svg-cover svg .st57[data-v-28ae226b] {\n        fill: url(#gdSVGID_51_);\n}\n.graphic-designing .svg-cover svg .st58[data-v-28ae226b] {\n        fill: url(#gdSVGID_52_);\n}\n.graphic-designing .svg-cover svg .st59[data-v-28ae226b] {\n        fill: url(#gdSVGID_53_);\n}\n.graphic-designing .svg-cover svg .st60[data-v-28ae226b] {\n        fill: url(#gdSVGID_54_);\n}\n.graphic-designing .svg-cover svg .st61[data-v-28ae226b] {\n        fill: url(#gdSVGID_55_);\n}\n.graphic-designing .svg-cover svg .st62[data-v-28ae226b] {\n        fill: url(#gdSVGID_56_);\n}\n.graphic-designing .svg-cover svg .st63[data-v-28ae226b] {\n        fill: url(#gdSVGID_57_);\n}\n.graphic-designing .svg-cover svg .st64[data-v-28ae226b] {\n        fill: url(#gdSVGID_58_);\n}\n.graphic-designing .svg-cover svg .st65[data-v-28ae226b] {\n        fill: url(#gdSVGID_59_);\n}\n.graphic-designing .svg-cover svg .st66[data-v-28ae226b] {\n        fill: url(#gdSVGID_60_);\n}\n.graphic-designing .svg-cover svg .st67[data-v-28ae226b] {\n        fill: url(#gdSVGID_61_);\n}\n.graphic-designing .svg-cover svg .st68[data-v-28ae226b] {\n        fill: url(#gdSVGID_62_);\n}\n.graphic-designing .svg-cover svg .st69[data-v-28ae226b] {\n        fill: url(#gdSVGID_63_);\n}\n.graphic-designing .svg-cover svg .st70[data-v-28ae226b] {\n        fill: url(#gdSVGID_64_);\n}\n.graphic-designing .svg-cover svg .st71[data-v-28ae226b] {\n        fill: url(#gdSVGID_65_);\n}\n.graphic-designing .svg-cover svg .st72[data-v-28ae226b] {\n        fill: url(#gdSVGID_66_);\n}\n.graphic-designing .svg-cover svg .st73[data-v-28ae226b] {\n        fill: url(#gdSVGID_67_);\n}\n.graphic-designing .svg-cover svg .st74[data-v-28ae226b] {\n        fill: url(#gdSVGID_68_);\n}\n.graphic-designing .svg-cover svg .st75[data-v-28ae226b] {\n        fill: url(#gdSVGID_69_);\n}\n.graphic-designing .svg-cover svg .st76[data-v-28ae226b] {\n        fill: url(#gdSVGID_70_);\n}\n.graphic-designing .svg-cover svg .st77[data-v-28ae226b] {\n        fill: url(#gdSVGID_71_);\n}\n.graphic-designing .svg-cover svg .st78[data-v-28ae226b] {\n        fill: url(#gdSVGID_72_);\n}\n.graphic-designing .svg-cover svg .st79[data-v-28ae226b] {\n        fill: url(#gdSVGID_73_);\n}\n.graphic-designing .svg-cover svg .st80[data-v-28ae226b] {\n        fill: url(#gdSVGID_74_);\n}\n.graphic-designing .svg-cover svg .st81[data-v-28ae226b] {\n        fill: url(#gdSVGID_75_);\n}\n.graphic-designing .svg-cover svg .st82[data-v-28ae226b] {\n        fill: url(#gdSVGID_76_);\n}\n.graphic-designing .svg-cover svg .st83[data-v-28ae226b] {\n        fill: url(#gdSVGID_77_);\n}\n.graphic-designing .svg-cover svg .st84[data-v-28ae226b] {\n        fill: url(#gdSVGID_78_);\n}\n.graphic-designing .svg-cover svg .st85[data-v-28ae226b] {\n        fill: url(#gdSVGID_79_);\n}\n.graphic-designing .svg-cover svg .st86[data-v-28ae226b] {\n        fill: url(#gdSVGID_80_);\n}\n.graphic-designing .svg-cover svg .st87[data-v-28ae226b] {\n        fill: url(#gdSVGID_81_);\n}\n.graphic-designing .svg-cover svg .st88[data-v-28ae226b] {\n        fill: url(#gdSVGID_82_);\n}\n.graphic-designing .svg-cover svg .st89[data-v-28ae226b] {\n        fill: url(#gdSVGID_83_);\n}\n.graphic-designing .svg-cover svg .st90[data-v-28ae226b] {\n        fill: url(#gdSVGID_84_);\n}\n.graphic-designing .svg-cover svg .st91[data-v-28ae226b] {\n        fill: url(#gdSVGID_85_);\n}\n.graphic-designing .svg-cover svg .st92[data-v-28ae226b] {\n        fill: url(#gdSVGID_86_);\n}\n.graphic-designing .svg-cover svg .st93[data-v-28ae226b] {\n        fill: url(#gdSVGID_87_);\n}\n.graphic-designing .svg-cover svg .st94[data-v-28ae226b] {\n        fill: url(#gdSVGID_88_);\n}\n.graphic-designing .svg-cover svg .st95[data-v-28ae226b] {\n        fill: url(#gdSVGID_89_);\n}\n.graphic-designing .svg-cover svg .st96[data-v-28ae226b] {\n        fill: url(#gdSVGID_90_);\n}\n.graphic-designing .svg-cover svg .st97[data-v-28ae226b] {\n        fill: url(#gdSVGID_91_);\n}\n.graphic-designing .svg-cover svg .st98[data-v-28ae226b] {\n        fill: url(#gdSVGID_92_);\n}\n.graphic-designing .svg-cover svg .st99[data-v-28ae226b] {\n        fill: url(#gdSVGID_93_);\n}\n.graphic-designing .svg-cover svg .st100[data-v-28ae226b] {\n        fill: url(#gdSVGID_94_);\n}\n.graphic-designing .svg-cover svg .st101[data-v-28ae226b] {\n        fill: url(#gdSVGID_95_);\n}\n.graphic-designing .svg-cover svg .st102[data-v-28ae226b] {\n        fill: url(#gdSVGID_96_);\n}\n.graphic-designing .svg-cover svg .st103[data-v-28ae226b] {\n        fill: url(#gdSVGID_97_);\n}\n.graphic-designing .svg-cover svg .st104[data-v-28ae226b] {\n        fill: url(#gdSVGID_98_);\n}\n.graphic-designing .svg-cover svg .st105[data-v-28ae226b] {\n        fill: url(#gdSVGID_99_);\n}\n.graphic-designing .svg-cover svg .st106[data-v-28ae226b] {\n        fill: url(#gdSVGID_100_);\n}\n.graphic-designing .svg-cover svg .st107[data-v-28ae226b] {\n        fill: url(#gdSVGID_101_);\n}\n.graphic-designing .svg-cover svg .st108[data-v-28ae226b] {\n        fill: url(#gdSVGID_102_);\n}\n.graphic-designing .svg-cover svg .st109[data-v-28ae226b] {\n        fill: url(#gdSVGID_103_);\n}\n.graphic-designing .svg-cover svg .st110[data-v-28ae226b] {\n        fill: url(#gdSVGID_104_);\n}\n.graphic-designing .svg-cover svg .st111[data-v-28ae226b] {\n        fill: url(#gdSVGID_105_);\n}\n.graphic-designing .svg-cover svg .st112[data-v-28ae226b] {\n        fill: url(#gdSVGID_106_);\n}\n.graphic-designing .svg-cover svg .st113[data-v-28ae226b] {\n        fill: url(#gdSVGID_107_);\n}\n.graphic-designing .svg-cover svg .st114[data-v-28ae226b] {\n        fill: url(#gdSVGID_108_);\n}\n.graphic-designing .svg-cover svg .st115[data-v-28ae226b] {\n        fill: url(#gdSVGID_109_);\n}\n.graphic-designing .svg-cover svg .st116[data-v-28ae226b] {\n        fill: url(#gdSVGID_110_);\n}\n.graphic-designing .svg-cover svg .st117[data-v-28ae226b] {\n        fill: url(#gdSVGID_111_);\n}\n.graphic-designing .svg-cover svg .st118[data-v-28ae226b] {\n        fill: url(#gdSVGID_112_);\n}\n.graphic-designing .svg-cover svg .st119[data-v-28ae226b] {\n        fill: url(#gdSVGID_113_);\n}\n.graphic-designing .svg-cover svg .st120[data-v-28ae226b] {\n        fill: url(#gdSVGID_114_);\n}\n.graphic-designing .svg-cover svg .st121[data-v-28ae226b] {\n        fill: url(#gdSVGID_115_);\n}\n.graphic-designing .svg-cover svg .st122[data-v-28ae226b] {\n        fill: url(#gdSVGID_116_);\n}\n.graphic-designing .svg-cover svg .st123[data-v-28ae226b] {\n        fill: url(#gdSVGID_117_);\n}\n.graphic-designing .svg-cover svg .st124[data-v-28ae226b] {\n        opacity: 0.5;\n}\n.graphic-designing .svg-cover svg .st125[data-v-28ae226b] {\n        fill: #CB8E55;\n}\n.graphic-designing .svg-cover svg .st126[data-v-28ae226b] {\n        fill: url(#gdSVGID_118_);\n}\n.graphic-designing .svg-cover svg .st127[data-v-28ae226b] {\n        fill: #22272A;\n}\n.graphic-designing .svg-cover svg .st128[data-v-28ae226b] {\n        fill: url(#gdSVGID_119_);\n}\n.graphic-designing .svg-cover svg .st129[data-v-28ae226b] {\n        fill: url(#gdSVGID_120_);\n}\n.graphic-designing .svg-cover svg .st130[data-v-28ae226b] {\n        fill: url(#gdSVGID_121_);\n}\n.graphic-designing .svg-cover svg .st131[data-v-28ae226b] {\n        fill: url(#gdSVGID_122_);\n}\n.graphic-designing .svg-cover svg .st132[data-v-28ae226b] {\n        opacity: 0.24;\n}\n.graphic-designing .svg-cover svg .st133[data-v-28ae226b] {\n        fill: url(#gdSVGID_123_);\n}\n.graphic-designing .svg-cover svg .st134[data-v-28ae226b] {\n        fill: #676D70;\n}\n.graphic-designing .svg-cover svg .st135[data-v-28ae226b] {\n        fill: #005458;\n}\n.graphic-designing .svg-cover svg .st136[data-v-28ae226b] {\n        fill: url(#gdSVGID_124_);\n}\n.graphic-designing .svg-cover svg .st137[data-v-28ae226b] {\n        fill: #FFFFFF;\n}\n.graphic-designing .svg-cover svg .st138[data-v-28ae226b] {\n        fill: url(#gdSVGID_125_);\n}\n.graphic-designing .svg-cover svg .st139[data-v-28ae226b] {\n        fill: url(#gdSVGID_126_);\n}\n.graphic-designing .svg-cover svg .st140[data-v-28ae226b] {\n        fill: url(#gdSVGID_127_);\n}\n.graphic-designing .svg-cover svg .st141[data-v-28ae226b] {\n        fill: #E6E6E6;\n}\n.graphic-designing .svg-cover svg .st142[data-v-28ae226b] {\n        fill: url(#gdSVGID_128_);\n}\n.graphic-designing .svg-cover svg .st143[data-v-28ae226b] {\n        fill: url(#gdSVGID_129_);\n}\n.graphic-designing .svg-cover svg .st144[data-v-28ae226b] {\n        fill: url(#gdSVGID_130_);\n}\n.graphic-designing .svg-cover svg .st145[data-v-28ae226b] {\n        fill: url(#gdSVGID_131_);\n}\n.graphic-designing .svg-cover svg .st146[data-v-28ae226b] {\n        fill: url(#gdSVGID_132_);\n}\n.graphic-designing .svg-cover svg .st147[data-v-28ae226b] {\n        fill: url(#gdSVGID_133_);\n}\n.graphic-designing .svg-cover svg .st148[data-v-28ae226b] {\n        fill: url(#gdSVGID_134_);\n}\n.graphic-designing .svg-cover svg .st149[data-v-28ae226b] {\n        fill: url(#gdSVGID_135_);\n}\n.graphic-designing .svg-cover svg .st150[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#gdSVGID_136_);\n}\n.graphic-designing .svg-cover svg .st151[data-v-28ae226b] {\n        opacity: 0.1;\n        fill: url(#gdSVGID_137_);\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "graphic-designing" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "svg-cover" }, [
-      _c(
-        "svg",
-        {
-          staticStyle: { "enable-background": "new 0 0 1000 1000" },
-          attrs: {
-            version: "1.1",
-            xmlns: "http://www.w3.org/2000/svg",
-            "xmlns:xlink": "http://www.w3.org/1999/xlink",
-            x: "0px",
-            y: "0px",
-            viewBox: "0 0 1000 1000",
-            "xml:space": "preserve"
-          }
-        },
-        [
+  return _c("div", { staticClass: "home-container" }, [
+    _c("div", { staticClass: "row graphic-designing" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-9" }, [
+        _c("div", { staticClass: "svg-cover" }, [
           _c(
-            "g",
-            { attrs: { id: "laptop" } },
+            "svg",
+            {
+              staticStyle: { "enable-background": "new 0 0 1000 1000" },
+              attrs: {
+                version: "1.1",
+                xmlns: "http://www.w3.org/2000/svg",
+                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                x: "0px",
+                y: "0px",
+                viewBox: "0 0 1000 1000",
+                "xml:space": "preserve"
+              }
+            },
             [
-              _c("g", { attrs: { id: "Layer_26" } }, [
-                _c("path", {
-                  staticClass: "st0",
-                  attrs: {
-                    d:
-                      "M892.3,585.7c-4.7,9-14.1,14.5-23,19.4c-65.8,36.9-131.7,73.8-197.5,110.7c-5.7,3.2-11.9,6.5-18.4,5.8\n                        c-3.9-0.4-7.4-2.2-10.9-4C576.9,684,513,646.9,449.1,609.9c-52.9-30.7-105.8-61.3-158.7-92c-9.3-5.4-20-13.4-18.6-24.1\n                        c1.6-12.7,18.1-16.5,30.9-16.7c43.9-0.9,87.8,2.3,131.6,5.6c124.7,9.3,250,18.8,371.4,48.6C825.7,536.3,910.8,550.5,892.3,585.7z"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st1",
-                attrs: {
-                  d:
-                    "M274.8,499.8L653.5,717c1.4,0.8,3.2,0.8,4.7,0l226.3-129.5c1.1-0.6,1.5-2.1,0.9-3.2c-0.2-0.4-0.5-0.7-0.9-0.9\n                    L503.2,363c-1.4-0.8-3.2-0.8-4.7,0L274.8,491.7c-2.2,1.3-3,4.1-1.7,6.4C273.5,498.8,274.1,499.4,274.8,499.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st1",
-                attrs: {
-                  d:
-                    "M886.9,582.8v-4l-229.9,132c-0.8,0.5-1.8,0.5-2.6,0L272.4,489.3v6.2L654.3,717c0.8,0.5,1.8,0.5,2.6,0\n                    l226.7-128.6C885.6,587.2,886.9,585.1,886.9,582.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_1_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "503.6757",
-                    y1: "362.6411",
-                    x2: "661.8175",
-                    y2: "581.7319",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st2",
-                attrs: {
-                  d:
-                    "M274.9,493.6l378.7,217.2c1.4,0.8,3.2,0.8,4.6,0l227.5-129.6c1.2-0.7,1.5-2.1,0.9-3.3\n                    c-0.2-0.4-0.5-0.7-0.9-0.9L503.2,356.8c-1.4-0.8-3.2-0.8-4.7,0L274.9,485.5c-2.2,1.3-3,4.1-1.7,6.4\n                    C273.5,492.6,274.1,493.2,274.9,493.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st1",
-                attrs: {
-                  d:
-                    "M503.6,95.4l-0.4,256.4c0,1.9,1,3.7,2.7,4.6l376.1,216.5c3.1,1.8,7.1,0.7,8.9-2.4c0.6-1,0.9-2.1,0.9-3.2\n                    l0.1-254.3c0-1.9-1-3.6-2.7-4.6L511.6,90.8c-2.5-1.5-5.8-0.6-7.2,1.9C503.9,93.6,503.6,94.5,503.6,95.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_2_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "719.2141",
-                    y1: "740.9352",
-                    x2: "656.9089",
-                    y2: "555.327",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#292E31" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st3",
-                attrs: {
-                  d:
-                    "M501.3,96.1l-0.4,256.4c0,1.9,1,3.7,2.7,4.6l376.1,216.5c3.1,1.8,7.1,0.7,8.9-2.4c0.6-1,0.9-2.1,0.9-3.2\n                    l0.1-254.3c0-1.9-1-3.6-2.7-4.6L509.3,91.5c-2.5-1.5-5.8-0.6-7.2,2C501.6,94.3,501.3,95.2,501.3,96.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_3_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "295.8386",
-                    y1: "504.9346",
-                    x2: "1007.2346",
-                    y2: "798.0784",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#202528" },
-                    attrs: { offset: "0.4" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#252A2D" },
-                    attrs: { offset: "0.52" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#212629" },
-                    attrs: { offset: "0.66" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st4",
-                attrs: {
-                  points:
-                    "511.8,105.5 511.3,208.1 510.6,346.7 876.9,560.2 879.6,317.4 \t"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st5",
-                attrs: {
-                  d:
-                    "M702.5,208.5c-0.1,1.7-1.3,2.3-2.4,1.6c-0.9-0.7-1.4-1.7-1.4-2.8c0-1.1,0.6-2,1.5-2\n                    C701.4,205.3,702.6,206.7,702.5,208.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st6",
-                attrs: {
-                  points: "842.5,607.1 842.5,610.5 834.7,615 834.7,611.6 \t"
-                }
-              }),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st6",
-                attrs: {
-                  points: "852.8,601.3 852.8,604.7 845,609.2 845,605.8 \t"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_4_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "582.4431",
-                    y1: "442.559",
-                    x2: "612.4262",
-                    y2: "494.4903",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#565A5C" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#34393C" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st7",
-                attrs: {
-                  d:
-                    "M391.8,449.4l320.8,185.1l121-70c0.4-0.2,0.6-0.8,0.4-1.2c-0.1-0.2-0.2-0.3-0.4-0.4L517.4,379.3\n                    c-1.3-0.7-2.8-0.7-4.1,0L391.8,449.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M485,397.9l31.1,18c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-31.2-18\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C484.2,397.7,484.6,397.7,485,397.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M520.3,418.3l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-10.9\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C519.5,418.1,520,418.1,520.3,418.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M543.1,431.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C542.3,431.2,542.8,431.2,543.1,431.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M565.9,444.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C565.2,444.4,565.6,444.4,565.9,444.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M588.7,457.8l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C588,457.6,588.4,457.6,588.7,457.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M611.6,471l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C610.8,470.8,611.2,470.8,611.6,471z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M634.4,484.1l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C633.6,483.9,634,483.9,634.4,484.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M657.2,497.3l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C656.4,497.1,656.8,497.1,657.2,497.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M680,510.5l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C679.3,510.3,679.7,510.3,680,510.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M702.8,523.6l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C702.1,523.4,702.5,523.4,702.8,523.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M725.6,536.8l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C724.9,536.6,725.3,536.6,725.6,536.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M748.4,550.3l20.2,11.6c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.8,10.9c-0.3,0.2-0.7,0.2-1.1,0\n                    l-20.1-11.7c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.8-10.8C747.7,550.1,748.1,550.1,748.4,550.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M772.3,564l28.7,16.2c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19.3,11c-0.3,0.2-0.7,0.2-1.1,0\n                    l-28.3-16.3c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.9-10.9C771.6,563.9,772,563.9,772.3,564z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M507.7,384.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C506.9,384.5,507.3,384.5,507.7,384.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M530.5,397.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C529.8,397.7,530.2,397.7,530.5,397.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st6",
-                attrs: {
-                  points: "552.8,410.7 574,423 552.8,435.2 531.6,423 \t"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M576.1,424.2l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C575.4,424,575.8,424,576.1,424.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M599,437.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-10.9\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C598.2,437.2,598.6,437.2,599,437.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M621.8,450.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C621,450.4,621.4,450.4,621.8,450.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M644.6,463.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C643.8,463.5,644.2,463.5,644.6,463.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M667.4,476.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C666.6,476.7,667.1,476.7,667.4,476.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M690.2,490.1l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C689.5,489.9,689.9,489.9,690.2,490.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M713,503.2l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C712.3,503,712.7,503,713,503.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M735.9,516.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C735.1,516.2,735.5,516.2,735.9,516.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M758.7,529.9l19.6,11.3c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.5,10.7c-0.3,0.2-0.8,0.2-1.1,0\n                    l-19.5-11.3c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.4-10.7C757.9,529.7,758.3,529.7,758.7,529.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M782.5,543.6l18.5,10.7c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.5,10.7c-0.3,0.2-0.8,0.2-1.1,0\n                    l-18.5-10.7c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.5-10.7C781.8,543.4,782.2,543.4,782.5,543.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M804.8,556.5l18.5,10.7c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.5,10.7c-0.3,0.2-0.8,0.2-1.1,0\n                    l-18.5-10.7c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.5-10.7C804,556.3,804.4,556.3,804.8,556.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M486.1,425l-24-13.8c-0.3-0.2-0.7-0.2-1.1,0l-19,11c-0.5,0.3-0.7,0.9-0.4,1.5c0.1,0.2,0.2,0.3,0.4,0.4\n                    l22.9,13.2l20.7,11.9c0.3,0.2,0.7,0.2,1.1,0l19-11c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4L486.1,425z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M509.5,438.4l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C508.8,438.2,509.2,438.2,509.5,438.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M532.3,451.6l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C531.6,451.4,532,451.4,532.3,451.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M555.1,464.8l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C554.4,464.6,554.8,464.6,555.1,464.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M577.9,478l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C577.2,477.8,577.6,477.8,577.9,478z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M600.8,491.1l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C600,490.9,600.4,490.9,600.8,491.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M623.6,504.3l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C622.8,504.1,623.2,504.1,623.6,504.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M646.4,517.5l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C645.7,517.3,646.1,517.3,646.4,517.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M669.2,530.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C668.5,530.5,668.9,530.5,669.2,530.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M692,543.8l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C691.3,543.6,691.7,543.6,692,543.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M714.8,557l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C714.1,556.8,714.5,556.8,714.8,557z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M737.1,570.2l40.2,23.2c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0\n                    L716.9,583c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19.1-11C736.3,570,736.7,570,737.1,570.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M476.2,445.7l-36.8-21.4c-0.3-0.2-0.7-0.2-1.1,0l-19,11c-0.5,0.3-0.7,1-0.4,1.5c0.1,0.2,0.2,0.3,0.4,0.4\n                    L455,458l20.7,11.9c0.3,0.2,0.7,0.2,1.1,0l19-11c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4L476.2,445.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M499.6,459.2l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C498.8,459,499.2,459,499.6,459.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M522.4,472.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C521.6,472.2,522,472.2,522.4,472.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M545.2,485.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C544.5,485.4,544.9,485.4,545.2,485.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M568,498.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C567.3,498.5,567.7,498.5,568,498.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M590.8,511.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C590.1,511.7,590.5,511.7,590.8,511.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M613.6,525.1l19.1,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C612.9,524.9,613.3,524.9,613.6,525.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M636.5,538.3l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C635.7,538.1,636.1,538.1,636.5,538.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M659.3,551.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C658.5,551.2,658.9,551.2,659.3,551.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M682.1,564.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C681.4,564.4,681.8,564.4,682.1,564.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M725.6,589.7l-20.7-11.9c-0.3-0.2-0.7-0.2-1.1,0l-19,11c-0.5,0.3-0.7,1-0.4,1.5c0.1,0.2,0.2,0.3,0.4,0.4\n                    l19.6,11.3l30.5,17.6c0.3,0.2,0.7,0.2,1.1,0l18.8-11.1c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4L725.6,589.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M416.6,437.5l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C415.9,437.3,416.3,437.3,416.6,437.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M439.4,450.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C438.7,450.5,439.1,450.5,439.4,450.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M622,556.1l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C621.2,555.9,621.6,555.9,622,556.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M644.8,569.3l19.1,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C644,569.1,644.4,569.1,644.8,569.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M667.6,582.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C666.8,582.2,667.3,582.2,667.6,582.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M690.4,595.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C689.7,595.4,690.1,595.4,690.4,595.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M713.3,608.8l18.9,10.9c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.9,10.9c-0.3,0.2-0.8,0.2-1.1,0\n                    l-18.9-10.9c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.9-10.9C712.5,608.6,712.9,608.6,713.3,608.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M487.2,502.9l110.4,63.9c0.3,0.2,0.7,0.2,1.1,0l19.2-11.1c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4\n                    l-110.5-64.2c-0.3-0.2-0.8-0.2-1.1,0L487.2,501c-0.5,0.3-0.7,1-0.4,1.5C486.9,502.7,487.1,502.8,487.2,502.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st6",
-                attrs: {
-                  points: "508.8,383.4 826.5,567 832,563.7 514.4,380.2 \t"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M461.9,463.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C461.1,463.5,461.5,463.5,461.9,463.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M484.7,476.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                    c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C483.9,476.7,484.3,476.7,484.7,476.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  id: "trackpad_1_",
-                  d:
-                    "M475.7,511.9l121.9,70.2c1.4,0.8,1.9,2.6,1.1,3.9c-0.2,0.4-0.6,0.8-1,1l-58.9,35.1\n                    c-1.4,0.8-3.1,0.8-4.5,0l-122.9-70.6c-1.3-0.7-1.7-2.4-0.9-3.7c0.2-0.4,0.6-0.7,0.9-0.9l60-35C472.6,511.2,474.3,511.1,475.7,511.9\n                    z"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "g",
-            { attrs: { id: "pen" } },
-            [
-              _c("g", { attrs: { id: "Layer_19" } }, [
-                _c("path", {
-                  staticClass: "st0",
-                  attrs: {
-                    d:
-                      "M547.7,771.4c-7.6,5.4-16.5,8.4-24.9,12.4c-8.4,4-16.2,9.1-23.9,14.2c-18.2,11.9-36.4,23.8-54.6,35.7\n                        c-14.3,9.4-29.2,19-46.1,22c-4.3,0.8-9.9,0.3-11.4-3.8c-1.5-4.1,2.6-8,6.4-10.1c7.4-4.2,15.5-7.2,23.3-10.7\n                        c33.9-15.2,62.5-40.4,96.1-56.3c12.6-6,25.9-10.6,37.4-18.7c4-2.8,12.8-11.6,9.8-0.7C558,762,553.1,767.6,547.7,771.4z"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_5_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "469.041",
-                    y1: "210.8054",
-                    x2: "479.0324",
-                    y2: "193.4149",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1.000000e-02" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0.51" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st8",
-                attrs: {
-                  d:
-                    "M560.9,749.3l-11.2,2.2c-0.5,0.1-1.1,0.2-1.6,0.2c-1.1,0-2.1,0.3-3.1,0.8l-155.7,89.9c-3,1.7-4,5.5-2.3,8.5\n                    c0.6,1,1.4,1.8,2.3,2.3l0.2,0.1c1.9,1.1,4.3,1.1,6.3,0l155.5-90c0.9-0.5,1.7-1.3,2.2-2.2c0.2-0.3,0.3-0.6,0.5-0.8l7.5-10\n                    c0.2-0.3,0.1-0.7-0.2-0.9C561.2,749.3,561,749.3,560.9,749.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M511,780v-0.8c0-0.8,0.4-1.6,1.1-2l10.1-5.9c0.8-0.5,1.9-0.2,2.4,0.6c0.2,0.3,0.2,0.6,0.2,0.9v0.2\n                    c0,0.4-0.2,0.7-0.5,0.9l-11.8,6.9c-0.5,0.3-1.1,0.1-1.4-0.4C511,780.4,511,780.2,511,780z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M495.6,789v-0.8c0-0.8,0.4-1.6,1.1-2l10.1-5.9c0.8-0.5,1.9-0.2,2.4,0.6c0.2,0.3,0.2,0.6,0.2,0.9v0.2\n                    c0,0.4-0.2,0.7-0.5,0.9l-11.8,6.9c-0.5,0.3-1.1,0.1-1.4-0.4C495.7,789.4,495.6,789.2,495.6,789z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st9",
-                attrs: {
-                  d:
-                    "M560.9,749.3l-1.9,0.4l1.3,2.3l1.2-1.6c0.2-0.3,0.2-0.7-0.1-0.9C561.2,749.3,561,749.3,560.9,749.3z"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "g",
-            { attrs: { id: "touch" } },
-            [
-              _c("g", { attrs: { id: "Layer_20" } }, [
-                _c("path", {
-                  staticClass: "st0",
-                  attrs: {
-                    d:
-                      "M531.5,731.2c-3.5,6.1-9.5,10.2-15.4,14c-46.7,30.5-95.3,57.9-145.6,81.9c-6.7,3.2-13.6,6.4-21,6.3\n                        c-4.8,0-9.5-1.4-14-3c-24.6-8.7-46.6-23.3-68.7-37.2c-33.4-21-67.8-40.4-102.1-59.9c-42.4-24.1-84.9-48.1-127.3-72.2\n                        c-6.1-3.5-12.4-7.1-16.4-12.9s-4.8-14.3,0-19.4c2.4-2.6,5.9-3.9,9.3-5.1c49.6-16.7,104.1-9.4,155,2.8c34.3,8.2,68,18.5,101,30.8\n                        c30.3,11.3,60,24.4,91,33.8c39.8,12,81.4,17.9,122.9,17.3C513.6,708.4,544.3,708.6,531.5,731.2z"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st1",
-                attrs: {
-                  d:
-                    "M204.5,530.3l320.7,186.3c4,2.3,5.4,7.5,3,11.5c-0.7,1.3-1.8,2.3-3,3l-166.3,96.5c-5.6,3.2-12.5,3.2-18,0\n                    l-322.6-186c-2.3-1.3-3.1-4.2-1.7-6.5c0.4-0.7,1-1.3,1.7-1.7l177.9-103.1C198.7,528.8,201.9,528.8,204.5,530.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st1",
-                attrs: { points: "529.3,725.1 529.3,719.8 525.6,724.4 \t" }
-              }),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st1",
-                attrs: { points: "15.7,633.3 20.8,636.5 15.8,637.7 \t" }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_6_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "63.7921",
-                    y1: "444.6815",
-                    x2: "410.468",
-                    y2: "250.1224",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st10",
-                attrs: {
-                  d:
-                    "M204.5,525.9l320.7,186.3c4,2.3,5.4,7.5,3,11.5c-0.7,1.3-1.8,2.3-3,3l-166.3,96.5c-5.6,3.2-12.5,3.2-18,0\n                    l-322.6-186c-2.3-1.3-3.1-4.2-1.7-6.5c0.4-0.7,1-1.3,1.7-1.7l177.9-103.1C198.7,524.4,201.9,524.4,204.5,525.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st6",
-                attrs: {
-                  d:
-                    "M353.6,814.3l159.9-91.6c2.1-1.2,2.8-3.8,1.6-5.9c-0.4-0.7-0.9-1.2-1.6-1.6l-84.9-48.7l-169.3,97.7l85.3,50\n                    C347.4,815.9,350.8,815.9,353.6,814.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st11",
-                attrs: {
-                  d:
-                    "M202.9,535.1l310.8,180.8c1.9,1.1,2.5,3.6,1.4,5.5c-0.3,0.6-0.8,1.1-1.4,1.4l-161.3,91.8\n                    c-2,1.2-4.6,1.2-6.6,0L39.2,638.4c-3.2-1.8-4.3-5.9-2.4-9.1c0.6-1,1.4-1.8,2.4-2.4l157-91.8C198.2,533.9,200.8,533.9,202.9,535.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c("line", {
-                staticClass: "st12",
-                attrs: { x1: "344.2", y1: "703.1", x2: "358.9", y2: "711.5" }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "g",
-            { attrs: { id: "plant" } },
-            [
-              _c("g", { attrs: { id: "Layer_25" } }, [
-                _c("path", {
-                  staticClass: "st0",
-                  attrs: {
-                    d:
-                      "M424.1,384.2c-5.9,4.8-13.5,7-21,8.4c-14.2,2.6-29.1,2.6-42.8-1.9c-6.9-2.3-13.6-5.9-17.8-11.8\n                        c-4.3-6-5.7-13.6-5.6-21c0.1-3.4,0.5-7,2.5-9.7c2.4-3.3,6.6-4.8,10.5-6c22.7-6.7,46.8-8.4,70.2-5.1c4.2,0.6,13.3,1.4,15.9,5.3\n                        c2.1,3.1,1,10.9,0.7,14.5C435.9,367.1,432.4,377.6,424.1,384.2z"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_7_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "242.1929",
-                    y1: "924.7576",
-                    x2: "336.3487",
-                    y2: "924.7576",
-                    gradientTransform: "matrix(1.05 0 0 -1.89 81.89 2102.1299)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("ellipse", {
-                staticClass: "st13",
-                attrs: { cx: "386.2", cy: "354.3", rx: "49.6", ry: "36.1" }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_8_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "325.1759",
-                    y1: "682.1182",
-                    x2: "449.4706",
-                    y2: "682.1182",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("polygon", {
-                staticClass: "st14",
-                attrs: {
-                  points: "449.5,283.9 435.8,355.9 336.6,354.3 325.2,284.8 \t"
-                }
-              }),
-              _vm._v(" "),
-              _c("ellipse", {
-                staticClass: "st6",
-                attrs: { cx: "387.6", cy: "277", rx: "62.9", ry: "38.2" }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_9_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "324.6824",
-                    y1: "725.0119",
-                    x2: "450.4977",
-                    y2: "725.0119",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#616567" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#34393C" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st15",
-                attrs: {
-                  d:
-                    "M387.6,241c16.4,0,31.8,3.9,43.3,10.9c11.2,6.8,17.3,15.7,17.3,25.1c0,9.4-6.2,18.3-17.3,25.1\n                    c-11.5,7-26.9,10.9-43.3,10.9c-16.4,0-31.8-3.9-43.3-10.9c-11.2-6.8-17.3-15.7-17.3-25.1s6.2-18.3,17.3-25.1\n                    C355.8,244.9,371.2,241,387.6,241 M387.6,238.8c-34.7,0-62.9,17.1-62.9,38.2s28.2,38.2,62.9,38.2s62.9-17.1,62.9-38.2\n                    S422.3,238.8,387.6,238.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_10_",
-                    cx: "366.2444",
-                    cy: "717.9653",
-                    r: "56.2134",
-                    gradientTransform: "matrix(1 0 0 -0.91 0 900.36)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("ellipse", {
-                staticClass: "st16",
-                attrs: { cx: "388", cy: "251.2", rx: "56.2", ry: "51" }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_11_",
-                    cx: "414.992",
-                    cy: "692.0073",
-                    r: "10.7518",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st17",
-                attrs: {
-                  d:
-                    "M410.3,300.2c0,0-1.5-0.4,4,10.7c5.5,11.1,7.8,10.5,5.2,14.6c0,0,5-7.7,5.4-13.3s2.8-5.2-1.1-8.6\n                    s-4.4-4.8-7.1-6.2C413.9,296,410.3,300.2,410.3,300.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_12_",
-                    cx: "384.7687",
-                    cy: "688.3611",
-                    r: "12.5482",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st18",
-                attrs: {
-                  d:
-                    "M384.4,300.8c0,0-8.9,4.4-2.1,18.3c6.8,13.9,6.6,13.5,6.6,13.5s-3.3-7.1,1-14.2c4.2-7.1,4.3-8.5,4.7-9.9\n                    c0.3-1.3,1.6-5.4,1.7-5.7c0-0.3-1.1-5-1.1-5L384.4,300.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_13_",
-                    cx: "-3443.1787",
-                    cy: "757.9764",
-                    r: "15.643",
-                    gradientTransform: "matrix(-1 0 0 -1 -3039.6899 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st19",
-                attrs: {
-                  d:
-                    "M401,265.6c0,0,0.9-6.6,1.2-8.8c0.2-2.1-0.1-4.1,0.1-5c0.1-0.9-0.7-1.6,0.5-2.9c1.2-1.3,3.6-2.3,4.7-4.6\n                    c1.1-2.3,3-4.4,3.4-8.1c0.3-3.6,0.7-3.2-0.5-6.3c-1.2-3.1-0.6-5.1-2.9-3.1c-2.2,2-5.6,4.9-6.3,7.8c-0.7,2.9-1.5,4-1.4,6.7\n                    c0.1,2.7,0,5.4,0.7,6.9s0.6,6.9,0.6,7.4s-0.6,0-0.6-0.6c-0.1-0.6-2.2-5.9-3.4-8.5c-1.2-2.4-3.2-4.3-5.8-5.2\n                    c-2.1-0.7-4.1-1.4-4.3-0.6c-0.2,0.7-0.6,0.8,0,2.5s-0.5,3.7,3.1,5.5c3.6,1.8,7.3,4.4,7.8,5.6c0.6,1.2,1.7,2.1,2.3,3.3\n                    c0.6,1.1,0.8,6.4,0.7,7C400.5,264.9,400.7,265.4,401,265.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_14_",
-                    cx: "-3430.208",
-                    cy: "764.3261",
-                    r: "19.6182",
-                    gradientTransform: "matrix(-1 0 0 -1 -3039.6899 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st20",
-                attrs: {
-                  d:
-                    "M402.3,258.3c0,0-3.3-14.2-6.9-18.4c-3.6-4.2-13.7-16.3-16.2-17.5s-11.4-4-14.3-2.8\n                    c-2.9,1.1,0.6,9.4,4.5,12.4c3.9,3.1,4.8,4.7,11,6.2c6.3,1.5,7.2-0.3,10.2,3.4c3.1,3.6,9.2,18.2,9.2,18.2l1.2-1.4"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_15_",
-                    cx: "-21.2356",
-                    cy: "3487.3103",
-                    r: "13.2241",
-                    gradientTransform:
-                      "matrix(0.35 0.94 0.94 -0.35 -2887.4099 1388.7001)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st21",
-                attrs: {
-                  d:
-                    "M382.8,176.9c0,0,1.1-0.3-1.9-6.6c-3-6.3-4.3-8.2-4.3-11.9s-1.1-7.3-0.7-9.3c0.4-2,1.3-4.2,2-4.4\n                    c0.6-0.2,8.5,1.8,9.8,7.3c0.9,4,1,8.1,0.4,12.2c-0.3,2.1-2.4,8.6-2.4,8.6l-1,1.4L382.8,176.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_16_",
-                    cx: "12.9629",
-                    cy: "3480.1289",
-                    r: "10.4583",
-                    gradientTransform:
-                      "matrix(0.35 0.94 0.94 -0.35 -2887.4099 1388.7001)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st22",
-                attrs: {
-                  d:
-                    "M386.1,206.6c0,0,1.1-0.3-1.9-6.6c-3-6.3-4.3-8.2-4.3-11.9c0-3.8,9.8-11.9,11.1-6.4c0.9,4,1,8.1,0.4,12.2\n                    c-0.3,2.1-2.4,8.6-2.4,8.6l-1,1.4L386.1,206.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_17_",
-                    cx: "373.9369",
-                    cy: "827.5518",
-                    r: "15.6163",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st23",
-                attrs: {
-                  d:
-                    "M368.3,195.4c-0.2-0.3-2-5.7,3-12.1c5-6.3,8.2-11.4,12.5-14.5s8.4-5.4,8-7.7c0,0,0.3-7.2-9.2-2.6\n                    c-9.5,4.7-11.6,17.3-12.5,21.6c-0.9,4.3-4.1,11-4.1,11L368.3,195.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_18_",
-                    cx: "408.3043",
-                    cy: "835.3555",
-                    r: "12.1124",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st24",
-                attrs: {
-                  d:
-                    "M401.5,181.4c0,0,2.4-17.9,6-20.6c3.6-2.8,7.3-4,10.7-4.7c3.5-0.7,4.7-2.6,5-1.2c0.2,1.4,1.5,0.4-0.5,2.6\n                    c-2.4,2.5-5.3,4.5-8.4,5.8c-3.9,1.8-6.9,5.2-8.6,7C403.9,172,401.5,181.4,401.5,181.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_19_",
-                    cx: "-3872.3848",
-                    cy: "734.0095",
-                    r: "14.3713",
-                    gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st25",
-                attrs: {
-                  d:
-                    "M343.2,259.4c0,0,4.8-3.2,10.7,1.8s10.7,7.7,11.1,10.2s3.1,3.7,2.7,5.9c-0.4,2.2-1,2-7.2,2.1\n                    c-6.3,0-9.6-0.4-13.2-4.3c-3.6-3.9-4.4-9.6-5.8-12.2c-1.4-2.6-0.7-2.6-2.7-2.7c-1.3,0-2.6,0.5-3.7,1.4\n                    C337.2,259.6,340.3,258.8,343.2,259.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_20_",
-                    cx: "-3858.1514",
-                    cy: "755.393",
-                    r: "9.4667",
-                    gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st26",
-                attrs: {
-                  d:
-                    "M337.5,258.8c0,0,5.6,1.8,7.1-1.1c1.5-2.9,4.4-7.4,3.3-11c-1.1-3.6,0.6-9.3-4.1-10.6s-5.9,1.7-7.8,3.8\n                    c-1.8,2.1-3.9,5.7-3.2,8.4c0.7,2.7,0.5,4,1.8,6.9S337.5,258.8,337.5,258.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_21_",
-                    cx: "-3844.1936",
-                    cy: "750.3417",
-                    r: "11.8101",
-                    gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st27",
-                attrs: {
-                  d:
-                    "M310.6,246.8c0,0,8.2-3.7,15.2-1.1s8.1,4.9,8.1,5.1c0,0.2,3.3,6.8,3.3,6.8s2.8,1.8-2.5,2.1\n                    c-5.4,0.2-11.4,0.4-15.9-1.7S309.2,251.2,310.6,246.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_22_",
-                    cx: "295.0416",
-                    cy: "793.958",
-                    r: "12.8817",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st28",
-                attrs: {
-                  d:
-                    "M294.1,213.6c-0.6-0.4-6.2-1.2-7.2-4.5c-1-3.3-1.2-2.2-1.3-5c0-1.6,3.1-3.2,8.5-2s7.9,1.9,8.7,2.1\n                    c3.1,0.9,8.2,5.3,8.2,5.3s10.2,6.2,2.7,6.3C306.2,215.8,294.1,213.6,294.1,213.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_23_",
-                    cx: "-3646.0354",
-                    cy: "834.494",
-                    r: "15.812",
-                    gradientTransform:
-                      "matrix(-1 1.000000e-02 -1.000000e-02 -1 -3317.71 1065.47)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st29",
-                attrs: {
-                  d:
-                    "M325.3,227.3c-0.2-0.6-3.3-5.4-5.1-10.4c-0.8-2.4-1.8-4.7-3-6.9c-0.5-1.1-0.3-3.5,0-4.3\n                    c2.2-6.6,3.6-8.9,3.1-14.3c-0.5-5.5,1.2-11-2.6-9.7c-3.9,1.2-3.7,3.6-6.2,7.3c-2.5,3.6-4.3,4.9-3.7,8.9c0.6,3.9,1.7,7.4,3.8,9.4\n                    c1,1,2,2.1,2.9,3.2l7.1,16.4L325.3,227.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_24_",
-                    cx: "-3843.1353",
-                    cy: "735.9705",
-                    r: "14.2646",
-                    gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st30",
-                attrs: {
-                  d:
-                    "M338.8,258.5c0,0-3.6,1.4-4.6,4.6c-1,3.2-1.8,5.6-6.7,6.9s-15.5,5.9-18.8,5c-3.3-0.9-5-0.2-2.2-4.1\n                    c2.9-3.9,0.4-4.3,3.9-6.3c3.5-2,10.6-5,12.7-5.2L338.8,258.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_25_",
-                    cx: "301.4936",
-                    cy: "734.7521",
-                    r: "31.6106",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st31",
-                attrs: {
-                  d:
-                    "M351.5,284.8c-6.8-4.7-14.5-7.8-22.7-9.1c-13.2-2-12.6-1.5-12.6-1.5s0.3,1.2-2.8,3.3\n                    c-1.8,1.1-2.7,3.2-2.5,5.2l-1.9-1.9v-2.7c0,0,2.3,1-1.9,4c-4.2,3-10.4,3.2-11.4,0.3c-1-2.9,5.6-10.3,7.5-10.5\n                    c-2.6-1.3-19.6-8.9-22.4-14.1l-2.8-5.2c0,0,17.3,9.9,23.9,12.6c6.6,2.7,5.7,4.5,5.6-0.5c-0.1-5,0.1-6.5,0.4-6.3\n                    c0.3,0.2,4.8,6.4,6.9,9.4c2.1,3,9.4,4.9,9.4,4.9s13.9,2.7,19,4.4s7.1,3.5,7.1,3.5l4.2,2.8L351.5,284.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_26_",
-                    cx: "-3309.4814",
-                    cy: "116.3276",
-                    r: "19.8094",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st32",
-                attrs: {
-                  d:
-                    "M336,177.1c0,0,1.5,1.2-0.9,8.1c-2.5,6.8-3.9,9-3.8,15.1s0,6.3,0.5,10.1c0.5,3.7,0.6,6.2,1.1,7.7\n                    c0.5,1.4,2.2,6.6,2.3,7c0.1,0.4,1.8,6.9,1.8,6.9l2.5,3.1l-0.9,0.9c0,0-6.6-5.5-7.5-7.4c-0.8-1.9-5.6-8.8-7-14\n                    C322.7,209.4,321.7,181.5,336,177.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_27_",
-                    cx: "-1793.9425",
-                    cy: "-695.1017",
-                    r: "23.3178",
-                    gradientTransform:
-                      "matrix(0.2251 -0.9743 -0.9743 -0.2251 39.62 -1658.6194)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st33",
-                attrs: {
-                  d:
-                    "M281.9,247.6c0,0,1.7,1.6,9.3-2.4s9.9-6,17-6.9c7-0.9,7.4-1,11.8-1c4.4,0,7.4-0.3,9.1,0.1s8.1,1.5,8.5,1.6\n                    c0.5,0.1,8.3,1,8.3,1l4,2.4l1-1.2c0,0-7.4-6.9-9.8-7.5c-2.4-0.7-11.2-5.1-17.5-5.9C317.4,226.9,284.7,230.2,281.9,247.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_28_",
-                    cx: "-3317.5295",
-                    cy: "103.4593",
-                    r: "23.3178",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st34",
-                attrs: {
-                  d:
-                    "M347.7,181.6c0,0,1.8,1.5-1.1,9.5c-2.9,8-4.6,10.7-4.5,17.8s0,7.5,0.6,11.9s0.7,7.4,1.3,9\n                    c0.6,1.7,2.6,7.8,2.8,8.2s2.2,8.1,2.2,8.1l2.9,3.7l-1.1,1.1c0,0-7.8-6.4-8.8-8.7s-6.6-10.4-8.2-16.5\n                    C332.1,219.5,330.9,186.8,347.7,181.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_29_",
-                    cx: "-3323.3726",
-                    cy: "101.0048",
-                    r: "32.2153",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st35",
-                attrs: {
-                  d:
-                    "M367.7,256.3c0,0-3.1-13.5-4.2-17.7c-1.2-4.3-3.1-7.8-3.6-9.8c-0.5-1.9-2.6-2.5-1.2-6c1.4-3.5,5.2-7,5.6-12.3\n                    s2.6-10.7,0.6-18c-2-7.3-1-6.7-5.6-11.9s-4.9-9.3-7.8-3.8c-2.9,5.5-7.2,13.6-6.5,19.6s0.1,8.8,2.2,13.9c2.1,5.1,4,10.3,6.3,12.7\n                    c2.3,2.4,6.2,12.7,6.6,13.9s-1.1,0.4-1.7-0.7c-0.6-1-8.5-9.7-12.9-13.8c-4.3-4.2-10.4-6-14.9-5.7c-4.5,0.3-8.9,0.4-8.8,2\n                    c0.1,1.6-0.5,2,1.8,4.8c2.3,2.8,1.7,7.5,10,8.4c8.3,0.9,17.3,3.2,19.2,5.1s4.8,2.9,6.8,4.6c2,1.7,6.3,11.6,6.5,13\n                    S367.7,256.3,367.7,256.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_30_",
-                    cx: "-3346.8345",
-                    cy: "213.7198",
-                    r: "12.4103",
-                    gradientTransform:
-                      "matrix(-0.95 0.31 -0.31 -0.95 -2802.25 1449.55)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st36",
-                attrs: {
-                  d:
-                    "M307.3,224.3c-0.2,0.3-5.9,1.3-8.4-1.2s-5.3-7-5.3-8c0.1-0.9-1.5-4,3.7-5s11.3-2.6,11.3-2.6s6.9,3.2,7.2,3.7\n                    c0.3,0.5,5.6,7.8,5.8,8.4s2.6,5.7,2.6,5.7l-5.9,1.9L307.3,224.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_31_",
-                    cx: "-3274.4958",
-                    cy: "91.3513",
-                    r: "18.4488",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st37",
-                attrs: {
-                  d:
-                    "M307.8,238.5c0,0,15.5-2.7,17.4-2c1.3,0.4,2.6,1,3.9,1.5c0,0-17.5,2.2-28.1,8.1c-10.5,5.9-10.6,3.9-12.4,6.7\n                    c-1.8,2.8-3,1.8-3,1.8S286.1,243.5,307.8,238.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_32_",
-                    cx: "-3282.4583",
-                    cy: "556.0615",
-                    r: "18.4488",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.49 -1.28 -2464.4402 2130.6699)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st38",
-                attrs: {
-                  d:
-                    "M315.2,242.1c0,0,15.9-1.6,18-0.6c1.5,0.8,2.9,1.6,4.2,2.5c0,0-18.1,0.8-28.4,7.2\n                    c-10.3,6.4-10.6,3.8-12.1,7.3c-1.6,3.5-2.9,2-2.9,2S293.2,246.1,315.2,242.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_33_",
-                    cx: "-3274.8694",
-                    cy: "102.8723",
-                    r: "16.4967",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st39",
-                attrs: {
-                  d:
-                    "M324.2,228.9c-4.2-1.4-8.8-1.4-13.1,0.1c-7.2,2.5-17.2,8-20.6,11.1c-3.5,3.1-3.9,4.5-4.4,3.8\n                    c-0.5-0.8-0.4-2.9,0.7-5.1c1.1-2.1,7.2-9.6,11.2-10.9c4-1.3,7.9-3.1,10.7-2.9c2.8,0.3,11.3,0.4,11.3,0.4L324.2,228.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_34_",
-                    cx: "-3276.6523",
-                    cy: "70.2035",
-                    r: "14.9271",
-                    gradientTransform:
-                      "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st40",
-                attrs: {
-                  d:
-                    "M336.2,258.6c0,0-10.7-2.3-18.8,2.4c-8.1,4.7-13.3,8.2-13.3,8.2s-4.5,1.1-3.5,0.4c1-0.7,1.6-4,4.6-6.1\n                    c3.1-2,7.7-5.3,10.1-6.1c2.4-0.8,17.5-3.3,17.5-3.3L336.2,258.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_35_",
-                    cx: "-3788.219",
-                    cy: "730.1899",
-                    r: "10.7251",
-                    gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st41",
-                attrs: {
-                  d:
-                    "M363.3,288.7c0,0,7.9-5.2,3.1-19.3c-4.8-14.1-4.2-11.4-4.2-11.4s-3.6,3.1-4.9,6.8c-1.3,3.8-2.1,7.1-1.6,11.2\n                    C356.2,280,358,288.2,363.3,288.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_36_",
-                    cx: "-3775.7241",
-                    cy: "729.5852",
-                    r: "8.6397",
-                    gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st42",
-                attrs: {
-                  d:
-                    "M353.4,283c0,0-1.7,1.3-6.8-3.7c-5.1-5-6.3-12.1-5.6-13.8c0.7-1.7,1.2-2.2,2.6-1.9s9.4,0.7,12.8,14.2\n                    C354.1,283.4,353.4,283,353.4,283z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_37_",
-                    cx: "-3785.9111",
-                    cy: "719.9584",
-                    r: "6.1096",
-                    gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st43",
-                attrs: {
-                  d:
-                    "M353.4,283.7c0,0,0.2-3.5,1.4-4.7c1.2-1.2,5.1-2.8,6.4-2.4s4,1.6,4.1,3.9c0.1,2.3,1.7,5.6-2.6,7.4\n                    c-4.3,1.8-6.7,0.1-7.8-1C353.8,285.8,353.4,283.7,353.4,283.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_38_",
-                    cx: "-3769.8413",
-                    cy: "711.5411",
-                    r: "11.2854",
-                    gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st44",
-                attrs: {
-                  d:
-                    "M353.8,286.1c-0.2,0-1.6,2.8-3.4,4.9c-1.8,2-11.4,8.2-17,7.8s-5.8-2.1-5.6-2.9c0.2-0.7,1.7-6.4,6.2-8.7\n                    c4.5-2.3,10.6-4.9,14.9-3.4C353.1,285.3,353.8,286.1,353.8,286.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_39_",
-                    cx: "-3778.6812",
-                    cy: "707.4102",
-                    r: "7.4613",
-                    gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st45",
-                attrs: {
-                  d:
-                    "M355.9,286.6c-5-1.6-6.7,2-8.8,7c-2.1,5-0.5,10.9,0.2,11.1c0.7,0.2,8.7-2.2,9-4.1\n                    C356.8,298.7,360.9,288.2,355.9,286.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_40_",
-                    cx: "-3786.6895",
-                    cy: "705.0847",
-                    r: "7.8749",
-                    gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st46",
-                attrs: {
-                  d:
-                    "M356.3,288c0,0-3.2,0.6-1.9,6.5c1.3,5.8,2.9,10.6,5.7,11.9c1.2,0.6,2.4,1.1,3.7,1.6c0,0,2.9-0.4,2.5-7.3\n                    c-0.4-6.9-1.1-10.4-3.1-11.9C361.2,287.2,356.3,288,356.3,288z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_41_",
-                    cx: "327.5504",
-                    cy: "738.2204",
-                    r: "15.3051",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st47",
-                attrs: {
-                  d:
-                    "M352.3,270.2c0,0-13.3,4.5-23.4,0.5c-10.1-4-12.6-6.2-12.6-7.5c-0.1-1.3,1.3-6.7,11.7-6.7\n                    c10.4-0.1,16.1,5.1,21.8,7.9C355.4,267.4,352.3,270.2,352.3,270.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_42_",
-                    cx: "372.9586",
-                    cy: "732.6177",
-                    r: "8.0794",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st48",
-                attrs: {
-                  d:
-                    "M380.5,260.7c0,0-0.3,2-3.6,6.7c-3.3,4.7-6.5,8.7-7.7,9.4s0,2.9,0,2.9s8.5-7.1,9.4-8.9\n                    c0.9-1.8,1.7-2.8,1.9-4.1s1.9-3.2,2.1-4.1c0.2-0.5,0.2-1.1,0-1.6L380.5,260.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_43_",
-                    cx: "347.4576",
-                    cy: "753.4854",
-                    r: "9.3244",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st49",
-                attrs: {
-                  d:
-                    "M350.8,262.3c-3.8-2.5-6.3-6.6-6.7-11.1c-0.7-7.7-1.6-10.9,2.2-13.7c3.8-2.8,6.7,6,6.7,6s3.6,9,3.3,13\n                    C356,260.5,350.8,262.3,350.8,262.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_44_",
-                    cx: "-1137.1746",
-                    cy: "-499.5808",
-                    r: "9.3244",
-                    gradientTransform:
-                      "matrix(0.6 -0.8 -0.8 -0.6 649.78 -949.08)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st50",
-                attrs: {
-                  d:
-                    "M379.9,266.1c-4.3,1.6-9,1.1-12.9-1.3c-6.6-4.1-9.7-5.2-9.6-10c0.1-4.8,8.9-1.8,8.9-1.8s9.4,2.5,12.4,5.2\n                    C381.6,260.9,379.9,266.1,379.9,266.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_45_",
-                    cx: "549.0927",
-                    cy: "1510.1273",
-                    r: "9.3244",
-                    gradientTransform:
-                      "matrix(0.93 0.36 0.36 -0.93 -671.2401 1452.5699)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st51",
-                attrs: {
-                  d:
-                    "M382.5,260.7c-2.7-3.7-3.4-8.4-2.2-12.7c2.2-7.5,2.5-10.7,7.1-11.9c4.6-1.2,4.1,8.1,4.1,8.1s0.1,9.7-1.7,13.3\n                    C388,261,382.5,260.7,382.5,260.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_46_",
-                    cx: "537.1848",
-                    cy: "1516.8861",
-                    r: "9.3244",
-                    gradientTransform:
-                      "matrix(0.93 0.36 0.36 -0.93 -671.2401 1452.5699)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st52",
-                attrs: {
-                  d:
-                    "M373.9,250.1c-2.7-3.7-3.4-8.4-2.2-12.7c2.2-7.5,2.5-10.7,7.1-11.9c4.6-1.2,4.1,8.1,4.1,8.1s0.1,9.7-1.7,13.3\n                    C379.4,250.4,373.9,250.1,373.9,250.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_47_",
-                    cx: "356.0662",
-                    cy: "742.0978",
-                    r: "13.1218",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st53",
-                attrs: {
-                  d:
-                    "M376.7,266.2c0,0-0.2-1.4-8.1-4.5c-7.9-3-9.6-4.2-13.7-6.6c-4.1-2.4-3.6-3.8-6.6-3.8s-0.1,2.7-0.5,4\n                    c-0.3,1.3,5.6,10.1,8.9,12c4,2.3,8.6,3.4,13.1,3.1c5.2-0.4,6.3-0.7,6.3-0.7L376.7,266.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_48_",
-                    cx: "381.7895",
-                    cy: "716.3122",
-                    r: "13.3886",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st54",
-                attrs: {
-                  d:
-                    "M377.7,269.7c-1.2,3.1-1.9,6.3-2,9.6c-0.2,5.4,2.2,13.1,6.2,16.8c2.9,2.6,6,5.1,9.3,7.3c0,0,5.8,4.4,4.2-2.1\n                    s-2.3-12.2-4.2-14.7C389.3,284.1,377.7,269.7,377.7,269.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_49_",
-                    cx: "388.3971",
-                    cy: "728.3579",
-                    r: "13.3886",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st55",
-                attrs: {
-                  d:
-                    "M384.3,257.7c-1.2,3.1-1.9,6.3-2,9.6c-0.2,5.4,2.2,13.1,6.2,16.8c2.9,2.6,6,5.1,9.3,7.3c0,0,5.8,4.4,4.2-2.1\n                    c-1.7-6.6-2.3-12.2-4.2-14.7C395.9,272,384.3,257.7,384.3,257.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_50_",
-                    cx: "362.9939",
-                    cy: "706.2319",
-                    r: "13.5709",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st56",
-                attrs: {
-                  d:
-                    "M369.2,276.9l1.4,5.9c0,0-0.4-1.9,0,1c0.4,2.8,0.3,13.6-0.7,17.6c-1,4-2.2,8.2-3.6,12.7\n                    c-1.3,4.6-0.8,4.3-0.8,4.3s-3-2-5.1-8.5c-2.1-6.4,0.1-13.6,2.2-17.6C364.7,288.2,369.1,278.1,369.2,276.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_51_",
-                    cx: "352.42",
-                    cy: "735.1256",
-                    r: "12.0235",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st57",
-                attrs: {
-                  d:
-                    "M367.4,279.7c0,0-2.4,1-8.9-3.7c-6.5-4.7-8.9-6.9-10.7-10.5c-1.8-3.6-4-9.8-2.1-9.5\n                    c1.9,0.3,10.9,10.2,14.9,13.7c4,3.5,6.3,5.4,7.6,7.2c1.3,1.8,0.9,2.2,0.9,2.2L367.4,279.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_52_",
-                    cx: "389.7889",
-                    cy: "736.3217",
-                    r: "12.0591",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st58",
-                attrs: {
-                  d:
-                    "M381.4,264.9c0,0,5,3.7,10.5,7c5.5,3.3,10.1,4.7,13.5,1.5c3.4-3.1,3.4-4.8,3.4-4.8s-0.6-1.9-3.6-4.2\n                    c-3-2.4-7.7-7.1-13.6-6.7c-3.5,0.2-6.8,1.6-9.3,4.1L381.4,264.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_53_",
-                    cx: "402.2704",
-                    cy: "705.5871",
-                    r: "14.3713",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st59",
-                attrs: {
-                  d:
-                    "M416.7,287.9c0,0-4.8-3.2-10.7,1.8c-5.9,5-10.7,7.7-11.1,10.2c-0.4,2.5-3.1,3.7-2.7,5.8c0.4,2.2,1,2,7.2,2.1\n                    c6.3,0,9.6-0.4,13.2-4.3c3.6-3.9,4.4-9.6,5.8-12.2c1.4-2.6,0.7-2.6,2.7-2.6c1.3,0,2.6,0.5,3.7,1.4\n                    C422.7,288,419.6,287.2,416.7,287.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_54_",
-                    cx: "416.4994",
-                    cy: "726.9706",
-                    r: "9.4667",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st60",
-                attrs: {
-                  d:
-                    "M422.4,287.3c0,0-5.7,1.8-7.1-1.1s-4.4-7.4-3.3-11s-0.6-9.3,4.1-10.6s5.9,1.7,7.8,3.8s3.9,5.7,3.2,8.4\n                    s-0.5,4-1.8,6.9S422.4,287.3,422.4,287.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_55_",
-                    cx: "424.721",
-                    cy: "818.8054",
-                    r: "15.2695",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st61",
-                attrs: {
-                  d:
-                    "M419,163.6c0,0-0.8,1.3,2.9,5.6c3.6,4.2,5.3,5.5,6.9,9.8c1.6,4.4,1.7,4.6,2.4,7.4c0.7,2.8,1.3,4.7,1.3,5.8\n                    c0,1.2,0.2,5.4,0.2,5.7s0.6,5.5,0.6,5.5l-0.9,2.9l0.9,0.4c0,0,3.3-5.8,3.4-7.4c0.1-1.6,1.6-7.9,1.2-12S430.5,162.8,419,163.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_56_",
-                    cx: "-3283.8679",
-                    cy: "2778.2292",
-                    r: "15.2695",
-                    gradientTransform:
-                      "matrix(-0.56 -0.83 0.83 -0.56 -3690.5901 -969.47)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st62",
-                attrs: {
-                  d:
-                    "M469.9,197.3c0,0-0.7,1.4-6.2,0.7c-5.6-0.7-7.5-1.3-12-0.3c-4.5,1.1-4.7,1.1-7.5,2.1c-2.7,1-4.6,1.5-5.6,2.2\n                    s-4.6,2.8-4.9,3c-0.3,0.1-4.8,2.6-4.8,2.6L427,210l-0.9-0.5c0,0,3-5.9,4.2-6.9c1.3-1,5.7-5.7,9.3-7.7S464.2,187.4,469.9,197.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_57_",
-                    cx: "-3331.6816",
-                    cy: "2762.6218",
-                    r: "15.2695",
-                    gradientTransform:
-                      "matrix(-0.56 -0.83 0.83 -0.56 -3690.5901 -969.47)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st63",
-                attrs: {
-                  d:
-                    "M483.6,245.7c0,0-0.7,1.4-6.2,0.7s-7.5-1.4-12-0.3c-4.5,1.1-4.8,1.1-7.5,2.1c-2.7,1-4.6,1.5-5.6,2.2\n                    c-1,0.6-4.6,2.8-4.9,3s-4.9,2.6-4.9,2.6l-1.9,2.4l-0.9-0.5c0,0,3-5.9,4.2-6.9c1.3-1,5.7-5.7,9.3-7.7\n                    C457.1,241.4,477.8,235.7,483.6,245.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_58_",
-                    cx: "-3342.5359",
-                    cy: "2730.1885",
-                    r: "15.2695",
-                    gradientTransform:
-                      "matrix(-0.56 -0.83 0.83 -0.56 -3690.5901 -969.47)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st64",
-                attrs: {
-                  d:
-                    "M462.7,272.8c0,0-0.7,1.4-6.2,0.7s-7.5-1.4-12-0.3c-4.5,1.1-4.7,1.1-7.5,2.1s-4.6,1.5-5.6,2.2\n                    c-1,0.6-4.6,2.8-4.9,3c-0.3,0.1-4.9,2.6-4.9,2.6l-1.9,2.4l-0.9-0.5c0,0,3-5.9,4.2-6.9c1.3-1,5.7-5.7,9.3-7.7\n                    C436.2,268.4,456.9,262.8,462.7,272.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_59_",
-                    cx: "420.0032",
-                    cy: "810.0901",
-                    r: "15.2695",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st65",
-                attrs: {
-                  d:
-                    "M414.2,172.3c0,0-0.8,1.3,2.9,5.6c3.6,4.2,5.3,5.5,6.9,9.8c1.6,4.4,1.7,4.6,2.4,7.4c0.7,2.8,1.3,4.7,1.3,5.8\n                    c0,1.2,0.2,5.4,0.2,5.7c0,0.3,0.6,5.5,0.6,5.5l-0.9,2.9l0.9,0.4c0,0,3.3-5.8,3.4-7.4c0.1-1.6,1.6-7.9,1.2-12\n                    S425.7,171.5,414.2,172.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_60_",
-                    cx: "430.4571",
-                    cy: "721.9193",
-                    r: "11.8101",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st66",
-                attrs: {
-                  d:
-                    "M449.3,275.2c0,0-8.2-3.7-15.2-1c-7.1,2.7-8.1,4.9-8.1,5.1c0,0.2-3.3,6.8-3.3,6.8s-2.8,1.8,2.5,2.1\n                    c5.4,0.2,11.4,0.4,15.9-1.7C445.7,284.4,450.7,279.6,449.3,275.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_61_",
-                    cx: "431.5198",
-                    cy: "707.548",
-                    r: "14.2646",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st67",
-                attrs: {
-                  d:
-                    "M421.1,286.9c0,0,3.6,1.4,4.6,4.6c1,3.2,1.8,5.6,6.7,6.9c4.9,1.3,15.5,5.9,18.8,5.1c3.4-0.8,5-0.2,2.2-4.1\n                    c-2.9-3.9-0.4-4.3-3.9-6.3c-3.5-2-10.6-5-12.7-5.2L421.1,286.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_62_",
-                    cx: "316.6741",
-                    cy: "716.9125",
-                    r: "11.9435",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st68",
-                attrs: {
-                  d:
-                    "M334.4,276.9c0,0,0.4,2.1-3.7,4.4s-8.8,1.8-13,7c-2.5,3.1-5.4,5.8-8.5,8.2c0,0-1.7-7,2.7-11.3\n                    c4.3-4.3,13.5-8.2,21.2-9.5C333.2,276.4,334.4,276.9,334.4,276.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_63_",
-                    cx: "407.0282",
-                    cy: "832.2918",
-                    r: "25.3543",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st69",
-                attrs: {
-                  d:
-                    "M395,194.9c0.6-1.3,1.1-2.6,1.5-4c0.8-2.6,2.8-5.8,3.8-7.9s4.5-4.4,4.1-6.1c-0.4-1.7,0.5,1-1-3.4\n                    c-1.6-4.5-1.3-5.9-3.1-12.7c-1.8-6.7-0.3-8.3-2.8-12.2c-2.4-3.9-4.7-6.1-3.2-5c1.5,1.1,3.9,3.1,5.1,6.2c1.2,3.1,1.9,5.4,3.5,12.3\n                    s0.8,8.4,1.6,10.6c0.8,2.2,1.5,3.5,1.5,3.5s10-2.2,12.9-3.9s7.8-3.5,11.6-4c2.3-0.3,4.5-0.4,6.8-0.4c0,0,3.6,0.1-0.8,1.8\n                    c-4.4,1.7-6.7,1.7-11.4,3c-4.7,1.3-9,3.6-13,4.2c-4,0.6-6.2,0.5-6.7,1.2c-0.4,0.7-5.7,7.6-7,11.7c-1.3,4.1-1.3,5.2-1.3,5.2l-1,3.4\n                    l-3.3,2.9L395,194.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_64_",
-                    cx: "-3461.9214",
-                    cy: "113.1901",
-                    r: "21.7125",
-                    gradientTransform:
-                      "matrix(-0.3882 -0.9216 -0.9216 0.3882 -909.8679 -2949.1055)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st70",
-                attrs: {
-                  d:
-                    "M353.5,286.4c-1.2-0.1-2.5,0-3.7,0.1c-2.3,0.2-5.5-0.3-7.6-0.4c-2.1-0.1-5-2.1-6.2-1.2\n                    c-1.2,0.9,0.7-0.8-2.4,2c-3,2.7-4.3,3-9,6.7c-4.7,3.7-6.4,3-8.7,6.2c-2.3,3.2-3.2,5.7-2.8,4.2c0.4-1.5,1.1-4.1,3.2-6.1\n                    c2-2,3.6-3.3,8.5-6.8c4.9-3.5,6.4-3.5,7.8-4.8s2.3-2.3,2.3-2.3s-5.1-7.1-7.4-8.9c-2.3-1.8-5.3-5-7-7.8c-1-1.7-1.8-3.4-2.6-5.2\n                    c0,0-1.1-2.9,1.7,0s3.6,4.7,6.2,8c2.6,3.3,5.8,5.9,7.6,8.9c1.8,2.9,2.5,4.8,3.2,4.8s7.9,2,11.5,1.6c3.6-0.3,4.5-0.7,4.5-0.7l3-0.4\n                    l3.4,1.6L353.5,286.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_65_",
-                    cx: "407.5306",
-                    cy: "785.1849",
-                    r: "15.2695",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st71",
-                attrs: {
-                  d:
-                    "M408.8,240.8c0,0-11.3-7.4-4.4-27.5c6.8-20.1,6-16.2,6-16.2s5.1,4.4,6.9,9.7c1.9,5.3,3,10.1,2.2,15.9\n                    C418.8,228.5,416.3,240.1,408.8,240.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_66_",
-                    cx: "-465.3837",
-                    cy: "-145.7476",
-                    r: "15.2695",
-                    gradientTransform:
-                      "matrix(0.83 -0.55 -0.55 -0.83 693.88 -155.79)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st72",
-                attrs: {
-                  d:
-                    "M402.3,242.8c0,0-13.5,0-18.9-20.5s-4-16.8-4-16.8s6.7,0.8,11.2,4.3s8,6.8,10.7,12S408.2,238.1,402.3,242.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_67_",
-                    cx: "328.0884",
-                    cy: "790.4719",
-                    r: "28.5825",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st73",
-                attrs: {
-                  d:
-                    "M343,222c0,0,0.9-0.5-8.3,7.3c-9.2,7.8-18.7,14-23.1,11.6c-4.4-2.4,1.9-13.6,12-17.7s12.1-2.7,15.8-3\n                    c3.7-0.3,3.7-2.2,3.7-2.5c-0.1-0.3-5.9-9.6,0.5-17.8s17-16.5,18.3-12.3c0.5,1.6-0.2,3.5-2.3,8.5c-2.1,5.1-16.5,20.6-14.6,22.4\n                    c1.9,1.9,9.5,4.1,9.9,4.2c0.4,0.1,13.7,7.4,13.7,7.4l-3.5,2.2C365.1,232.4,350.3,222.2,343,222z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_68_",
-                    cx: "-2878.0774",
-                    cy: "-251.8379",
-                    r: "21.0989",
-                    gradientTransform:
-                      "matrix(-0.82 0.57 -0.57 -0.82 -2137.1602 1664.89)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st74",
-                attrs: {
-                  d:
-                    "M383.2,261.6c0,0-4-8.1-5.5-10.6s-3.2-4.5-3.8-5.7s-2-1.2-1.7-3.6s2.2-5.3,1.6-8.7s0-7.2-2.4-11.5\n                    c-2.4-4.3-1.7-4.1-5.4-6.7c-3.7-2.6-4.6-5.2-5.6-1.2c-1,3.9-2.4,9.8-1.1,13.5s1.4,5.6,3.6,8.5s4.1,5.9,6,7.1c1.8,1.2,6,7.1,6.3,7.8\n                    s-0.6,0.4-1.2-0.2s-6.9-4.8-10.3-6.8c-3.1-1.8-6.9-2.3-10.4-1.3c-2.8,0.9-5.6,1.6-5.3,2.6c0.3,1,0,1.3,1.9,2.8\n                    c1.9,1.4,2.2,4.5,7.7,3.8s11.5-0.6,13,0.3s3.5,1.1,5,1.9s5.8,6.4,6.2,7.2C382.1,261.2,382.6,261.5,383.2,261.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_69_",
-                    cx: "416.1747",
-                    cy: "808.4805",
-                    r: "21.0989",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st75",
-                attrs: {
-                  d:
-                    "M419.5,222.7c0,0-1.3-9-1.6-11.8c-0.3-2.9,0.1-5.5-0.1-6.8s1-2.2-0.6-4s-4.8-3.1-6.3-6.2\n                    c-1.5-3.1-4.1-6-4.5-10.9c-0.4-4.9-0.9-4.4,0.6-8.6s0.9-6.8,3.9-4.2s7.6,6.7,8.6,10.5c1,3.8,2,5.4,1.9,9s0,7.2-0.9,9.2\n                    s-0.9,9.3-0.8,10c0.1,0.8,0.8,0,0.9-0.8c0.1-0.8,3-7.9,4.7-11.5c1.6-3.3,4.4-5.8,7.8-7c2.8-0.9,5.5-1.9,5.8-0.9s0.8,1.1,0,3.4\n                    s0.7,5-4.2,7.5c-4.9,2.5-9.8,6-10.6,7.6c-0.8,1.6-2.2,2.9-3,4.4c-0.8,1.5-1.1,8.6-1,9.5C420.2,221.8,419.9,222.3,419.5,222.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_70_",
-                    cx: "443.1831",
-                    cy: "776.4208",
-                    r: "10.9652",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st76",
-                attrs: {
-                  d:
-                    "M444.9,240.7c0,0-0.7-4.7-0.8-6.1c-0.1-1.5,0-2.9,0-3.6c-0.1-0.7,0.5-1.1-0.3-2.1s-2.5-1.6-3.3-3.2\n                    c-0.8-1.6-2.1-3.1-2.4-5.7c-0.2-2.5-0.5-2.3,0.3-4.4s0.4-3.6,2-2.2c1.6,1.4,3.9,3.5,4.4,5.5c0.5,2,1,2.8,1,4.7\n                    c-0.1,1.9,0,3.8-0.4,4.8c-0.4,1-0.4,4.8-0.4,5.2c0,0.4,0.4,0,0.4-0.4c0.7-2,1.5-4,2.4-6c0.8-1.7,2.3-3,4-3.6c1.5-0.4,2.9-1,3-0.4\n                    s0.4,0.6,0,1.8c-0.4,1.2,0.4,2.6-2.2,3.9c-2.5,1.3-5.1,3.1-5.5,4c-0.4,0.8-1.2,1.5-1.6,2.3c-0.4,0.8-0.6,4.4-0.5,4.9\n                    C445.3,240.2,445.1,240.5,444.9,240.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_71_",
-                    cx: "425.3213",
-                    cy: "784.3268",
-                    r: "12.2992",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st77",
-                attrs: {
-                  d:
-                    "M422.9,232.7c0,0,2.4,1.8,9.6-5.3c7.2-7.1,9-17.3,7.9-19.7c-1-2.4-1.6-3.2-3.7-2.6s-13.4,1-18.3,20.2\n                    C421.8,233.3,422.9,232.7,422.9,232.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_72_",
-                    cx: "410.8167",
-                    cy: "770.618",
-                    r: "8.6975",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st78",
-                attrs: {
-                  d:
-                    "M422.9,233.7c0,0-0.3-5-2-6.7c-1.7-1.8-7.2-4-9.1-3.4c-1.9,0.6-5.7,2.3-5.8,5.5c-0.1,3.2-2.4,8,3.7,10.6\n                    c6.1,2.6,9.6,0.1,11.1-1.4C422.2,236.7,422.9,233.7,422.9,233.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_73_",
-                    cx: "433.6942",
-                    cy: "758.6345",
-                    r: "16.0654",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st79",
-                attrs: {
-                  d:
-                    "M422.3,237.2c0.3,0,2.3,4,4.9,7s16.2,11.7,24.1,11.1s8.3-3.1,7.9-4.1c-0.3-1.1-2.4-9.1-8.8-12.4\n                    s-15.1-6.9-21.2-4.9S422.3,237.2,422.3,237.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_74_",
-                    cx: "604.7714",
-                    cy: "1806.8894",
-                    r: "16.0654",
-                    gradientTransform:
-                      "matrix(0.86 0.51 0.51 -0.86 -1009.41 1502.34)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st80",
-                attrs: {
-                  d:
-                    "M425.9,246.5c0.2,0.2-0.1,4.6,0.6,8.5c0.8,3.9,8,18.4,15,21.9c7.1,3.5,8.7,1.6,8.9,0.5s2.6-9-1.2-15.2\n                    c-3.8-6.1-9.4-13.7-15.7-15C427.3,245.9,425.9,246.5,425.9,246.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_75_",
-                    cx: "447.9099",
-                    cy: "747.8294",
-                    r: "13.9889",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st81",
-                attrs: {
-                  d:
-                    "M438.8,267.6c0.6-0.9,2.2-9.5,13.8-17.1c11.5-7.6,14.1-8.4,14.7-7.3c0.7,1.1,1.5-0.9,0.7,3.6\n                    c-0.7,4.5,0,6.6-3.6,10.1s-0.8,7.2-11.4,9.6C442.5,268.8,438.8,267.6,438.8,267.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_76_",
-                    cx: "421.106",
-                    cy: "752.7518",
-                    r: "10.6184",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st82",
-                attrs: {
-                  d:
-                    "M419.2,237.8c7.1-2.3,9.5,2.8,12.5,9.9c3,7.1,0.7,15.6-0.3,15.8c-0.9,0.2-12.4-3.2-12.9-5.8\n                    S412.1,240.1,419.2,237.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_77_",
-                    cx: "409.705",
-                    cy: "749.4479",
-                    r: "11.2098",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st83",
-                attrs: {
-                  d:
-                    "M418.7,239.8c0,0,4.6,0.9,2.6,9.2c-1.9,8.3-4.2,15-8.2,16.9c-4,1.9-5.3,2.2-5.3,2.2s-4.1-0.6-3.5-10.4\n                    c0.6-9.8,1.5-14.7,4.4-16.9S418.7,239.8,418.7,239.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_78_",
-                    cx: "367.6984",
-                    cy: "838.2991",
-                    r: "33.0335",
-                    fx: "400.4008",
-                    fy: "838.2974",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st84",
-                attrs: {
-                  d:
-                    "M391.5,237.3c0,0-8.4-18.6-11.8-23.3c-2.3-3.4-4.4-6.9-6.1-10.6c-0.1-0.4-3.9-9.9-5-14.5\n                    c-1.1-4.6-0.5-11.7-1.3-15.1c-0.7-3.4-0.4-3.6-0.9-4.4s-0.9-3.6-6.8-4.6c-6-1-8.7-0.9-9.7-2.6c-1-1.7-4.4-2.1-1.2-3.2\n                    s10.4-3.6,15.1,0s3.4,4,3.4,5.6c0.1,1.6,0.3,3.3,0.3,3.3s-0.4-0.3,2.7-1.8s2.6-4.4,9.5-4.6c6.9-0.2,12.8-1.2,15.3,5.4\n                    c2.5,6.6,2.6,7.6,2.3,7.5c-0.4-0.1-10.9-5.3-16-6.2c-5.1-0.9-11.1-0.9-11.6,0.5c-0.5,1.4-0.8,2.1-0.6,4.1c0.2,2-1.5,15.1,5.2,27.6\n                    c2.5,4.6,5.3,9.7,7.7,14.3c4.3,7.8,7.7,14.2,7.7,14.2L391.5,237.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_79_",
-                    cx: "392.7058",
-                    cy: "797.4041",
-                    r: "15.3851",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st85",
-                attrs: {
-                  d:
-                    "M402.8,193.8c0,0-9.8,0.2-14,7.6c-4.2,7.4-6.7,13.2-6.7,13.2l1.5,2.8c0,0,0.6-0.8,4.6-2\n                    c4.1-1.2,10.2-4.4,13.2-6.2s9.3-9.9,13.3-10.3c3.9-0.4,0.3-2.9-0.6-3.1S402.8,193.8,402.8,193.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_80_",
-                    cx: "379.9975",
-                    cy: "813.465",
-                    r: "11.0541",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st86",
-                attrs: {
-                  d:
-                    "M376,203.3c-0.1-0.2-1.4-4.1,2.1-8.5c3.5-4.5,5.8-8.1,8.9-10.3c3.1-2.2,5.9-3.8,5.7-5.4c0,0,0.2-5.1-6.5-1.8\n                    c-6.7,3.3-8.2,12.2-8.9,15.3c-0.6,3-2.9,7.8-2.9,7.8L376,203.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_81_",
-                    cx: "395.147",
-                    cy: "780.8184",
-                    r: "11.0541",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st87",
-                attrs: {
-                  d:
-                    "M391.1,236c-0.1-0.2-1.4-4.1,2.1-8.5s5.8-8.1,8.9-10.3s5.9-3.8,5.7-5.4c0,0,0.2-5.1-6.5-1.8\n                    c-6.7,3.3-8.2,12.2-8.9,15.3c-0.6,3-2.9,7.8-2.9,7.8L391.1,236z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_82_",
-                    cx: "644.6599",
-                    cy: "1594.2323",
-                    r: "11.0541",
-                    gradientTransform:
-                      "matrix(0.9164 0.4002 0.4002 -0.9164 -798.3557 1435.4789)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st88",
-                attrs: {
-                  d:
-                    "M420.9,244.5c0-0.3,0.3-4.3,5.4-7c5-2.7,8.5-5.1,12.2-5.8c3.7-0.8,6.9-1.1,7.4-2.7c0,0,2.2-4.6-5.2-4.3\n                    c-7.5,0.3-12.5,7.9-14.2,10.5c-1.8,2.5-5.8,6-5.8,6L420.9,244.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_83_",
-                    cx: "358.4807",
-                    cy: "804.1184",
-                    r: "9.1377",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st89",
-                attrs: {
-                  d:
-                    "M373.6,203.4c0,0-4.8-4.4-10.3-3.9c-5.5,0.6-7.8,2.1-8.1,1.9c-0.3-0.2-6-6.5-2.1-7.6c3.9-1,12.3-0.5,14.9,1.2\n                    c2.5,1.7,5,6.8,5,6.8L373.6,203.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_84_",
-                    cx: "375.5287",
-                    cy: "771.9476",
-                    r: "9.1377",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st90",
-                attrs: {
-                  d:
-                    "M390.7,235.5c0,0-4.8-4.4-10.3-3.8c-5.5,0.6-7.8,2.1-8.1,1.9s-6-6.5-2.1-7.6c3.9-1,12.3-0.5,14.9,1.2\n                    c2.5,1.7,5,6.8,5,6.8L390.7,235.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_85_",
-                    cx: "349.6631",
-                    cy: "826.1911",
-                    r: "13.0684",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st91",
-                attrs: {
-                  d:
-                    "M368.6,188.8c0,0,0.7-1.1-3.6-4.8c-4.3-3.7-4.6-5.5-8.1-9.2c-3.5-3.6-5.8-6.6-9.1-7.3s-8.3-2-6.1-2.4\n                    c2.2-0.3,7.6-0.8,11.4,1.5c3.8,2.3,8,4.1,8.6,6.6c0.6,2.6,1.9,7,4,8.8c2.1,1.7,2.3,3.7,2.3,3.7L368.6,188.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_86_",
-                    cx: "360.4193",
-                    cy: "790.2941",
-                    r: "13.2241",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st92",
-                attrs: {
-                  d:
-                    "M382.6,218.8c0,0,0.1-1.2-6.9-0.5c-7,0.7-9.1,1.2-12.7-0.1c-3.5-1.3-7.2-1.5-9-2.6c-1.8-1-3.4-2.7-3.4-3.4\n                    s4.6-7.4,10.3-6.7c4.1,0.5,8,1.8,11.6,3.8c1.9,1,7.3,5.2,7.3,5.2L382.6,218.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_87_",
-                    cx: "-25.113",
-                    cy: "3451.0264",
-                    r: "13.2241",
-                    gradientTransform:
-                      "matrix(0.35 0.94 0.94 -0.35 -2887.4099 1388.7001)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st93",
-                attrs: {
-                  d:
-                    "M347.4,185.8c0,0,1.1-0.3-1.9-6.6c-3-6.3-4.3-8.2-4.3-11.9c0-3.8-1.1-7.3-0.7-9.3c0.4-2,1.3-4.2,2-4.4\n                    c0.6-0.2,8.5,1.8,9.8,7.3c0.9,4,1,8.1,0.4,12.2c-0.3,2.1-2.4,8.6-2.4,8.6L347.4,185.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_88_",
-                    cx: "448.4879",
-                    cy: "819.7125",
-                    r: "8.1283",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st94",
-                attrs: {
-                  d:
-                    "M453.6,186.4c0.2,0.1,4-0.4,5-2.4c1-2,1.9-5.5,1.7-6c-0.2-0.6,0.1-2.8-3.3-2.4s-7.5,0.6-7.5,0.6\n                    s-3.7,3.4-3.8,3.8c-0.1,0.4-1.9,6-1.9,6.4c0,0.5-0.4,4.1-0.4,4.1h4.1L453.6,186.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_89_",
-                    cx: "439.6036",
-                    cy: "817.3513",
-                    r: "13.1129",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st95",
-                attrs: {
-                  d:
-                    "M435.1,205.4c0.2-0.5,2.7-4.5,4.2-8.7c0.7-2,1.5-3.9,2.5-5.8c0.4-0.9,0.2-2.9,0-3.6c-1.8-5.5-3-7.3-2.6-11.9\n                    c0.4-4.5-1.1-9.1,2.1-8.1c3.2,1,3.1,3,5.2,6c2.1,3,3.6,4.1,3.1,7.4s-1.4,6.1-3.1,7.9c-0.9,0.8-1.7,1.7-2.4,2.7l-5.8,13.7\n                    L435.1,205.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_90_",
-                    cx: "448.1855",
-                    cy: "802.1575",
-                    r: "12.0813",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st96",
-                attrs: {
-                  d:
-                    "M452,197.8c0,0-10.1,2-11.1,2.8c-0.7,0.6-1.4,1.2-2,1.8c0,0,11.3-2.7,19.1-1.6c7.8,1.1,7.4-0.1,9.1,1.2\n                    c1.8,1.3,2.2,0.4,2.2,0.4S466.4,195.8,452,197.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_91_",
-                    cx: "444.4593",
-                    cy: "1074.7084",
-                    r: "12.0813",
-                    gradientTransform: "matrix(1 0 0 -1.37 0 1677.2)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st97",
-                attrs: {
-                  d:
-                    "M448.3,201.8c0,0-10.1,2.7-11.1,3.9c-0.7,0.8-1.4,1.7-2,2.5c0,0,11.3-3.7,19.1-2.2c7.8,1.5,7.4-0.1,9.1,1.6\n                    c1.8,1.8,2.2,0.6,2.2,0.6S462.7,199,448.3,201.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_92_",
-                    cx: "-577.1212",
-                    cy: "359.9548",
-                    r: "12.0813",
-                    gradientTransform:
-                      "matrix(0.76 -0.65 -0.89 -1.05 1209.15 241.22)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st98",
-                attrs: {
-                  d:
-                    "M449.5,232.9c0,0-6,8.6-6,10.1c0,1.1,0,2.2,0.1,3.2c0,0,6.2-10.1,13.2-14c7-3.9,5.6-4.8,8-4.6\n                    c2.5,0.2,2.1-1,2.1-1S458.8,221.5,449.5,232.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_93_",
-                    cx: "450.6801",
-                    cy: "811.8865",
-                    r: "10.8051",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st99",
-                attrs: {
-                  d:
-                    "M442.4,193.6c2.3-1.9,5.1-2.9,8-3c5-0.2,12.4,0.9,15.2,2c2.8,1.1,3.4,1.9,3.6,1.3c0.2-0.6-0.4-1.9-1.6-2.9\n                    c-1.2-1-6.7-4.2-9.4-4.1c-2.7,0.1-5.6-0.1-7.2,0.7c-1.6,0.8-6.8,2.9-6.8,2.9L442.4,193.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_94_",
-                    cx: "477.8218",
-                    cy: "731.4305",
-                    r: "12.0591",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st100",
-                attrs: {
-                  d:
-                    "M470.7,266.5c0,0,0.6,6.7,6.4,9.6c5.8,3,6.8,8.6,11.1,8.3c4.3-0.4,6-0.4,5.8-2.6c-0.2-2.2,0.8-5.3-1.3-9.4\n                    c-2.1-4.1-0.3-3.3-5.2-7.2c-4.9-3.8-0.2-4.2-7.6-5.5c-7.4-1.2-9.2-0.6-9.2,0L470.7,266.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_95_",
-                    cx: "458.6972",
-                    cy: "740.3814",
-                    r: "13.7665",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st101",
-                attrs: {
-                  d:
-                    "M448.5,269.1c6.8,1.4,14.2-1,14.5-0.9s1.5-0.2,5.9-2.4c4.4-2.2,8.1-5.3,9.5-5.7s3.7-3.3,3.1-3.5\n                    c-0.6-0.3-2.4-2.3-9.2-1.2c-6.8,1.1-9.2,0-13,3.2c-3.8,3.3-4.4,3.6-6.8,6.2s-3,3.3-3,3.3L448.5,269.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_96_",
-                    cx: "462.7035",
-                    cy: "722.3106",
-                    r: "8.7375",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st102",
-                attrs: {
-                  d:
-                    "M459.9,269.7c1,1,2.6,4.4,4.1,8.2c1.5,3.8,1,3.8,2.4,9.3c1.4,5.6,0.5,7,1,6.3s2.1-4.2,1.7-10.2\n                    s0.6-8.7-1.3-10.9c-1.4-1.6-2.9-3.1-4.7-4.3C461.9,267.4,459.9,269.7,459.9,269.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_97_",
-                    cx: "474.3491",
-                    cy: "747.5004",
-                    r: "12.2147",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st103",
-                attrs: {
-                  d:
-                    "M465.5,249.9c0,0,5.7,8.9,11.4,10s10.3,3.6,13.6,2.3l3.3-1.3c0,0,1.9,0.6-2-1.9c-3.9-2.5-6.3-5.1-10.2-6.5\n                    c-3.8-1.5-4.3-2.5-6.6-3.4c-2.4-0.9-6.8-1.8-8.1-1.2C466.1,248.3,465.6,249.1,465.5,249.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_98_",
-                    cx: "446.7715",
-                    cy: "788.3109",
-                    r: "9.7735",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st104",
-                attrs: {
-                  d:
-                    "M439.3,216.7c0,0,6-3.9,12.1-2.9c6,1,10,1.9,10,1.9s3-0.4,2.2-0.6s-1.9-2.1-4.3-2.7\n                    c-2.4-0.6-5.9-1.4-7.6-1.4c-1.6,0.1-11.5,2-11.5,2L439.3,216.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_99_",
-                    cx: "452.2763",
-                    cy: "780.8718",
-                    r: "13.7488",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st105",
-                attrs: {
-                  d:
-                    "M444,235.6c0,0,2.3-9.9,4.9-12.9c2.5-3,9.6-11.4,11.4-12.3c1.8-0.9,8-2.8,10-2c2,0.8-0.4,6.6-3.2,8.7\n                    c-2.7,2.1-3.3,3.3-7.7,4.3c-4.4,1-5-0.2-7.2,2.4c-2.2,2.5-6.4,12.7-6.4,12.7l-0.8-1"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_100_",
-                    cx: "406.1389",
-                    cy: "816.1819",
-                    r: "11.5788",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st106",
-                attrs: {
-                  d:
-                    "M398,194.7c0,0,2.7-9.8,7.5-12.3c4.8-2.4,9-4,13-4c4,0,6-0.2,5.8,1.4c-0.2,1.5,1.4,2.8-2.1,5.3\n                    c-3.5,2.6-13.8,6.1-17.3,7.1C402.6,192.9,400.3,193.7,398,194.7z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_101_",
-                    cx: "386.1071",
-                    cy: "819.8726",
-                    r: "10.0581",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st107",
-                attrs: {
-                  d:
-                    "M394.8,194.1c-1.9-6-1.8-5.6-3.1-8.3c-1.3-2.7-2.7-6.1-5.6-8.5c-2.8-2.4-5.3-4.6-4.9-5.6\n                    c0.4-1,1.2-2.3,4.4,1.1c3.3,3.4,6.3,6.1,7.9,9.2c1.6,3.1,2.1,3.9,2.6,6.8c0.6,2.9,1,6.1,1,6.1l-2.1,1L394.8,194.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_102_",
-                    cx: "462.4189",
-                    cy: "768.7994",
-                    r: "12.0813",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st108",
-                attrs: {
-                  d:
-                    "M453.6,240.8c0,0,8.3-1.5,11.9-6.9c3.6-5.5,10.6-7.9,13.9-6.8s3.4,4.1,2.2,5.9c-1.2,1.8,1.9,3.6-5.9,5.3\n                    C468,240,453.6,240.8,453.6,240.8z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_103_",
-                    cx: "448.728",
-                    cy: "706.7166",
-                    r: "10.4805",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st109",
-                attrs: {
-                  d:
-                    "M446.3,283c0,0,7.1,1.3,10.4,8c3.3,6.7,3.9,9.4,2.7,12S455,310,455,310s1.9-1.4-0.9-4\n                    c-2.8-2.6-4.1-3.1-6.5-7.6s-5-6.9-3.2-11.2L446.3,283z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "radialGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_104_",
-                    cx: "455.1444",
-                    cy: "726.6016",
-                    r: "6.9722",
-                    gradientTransform: "matrix(1 0 0 -1 0 1002)",
-                    gradientUnits: "userSpaceOnUse"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#6E7059" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#464E36" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st110",
-                attrs: {
-                  d:
-                    "M455,268.6c0.1,0.8-1.7,0.2-2.3,8.1s0,9.3,0,9.3s1.8-0.6,4.8-5.8s3.8-4.3,3.7-8.6c-0.1-4.2-0.3-5.2-0.5-5.2\n                    C460.6,266.4,455,268.6,455,268.6z"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("g", { attrs: { id: "mobile" } }, [
-            _c("g", { attrs: { id: "Layer_24" } }, [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M874.6,733.2c-5.1,5.9-12.1,9.8-19,13.6c-21.6,11.8-43.5,23-66.1,32.9c-7.8,3.4-15.7,6.7-22.9,11.3\n                        c-7,4.5-13,10.3-19.8,15s-14.8,8.5-23.1,8.2c-8.8-0.3-16.8-5.2-24.2-9.8c-14.6-9.1-29.1-18.2-43.7-27.3c-1.4-0.9-2.9-1.8-4-3\n                        c-3.3-3.7-2.6-9.8,0.2-13.9s7.4-6.6,11.9-8.8c21.6-10.4,45.3-15.5,69-19c16.1-2.4,32.2-4.2,48.2-7c13-2.3,25.9-5.4,39-6.4\n                        c14.5-1.1,29.2,0.1,43.5-2.7c3.6-0.7,7.2-1.7,10.6-3c3.2-1.3,5-2.8,6.4,0.9C882.9,720.2,878.3,728.9,874.6,733.2z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", { attrs: { id: "Calque_2_17_" } }, [
               _c(
                 "g",
-                { attrs: { id: "iphone_1_" } },
+                { attrs: { id: "laptop" } },
                 [
+                  _c("g", { attrs: { id: "Layer_26" } }, [
+                    _c("path", {
+                      staticClass: "st0",
+                      attrs: {
+                        d:
+                          "M892.3,585.7c-4.7,9-14.1,14.5-23,19.4c-65.8,36.9-131.7,73.8-197.5,110.7c-5.7,3.2-11.9,6.5-18.4,5.8\n                                c-3.9-0.4-7.4-2.2-10.9-4C576.9,684,513,646.9,449.1,609.9c-52.9-30.7-105.8-61.3-158.7-92c-9.3-5.4-20-13.4-18.6-24.1\n                                c1.6-12.7,18.1-16.5,30.9-16.7c43.9-0.9,87.8,2.3,131.6,5.6c124.7,9.3,250,18.8,371.4,48.6C825.7,536.3,910.8,550.5,892.3,585.7z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
                   _c("path", {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M654.1,770l65.1,37.6c4.3,2.5,9.6,2.5,13.9,0l146.1-84.3c2.9-1.7,3.8-5.3,2.2-8.2c-0.5-0.9-1.3-1.7-2.2-2.2\n                            L814,675.2c-4.2-2.5-9.5-2.5-13.7,0l-146.2,84.4c-2.9,1.7-3.8,5.3-2.2,8.2C652.4,768.7,653.2,769.5,654.1,770z"
+                        "M274.8,499.8L653.5,717c1.4,0.8,3.2,0.8,4.7,0l226.3-129.5c1.1-0.6,1.5-2.1,0.9-3.2c-0.2-0.4-0.5-0.7-0.9-0.9\n                            L503.2,363c-1.4-0.8-3.2-0.8-4.7,0L274.8,491.7c-2.2,1.3-3,4.1-1.7,6.4C273.5,498.8,274.1,499.4,274.8,499.8z"
                     }
                   }),
                   _vm._v(" "),
-                  _c("polygon", {
+                  _c("path", {
                     staticClass: "st1",
                     attrs: {
-                      points: "882.1,712.4 882.2,718.3 879.7,716.8 \t\t\t"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("polygon", {
-                    staticClass: "st1",
-                    attrs: {
-                      points: "651,759.5 651.1,765.8 653.3,763.8 \t\t\t"
+                      d:
+                        "M886.9,582.8v-4l-229.9,132c-0.8,0.5-1.8,0.5-2.6,0L272.4,489.3v6.2L654.3,717c0.8,0.5,1.8,0.5,2.6,0\n                            l226.7-128.6C885.6,587.2,886.9,585.1,886.9,582.8z"
                     }
                   }),
                   _vm._v(" "),
@@ -57178,12 +53994,12 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "gdSVGID_105_",
+                        id: "gdSVGID_1_",
                         gradientUnits: "userSpaceOnUse",
-                        x1: "651.0385",
-                        y1: "266.2409",
-                        x2: "882.1118",
-                        y2: "266.2409",
+                        x1: "503.6757",
+                        y1: "362.6411",
+                        x2: "661.8175",
+                        y2: "581.7319",
                         gradientTransform: "matrix(1 0 0 -1 0 1002)"
                       }
                     },
@@ -57202,10 +54018,18 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("path", {
-                    staticClass: "st111",
+                    staticClass: "st2",
                     attrs: {
                       d:
-                        "M654,764.3l65.1,37.6c4.3,2.5,9.6,2.5,13.9,0l146.1-84.4c2.9-1.7,3.8-5.3,2.2-8.2\n                            c-0.5-0.9-1.3-1.7-2.2-2.2l-65.2-37.6c-4.2-2.5-9.5-2.5-13.7,0L654,754c-2.9,1.7-3.8,5.3-2.2,8.2\n                            C652.4,763.1,653.1,763.8,654,764.3z"
+                        "M274.9,493.6l378.7,217.2c1.4,0.8,3.2,0.8,4.6,0l227.5-129.6c1.2-0.7,1.5-2.1,0.9-3.3\n                            c-0.2-0.4-0.5-0.7-0.9-0.9L503.2,356.8c-1.4-0.8-3.2-0.8-4.7,0L274.9,485.5c-2.2,1.3-3,4.1-1.7,6.4\n                            C273.5,492.6,274.1,493.2,274.9,493.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st1",
+                    attrs: {
+                      d:
+                        "M503.6,95.4l-0.4,256.4c0,1.9,1,3.7,2.7,4.6l376.1,216.5c3.1,1.8,7.1,0.7,8.9-2.4c0.6-1,0.9-2.1,0.9-3.2\n                            l0.1-254.3c0-1.9-1-3.6-2.7-4.6L511.6,90.8c-2.5-1.5-5.8-0.6-7.2,1.9C503.9,93.6,503.6,94.5,503.6,95.4z"
                     }
                   }),
                   _vm._v(" "),
@@ -57213,12 +54037,47 @@ var render = function() {
                     "linearGradient",
                     {
                       attrs: {
-                        id: "gdSVGID_106_",
+                        id: "gdSVGID_2_",
                         gradientUnits: "userSpaceOnUse",
-                        x1: "587.1913",
-                        y1: "195.2261",
-                        x2: "918.0731",
-                        y2: "328.9119",
+                        x1: "719.2141",
+                        y1: "740.9352",
+                        x2: "656.9089",
+                        y2: "555.327",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#292E31" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st3",
+                    attrs: {
+                      d:
+                        "M501.3,96.1l-0.4,256.4c0,1.9,1,3.7,2.7,4.6l376.1,216.5c3.1,1.8,7.1,0.7,8.9-2.4c0.6-1,0.9-2.1,0.9-3.2\n                            l0.1-254.3c0-1.9-1-3.6-2.7-4.6L509.3,91.5c-2.5-1.5-5.8-0.6-7.2,2C501.6,94.3,501.3,95.2,501.3,96.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_3_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "295.8386",
+                        y1: "504.9346",
+                        x2: "1007.2346",
+                        y2: "798.0784",
                         gradientTransform: "matrix(1 0 0 -1 0 1002)"
                       }
                     },
@@ -57252,18 +54111,10 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("polygon", {
-                    staticClass: "st112",
+                    staticClass: "st4",
                     attrs: {
                       points:
-                        "673.1,745.3 748.3,789 869.4,718.5 795,675.5 \t\t\t"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st6",
-                    attrs: {
-                      d:
-                        "M845.8,695.1c0.9,0.1,1.4,0.7,1.3,1.2c-0.2,0.5-1.2,0.9-2.2,0.8c-1-0.2-1.4-0.8-1.1-1.3\n                            C844.1,695.2,845,694.9,845.8,695.1z"
+                        "511.8,105.5 511.3,208.1 510.6,346.7 876.9,560.2 879.6,317.4 \t"
                     }
                   }),
                   _vm._v(" "),
@@ -57271,1455 +54122,5461 @@ var render = function() {
                     staticClass: "st5",
                     attrs: {
                       d:
-                        "M699,768.8c3.8,0.6,6.3,3,5.5,5.3c-0.9,2.5-5.2,4.1-9.4,3.3c-4.2-0.8-6.3-3.4-5-5.8\n                            C691.3,769.4,695.3,768.2,699,768.8z"
+                        "M702.5,208.5c-0.1,1.7-1.3,2.3-2.4,1.6c-0.9-0.7-1.4-1.7-1.4-2.8c0-1.1,0.6-2,1.5-2\n                            C701.4,205.3,702.6,206.7,702.5,208.5z"
                     }
                   }),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st6",
-                    attrs: {
-                      d:
-                        "M680.7,784l7.1,4.1c0.4,0.3,1,0.1,1.3-0.3c0.1-0.1,0.1-0.3,0.1-0.5v-1c0-0.3-0.2-0.6-0.5-0.8l-7.1-4.1\n                            c-0.5-0.3-1-0.1-1.3,0.3c-0.1,0.1-0.1,0.3-0.1,0.5v0.9C680.3,783.6,680.5,783.9,680.7,784z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st6",
-                    attrs: {
-                      d:
-                        "M831.6,689.6l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l0,0c0.4-0.2,0.6-0.8,0.4-1.2c-0.1-0.1-0.2-0.3-0.4-0.4l-8-4.7\n                            c-0.7-0.4-1.7-0.4-2.4,0l0,0c-0.4,0.2-0.6,0.8-0.4,1.2C831.4,689.4,831.5,689.5,831.6,689.6z"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("g", { attrs: { id: "clip" } }, [
-            _c("g", { attrs: { id: "Layer_16" } }, [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M829.1,852.3c3.4-1.9,6.4-4.4,9.4-6.9c0.9-0.8,1.8-1.5,2.7-2.3c0.9-0.8,1.8-1.5,2.4-2.6c0.4-0.9,0.5-2,0.4-3\n                        c-0.3-2.7-1.9-5.1-3.8-7s-4.3-3.3-6.6-4.6c-1.5-0.9-3.1-1.8-4.6-2.8c-3.6-2.1-7.2-4.3-11.2-5.5c-3.6-1.1-7.5-1.4-11.2-0.6\n                        c-1.6,0.4-3.2,0.9-4.4,2.1c-1.4,1.4-2.1,3.4-2.3,5.4c-0.5,4.8,1.2,9.7,3.8,13.7c2.7,4.1,6.2,7.4,9.9,10.6c1.2,1,2.3,2,3.2,3.2\n                        c0.7,0.9,1,3,1.9,3.4c1.2,0.5,4-0.5,5.2-0.9C825.9,853.9,827.5,853.2,829.1,852.3z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", { attrs: { id: "Calque_2_16_" } }, [
-              _c(
-                "g",
-                { attrs: { id: "Pince_2_" } },
-                [
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_107_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "817.331",
-                        y1: "184.626",
-                        x2: "849.624",
-                        y2: "184.626",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#CB8E55" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#DAAE85" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st113",
-                    attrs: {
-                      d:
-                        "M817.3,820.3l10.2-7.3c0,0,1.6-0.8,1.5-2c-0.1-3.3,0-4.7,2.4-5.3c5.1-1.1,16.2,3.8,17.8,7.3\n                            s-2.7,4.5-3.3,4.8c-0.5,0.2-2.2-0.6-4.1,0.8s-9.9,10.5-9.9,10.5l-2.3-1.5l9.2-9c0,0,2.7-2.6,4.1-2.5c1.4,0.1,4-0.2,4.3-1\n                            c0.3-0.7,1-2.6-7.3-6.3c-2.2-1-5.4-2.1-8.2-1.4c-2.7,0.6,0.1,3.5-2.1,5.9l-10.9,8L817.3,820.3z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_108_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "779.6019",
-                        y1: "170.2364",
-                        x2: "831.7734",
-                        y2: "170.2364",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st114",
-                    attrs: {
-                      d:
-                        "M779.6,835.6l40.5,22.8l11.7-31.1L792,805.4c-0.6-0.3-1.4-0.1-1.7,0.5c0,0.1-0.1,0.1-0.1,0.2L779.6,835.6z\n                            "
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_109_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "839.3318",
-                        y1: "150.8253",
-                        x2: "826.5569",
-                        y2: "158.6335",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st115",
-                    attrs: {
-                      d:
-                        "M834.1,833.7c-1.4-1.6-0.7-7.4-3.1-6.4c-1.7,3.8-11.7,31.1-11.7,31.1l19.3-18.3c0,0,2.4-2.8-0.6-3.7\n                            C836,835.4,835.5,835.3,834.1,833.7z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_110_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "788.2238",
-                        y1: "188.4223",
-                        x2: "830.6758",
-                        y2: "188.4223",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#CB8E55" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#DAAE85" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st116",
-                    attrs: {
-                      d:
-                        "M788.2,837.7c0,0,21.9-46.2,22.6-48.2c0.4-1.2,0.4-1.3-0.7-5.4c-1-4.1,0.8-5.9,3.2-6.4\n                            c2.4-0.5,5.5,0.3,9.4,2.1c3.9,1.8,7.3,4.9,7.7,6.5c0.9,3.3-0.4,5.3-1.4,5.9c-3.7,2.6-4.1,2.2-4.9,3.7l-14.2,53.7l-1.6-1\n                            l14.2-53.5c0,0,0.4-1.6,2.8-2.8c0.6-0.3,3.1-1.3,3.3-2.2c0.4-1.7,0.4-4.2-3.3-6.9c-3.8-2.6-10.2-4.1-11-4.1\n                            c-0.8,0-1.8,0.3-2.1,1.1c-0.3,0.8-0.7,1.5-0.1,4s1.1,2.7,0.6,5c-0.5,2.3-23.3,49.1-23.3,49.1L788.2,837.7z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_111_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "776.6711",
-                        y1: "164.5255",
-                        x2: "789.4105",
-                        y2: "164.5255",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st117",
-                    attrs: {
-                      d:
-                        "M779.1,832.4L779.1,832.4c-0.1,0-0.2-0.1-0.3-0.1c-0.6-0.1-1.4,0.4-1.8,1.4c-0.5,1.1-0.3,2.4,0.4,2.8l0,0\n                            l10.7,6.2l1.3-4.3L779.1,832.4z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_112_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "806.2416",
-                        y1: "148.1555",
-                        x2: "819.2744",
-                        y2: "148.1555",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st118",
-                    attrs: {
-                      d:
-                        "M819.3,854.8l-10.6-6.1l0,0c-0.1,0-0.2-0.1-0.3-0.1c-0.6-0.1-1.4,0.4-1.8,1.4c-0.6,1.3-0.3,2.8,0.7,3\n                            l10.7,6.1L819.3,854.8z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st6",
-                    attrs: {
-                      d:
-                        "M820.2,856.5c0,1.3-0.8,2.7-2,2.7c-1.2,0-1.5-1.6-0.9-3c0.4-1,1.2-1.5,1.8-1.4\n                            C819.7,854.9,820.2,855.5,820.2,856.5z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st6",
-                    attrs: {
-                      d:
-                        "M790.5,840.1c0,1.3-0.8,2.7-2,2.7c-1.2,0-1.5-1.6-0.9-3c0.4-1,1.2-1.5,1.8-1.4\n                            C790,838.5,790.5,839.2,790.5,840.1z"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("g", { attrs: { id: "animal" } }, [
-            _c("g", { attrs: { id: "Layer_15" } }, [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M958.7,634.1c-2.2-2.9-2.3-6.9-3.5-10.3c-3.1-8.5-12.8-12.4-21.7-14.3c-5.1-1.1-10.3-1.8-15.5-1.6\n                        c-9.7,0.4-18.9,4-28.6,4.8c-10.7,0.9-21.4-1.8-31.9-4.5c-4.9-1.2-9.8-2.5-14.3-4.7c-6.5-3.1-11.9-7.9-17.8-11.9\n                        c-11.9-8-26-12.8-40.3-13.7c-4.6-0.3-9.4-0.2-13.4,2c-4,2.2-7,6.9-5.8,11.4c1.1,4,5,6.5,9.1,7.4c4,0.9,8.2,0.4,12.3,0.4\n                        c11.4,0,22.7,3.9,31.8,10.8c3.4,2.6,6.5,5.7,10,8.2c9.3,6.9,20.9,9.8,32,13c1.9,0.5,3.8,1.1,5.4,2.3c1.7,1.3,2.8,3.2,3.5,5.1\n                        c2.4,6.5,0.9,13.7,1.6,20.6c0.7,6.9,5.2,14.7,12.1,14.3c3.4-0.2,6.5-2.4,9.9-2.9c7.8-1.1,13.9,6.6,21.5,9.1c2.5,0.8,5.6,1,7.7-0.7\n                        c1.1-0.9,1.8-2.1,2.5-3.4c4.7-8.5,9.3-16.9,14-25.4c0.9-1.7,1.9-3.5,3.6-4.5c5.9-3.9,12.2,3.5,18.1,1.3\n                        C968.7,644.1,961.4,637.6,958.7,634.1z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", { attrs: { id: "Calque_2_15_" } }, [
-              _c(
-                "g",
-                { attrs: { id: "diplo_2_" } },
-                [
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_113_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "939.6649",
-                        y1: "406.9879",
-                        x2: "938.8735",
-                        y2: "315.0109",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#2C3134" },
-                        attrs: { offset: "0.32" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st119",
-                    attrs: {
-                      d:
-                        "M903.4,580.3c0,0,11.8-6,16.5-10c4.7-4,15.4-14.3,30.3-10.6c14.9,3.7,14,3.8,18.7,3.3\n                            c4.7-0.5,21-10.2,21.1-11.1c0.1-0.9-2.6-6.1-9.3-9.2c-6.7-3,0.5-4.3,2.3-4.1c1.8,0.2,11.1,3.3,14.7,8.3c0.7,1,1.1,2.1,1.2,3.3\n                            c0.9,6.4-3.4,17.7-15.5,29.3c-14.6,13.9-12.8,12-14.4,14.4c0.2,4-2.9,22.3-2.9,27.3c0,4.2-0.5,8.5-1.4,12.6\n                            c-0.6,2.4-0.6,7.7-0.4,9.6c0.2,1.9,0.2,3.4-1.8,3.9c-2.1,0.5-9.7,2.5-11.2-0.7c-0.8-2,1-3.7,0.9-5c-0.1-1.3-0.2-12.3-0.3-15.5\n                            s-1-2.8-1-4.2c-1.6-1.6-2-0.7-3.4,0.4s-9.4,6.5-10.6,6.6c-1.2,0.2-9,31.8-9.6,37.9c-0.5,6.1-1.6,7.9-1.6,10.1\n                            c-0.1,2.2,0.9,3.2,0,4.6c-0.9,1.4-2.7,5.4-7.9,4.7s-7-1.6-6.6-4.7c0.4-3,3.4-5.6,3.7-8.8c0.3-3.2-1.3-24.4-0.7-26.7\n                            c0.6-2.3-0.9-7.7-2.4-8.3c-1.4-0.6-10.5-1.1-12.8-3.4c0,0-0.5,5.2-1.3,10.7s-1.2,9.2-1.6,11.4c-0.4,2.1-1,3-1.1,6.1\n                            c0,3-0.2,3.8,0,5c0.2,1.1,0.1,5.4-1.8,6.3s-5.3,2.1-8.5,1.5c-3.2-0.7-4.7-1.3-4.7-3.9c0-2.7,0.8-3.1,2-5.4c1.1-2.3,2.4-8.6,2-16\n                            s0.3-32.4,2.3-37.1s3.2-26.4,4-27S903.4,580.3,903.4,580.3z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_114_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "844.9182",
-                        y1: "427.8881",
-                        x2: "835.576",
-                        y2: "401.978",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#2C3134" },
-                        attrs: { offset: "0.32" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st120",
-                    attrs: {
-                      d:
-                        "M767.7,566.7c0,0,0.9,1.2,2.2,1.1s3.8-3.1,5.8-3.2c2-0.1,24.9-4.1,37.3,3.2c12.5,7.3,29.1,23.3,39.6,28.2\n                            c10.5,4.9,29.4,16,33.7,16.9c4.4,0.9,12.7,4.1,19.5,2s12.9-6.4,14-8.4c1.1-2.1,4.4-17.1-1.6-21.3c-6-4.2-9-1.9-19.9-0.2\n                            c-10.9,1.7-29.9-1.2-41.4-7.2c-11.4-6.1-33.6-22.7-52.1-26.7c-5.9-1.5-28.1-0.9-29.7-0.9s-4.9-0.4-7.6,0.7\n                            c-2.7,1.1-1.7,3.6-1.8,4.5c-0.1,1-1.8,4.5-1.8,5.4c-0.1,0.9,0.2,4.2,2.1,4c1.9-0.1,4.4-1.6,4.4-1.6S768.4,566.3,767.7,566.7z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_115_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "980.4493",
-                        y1: "434.0897",
-                        x2: "989.6271",
-                        y2: "425.3344",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#2C3134" },
-                        attrs: { offset: "0.32" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st121",
-                    attrs: {
-                      d:
-                        "M969,593.9c1.6-2.4-0.1-0.5,14.4-14.4c12.1-11.5,16.4-22.9,15.5-29.3c-0.1-1.2-0.6-2.3-1.2-3.3\n                            c-3.6-5.1-12.9-8.2-14.7-8.3c-1.8-0.2-0.8,1.2,5.9,4.2c6.7,3,7.1,6.8,5.3,11.2s-8.6,9.4-25,12.8S969.1,597.9,969,593.9z"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_116_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "987.4286",
-                        y1: "459.4055",
-                        x2: "981.6792",
-                        y2: "453.9407",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#2C3134" },
-                        attrs: { offset: "0.32" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("path", {
-                    staticClass: "st122",
-                    attrs: {
-                      d:
-                        "M991.8,546.6c-0.3-3.1-4.4-7.4-8.9-8c-1.8-0.2-9,1.1-2.3,4.1c6.7,3,9.4,8.3,9.3,9.2\n                            C989.9,551.9,992.1,549.7,991.8,546.6z"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("g", { attrs: { id: "scaler" } }, [
-            _c("g", { attrs: { id: "Layer_17" } }, [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M777.9,888.7c-6.8,4.1-13.6,8.2-20.4,12.2c-2,1.2-4.2,2.5-6.5,2.7c-3.3,0.3-6.3-1.4-9.1-3\n                        c-51.2-29.6-102.4-59.2-153.6-88.7c-2.4-1.4-4.9-2.9-6.3-5.3c-1.4-2.4-1.3-5.9,1-7.5c1.1-0.7,2.4-0.9,3.7-1\n                        c17.6-1.7,34.7,5.7,50.4,13.9c14.8,7.7,29.1,16.3,42.9,25.7c10.2,7,20.2,14.4,31,20.3c17.7,9.6,37.6,15,57.7,15.7\n                        c4,0.1,14.6-0.8,17.2,3.1C788.8,881.3,781,886.9,777.9,888.7z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", { attrs: { id: "Calque_2_14_" } }, [
-              _c(
-                "g",
-                { attrs: { id: "Latte_1_" } },
-                [
-                  _c("polygon", {
-                    staticClass: "st1",
-                    attrs: {
-                      points:
-                        "580.5,800.2 750.6,898.4 786.3,877.8 620.8,781.7 616.7,779.3 \t\t\t"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "linearGradient",
-                    {
-                      attrs: {
-                        id: "gdSVGID_117_",
-                        gradientUnits: "userSpaceOnUse",
-                        x1: "691.0217",
-                        y1: "177.5862",
-                        x2: "666.8324",
-                        y2: "136.5133",
-                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                      }
-                    },
-                    [
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#33373A" },
-                        attrs: { offset: "0" }
-                      }),
-                      _vm._v(" "),
-                      _c("stop", {
-                        staticStyle: { "stop-color": "#1E2326" },
-                        attrs: { offset: "1" }
-                      })
-                    ],
-                    1
-                  ),
                   _vm._v(" "),
                   _c("polygon", {
-                    staticClass: "st123",
+                    staticClass: "st6",
                     attrs: {
-                      points:
-                        "580.5,798.6 750.6,896.8 786.3,876.2 620.8,780.1 616.7,777.7 \t\t\t"
+                      points: "842.5,607.1 842.5,610.5 834.7,615 834.7,611.6 \t"
                     }
                   }),
                   _vm._v(" "),
-                  _c("g", { staticClass: "st124" }, [
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "619.1,779.7 619.9,780.1 610.5,785.6 609.7,785.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "621.2,780.9 621.9,781.3 616.6,784.4 615.9,784 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "623.2,782.1 624,782.5 614.5,788 613.8,787.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "625.3,783.2 626,783.6 620.7,786.7 619.9,786.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "627.3,784.4 628.1,784.8 618.6,790.3 617.9,789.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "629.3,785.6 630.1,786 624.8,789.1 624,788.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "631.4,786.8 632.1,787.2 622.7,792.7 622,792.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "633.4,787.9 634.2,788.3 628.9,791.4 628.1,791 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "635.5,789.1 636.2,789.5 626.8,795 626,794.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "637.5,790.2 638.3,790.7 632.9,793.8 632.2,793.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "639.6,791.4 640.3,791.9 630.9,797.4 630.1,796.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "641.6,792.6 642.3,793 637,796.1 636.3,795.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "643.7,793.8 644.4,794.2 635,799.7 634.2,799.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "645.7,794.9 646.4,795.4 641.1,798.4 640.4,798 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "647.7,796.1 648.5,796.6 639,802 638.3,801.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "649.8,797.3 650.5,797.7 645.2,800.8 644.4,800.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "651.8,798.5 652.6,798.9 643.1,804.4 642.4,804 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "653.8,799.6 654.6,800 649.3,803.1 648.5,802.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "655.9,800.8 656.7,801.2 647.2,806.7 646.5,806.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "657.9,802 658.7,802.4 653.4,805.5 652.6,805 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "660,803.2 660.7,803.6 651.3,809.1 650.5,808.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "662,804.3 662.8,804.7 657.4,807.8 656.7,807.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "664.1,805.5 664.8,805.9 655.4,811.4 654.6,811 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "666.1,806.6 666.9,807.1 661.5,810.2 660.8,809.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "668.2,807.8 668.9,808.3 659.5,813.8 658.7,813.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "670.2,809 670.9,809.4 665.6,812.5 664.9,812.1 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "672.2,810.2 673,810.6 663.5,816.1 662.8,815.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "674.3,811.3 675,811.8 669.7,814.8 668.9,814.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "676.3,812.5 677.1,813 667.6,818.4 666.9,818 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "678.3,813.7 679.1,814.1 673.8,817.2 673,816.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "680.4,814.9 681.2,815.3 671.7,820.8 671,820.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "682.4,816 683.2,816.4 677.9,819.5 677.1,819.1 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "684.5,817.2 685.2,817.6 675.8,823.1 675,822.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "686.5,818.4 687.3,818.8 682,821.9 681.2,821.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "688.6,819.6 689.3,820 679.9,825.5 679.1,825 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "690.6,820.7 691.4,821.1 686,824.2 685.3,823.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "692.7,821.9 693.4,822.3 684,827.8 683.2,827.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "694.7,823 695.4,823.5 690.1,826.6 689.4,826.1 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "696.7,824.2 697.5,824.7 688,830.2 687.3,829.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "698.8,825.4 699.5,825.8 694.2,828.9 693.4,828.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "700.8,826.6 701.6,827 692.1,832.5 691.4,832.1 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "702.9,827.7 703.6,828.2 698.3,831.3 697.5,830.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "704.9,828.9 705.7,829.4 696.2,834.8 695.5,834.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "706.9,830.1 707.7,830.5 702.4,833.6 701.6,833.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "709,831.3 709.7,831.7 700.3,837.2 699.6,836.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "711,832.4 711.8,832.8 706.5,835.9 705.7,835.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "713.1,833.6 713.8,834 704.4,839.5 703.6,839.1 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "715.1,834.8 715.9,835.2 710.5,838.3 709.8,837.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "717.2,836 717.9,836.4 708.5,841.9 707.7,841.4 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "719.2,837.1 719.9,837.5 714.6,840.6 713.9,840.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "721.2,838.3 722,838.7 712.6,844.2 711.8,843.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "723.3,839.4 724,839.9 718.7,843 718,842.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "725.3,840.6 726.1,841.1 716.6,846.6 715.9,846.1 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "727.4,841.8 728.1,842.2 722.8,845.3 722,844.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "729.4,843 730.2,843.4 720.7,848.9 720,848.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "731.4,844.1 732.2,844.6 726.9,847.7 726.1,847.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "733.5,845.3 734.2,845.8 724.8,851.2 724.1,850.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "735.5,846.5 736.3,846.9 731,850 730.2,849.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "737.6,847.7 738.3,848.1 728.9,853.6 728.1,853.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "739.6,848.8 740.4,849.2 735,852.3 734.3,851.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "741.7,850 742.4,850.4 733,855.9 732.2,855.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "743.7,851.2 744.4,851.6 739.1,854.7 738.4,854.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "745.8,852.4 746.5,852.8 737.1,858.3 736.3,857.8 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "747.8,853.5 748.5,853.9 743.2,857 742.5,856.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "749.8,854.7 750.6,855.1 741.1,860.6 740.4,860.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "751.9,855.8 752.6,856.3 747.3,859.4 746.5,858.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "753.9,857 754.7,857.5 745.2,863 744.5,862.5 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "755.9,858.2 756.7,858.6 751.4,861.7 750.6,861.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "758,859.4 758.8,859.8 749.3,865.3 748.6,864.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "760,860.5 760.8,861 755.5,864.1 754.7,863.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "762.1,861.7 762.8,862.2 753.4,867.6 752.6,867.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "764.1,862.9 764.9,863.3 759.5,866.4 758.8,866 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "766.2,864.1 766.9,864.5 757.5,870 756.7,869.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "768.2,865.2 768.9,865.6 763.6,868.7 762.9,868.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "770.3,866.4 771,866.8 761.6,872.3 760.8,871.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "772.3,867.6 773,868 767.7,871.1 767,870.7 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "774.3,868.8 775.1,869.2 765.6,874.7 764.9,874.2 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "776.4,869.9 777.1,870.3 771.8,873.4 771,873 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "778.4,871.1 779.2,871.5 769.7,877 769,876.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "782.5,873.4 783.3,873.9 773.8,879.3 773.1,878.9 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st125",
-                      attrs: {
-                        points:
-                          "780.5,872.2 781.2,872.7 775.9,875.8 775.1,875.3 \t\t\t\t"
+                  _c("polygon", {
+                    staticClass: "st6",
+                    attrs: {
+                      points: "852.8,601.3 852.8,604.7 845,609.2 845,605.8 \t"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_4_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "582.4431",
+                        y1: "442.559",
+                        x2: "612.4262",
+                        y2: "494.4903",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#565A5C" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#34393C" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st7",
+                    attrs: {
+                      d:
+                        "M391.8,449.4l320.8,185.1l121-70c0.4-0.2,0.6-0.8,0.4-1.2c-0.1-0.2-0.2-0.3-0.4-0.4L517.4,379.3\n                            c-1.3-0.7-2.8-0.7-4.1,0L391.8,449.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M485,397.9l31.1,18c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-31.2-18\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C484.2,397.7,484.6,397.7,485,397.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M520.3,418.3l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-10.9\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C519.5,418.1,520,418.1,520.3,418.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M543.1,431.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C542.3,431.2,542.8,431.2,543.1,431.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M565.9,444.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C565.2,444.4,565.6,444.4,565.9,444.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M588.7,457.8l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C588,457.6,588.4,457.6,588.7,457.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M611.6,471l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C610.8,470.8,611.2,470.8,611.6,471z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M634.4,484.1l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C633.6,483.9,634,483.9,634.4,484.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M657.2,497.3l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C656.4,497.1,656.8,497.1,657.2,497.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M680,510.5l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C679.3,510.3,679.7,510.3,680,510.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M702.8,523.6l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C702.1,523.4,702.5,523.4,702.8,523.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M725.6,536.8l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C724.9,536.6,725.3,536.6,725.6,536.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M748.4,550.3l20.2,11.6c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.8,10.9c-0.3,0.2-0.7,0.2-1.1,0\n                            l-20.1-11.7c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.8-10.8C747.7,550.1,748.1,550.1,748.4,550.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M772.3,564l28.7,16.2c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19.3,11c-0.3,0.2-0.7,0.2-1.1,0\n                            l-28.3-16.3c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.9-10.9C771.6,563.9,772,563.9,772.3,564z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M507.7,384.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C506.9,384.5,507.3,384.5,507.7,384.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M530.5,397.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C529.8,397.7,530.2,397.7,530.5,397.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticClass: "st6",
+                    attrs: {
+                      points: "552.8,410.7 574,423 552.8,435.2 531.6,423 \t"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M576.1,424.2l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C575.4,424,575.8,424,576.1,424.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M599,437.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-10.9\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C598.2,437.2,598.6,437.2,599,437.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M621.8,450.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C621,450.4,621.4,450.4,621.8,450.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M644.6,463.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C643.8,463.5,644.2,463.5,644.6,463.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M667.4,476.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C666.6,476.7,667.1,476.7,667.4,476.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M690.2,490.1l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C689.5,489.9,689.9,489.9,690.2,490.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M713,503.2l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C712.3,503,712.7,503,713,503.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M735.9,516.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.8,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C735.1,516.2,735.5,516.2,735.9,516.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M758.7,529.9l19.6,11.3c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.5,10.7c-0.3,0.2-0.8,0.2-1.1,0\n                            l-19.5-11.3c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.4-10.7C757.9,529.7,758.3,529.7,758.7,529.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M782.5,543.6l18.5,10.7c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.5,10.7c-0.3,0.2-0.8,0.2-1.1,0\n                            l-18.5-10.7c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.5-10.7C781.8,543.4,782.2,543.4,782.5,543.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M804.8,556.5l18.5,10.7c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.5,10.7c-0.3,0.2-0.8,0.2-1.1,0\n                            l-18.5-10.7c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.5-10.7C804,556.3,804.4,556.3,804.8,556.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M486.1,425l-24-13.8c-0.3-0.2-0.7-0.2-1.1,0l-19,11c-0.5,0.3-0.7,0.9-0.4,1.5c0.1,0.2,0.2,0.3,0.4,0.4\n                            l22.9,13.2l20.7,11.9c0.3,0.2,0.7,0.2,1.1,0l19-11c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4L486.1,425z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M509.5,438.4l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C508.8,438.2,509.2,438.2,509.5,438.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M532.3,451.6l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C531.6,451.4,532,451.4,532.3,451.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M555.1,464.8l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C554.4,464.6,554.8,464.6,555.1,464.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M577.9,478l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C577.2,477.8,577.6,477.8,577.9,478z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M600.8,491.1l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C600,490.9,600.4,490.9,600.8,491.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M623.6,504.3l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C622.8,504.1,623.2,504.1,623.6,504.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M646.4,517.5l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C645.7,517.3,646.1,517.3,646.4,517.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M669.2,530.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C668.5,530.5,668.9,530.5,669.2,530.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M692,543.8l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C691.3,543.6,691.7,543.6,692,543.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M714.8,557l19,11c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C714.1,556.8,714.5,556.8,714.8,557z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M737.1,570.2l40.2,23.2c0.5,0.3,0.7,0.9,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0\n                            L716.9,583c-0.5-0.3-0.7-0.9-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19.1-11C736.3,570,736.7,570,737.1,570.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M476.2,445.7l-36.8-21.4c-0.3-0.2-0.7-0.2-1.1,0l-19,11c-0.5,0.3-0.7,1-0.4,1.5c0.1,0.2,0.2,0.3,0.4,0.4\n                            L455,458l20.7,11.9c0.3,0.2,0.7,0.2,1.1,0l19-11c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4L476.2,445.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M499.6,459.2l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C498.8,459,499.2,459,499.6,459.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M522.4,472.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C521.6,472.2,522,472.2,522.4,472.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M545.2,485.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C544.5,485.4,544.9,485.4,545.2,485.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M568,498.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C567.3,498.5,567.7,498.5,568,498.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M590.8,511.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C590.1,511.7,590.5,511.7,590.8,511.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M613.6,525.1l19.1,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C612.9,524.9,613.3,524.9,613.6,525.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M636.5,538.3l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C635.7,538.1,636.1,538.1,636.5,538.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M659.3,551.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C658.5,551.2,658.9,551.2,659.3,551.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M682.1,564.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C681.4,564.4,681.8,564.4,682.1,564.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M725.6,589.7l-20.7-11.9c-0.3-0.2-0.7-0.2-1.1,0l-19,11c-0.5,0.3-0.7,1-0.4,1.5c0.1,0.2,0.2,0.3,0.4,0.4\n                            l19.6,11.3l30.5,17.6c0.3,0.2,0.7,0.2,1.1,0l18.8-11.1c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4L725.6,589.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M416.6,437.5l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C415.9,437.3,416.3,437.3,416.6,437.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M439.4,450.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C438.7,450.5,439.1,450.5,439.4,450.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M622,556.1l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C621.2,555.9,621.6,555.9,622,556.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M644.8,569.3l19.1,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C644,569.1,644.4,569.1,644.8,569.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M667.6,582.4l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C666.8,582.2,667.3,582.2,667.6,582.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M690.4,595.6l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C689.7,595.4,690.1,595.4,690.4,595.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M713.3,608.8l18.9,10.9c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-18.9,10.9c-0.3,0.2-0.8,0.2-1.1,0\n                            l-18.9-10.9c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l18.9-10.9C712.5,608.6,712.9,608.6,713.3,608.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M487.2,502.9l110.4,63.9c0.3,0.2,0.7,0.2,1.1,0l19.2-11.1c0.5-0.3,0.7-1,0.4-1.5c-0.1-0.2-0.2-0.3-0.4-0.4\n                            l-110.5-64.2c-0.3-0.2-0.8-0.2-1.1,0L487.2,501c-0.5,0.3-0.7,1-0.4,1.5C486.9,502.7,487.1,502.8,487.2,502.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticClass: "st6",
+                    attrs: {
+                      points: "508.8,383.4 826.5,567 832,563.7 514.4,380.2 \t"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M461.9,463.7l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C461.1,463.5,461.5,463.5,461.9,463.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M484.7,476.9l19,11c0.5,0.3,0.7,1,0.4,1.5c-0.1,0.2-0.2,0.3-0.4,0.4l-19,11c-0.3,0.2-0.7,0.2-1.1,0l-19-11\n                            c-0.5-0.3-0.7-1-0.4-1.5c0.1-0.2,0.2-0.3,0.4-0.4l19-11C483.9,476.7,484.3,476.7,484.7,476.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      id: "trackpad_1_",
+                      d:
+                        "M475.7,511.9l121.9,70.2c1.4,0.8,1.9,2.6,1.1,3.9c-0.2,0.4-0.6,0.8-1,1l-58.9,35.1\n                            c-1.4,0.8-3.1,0.8-4.5,0l-122.9-70.6c-1.3-0.7-1.7-2.4-0.9-3.7c0.2-0.4,0.6-0.7,0.9-0.9l60-35C472.6,511.2,474.3,511.1,475.7,511.9\n                            z"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "g",
+                { attrs: { id: "pen" } },
+                [
+                  _c("g", { attrs: { id: "Layer_19" } }, [
+                    _c("path", {
+                      staticClass: "st0",
+                      attrs: {
+                        d:
+                          "M547.7,771.4c-7.6,5.4-16.5,8.4-24.9,12.4c-8.4,4-16.2,9.1-23.9,14.2c-18.2,11.9-36.4,23.8-54.6,35.7\n                                c-14.3,9.4-29.2,19-46.1,22c-4.3,0.8-9.9,0.3-11.4-3.8c-1.5-4.1,2.6-8,6.4-10.1c7.4-4.2,15.5-7.2,23.3-10.7\n                                c33.9-15.2,62.5-40.4,96.1-56.3c12.6-6,25.9-10.6,37.4-18.7c4-2.8,12.8-11.6,9.8-0.7C558,762,553.1,767.6,547.7,771.4z"
                       }
                     })
                   ]),
                   _vm._v(" "),
-                  _c("polygon", {
-                    staticClass: "st1",
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_5_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "469.041",
+                        y1: "210.8054",
+                        x2: "479.0324",
+                        y2: "193.4149",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1.000000e-02" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0.51" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st8",
                     attrs: {
-                      points:
-                        "786.3,876.2 786.3,877.8 750.6,898.4 580.5,800.2 580.5,798.6 750.6,896.8 \t\t\t"
+                      d:
+                        "M560.9,749.3l-11.2,2.2c-0.5,0.1-1.1,0.2-1.6,0.2c-1.1,0-2.1,0.3-3.1,0.8l-155.7,89.9c-3,1.7-4,5.5-2.3,8.5\n                            c0.6,1,1.4,1.8,2.3,2.3l0.2,0.1c1.9,1.1,4.3,1.1,6.3,0l155.5-90c0.9-0.5,1.7-1.3,2.2-2.2c0.2-0.3,0.3-0.6,0.5-0.8l7.5-10\n                            c0.2-0.3,0.1-0.7-0.2-0.9C561.2,749.3,561,749.3,560.9,749.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M511,780v-0.8c0-0.8,0.4-1.6,1.1-2l10.1-5.9c0.8-0.5,1.9-0.2,2.4,0.6c0.2,0.3,0.2,0.6,0.2,0.9v0.2\n                            c0,0.4-0.2,0.7-0.5,0.9l-11.8,6.9c-0.5,0.3-1.1,0.1-1.4-0.4C511,780.4,511,780.2,511,780z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M495.6,789v-0.8c0-0.8,0.4-1.6,1.1-2l10.1-5.9c0.8-0.5,1.9-0.2,2.4,0.6c0.2,0.3,0.2,0.6,0.2,0.9v0.2\n                            c0,0.4-0.2,0.7-0.5,0.9l-11.8,6.9c-0.5,0.3-1.1,0.1-1.4-0.4C495.7,789.4,495.6,789.2,495.6,789z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st9",
+                    attrs: {
+                      d:
+                        "M560.9,749.3l-1.9,0.4l1.3,2.3l1.2-1.6c0.2-0.3,0.2-0.7-0.1-0.9C561.2,749.3,561,749.3,560.9,749.3z"
                     }
                   })
                 ],
                 1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("g", { attrs: { id: "cup" } }, [
-            _c("g", { attrs: { id: "Layer_23" } }, [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M274.7,465.3c-3,3.9-7.9,5.8-12.6,7.3c-17.2,5.2-36.1,6.1-53,0c-3.4-1.2-6.8-2.8-9.3-5.3\n                        c-2.6-2.6-4.1-6.1-5.3-9.5c-1.1-3-2.1-6.4-1-9.4c0.9-2.3,2.9-4,5.2-5.1c4.7-2.2,10.1-1.8,15.2-1.4c13.9,1.3,27.8,3.2,41.6,5.7\n                        c5.1,0.9,14.7,1,18.9,4.1C278.4,454.7,277.4,461.8,274.7,465.3z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", [
-              _c("g", { attrs: { id: "Calque_2_13_" } }, [
-                _c(
-                  "g",
-                  { attrs: { id: "tasse_2_" } },
-                  [
-                    _c(
-                      "linearGradient",
-                      {
+              ),
+              _vm._v(" "),
+              _c(
+                "g",
+                { attrs: { id: "touch" } },
+                [
+                  _c("g", { attrs: { id: "Layer_20" } }, [
+                    _c("path", {
+                      staticClass: "st0",
+                      attrs: {
+                        d:
+                          "M531.5,731.2c-3.5,6.1-9.5,10.2-15.4,14c-46.7,30.5-95.3,57.9-145.6,81.9c-6.7,3.2-13.6,6.4-21,6.3\n                                c-4.8,0-9.5-1.4-14-3c-24.6-8.7-46.6-23.3-68.7-37.2c-33.4-21-67.8-40.4-102.1-59.9c-42.4-24.1-84.9-48.1-127.3-72.2\n                                c-6.1-3.5-12.4-7.1-16.4-12.9s-4.8-14.3,0-19.4c2.4-2.6,5.9-3.9,9.3-5.1c49.6-16.7,104.1-9.4,155,2.8c34.3,8.2,68,18.5,101,30.8\n                                c30.3,11.3,60,24.4,91,33.8c39.8,12,81.4,17.9,122.9,17.3C513.6,708.4,544.3,708.6,531.5,731.2z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st1",
+                    attrs: {
+                      d:
+                        "M204.5,530.3l320.7,186.3c4,2.3,5.4,7.5,3,11.5c-0.7,1.3-1.8,2.3-3,3l-166.3,96.5c-5.6,3.2-12.5,3.2-18,0\n                            l-322.6-186c-2.3-1.3-3.1-4.2-1.7-6.5c0.4-0.7,1-1.3,1.7-1.7l177.9-103.1C198.7,528.8,201.9,528.8,204.5,530.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticClass: "st1",
+                    attrs: { points: "529.3,725.1 529.3,719.8 525.6,724.4 \t" }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticClass: "st1",
+                    attrs: { points: "15.7,633.3 20.8,636.5 15.8,637.7 \t" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_6_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "63.7921",
+                        y1: "444.6815",
+                        x2: "410.468",
+                        y2: "250.1224",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st10",
+                    attrs: {
+                      d:
+                        "M204.5,525.9l320.7,186.3c4,2.3,5.4,7.5,3,11.5c-0.7,1.3-1.8,2.3-3,3l-166.3,96.5c-5.6,3.2-12.5,3.2-18,0\n                            l-322.6-186c-2.3-1.3-3.1-4.2-1.7-6.5c0.4-0.7,1-1.3,1.7-1.7l177.9-103.1C198.7,524.4,201.9,524.4,204.5,525.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st6",
+                    attrs: {
+                      d:
+                        "M353.6,814.3l159.9-91.6c2.1-1.2,2.8-3.8,1.6-5.9c-0.4-0.7-0.9-1.2-1.6-1.6l-84.9-48.7l-169.3,97.7l85.3,50\n                            C347.4,815.9,350.8,815.9,353.6,814.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st11",
+                    attrs: {
+                      d:
+                        "M202.9,535.1l310.8,180.8c1.9,1.1,2.5,3.6,1.4,5.5c-0.3,0.6-0.8,1.1-1.4,1.4l-161.3,91.8\n                            c-2,1.2-4.6,1.2-6.6,0L39.2,638.4c-3.2-1.8-4.3-5.9-2.4-9.1c0.6-1,1.4-1.8,2.4-2.4l157-91.8C198.2,533.9,200.8,533.9,202.9,535.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("line", {
+                    staticClass: "st12",
+                    attrs: {
+                      x1: "344.2",
+                      y1: "703.1",
+                      x2: "358.9",
+                      y2: "711.5"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "g",
+                { attrs: { id: "plant" } },
+                [
+                  _c("g", { attrs: { id: "Layer_25" } }, [
+                    _c("path", {
+                      staticClass: "st0",
+                      attrs: {
+                        d:
+                          "M424.1,384.2c-5.9,4.8-13.5,7-21,8.4c-14.2,2.6-29.1,2.6-42.8-1.9c-6.9-2.3-13.6-5.9-17.8-11.8\n                                c-4.3-6-5.7-13.6-5.6-21c0.1-3.4,0.5-7,2.5-9.7c2.4-3.3,6.6-4.8,10.5-6c22.7-6.7,46.8-8.4,70.2-5.1c4.2,0.6,13.3,1.4,15.9,5.3\n                                c2.1,3.1,1,10.9,0.7,14.5C435.9,367.1,432.4,377.6,424.1,384.2z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_7_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "242.1929",
+                        y1: "924.7576",
+                        x2: "336.3487",
+                        y2: "924.7576",
+                        gradientTransform:
+                          "matrix(1.05 0 0 -1.89 81.89 2102.1299)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("ellipse", {
+                    staticClass: "st13",
+                    attrs: { cx: "386.2", cy: "354.3", rx: "49.6", ry: "36.1" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_8_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "325.1759",
+                        y1: "682.1182",
+                        x2: "449.4706",
+                        y2: "682.1182",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticClass: "st14",
+                    attrs: {
+                      points:
+                        "449.5,283.9 435.8,355.9 336.6,354.3 325.2,284.8 \t"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("ellipse", {
+                    staticClass: "st6",
+                    attrs: { cx: "387.6", cy: "277", rx: "62.9", ry: "38.2" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_9_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "324.6824",
+                        y1: "725.0119",
+                        x2: "450.4977",
+                        y2: "725.0119",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#616567" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#34393C" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st15",
+                    attrs: {
+                      d:
+                        "M387.6,241c16.4,0,31.8,3.9,43.3,10.9c11.2,6.8,17.3,15.7,17.3,25.1c0,9.4-6.2,18.3-17.3,25.1\n                            c-11.5,7-26.9,10.9-43.3,10.9c-16.4,0-31.8-3.9-43.3-10.9c-11.2-6.8-17.3-15.7-17.3-25.1s6.2-18.3,17.3-25.1\n                            C355.8,244.9,371.2,241,387.6,241 M387.6,238.8c-34.7,0-62.9,17.1-62.9,38.2s28.2,38.2,62.9,38.2s62.9-17.1,62.9-38.2\n                            S422.3,238.8,387.6,238.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_10_",
+                        cx: "366.2444",
+                        cy: "717.9653",
+                        r: "56.2134",
+                        gradientTransform: "matrix(1 0 0 -0.91 0 900.36)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("ellipse", {
+                    staticClass: "st16",
+                    attrs: { cx: "388", cy: "251.2", rx: "56.2", ry: "51" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_11_",
+                        cx: "414.992",
+                        cy: "692.0073",
+                        r: "10.7518",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st17",
+                    attrs: {
+                      d:
+                        "M410.3,300.2c0,0-1.5-0.4,4,10.7c5.5,11.1,7.8,10.5,5.2,14.6c0,0,5-7.7,5.4-13.3s2.8-5.2-1.1-8.6\n                            s-4.4-4.8-7.1-6.2C413.9,296,410.3,300.2,410.3,300.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_12_",
+                        cx: "384.7687",
+                        cy: "688.3611",
+                        r: "12.5482",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st18",
+                    attrs: {
+                      d:
+                        "M384.4,300.8c0,0-8.9,4.4-2.1,18.3c6.8,13.9,6.6,13.5,6.6,13.5s-3.3-7.1,1-14.2c4.2-7.1,4.3-8.5,4.7-9.9\n                            c0.3-1.3,1.6-5.4,1.7-5.7c0-0.3-1.1-5-1.1-5L384.4,300.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_13_",
+                        cx: "-3443.1787",
+                        cy: "757.9764",
+                        r: "15.643",
+                        gradientTransform: "matrix(-1 0 0 -1 -3039.6899 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st19",
+                    attrs: {
+                      d:
+                        "M401,265.6c0,0,0.9-6.6,1.2-8.8c0.2-2.1-0.1-4.1,0.1-5c0.1-0.9-0.7-1.6,0.5-2.9c1.2-1.3,3.6-2.3,4.7-4.6\n                            c1.1-2.3,3-4.4,3.4-8.1c0.3-3.6,0.7-3.2-0.5-6.3c-1.2-3.1-0.6-5.1-2.9-3.1c-2.2,2-5.6,4.9-6.3,7.8c-0.7,2.9-1.5,4-1.4,6.7\n                            c0.1,2.7,0,5.4,0.7,6.9s0.6,6.9,0.6,7.4s-0.6,0-0.6-0.6c-0.1-0.6-2.2-5.9-3.4-8.5c-1.2-2.4-3.2-4.3-5.8-5.2\n                            c-2.1-0.7-4.1-1.4-4.3-0.6c-0.2,0.7-0.6,0.8,0,2.5s-0.5,3.7,3.1,5.5c3.6,1.8,7.3,4.4,7.8,5.6c0.6,1.2,1.7,2.1,2.3,3.3\n                            c0.6,1.1,0.8,6.4,0.7,7C400.5,264.9,400.7,265.4,401,265.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_14_",
+                        cx: "-3430.208",
+                        cy: "764.3261",
+                        r: "19.6182",
+                        gradientTransform: "matrix(-1 0 0 -1 -3039.6899 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st20",
+                    attrs: {
+                      d:
+                        "M402.3,258.3c0,0-3.3-14.2-6.9-18.4c-3.6-4.2-13.7-16.3-16.2-17.5s-11.4-4-14.3-2.8\n                            c-2.9,1.1,0.6,9.4,4.5,12.4c3.9,3.1,4.8,4.7,11,6.2c6.3,1.5,7.2-0.3,10.2,3.4c3.1,3.6,9.2,18.2,9.2,18.2l1.2-1.4"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_15_",
+                        cx: "-21.2356",
+                        cy: "3487.3103",
+                        r: "13.2241",
+                        gradientTransform:
+                          "matrix(0.35 0.94 0.94 -0.35 -2887.4099 1388.7001)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st21",
+                    attrs: {
+                      d:
+                        "M382.8,176.9c0,0,1.1-0.3-1.9-6.6c-3-6.3-4.3-8.2-4.3-11.9s-1.1-7.3-0.7-9.3c0.4-2,1.3-4.2,2-4.4\n                            c0.6-0.2,8.5,1.8,9.8,7.3c0.9,4,1,8.1,0.4,12.2c-0.3,2.1-2.4,8.6-2.4,8.6l-1,1.4L382.8,176.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_16_",
+                        cx: "12.9629",
+                        cy: "3480.1289",
+                        r: "10.4583",
+                        gradientTransform:
+                          "matrix(0.35 0.94 0.94 -0.35 -2887.4099 1388.7001)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st22",
+                    attrs: {
+                      d:
+                        "M386.1,206.6c0,0,1.1-0.3-1.9-6.6c-3-6.3-4.3-8.2-4.3-11.9c0-3.8,9.8-11.9,11.1-6.4c0.9,4,1,8.1,0.4,12.2\n                            c-0.3,2.1-2.4,8.6-2.4,8.6l-1,1.4L386.1,206.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_17_",
+                        cx: "373.9369",
+                        cy: "827.5518",
+                        r: "15.6163",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st23",
+                    attrs: {
+                      d:
+                        "M368.3,195.4c-0.2-0.3-2-5.7,3-12.1c5-6.3,8.2-11.4,12.5-14.5s8.4-5.4,8-7.7c0,0,0.3-7.2-9.2-2.6\n                            c-9.5,4.7-11.6,17.3-12.5,21.6c-0.9,4.3-4.1,11-4.1,11L368.3,195.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_18_",
+                        cx: "408.3043",
+                        cy: "835.3555",
+                        r: "12.1124",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st24",
+                    attrs: {
+                      d:
+                        "M401.5,181.4c0,0,2.4-17.9,6-20.6c3.6-2.8,7.3-4,10.7-4.7c3.5-0.7,4.7-2.6,5-1.2c0.2,1.4,1.5,0.4-0.5,2.6\n                            c-2.4,2.5-5.3,4.5-8.4,5.8c-3.9,1.8-6.9,5.2-8.6,7C403.9,172,401.5,181.4,401.5,181.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_19_",
+                        cx: "-3872.3848",
+                        cy: "734.0095",
+                        r: "14.3713",
+                        gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st25",
+                    attrs: {
+                      d:
+                        "M343.2,259.4c0,0,4.8-3.2,10.7,1.8s10.7,7.7,11.1,10.2s3.1,3.7,2.7,5.9c-0.4,2.2-1,2-7.2,2.1\n                            c-6.3,0-9.6-0.4-13.2-4.3c-3.6-3.9-4.4-9.6-5.8-12.2c-1.4-2.6-0.7-2.6-2.7-2.7c-1.3,0-2.6,0.5-3.7,1.4\n                            C337.2,259.6,340.3,258.8,343.2,259.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_20_",
+                        cx: "-3858.1514",
+                        cy: "755.393",
+                        r: "9.4667",
+                        gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st26",
+                    attrs: {
+                      d:
+                        "M337.5,258.8c0,0,5.6,1.8,7.1-1.1c1.5-2.9,4.4-7.4,3.3-11c-1.1-3.6,0.6-9.3-4.1-10.6s-5.9,1.7-7.8,3.8\n                            c-1.8,2.1-3.9,5.7-3.2,8.4c0.7,2.7,0.5,4,1.8,6.9S337.5,258.8,337.5,258.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_21_",
+                        cx: "-3844.1936",
+                        cy: "750.3417",
+                        r: "11.8101",
+                        gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st27",
+                    attrs: {
+                      d:
+                        "M310.6,246.8c0,0,8.2-3.7,15.2-1.1s8.1,4.9,8.1,5.1c0,0.2,3.3,6.8,3.3,6.8s2.8,1.8-2.5,2.1\n                            c-5.4,0.2-11.4,0.4-15.9-1.7S309.2,251.2,310.6,246.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_22_",
+                        cx: "295.0416",
+                        cy: "793.958",
+                        r: "12.8817",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st28",
+                    attrs: {
+                      d:
+                        "M294.1,213.6c-0.6-0.4-6.2-1.2-7.2-4.5c-1-3.3-1.2-2.2-1.3-5c0-1.6,3.1-3.2,8.5-2s7.9,1.9,8.7,2.1\n                            c3.1,0.9,8.2,5.3,8.2,5.3s10.2,6.2,2.7,6.3C306.2,215.8,294.1,213.6,294.1,213.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_23_",
+                        cx: "-3646.0354",
+                        cy: "834.494",
+                        r: "15.812",
+                        gradientTransform:
+                          "matrix(-1 1.000000e-02 -1.000000e-02 -1 -3317.71 1065.47)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st29",
+                    attrs: {
+                      d:
+                        "M325.3,227.3c-0.2-0.6-3.3-5.4-5.1-10.4c-0.8-2.4-1.8-4.7-3-6.9c-0.5-1.1-0.3-3.5,0-4.3\n                            c2.2-6.6,3.6-8.9,3.1-14.3c-0.5-5.5,1.2-11-2.6-9.7c-3.9,1.2-3.7,3.6-6.2,7.3c-2.5,3.6-4.3,4.9-3.7,8.9c0.6,3.9,1.7,7.4,3.8,9.4\n                            c1,1,2,2.1,2.9,3.2l7.1,16.4L325.3,227.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_24_",
+                        cx: "-3843.1353",
+                        cy: "735.9705",
+                        r: "14.2646",
+                        gradientTransform: "matrix(-1 0 0 -1 -3514.74 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st30",
+                    attrs: {
+                      d:
+                        "M338.8,258.5c0,0-3.6,1.4-4.6,4.6c-1,3.2-1.8,5.6-6.7,6.9s-15.5,5.9-18.8,5c-3.3-0.9-5-0.2-2.2-4.1\n                            c2.9-3.9,0.4-4.3,3.9-6.3c3.5-2,10.6-5,12.7-5.2L338.8,258.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_25_",
+                        cx: "301.4936",
+                        cy: "734.7521",
+                        r: "31.6106",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st31",
+                    attrs: {
+                      d:
+                        "M351.5,284.8c-6.8-4.7-14.5-7.8-22.7-9.1c-13.2-2-12.6-1.5-12.6-1.5s0.3,1.2-2.8,3.3\n                            c-1.8,1.1-2.7,3.2-2.5,5.2l-1.9-1.9v-2.7c0,0,2.3,1-1.9,4c-4.2,3-10.4,3.2-11.4,0.3c-1-2.9,5.6-10.3,7.5-10.5\n                            c-2.6-1.3-19.6-8.9-22.4-14.1l-2.8-5.2c0,0,17.3,9.9,23.9,12.6c6.6,2.7,5.7,4.5,5.6-0.5c-0.1-5,0.1-6.5,0.4-6.3\n                            c0.3,0.2,4.8,6.4,6.9,9.4c2.1,3,9.4,4.9,9.4,4.9s13.9,2.7,19,4.4s7.1,3.5,7.1,3.5l4.2,2.8L351.5,284.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_26_",
+                        cx: "-3309.4814",
+                        cy: "116.3276",
+                        r: "19.8094",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st32",
+                    attrs: {
+                      d:
+                        "M336,177.1c0,0,1.5,1.2-0.9,8.1c-2.5,6.8-3.9,9-3.8,15.1s0,6.3,0.5,10.1c0.5,3.7,0.6,6.2,1.1,7.7\n                            c0.5,1.4,2.2,6.6,2.3,7c0.1,0.4,1.8,6.9,1.8,6.9l2.5,3.1l-0.9,0.9c0,0-6.6-5.5-7.5-7.4c-0.8-1.9-5.6-8.8-7-14\n                            C322.7,209.4,321.7,181.5,336,177.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_27_",
+                        cx: "-1793.9425",
+                        cy: "-695.1017",
+                        r: "23.3178",
+                        gradientTransform:
+                          "matrix(0.2251 -0.9743 -0.9743 -0.2251 39.62 -1658.6194)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st33",
+                    attrs: {
+                      d:
+                        "M281.9,247.6c0,0,1.7,1.6,9.3-2.4s9.9-6,17-6.9c7-0.9,7.4-1,11.8-1c4.4,0,7.4-0.3,9.1,0.1s8.1,1.5,8.5,1.6\n                            c0.5,0.1,8.3,1,8.3,1l4,2.4l1-1.2c0,0-7.4-6.9-9.8-7.5c-2.4-0.7-11.2-5.1-17.5-5.9C317.4,226.9,284.7,230.2,281.9,247.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_28_",
+                        cx: "-3317.5295",
+                        cy: "103.4593",
+                        r: "23.3178",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st34",
+                    attrs: {
+                      d:
+                        "M347.7,181.6c0,0,1.8,1.5-1.1,9.5c-2.9,8-4.6,10.7-4.5,17.8s0,7.5,0.6,11.9s0.7,7.4,1.3,9\n                            c0.6,1.7,2.6,7.8,2.8,8.2s2.2,8.1,2.2,8.1l2.9,3.7l-1.1,1.1c0,0-7.8-6.4-8.8-8.7s-6.6-10.4-8.2-16.5\n                            C332.1,219.5,330.9,186.8,347.7,181.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_29_",
+                        cx: "-3323.3726",
+                        cy: "101.0048",
+                        r: "32.2153",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st35",
+                    attrs: {
+                      d:
+                        "M367.7,256.3c0,0-3.1-13.5-4.2-17.7c-1.2-4.3-3.1-7.8-3.6-9.8c-0.5-1.9-2.6-2.5-1.2-6c1.4-3.5,5.2-7,5.6-12.3\n                            s2.6-10.7,0.6-18c-2-7.3-1-6.7-5.6-11.9s-4.9-9.3-7.8-3.8c-2.9,5.5-7.2,13.6-6.5,19.6s0.1,8.8,2.2,13.9c2.1,5.1,4,10.3,6.3,12.7\n                            c2.3,2.4,6.2,12.7,6.6,13.9s-1.1,0.4-1.7-0.7c-0.6-1-8.5-9.7-12.9-13.8c-4.3-4.2-10.4-6-14.9-5.7c-4.5,0.3-8.9,0.4-8.8,2\n                            c0.1,1.6-0.5,2,1.8,4.8c2.3,2.8,1.7,7.5,10,8.4c8.3,0.9,17.3,3.2,19.2,5.1s4.8,2.9,6.8,4.6c2,1.7,6.3,11.6,6.5,13\n                            S367.7,256.3,367.7,256.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_30_",
+                        cx: "-3346.8345",
+                        cy: "213.7198",
+                        r: "12.4103",
+                        gradientTransform:
+                          "matrix(-0.95 0.31 -0.31 -0.95 -2802.25 1449.55)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st36",
+                    attrs: {
+                      d:
+                        "M307.3,224.3c-0.2,0.3-5.9,1.3-8.4-1.2s-5.3-7-5.3-8c0.1-0.9-1.5-4,3.7-5s11.3-2.6,11.3-2.6s6.9,3.2,7.2,3.7\n                            c0.3,0.5,5.6,7.8,5.8,8.4s2.6,5.7,2.6,5.7l-5.9,1.9L307.3,224.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_31_",
+                        cx: "-3274.4958",
+                        cy: "91.3513",
+                        r: "18.4488",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st37",
+                    attrs: {
+                      d:
+                        "M307.8,238.5c0,0,15.5-2.7,17.4-2c1.3,0.4,2.6,1,3.9,1.5c0,0-17.5,2.2-28.1,8.1c-10.5,5.9-10.6,3.9-12.4,6.7\n                            c-1.8,2.8-3,1.8-3,1.8S286.1,243.5,307.8,238.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_32_",
+                        cx: "-3282.4583",
+                        cy: "556.0615",
+                        r: "18.4488",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.49 -1.28 -2464.4402 2130.6699)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st38",
+                    attrs: {
+                      d:
+                        "M315.2,242.1c0,0,15.9-1.6,18-0.6c1.5,0.8,2.9,1.6,4.2,2.5c0,0-18.1,0.8-28.4,7.2\n                            c-10.3,6.4-10.6,3.8-12.1,7.3c-1.6,3.5-2.9,2-2.9,2S293.2,246.1,315.2,242.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_33_",
+                        cx: "-3274.8694",
+                        cy: "102.8723",
+                        r: "16.4967",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st39",
+                    attrs: {
+                      d:
+                        "M324.2,228.9c-4.2-1.4-8.8-1.4-13.1,0.1c-7.2,2.5-17.2,8-20.6,11.1c-3.5,3.1-3.9,4.5-4.4,3.8\n                            c-0.5-0.8-0.4-2.9,0.7-5.1c1.1-2.1,7.2-9.6,11.2-10.9c4-1.3,7.9-3.1,10.7-2.9c2.8,0.3,11.3,0.4,11.3,0.4L324.2,228.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_34_",
+                        cx: "-3276.6523",
+                        cy: "70.2035",
+                        r: "14.9271",
+                        gradientTransform:
+                          "matrix(-0.93 0.36 -0.36 -0.93 -2703.05 1495.4399)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st40",
+                    attrs: {
+                      d:
+                        "M336.2,258.6c0,0-10.7-2.3-18.8,2.4c-8.1,4.7-13.3,8.2-13.3,8.2s-4.5,1.1-3.5,0.4c1-0.7,1.6-4,4.6-6.1\n                            c3.1-2,7.7-5.3,10.1-6.1c2.4-0.8,17.5-3.3,17.5-3.3L336.2,258.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_35_",
+                        cx: "-3788.219",
+                        cy: "730.1899",
+                        r: "10.7251",
+                        gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st41",
+                    attrs: {
+                      d:
+                        "M363.3,288.7c0,0,7.9-5.2,3.1-19.3c-4.8-14.1-4.2-11.4-4.2-11.4s-3.6,3.1-4.9,6.8c-1.3,3.8-2.1,7.1-1.6,11.2\n                            C356.2,280,358,288.2,363.3,288.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_36_",
+                        cx: "-3775.7241",
+                        cy: "729.5852",
+                        r: "8.6397",
+                        gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st42",
+                    attrs: {
+                      d:
+                        "M353.4,283c0,0-1.7,1.3-6.8-3.7c-5.1-5-6.3-12.1-5.6-13.8c0.7-1.7,1.2-2.2,2.6-1.9s9.4,0.7,12.8,14.2\n                            C354.1,283.4,353.4,283,353.4,283z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_37_",
+                        cx: "-3785.9111",
+                        cy: "719.9584",
+                        r: "6.1096",
+                        gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st43",
+                    attrs: {
+                      d:
+                        "M353.4,283.7c0,0,0.2-3.5,1.4-4.7c1.2-1.2,5.1-2.8,6.4-2.4s4,1.6,4.1,3.9c0.1,2.3,1.7,5.6-2.6,7.4\n                            c-4.3,1.8-6.7,0.1-7.8-1C353.8,285.8,353.4,283.7,353.4,283.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_38_",
+                        cx: "-3769.8413",
+                        cy: "711.5411",
+                        r: "11.2854",
+                        gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st44",
+                    attrs: {
+                      d:
+                        "M353.8,286.1c-0.2,0-1.6,2.8-3.4,4.9c-1.8,2-11.4,8.2-17,7.8s-5.8-2.1-5.6-2.9c0.2-0.7,1.7-6.4,6.2-8.7\n                            c4.5-2.3,10.6-4.9,14.9-3.4C353.1,285.3,353.8,286.1,353.8,286.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_39_",
+                        cx: "-3778.6812",
+                        cy: "707.4102",
+                        r: "7.4613",
+                        gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st45",
+                    attrs: {
+                      d:
+                        "M355.9,286.6c-5-1.6-6.7,2-8.8,7c-2.1,5-0.5,10.9,0.2,11.1c0.7,0.2,8.7-2.2,9-4.1\n                            C356.8,298.7,360.9,288.2,355.9,286.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_40_",
+                        cx: "-3786.6895",
+                        cy: "705.0847",
+                        r: "7.8749",
+                        gradientTransform: "matrix(-1 0 0 -1 -3424.0601 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st46",
+                    attrs: {
+                      d:
+                        "M356.3,288c0,0-3.2,0.6-1.9,6.5c1.3,5.8,2.9,10.6,5.7,11.9c1.2,0.6,2.4,1.1,3.7,1.6c0,0,2.9-0.4,2.5-7.3\n                            c-0.4-6.9-1.1-10.4-3.1-11.9C361.2,287.2,356.3,288,356.3,288z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_41_",
+                        cx: "327.5504",
+                        cy: "738.2204",
+                        r: "15.3051",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st47",
+                    attrs: {
+                      d:
+                        "M352.3,270.2c0,0-13.3,4.5-23.4,0.5c-10.1-4-12.6-6.2-12.6-7.5c-0.1-1.3,1.3-6.7,11.7-6.7\n                            c10.4-0.1,16.1,5.1,21.8,7.9C355.4,267.4,352.3,270.2,352.3,270.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_42_",
+                        cx: "372.9586",
+                        cy: "732.6177",
+                        r: "8.0794",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st48",
+                    attrs: {
+                      d:
+                        "M380.5,260.7c0,0-0.3,2-3.6,6.7c-3.3,4.7-6.5,8.7-7.7,9.4s0,2.9,0,2.9s8.5-7.1,9.4-8.9\n                            c0.9-1.8,1.7-2.8,1.9-4.1s1.9-3.2,2.1-4.1c0.2-0.5,0.2-1.1,0-1.6L380.5,260.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_43_",
+                        cx: "347.4576",
+                        cy: "753.4854",
+                        r: "9.3244",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st49",
+                    attrs: {
+                      d:
+                        "M350.8,262.3c-3.8-2.5-6.3-6.6-6.7-11.1c-0.7-7.7-1.6-10.9,2.2-13.7c3.8-2.8,6.7,6,6.7,6s3.6,9,3.3,13\n                            C356,260.5,350.8,262.3,350.8,262.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_44_",
+                        cx: "-1137.1746",
+                        cy: "-499.5808",
+                        r: "9.3244",
+                        gradientTransform:
+                          "matrix(0.6 -0.8 -0.8 -0.6 649.78 -949.08)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st50",
+                    attrs: {
+                      d:
+                        "M379.9,266.1c-4.3,1.6-9,1.1-12.9-1.3c-6.6-4.1-9.7-5.2-9.6-10c0.1-4.8,8.9-1.8,8.9-1.8s9.4,2.5,12.4,5.2\n                            C381.6,260.9,379.9,266.1,379.9,266.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_45_",
+                        cx: "549.0927",
+                        cy: "1510.1273",
+                        r: "9.3244",
+                        gradientTransform:
+                          "matrix(0.93 0.36 0.36 -0.93 -671.2401 1452.5699)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st51",
+                    attrs: {
+                      d:
+                        "M382.5,260.7c-2.7-3.7-3.4-8.4-2.2-12.7c2.2-7.5,2.5-10.7,7.1-11.9c4.6-1.2,4.1,8.1,4.1,8.1s0.1,9.7-1.7,13.3\n                            C388,261,382.5,260.7,382.5,260.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_46_",
+                        cx: "537.1848",
+                        cy: "1516.8861",
+                        r: "9.3244",
+                        gradientTransform:
+                          "matrix(0.93 0.36 0.36 -0.93 -671.2401 1452.5699)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st52",
+                    attrs: {
+                      d:
+                        "M373.9,250.1c-2.7-3.7-3.4-8.4-2.2-12.7c2.2-7.5,2.5-10.7,7.1-11.9c4.6-1.2,4.1,8.1,4.1,8.1s0.1,9.7-1.7,13.3\n                            C379.4,250.4,373.9,250.1,373.9,250.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_47_",
+                        cx: "356.0662",
+                        cy: "742.0978",
+                        r: "13.1218",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st53",
+                    attrs: {
+                      d:
+                        "M376.7,266.2c0,0-0.2-1.4-8.1-4.5c-7.9-3-9.6-4.2-13.7-6.6c-4.1-2.4-3.6-3.8-6.6-3.8s-0.1,2.7-0.5,4\n                            c-0.3,1.3,5.6,10.1,8.9,12c4,2.3,8.6,3.4,13.1,3.1c5.2-0.4,6.3-0.7,6.3-0.7L376.7,266.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_48_",
+                        cx: "381.7895",
+                        cy: "716.3122",
+                        r: "13.3886",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st54",
+                    attrs: {
+                      d:
+                        "M377.7,269.7c-1.2,3.1-1.9,6.3-2,9.6c-0.2,5.4,2.2,13.1,6.2,16.8c2.9,2.6,6,5.1,9.3,7.3c0,0,5.8,4.4,4.2-2.1\n                            s-2.3-12.2-4.2-14.7C389.3,284.1,377.7,269.7,377.7,269.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_49_",
+                        cx: "388.3971",
+                        cy: "728.3579",
+                        r: "13.3886",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st55",
+                    attrs: {
+                      d:
+                        "M384.3,257.7c-1.2,3.1-1.9,6.3-2,9.6c-0.2,5.4,2.2,13.1,6.2,16.8c2.9,2.6,6,5.1,9.3,7.3c0,0,5.8,4.4,4.2-2.1\n                            c-1.7-6.6-2.3-12.2-4.2-14.7C395.9,272,384.3,257.7,384.3,257.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_50_",
+                        cx: "362.9939",
+                        cy: "706.2319",
+                        r: "13.5709",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st56",
+                    attrs: {
+                      d:
+                        "M369.2,276.9l1.4,5.9c0,0-0.4-1.9,0,1c0.4,2.8,0.3,13.6-0.7,17.6c-1,4-2.2,8.2-3.6,12.7\n                            c-1.3,4.6-0.8,4.3-0.8,4.3s-3-2-5.1-8.5c-2.1-6.4,0.1-13.6,2.2-17.6C364.7,288.2,369.1,278.1,369.2,276.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_51_",
+                        cx: "352.42",
+                        cy: "735.1256",
+                        r: "12.0235",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st57",
+                    attrs: {
+                      d:
+                        "M367.4,279.7c0,0-2.4,1-8.9-3.7c-6.5-4.7-8.9-6.9-10.7-10.5c-1.8-3.6-4-9.8-2.1-9.5\n                            c1.9,0.3,10.9,10.2,14.9,13.7c4,3.5,6.3,5.4,7.6,7.2c1.3,1.8,0.9,2.2,0.9,2.2L367.4,279.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_52_",
+                        cx: "389.7889",
+                        cy: "736.3217",
+                        r: "12.0591",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st58",
+                    attrs: {
+                      d:
+                        "M381.4,264.9c0,0,5,3.7,10.5,7c5.5,3.3,10.1,4.7,13.5,1.5c3.4-3.1,3.4-4.8,3.4-4.8s-0.6-1.9-3.6-4.2\n                            c-3-2.4-7.7-7.1-13.6-6.7c-3.5,0.2-6.8,1.6-9.3,4.1L381.4,264.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_53_",
+                        cx: "402.2704",
+                        cy: "705.5871",
+                        r: "14.3713",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st59",
+                    attrs: {
+                      d:
+                        "M416.7,287.9c0,0-4.8-3.2-10.7,1.8c-5.9,5-10.7,7.7-11.1,10.2c-0.4,2.5-3.1,3.7-2.7,5.8c0.4,2.2,1,2,7.2,2.1\n                            c6.3,0,9.6-0.4,13.2-4.3c3.6-3.9,4.4-9.6,5.8-12.2c1.4-2.6,0.7-2.6,2.7-2.6c1.3,0,2.6,0.5,3.7,1.4\n                            C422.7,288,419.6,287.2,416.7,287.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_54_",
+                        cx: "416.4994",
+                        cy: "726.9706",
+                        r: "9.4667",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st60",
+                    attrs: {
+                      d:
+                        "M422.4,287.3c0,0-5.7,1.8-7.1-1.1s-4.4-7.4-3.3-11s-0.6-9.3,4.1-10.6s5.9,1.7,7.8,3.8s3.9,5.7,3.2,8.4\n                            s-0.5,4-1.8,6.9S422.4,287.3,422.4,287.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_55_",
+                        cx: "424.721",
+                        cy: "818.8054",
+                        r: "15.2695",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st61",
+                    attrs: {
+                      d:
+                        "M419,163.6c0,0-0.8,1.3,2.9,5.6c3.6,4.2,5.3,5.5,6.9,9.8c1.6,4.4,1.7,4.6,2.4,7.4c0.7,2.8,1.3,4.7,1.3,5.8\n                            c0,1.2,0.2,5.4,0.2,5.7s0.6,5.5,0.6,5.5l-0.9,2.9l0.9,0.4c0,0,3.3-5.8,3.4-7.4c0.1-1.6,1.6-7.9,1.2-12S430.5,162.8,419,163.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_56_",
+                        cx: "-3283.8679",
+                        cy: "2778.2292",
+                        r: "15.2695",
+                        gradientTransform:
+                          "matrix(-0.56 -0.83 0.83 -0.56 -3690.5901 -969.47)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st62",
+                    attrs: {
+                      d:
+                        "M469.9,197.3c0,0-0.7,1.4-6.2,0.7c-5.6-0.7-7.5-1.3-12-0.3c-4.5,1.1-4.7,1.1-7.5,2.1c-2.7,1-4.6,1.5-5.6,2.2\n                            s-4.6,2.8-4.9,3c-0.3,0.1-4.8,2.6-4.8,2.6L427,210l-0.9-0.5c0,0,3-5.9,4.2-6.9c1.3-1,5.7-5.7,9.3-7.7S464.2,187.4,469.9,197.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_57_",
+                        cx: "-3331.6816",
+                        cy: "2762.6218",
+                        r: "15.2695",
+                        gradientTransform:
+                          "matrix(-0.56 -0.83 0.83 -0.56 -3690.5901 -969.47)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st63",
+                    attrs: {
+                      d:
+                        "M483.6,245.7c0,0-0.7,1.4-6.2,0.7s-7.5-1.4-12-0.3c-4.5,1.1-4.8,1.1-7.5,2.1c-2.7,1-4.6,1.5-5.6,2.2\n                            c-1,0.6-4.6,2.8-4.9,3s-4.9,2.6-4.9,2.6l-1.9,2.4l-0.9-0.5c0,0,3-5.9,4.2-6.9c1.3-1,5.7-5.7,9.3-7.7\n                            C457.1,241.4,477.8,235.7,483.6,245.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_58_",
+                        cx: "-3342.5359",
+                        cy: "2730.1885",
+                        r: "15.2695",
+                        gradientTransform:
+                          "matrix(-0.56 -0.83 0.83 -0.56 -3690.5901 -969.47)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st64",
+                    attrs: {
+                      d:
+                        "M462.7,272.8c0,0-0.7,1.4-6.2,0.7s-7.5-1.4-12-0.3c-4.5,1.1-4.7,1.1-7.5,2.1s-4.6,1.5-5.6,2.2\n                            c-1,0.6-4.6,2.8-4.9,3c-0.3,0.1-4.9,2.6-4.9,2.6l-1.9,2.4l-0.9-0.5c0,0,3-5.9,4.2-6.9c1.3-1,5.7-5.7,9.3-7.7\n                            C436.2,268.4,456.9,262.8,462.7,272.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_59_",
+                        cx: "420.0032",
+                        cy: "810.0901",
+                        r: "15.2695",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st65",
+                    attrs: {
+                      d:
+                        "M414.2,172.3c0,0-0.8,1.3,2.9,5.6c3.6,4.2,5.3,5.5,6.9,9.8c1.6,4.4,1.7,4.6,2.4,7.4c0.7,2.8,1.3,4.7,1.3,5.8\n                            c0,1.2,0.2,5.4,0.2,5.7c0,0.3,0.6,5.5,0.6,5.5l-0.9,2.9l0.9,0.4c0,0,3.3-5.8,3.4-7.4c0.1-1.6,1.6-7.9,1.2-12\n                            S425.7,171.5,414.2,172.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_60_",
+                        cx: "430.4571",
+                        cy: "721.9193",
+                        r: "11.8101",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st66",
+                    attrs: {
+                      d:
+                        "M449.3,275.2c0,0-8.2-3.7-15.2-1c-7.1,2.7-8.1,4.9-8.1,5.1c0,0.2-3.3,6.8-3.3,6.8s-2.8,1.8,2.5,2.1\n                            c5.4,0.2,11.4,0.4,15.9-1.7C445.7,284.4,450.7,279.6,449.3,275.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_61_",
+                        cx: "431.5198",
+                        cy: "707.548",
+                        r: "14.2646",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st67",
+                    attrs: {
+                      d:
+                        "M421.1,286.9c0,0,3.6,1.4,4.6,4.6c1,3.2,1.8,5.6,6.7,6.9c4.9,1.3,15.5,5.9,18.8,5.1c3.4-0.8,5-0.2,2.2-4.1\n                            c-2.9-3.9-0.4-4.3-3.9-6.3c-3.5-2-10.6-5-12.7-5.2L421.1,286.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_62_",
+                        cx: "316.6741",
+                        cy: "716.9125",
+                        r: "11.9435",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st68",
+                    attrs: {
+                      d:
+                        "M334.4,276.9c0,0,0.4,2.1-3.7,4.4s-8.8,1.8-13,7c-2.5,3.1-5.4,5.8-8.5,8.2c0,0-1.7-7,2.7-11.3\n                            c4.3-4.3,13.5-8.2,21.2-9.5C333.2,276.4,334.4,276.9,334.4,276.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_63_",
+                        cx: "407.0282",
+                        cy: "832.2918",
+                        r: "25.3543",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st69",
+                    attrs: {
+                      d:
+                        "M395,194.9c0.6-1.3,1.1-2.6,1.5-4c0.8-2.6,2.8-5.8,3.8-7.9s4.5-4.4,4.1-6.1c-0.4-1.7,0.5,1-1-3.4\n                            c-1.6-4.5-1.3-5.9-3.1-12.7c-1.8-6.7-0.3-8.3-2.8-12.2c-2.4-3.9-4.7-6.1-3.2-5c1.5,1.1,3.9,3.1,5.1,6.2c1.2,3.1,1.9,5.4,3.5,12.3\n                            s0.8,8.4,1.6,10.6c0.8,2.2,1.5,3.5,1.5,3.5s10-2.2,12.9-3.9s7.8-3.5,11.6-4c2.3-0.3,4.5-0.4,6.8-0.4c0,0,3.6,0.1-0.8,1.8\n                            c-4.4,1.7-6.7,1.7-11.4,3c-4.7,1.3-9,3.6-13,4.2c-4,0.6-6.2,0.5-6.7,1.2c-0.4,0.7-5.7,7.6-7,11.7c-1.3,4.1-1.3,5.2-1.3,5.2l-1,3.4\n                            l-3.3,2.9L395,194.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_64_",
+                        cx: "-3461.9214",
+                        cy: "113.1901",
+                        r: "21.7125",
+                        gradientTransform:
+                          "matrix(-0.3882 -0.9216 -0.9216 0.3882 -909.8679 -2949.1055)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st70",
+                    attrs: {
+                      d:
+                        "M353.5,286.4c-1.2-0.1-2.5,0-3.7,0.1c-2.3,0.2-5.5-0.3-7.6-0.4c-2.1-0.1-5-2.1-6.2-1.2\n                            c-1.2,0.9,0.7-0.8-2.4,2c-3,2.7-4.3,3-9,6.7c-4.7,3.7-6.4,3-8.7,6.2c-2.3,3.2-3.2,5.7-2.8,4.2c0.4-1.5,1.1-4.1,3.2-6.1\n                            c2-2,3.6-3.3,8.5-6.8c4.9-3.5,6.4-3.5,7.8-4.8s2.3-2.3,2.3-2.3s-5.1-7.1-7.4-8.9c-2.3-1.8-5.3-5-7-7.8c-1-1.7-1.8-3.4-2.6-5.2\n                            c0,0-1.1-2.9,1.7,0s3.6,4.7,6.2,8c2.6,3.3,5.8,5.9,7.6,8.9c1.8,2.9,2.5,4.8,3.2,4.8s7.9,2,11.5,1.6c3.6-0.3,4.5-0.7,4.5-0.7l3-0.4\n                            l3.4,1.6L353.5,286.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_65_",
+                        cx: "407.5306",
+                        cy: "785.1849",
+                        r: "15.2695",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st71",
+                    attrs: {
+                      d:
+                        "M408.8,240.8c0,0-11.3-7.4-4.4-27.5c6.8-20.1,6-16.2,6-16.2s5.1,4.4,6.9,9.7c1.9,5.3,3,10.1,2.2,15.9\n                            C418.8,228.5,416.3,240.1,408.8,240.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_66_",
+                        cx: "-465.3837",
+                        cy: "-145.7476",
+                        r: "15.2695",
+                        gradientTransform:
+                          "matrix(0.83 -0.55 -0.55 -0.83 693.88 -155.79)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st72",
+                    attrs: {
+                      d:
+                        "M402.3,242.8c0,0-13.5,0-18.9-20.5s-4-16.8-4-16.8s6.7,0.8,11.2,4.3s8,6.8,10.7,12S408.2,238.1,402.3,242.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_67_",
+                        cx: "328.0884",
+                        cy: "790.4719",
+                        r: "28.5825",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st73",
+                    attrs: {
+                      d:
+                        "M343,222c0,0,0.9-0.5-8.3,7.3c-9.2,7.8-18.7,14-23.1,11.6c-4.4-2.4,1.9-13.6,12-17.7s12.1-2.7,15.8-3\n                            c3.7-0.3,3.7-2.2,3.7-2.5c-0.1-0.3-5.9-9.6,0.5-17.8s17-16.5,18.3-12.3c0.5,1.6-0.2,3.5-2.3,8.5c-2.1,5.1-16.5,20.6-14.6,22.4\n                            c1.9,1.9,9.5,4.1,9.9,4.2c0.4,0.1,13.7,7.4,13.7,7.4l-3.5,2.2C365.1,232.4,350.3,222.2,343,222z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_68_",
+                        cx: "-2878.0774",
+                        cy: "-251.8379",
+                        r: "21.0989",
+                        gradientTransform:
+                          "matrix(-0.82 0.57 -0.57 -0.82 -2137.1602 1664.89)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st74",
+                    attrs: {
+                      d:
+                        "M383.2,261.6c0,0-4-8.1-5.5-10.6s-3.2-4.5-3.8-5.7s-2-1.2-1.7-3.6s2.2-5.3,1.6-8.7s0-7.2-2.4-11.5\n                            c-2.4-4.3-1.7-4.1-5.4-6.7c-3.7-2.6-4.6-5.2-5.6-1.2c-1,3.9-2.4,9.8-1.1,13.5s1.4,5.6,3.6,8.5s4.1,5.9,6,7.1c1.8,1.2,6,7.1,6.3,7.8\n                            s-0.6,0.4-1.2-0.2s-6.9-4.8-10.3-6.8c-3.1-1.8-6.9-2.3-10.4-1.3c-2.8,0.9-5.6,1.6-5.3,2.6c0.3,1,0,1.3,1.9,2.8\n                            c1.9,1.4,2.2,4.5,7.7,3.8s11.5-0.6,13,0.3s3.5,1.1,5,1.9s5.8,6.4,6.2,7.2C382.1,261.2,382.6,261.5,383.2,261.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_69_",
+                        cx: "416.1747",
+                        cy: "808.4805",
+                        r: "21.0989",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st75",
+                    attrs: {
+                      d:
+                        "M419.5,222.7c0,0-1.3-9-1.6-11.8c-0.3-2.9,0.1-5.5-0.1-6.8s1-2.2-0.6-4s-4.8-3.1-6.3-6.2\n                            c-1.5-3.1-4.1-6-4.5-10.9c-0.4-4.9-0.9-4.4,0.6-8.6s0.9-6.8,3.9-4.2s7.6,6.7,8.6,10.5c1,3.8,2,5.4,1.9,9s0,7.2-0.9,9.2\n                            s-0.9,9.3-0.8,10c0.1,0.8,0.8,0,0.9-0.8c0.1-0.8,3-7.9,4.7-11.5c1.6-3.3,4.4-5.8,7.8-7c2.8-0.9,5.5-1.9,5.8-0.9s0.8,1.1,0,3.4\n                            s0.7,5-4.2,7.5c-4.9,2.5-9.8,6-10.6,7.6c-0.8,1.6-2.2,2.9-3,4.4c-0.8,1.5-1.1,8.6-1,9.5C420.2,221.8,419.9,222.3,419.5,222.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_70_",
+                        cx: "443.1831",
+                        cy: "776.4208",
+                        r: "10.9652",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st76",
+                    attrs: {
+                      d:
+                        "M444.9,240.7c0,0-0.7-4.7-0.8-6.1c-0.1-1.5,0-2.9,0-3.6c-0.1-0.7,0.5-1.1-0.3-2.1s-2.5-1.6-3.3-3.2\n                            c-0.8-1.6-2.1-3.1-2.4-5.7c-0.2-2.5-0.5-2.3,0.3-4.4s0.4-3.6,2-2.2c1.6,1.4,3.9,3.5,4.4,5.5c0.5,2,1,2.8,1,4.7\n                            c-0.1,1.9,0,3.8-0.4,4.8c-0.4,1-0.4,4.8-0.4,5.2c0,0.4,0.4,0,0.4-0.4c0.7-2,1.5-4,2.4-6c0.8-1.7,2.3-3,4-3.6c1.5-0.4,2.9-1,3-0.4\n                            s0.4,0.6,0,1.8c-0.4,1.2,0.4,2.6-2.2,3.9c-2.5,1.3-5.1,3.1-5.5,4c-0.4,0.8-1.2,1.5-1.6,2.3c-0.4,0.8-0.6,4.4-0.5,4.9\n                            C445.3,240.2,445.1,240.5,444.9,240.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_71_",
+                        cx: "425.3213",
+                        cy: "784.3268",
+                        r: "12.2992",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st77",
+                    attrs: {
+                      d:
+                        "M422.9,232.7c0,0,2.4,1.8,9.6-5.3c7.2-7.1,9-17.3,7.9-19.7c-1-2.4-1.6-3.2-3.7-2.6s-13.4,1-18.3,20.2\n                            C421.8,233.3,422.9,232.7,422.9,232.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_72_",
+                        cx: "410.8167",
+                        cy: "770.618",
+                        r: "8.6975",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st78",
+                    attrs: {
+                      d:
+                        "M422.9,233.7c0,0-0.3-5-2-6.7c-1.7-1.8-7.2-4-9.1-3.4c-1.9,0.6-5.7,2.3-5.8,5.5c-0.1,3.2-2.4,8,3.7,10.6\n                            c6.1,2.6,9.6,0.1,11.1-1.4C422.2,236.7,422.9,233.7,422.9,233.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_73_",
+                        cx: "433.6942",
+                        cy: "758.6345",
+                        r: "16.0654",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st79",
+                    attrs: {
+                      d:
+                        "M422.3,237.2c0.3,0,2.3,4,4.9,7s16.2,11.7,24.1,11.1s8.3-3.1,7.9-4.1c-0.3-1.1-2.4-9.1-8.8-12.4\n                            s-15.1-6.9-21.2-4.9S422.3,237.2,422.3,237.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_74_",
+                        cx: "604.7714",
+                        cy: "1806.8894",
+                        r: "16.0654",
+                        gradientTransform:
+                          "matrix(0.86 0.51 0.51 -0.86 -1009.41 1502.34)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st80",
+                    attrs: {
+                      d:
+                        "M425.9,246.5c0.2,0.2-0.1,4.6,0.6,8.5c0.8,3.9,8,18.4,15,21.9c7.1,3.5,8.7,1.6,8.9,0.5s2.6-9-1.2-15.2\n                            c-3.8-6.1-9.4-13.7-15.7-15C427.3,245.9,425.9,246.5,425.9,246.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_75_",
+                        cx: "447.9099",
+                        cy: "747.8294",
+                        r: "13.9889",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st81",
+                    attrs: {
+                      d:
+                        "M438.8,267.6c0.6-0.9,2.2-9.5,13.8-17.1c11.5-7.6,14.1-8.4,14.7-7.3c0.7,1.1,1.5-0.9,0.7,3.6\n                            c-0.7,4.5,0,6.6-3.6,10.1s-0.8,7.2-11.4,9.6C442.5,268.8,438.8,267.6,438.8,267.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_76_",
+                        cx: "421.106",
+                        cy: "752.7518",
+                        r: "10.6184",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st82",
+                    attrs: {
+                      d:
+                        "M419.2,237.8c7.1-2.3,9.5,2.8,12.5,9.9c3,7.1,0.7,15.6-0.3,15.8c-0.9,0.2-12.4-3.2-12.9-5.8\n                            S412.1,240.1,419.2,237.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_77_",
+                        cx: "409.705",
+                        cy: "749.4479",
+                        r: "11.2098",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st83",
+                    attrs: {
+                      d:
+                        "M418.7,239.8c0,0,4.6,0.9,2.6,9.2c-1.9,8.3-4.2,15-8.2,16.9c-4,1.9-5.3,2.2-5.3,2.2s-4.1-0.6-3.5-10.4\n                            c0.6-9.8,1.5-14.7,4.4-16.9S418.7,239.8,418.7,239.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_78_",
+                        cx: "367.6984",
+                        cy: "838.2991",
+                        r: "33.0335",
+                        fx: "400.4008",
+                        fy: "838.2974",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st84",
+                    attrs: {
+                      d:
+                        "M391.5,237.3c0,0-8.4-18.6-11.8-23.3c-2.3-3.4-4.4-6.9-6.1-10.6c-0.1-0.4-3.9-9.9-5-14.5\n                            c-1.1-4.6-0.5-11.7-1.3-15.1c-0.7-3.4-0.4-3.6-0.9-4.4s-0.9-3.6-6.8-4.6c-6-1-8.7-0.9-9.7-2.6c-1-1.7-4.4-2.1-1.2-3.2\n                            s10.4-3.6,15.1,0s3.4,4,3.4,5.6c0.1,1.6,0.3,3.3,0.3,3.3s-0.4-0.3,2.7-1.8s2.6-4.4,9.5-4.6c6.9-0.2,12.8-1.2,15.3,5.4\n                            c2.5,6.6,2.6,7.6,2.3,7.5c-0.4-0.1-10.9-5.3-16-6.2c-5.1-0.9-11.1-0.9-11.6,0.5c-0.5,1.4-0.8,2.1-0.6,4.1c0.2,2-1.5,15.1,5.2,27.6\n                            c2.5,4.6,5.3,9.7,7.7,14.3c4.3,7.8,7.7,14.2,7.7,14.2L391.5,237.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_79_",
+                        cx: "392.7058",
+                        cy: "797.4041",
+                        r: "15.3851",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st85",
+                    attrs: {
+                      d:
+                        "M402.8,193.8c0,0-9.8,0.2-14,7.6c-4.2,7.4-6.7,13.2-6.7,13.2l1.5,2.8c0,0,0.6-0.8,4.6-2\n                            c4.1-1.2,10.2-4.4,13.2-6.2s9.3-9.9,13.3-10.3c3.9-0.4,0.3-2.9-0.6-3.1S402.8,193.8,402.8,193.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_80_",
+                        cx: "379.9975",
+                        cy: "813.465",
+                        r: "11.0541",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st86",
+                    attrs: {
+                      d:
+                        "M376,203.3c-0.1-0.2-1.4-4.1,2.1-8.5c3.5-4.5,5.8-8.1,8.9-10.3c3.1-2.2,5.9-3.8,5.7-5.4c0,0,0.2-5.1-6.5-1.8\n                            c-6.7,3.3-8.2,12.2-8.9,15.3c-0.6,3-2.9,7.8-2.9,7.8L376,203.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_81_",
+                        cx: "395.147",
+                        cy: "780.8184",
+                        r: "11.0541",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st87",
+                    attrs: {
+                      d:
+                        "M391.1,236c-0.1-0.2-1.4-4.1,2.1-8.5s5.8-8.1,8.9-10.3s5.9-3.8,5.7-5.4c0,0,0.2-5.1-6.5-1.8\n                            c-6.7,3.3-8.2,12.2-8.9,15.3c-0.6,3-2.9,7.8-2.9,7.8L391.1,236z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_82_",
+                        cx: "644.6599",
+                        cy: "1594.2323",
+                        r: "11.0541",
+                        gradientTransform:
+                          "matrix(0.9164 0.4002 0.4002 -0.9164 -798.3557 1435.4789)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st88",
+                    attrs: {
+                      d:
+                        "M420.9,244.5c0-0.3,0.3-4.3,5.4-7c5-2.7,8.5-5.1,12.2-5.8c3.7-0.8,6.9-1.1,7.4-2.7c0,0,2.2-4.6-5.2-4.3\n                            c-7.5,0.3-12.5,7.9-14.2,10.5c-1.8,2.5-5.8,6-5.8,6L420.9,244.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_83_",
+                        cx: "358.4807",
+                        cy: "804.1184",
+                        r: "9.1377",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st89",
+                    attrs: {
+                      d:
+                        "M373.6,203.4c0,0-4.8-4.4-10.3-3.9c-5.5,0.6-7.8,2.1-8.1,1.9c-0.3-0.2-6-6.5-2.1-7.6c3.9-1,12.3-0.5,14.9,1.2\n                            c2.5,1.7,5,6.8,5,6.8L373.6,203.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_84_",
+                        cx: "375.5287",
+                        cy: "771.9476",
+                        r: "9.1377",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st90",
+                    attrs: {
+                      d:
+                        "M390.7,235.5c0,0-4.8-4.4-10.3-3.8c-5.5,0.6-7.8,2.1-8.1,1.9s-6-6.5-2.1-7.6c3.9-1,12.3-0.5,14.9,1.2\n                            c2.5,1.7,5,6.8,5,6.8L390.7,235.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_85_",
+                        cx: "349.6631",
+                        cy: "826.1911",
+                        r: "13.0684",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st91",
+                    attrs: {
+                      d:
+                        "M368.6,188.8c0,0,0.7-1.1-3.6-4.8c-4.3-3.7-4.6-5.5-8.1-9.2c-3.5-3.6-5.8-6.6-9.1-7.3s-8.3-2-6.1-2.4\n                            c2.2-0.3,7.6-0.8,11.4,1.5c3.8,2.3,8,4.1,8.6,6.6c0.6,2.6,1.9,7,4,8.8c2.1,1.7,2.3,3.7,2.3,3.7L368.6,188.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_86_",
+                        cx: "360.4193",
+                        cy: "790.2941",
+                        r: "13.2241",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st92",
+                    attrs: {
+                      d:
+                        "M382.6,218.8c0,0,0.1-1.2-6.9-0.5c-7,0.7-9.1,1.2-12.7-0.1c-3.5-1.3-7.2-1.5-9-2.6c-1.8-1-3.4-2.7-3.4-3.4\n                            s4.6-7.4,10.3-6.7c4.1,0.5,8,1.8,11.6,3.8c1.9,1,7.3,5.2,7.3,5.2L382.6,218.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_87_",
+                        cx: "-25.113",
+                        cy: "3451.0264",
+                        r: "13.2241",
+                        gradientTransform:
+                          "matrix(0.35 0.94 0.94 -0.35 -2887.4099 1388.7001)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st93",
+                    attrs: {
+                      d:
+                        "M347.4,185.8c0,0,1.1-0.3-1.9-6.6c-3-6.3-4.3-8.2-4.3-11.9c0-3.8-1.1-7.3-0.7-9.3c0.4-2,1.3-4.2,2-4.4\n                            c0.6-0.2,8.5,1.8,9.8,7.3c0.9,4,1,8.1,0.4,12.2c-0.3,2.1-2.4,8.6-2.4,8.6L347.4,185.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_88_",
+                        cx: "448.4879",
+                        cy: "819.7125",
+                        r: "8.1283",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st94",
+                    attrs: {
+                      d:
+                        "M453.6,186.4c0.2,0.1,4-0.4,5-2.4c1-2,1.9-5.5,1.7-6c-0.2-0.6,0.1-2.8-3.3-2.4s-7.5,0.6-7.5,0.6\n                            s-3.7,3.4-3.8,3.8c-0.1,0.4-1.9,6-1.9,6.4c0,0.5-0.4,4.1-0.4,4.1h4.1L453.6,186.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_89_",
+                        cx: "439.6036",
+                        cy: "817.3513",
+                        r: "13.1129",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st95",
+                    attrs: {
+                      d:
+                        "M435.1,205.4c0.2-0.5,2.7-4.5,4.2-8.7c0.7-2,1.5-3.9,2.5-5.8c0.4-0.9,0.2-2.9,0-3.6c-1.8-5.5-3-7.3-2.6-11.9\n                            c0.4-4.5-1.1-9.1,2.1-8.1c3.2,1,3.1,3,5.2,6c2.1,3,3.6,4.1,3.1,7.4s-1.4,6.1-3.1,7.9c-0.9,0.8-1.7,1.7-2.4,2.7l-5.8,13.7\n                            L435.1,205.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_90_",
+                        cx: "448.1855",
+                        cy: "802.1575",
+                        r: "12.0813",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st96",
+                    attrs: {
+                      d:
+                        "M452,197.8c0,0-10.1,2-11.1,2.8c-0.7,0.6-1.4,1.2-2,1.8c0,0,11.3-2.7,19.1-1.6c7.8,1.1,7.4-0.1,9.1,1.2\n                            c1.8,1.3,2.2,0.4,2.2,0.4S466.4,195.8,452,197.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_91_",
+                        cx: "444.4593",
+                        cy: "1074.7084",
+                        r: "12.0813",
+                        gradientTransform: "matrix(1 0 0 -1.37 0 1677.2)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st97",
+                    attrs: {
+                      d:
+                        "M448.3,201.8c0,0-10.1,2.7-11.1,3.9c-0.7,0.8-1.4,1.7-2,2.5c0,0,11.3-3.7,19.1-2.2c7.8,1.5,7.4-0.1,9.1,1.6\n                            c1.8,1.8,2.2,0.6,2.2,0.6S462.7,199,448.3,201.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_92_",
+                        cx: "-577.1212",
+                        cy: "359.9548",
+                        r: "12.0813",
+                        gradientTransform:
+                          "matrix(0.76 -0.65 -0.89 -1.05 1209.15 241.22)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st98",
+                    attrs: {
+                      d:
+                        "M449.5,232.9c0,0-6,8.6-6,10.1c0,1.1,0,2.2,0.1,3.2c0,0,6.2-10.1,13.2-14c7-3.9,5.6-4.8,8-4.6\n                            c2.5,0.2,2.1-1,2.1-1S458.8,221.5,449.5,232.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_93_",
+                        cx: "450.6801",
+                        cy: "811.8865",
+                        r: "10.8051",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st99",
+                    attrs: {
+                      d:
+                        "M442.4,193.6c2.3-1.9,5.1-2.9,8-3c5-0.2,12.4,0.9,15.2,2c2.8,1.1,3.4,1.9,3.6,1.3c0.2-0.6-0.4-1.9-1.6-2.9\n                            c-1.2-1-6.7-4.2-9.4-4.1c-2.7,0.1-5.6-0.1-7.2,0.7c-1.6,0.8-6.8,2.9-6.8,2.9L442.4,193.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_94_",
+                        cx: "477.8218",
+                        cy: "731.4305",
+                        r: "12.0591",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st100",
+                    attrs: {
+                      d:
+                        "M470.7,266.5c0,0,0.6,6.7,6.4,9.6c5.8,3,6.8,8.6,11.1,8.3c4.3-0.4,6-0.4,5.8-2.6c-0.2-2.2,0.8-5.3-1.3-9.4\n                            c-2.1-4.1-0.3-3.3-5.2-7.2c-4.9-3.8-0.2-4.2-7.6-5.5c-7.4-1.2-9.2-0.6-9.2,0L470.7,266.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_95_",
+                        cx: "458.6972",
+                        cy: "740.3814",
+                        r: "13.7665",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st101",
+                    attrs: {
+                      d:
+                        "M448.5,269.1c6.8,1.4,14.2-1,14.5-0.9s1.5-0.2,5.9-2.4c4.4-2.2,8.1-5.3,9.5-5.7s3.7-3.3,3.1-3.5\n                            c-0.6-0.3-2.4-2.3-9.2-1.2c-6.8,1.1-9.2,0-13,3.2c-3.8,3.3-4.4,3.6-6.8,6.2s-3,3.3-3,3.3L448.5,269.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_96_",
+                        cx: "462.7035",
+                        cy: "722.3106",
+                        r: "8.7375",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st102",
+                    attrs: {
+                      d:
+                        "M459.9,269.7c1,1,2.6,4.4,4.1,8.2c1.5,3.8,1,3.8,2.4,9.3c1.4,5.6,0.5,7,1,6.3s2.1-4.2,1.7-10.2\n                            s0.6-8.7-1.3-10.9c-1.4-1.6-2.9-3.1-4.7-4.3C461.9,267.4,459.9,269.7,459.9,269.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_97_",
+                        cx: "474.3491",
+                        cy: "747.5004",
+                        r: "12.2147",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st103",
+                    attrs: {
+                      d:
+                        "M465.5,249.9c0,0,5.7,8.9,11.4,10s10.3,3.6,13.6,2.3l3.3-1.3c0,0,1.9,0.6-2-1.9c-3.9-2.5-6.3-5.1-10.2-6.5\n                            c-3.8-1.5-4.3-2.5-6.6-3.4c-2.4-0.9-6.8-1.8-8.1-1.2C466.1,248.3,465.6,249.1,465.5,249.9z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_98_",
+                        cx: "446.7715",
+                        cy: "788.3109",
+                        r: "9.7735",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st104",
+                    attrs: {
+                      d:
+                        "M439.3,216.7c0,0,6-3.9,12.1-2.9c6,1,10,1.9,10,1.9s3-0.4,2.2-0.6s-1.9-2.1-4.3-2.7\n                            c-2.4-0.6-5.9-1.4-7.6-1.4c-1.6,0.1-11.5,2-11.5,2L439.3,216.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_99_",
+                        cx: "452.2763",
+                        cy: "780.8718",
+                        r: "13.7488",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st105",
+                    attrs: {
+                      d:
+                        "M444,235.6c0,0,2.3-9.9,4.9-12.9c2.5-3,9.6-11.4,11.4-12.3c1.8-0.9,8-2.8,10-2c2,0.8-0.4,6.6-3.2,8.7\n                            c-2.7,2.1-3.3,3.3-7.7,4.3c-4.4,1-5-0.2-7.2,2.4c-2.2,2.5-6.4,12.7-6.4,12.7l-0.8-1"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_100_",
+                        cx: "406.1389",
+                        cy: "816.1819",
+                        r: "11.5788",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st106",
+                    attrs: {
+                      d:
+                        "M398,194.7c0,0,2.7-9.8,7.5-12.3c4.8-2.4,9-4,13-4c4,0,6-0.2,5.8,1.4c-0.2,1.5,1.4,2.8-2.1,5.3\n                            c-3.5,2.6-13.8,6.1-17.3,7.1C402.6,192.9,400.3,193.7,398,194.7z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_101_",
+                        cx: "386.1071",
+                        cy: "819.8726",
+                        r: "10.0581",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st107",
+                    attrs: {
+                      d:
+                        "M394.8,194.1c-1.9-6-1.8-5.6-3.1-8.3c-1.3-2.7-2.7-6.1-5.6-8.5c-2.8-2.4-5.3-4.6-4.9-5.6\n                            c0.4-1,1.2-2.3,4.4,1.1c3.3,3.4,6.3,6.1,7.9,9.2c1.6,3.1,2.1,3.9,2.6,6.8c0.6,2.9,1,6.1,1,6.1l-2.1,1L394.8,194.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_102_",
+                        cx: "462.4189",
+                        cy: "768.7994",
+                        r: "12.0813",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st108",
+                    attrs: {
+                      d:
+                        "M453.6,240.8c0,0,8.3-1.5,11.9-6.9c3.6-5.5,10.6-7.9,13.9-6.8s3.4,4.1,2.2,5.9c-1.2,1.8,1.9,3.6-5.9,5.3\n                            C468,240,453.6,240.8,453.6,240.8z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_103_",
+                        cx: "448.728",
+                        cy: "706.7166",
+                        r: "10.4805",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st109",
+                    attrs: {
+                      d:
+                        "M446.3,283c0,0,7.1,1.3,10.4,8c3.3,6.7,3.9,9.4,2.7,12S455,310,455,310s1.9-1.4-0.9-4\n                            c-2.8-2.6-4.1-3.1-6.5-7.6s-5-6.9-3.2-11.2L446.3,283z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "radialGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_104_",
+                        cx: "455.1444",
+                        cy: "726.6016",
+                        r: "6.9722",
+                        gradientTransform: "matrix(1 0 0 -1 0 1002)",
+                        gradientUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#6E7059" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#464E36" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st110",
+                    attrs: {
+                      d:
+                        "M455,268.6c0.1,0.8-1.7,0.2-2.3,8.1s0,9.3,0,9.3s1.8-0.6,4.8-5.8s3.8-4.3,3.7-8.6c-0.1-4.2-0.3-5.2-0.5-5.2\n                            C460.6,266.4,455,268.6,455,268.6z"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("g", { attrs: { id: "mobile" } }, [
+                _c("g", { attrs: { id: "Layer_24" } }, [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M874.6,733.2c-5.1,5.9-12.1,9.8-19,13.6c-21.6,11.8-43.5,23-66.1,32.9c-7.8,3.4-15.7,6.7-22.9,11.3\n                                c-7,4.5-13,10.3-19.8,15s-14.8,8.5-23.1,8.2c-8.8-0.3-16.8-5.2-24.2-9.8c-14.6-9.1-29.1-18.2-43.7-27.3c-1.4-0.9-2.9-1.8-4-3\n                                c-3.3-3.7-2.6-9.8,0.2-13.9s7.4-6.6,11.9-8.8c21.6-10.4,45.3-15.5,69-19c16.1-2.4,32.2-4.2,48.2-7c13-2.3,25.9-5.4,39-6.4\n                                c14.5-1.1,29.2,0.1,43.5-2.7c3.6-0.7,7.2-1.7,10.6-3c3.2-1.3,5-2.8,6.4,0.9C882.9,720.2,878.3,728.9,874.6,733.2z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", { attrs: { id: "Calque_2_17_" } }, [
+                  _c(
+                    "g",
+                    { attrs: { id: "iphone_1_" } },
+                    [
+                      _c("path", {
+                        staticClass: "st1",
                         attrs: {
-                          id: "gdSVGID_118_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "191.8796",
-                          y1: "576.1255",
-                          x2: "274.037",
-                          y2: "576.1255",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          d:
+                            "M654.1,770l65.1,37.6c4.3,2.5,9.6,2.5,13.9,0l146.1-84.3c2.9-1.7,3.8-5.3,2.2-8.2c-0.5-0.9-1.3-1.7-2.2-2.2\n                                    L814,675.2c-4.2-2.5-9.5-2.5-13.7,0l-146.2,84.4c-2.9,1.7-3.8,5.3-2.2,8.2C652.4,768.7,653.2,769.5,654.1,770z"
                         }
-                      },
-                      [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#33373A" },
-                          attrs: { offset: "0" }
-                        }),
-                        _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#1E2326" },
-                          attrs: { offset: "1" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st126",
-                      attrs: {
-                        d:
-                          "M274,449c0-0.5,0-1,0-1.5v-68.4h-82.1v67.7c0,0.5,0,1,0,1.4v0.9h0.1c1.1,10,12.1,19.2,29.5,22.4\n                                c23.3,4.3,46.8-4.2,51.7-18.2c0.5-1.3,0.8-2.7,0.8-4.1l0,0L274,449z"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st127",
-                      attrs: {
-                        d:
-                          "M243,356.2c20.9,3.4,34.7,16.2,30.1,29.3c-4.9,14-28.4,22.5-51.7,18.2c-22.8-4.2-34.7-18.8-27.5-31.9\n                                C200.8,359.7,222.5,352.9,243,356.2z"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st6",
-                      attrs: {
-                        d:
-                          "M243,378.9c-18.6-3-38,2.2-46.6,12.3c4.9,5.8,13.6,10.5,25.1,12.7c19.6,3.6,39.3-1.8,48-12\n                                C264.2,385.6,254.8,380.8,243,378.9z"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "linearGradient",
-                      {
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticClass: "st1",
                         attrs: {
-                          id: "gdSVGID_119_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "191.8789",
-                          y1: "621.8361",
-                          x2: "274.0598",
-                          y2: "621.8361",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          points: "882.1,712.4 882.2,718.3 879.7,716.8 \t\t\t"
                         }
-                      },
-                      [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#616567" },
-                          attrs: { offset: "0" }
-                        }),
-                        _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#34393C" },
-                          attrs: { offset: "1" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st128",
-                      attrs: {
-                        d:
-                          "M232.5,357.6c3.4,0,6.8,0.3,10.2,0.8c6.3,1,12.2,3,16.9,5.7c4.6,2.6,8,5.7,10.1,9.2\n                                c2.3,3.8,2.7,7.7,1.4,11.6c-3.6,10.4-19.3,17.9-37.3,17.9c-4,0-8-0.4-11.9-1.1c-13-2.4-22.8-8.4-26.4-16c-2-4-1.8-8.8,0.5-12.6\n                                c2.5-4.5,7.3-8.3,13.9-11.1S224.4,357.6,232.5,357.6L232.5,357.6 M232.5,355.4c-17,0-32.8,6.4-38.4,16.6\n                                c-7.3,13.1,4.6,27.7,27.5,31.9c4.1,0.7,8.2,1.1,12.3,1.1c18.8,0,35.4-7.8,39.4-19.4c4.6-13.1-9.2-26-30.1-29.4\n                                C239.5,355.7,236,355.4,232.5,355.4z"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("g", { attrs: { id: "manche2_2_" } }, [
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticClass: "st1",
+                        attrs: {
+                          points: "651,759.5 651.1,765.8 653.3,763.8 \t\t\t"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c(
-                        "g",
-                        { attrs: { id: "manche_2_" } },
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_105_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "651.0385",
+                            y1: "266.2409",
+                            x2: "882.1118",
+                            y2: "266.2409",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
                         [
-                          _c(
-                            "linearGradient",
-                            {
-                              attrs: {
-                                id: "gdSVGID_120_",
-                                gradientUnits: "userSpaceOnUse",
-                                x1: "261.0641",
-                                y1: "568.8512",
-                                x2: "282.8745",
-                                y2: "568.8512",
-                                gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                              }
-                            },
-                            [
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#1E2326" },
-                                attrs: { offset: "1.000000e-02" }
-                              }),
-                              _vm._v(" "),
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#33373A" },
-                                attrs: { offset: "0.51" }
-                              }),
-                              _vm._v(" "),
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#1E2326" },
-                                attrs: { offset: "1" }
-                              })
-                            ],
-                            1
-                          ),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
                           _vm._v(" "),
-                          _c("path", {
-                            staticClass: "st129",
-                            attrs: {
-                              d:
-                                "M261.1,403.9l11.5,7c6.4,3.9,10.3,10.8,10.3,18.3v20.5c0,7-5.7,12.7-12.7,12.7c-2.1,0-4.2-0.5-6.1-1.6\n                                        l-3-1.6v-6.4l5.3,2.9c3.7,2,8.3,0.6,10.4-3.1c0.6-1.1,0.9-2.3,0.9-3.6l0.1-17.5c0-7.1-3.7-13.7-9.9-17.3l-6.9-4L261.1,403.9z"
-                            }
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
                           })
                         ],
                         1
                       ),
                       _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st111",
+                        attrs: {
+                          d:
+                            "M654,764.3l65.1,37.6c4.3,2.5,9.6,2.5,13.9,0l146.1-84.4c2.9-1.7,3.8-5.3,2.2-8.2\n                                    c-0.5-0.9-1.3-1.7-2.2-2.2l-65.2-37.6c-4.2-2.5-9.5-2.5-13.7,0L654,754c-2.9,1.7-3.8,5.3-2.2,8.2\n                                    C652.4,763.1,653.1,763.8,654,764.3z"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c(
-                        "g",
-                        { attrs: { id: "manche-2_2_" } },
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_106_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "587.1913",
+                            y1: "195.2261",
+                            x2: "918.0731",
+                            y2: "328.9119",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
                         [
-                          _c(
-                            "linearGradient",
-                            {
-                              attrs: {
-                                id: "gdSVGID_121_",
-                                gradientUnits: "userSpaceOnUse",
-                                x1: "253.4728",
-                                y1: "584.7734",
-                                x2: "269.5649",
-                                y2: "558.592",
-                                gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                              }
-                            },
-                            [
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#1E2326" },
-                                attrs: { offset: "1.000000e-02" }
-                              }),
-                              _vm._v(" "),
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#33373A" },
-                                attrs: { offset: "0.51" }
-                              }),
-                              _vm._v(" "),
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#1E2326" },
-                                attrs: { offset: "1" }
-                              })
-                            ],
-                            1
-                          ),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "0" }
+                          }),
                           _vm._v(" "),
-                          _c("path", {
-                            staticClass: "st130",
-                            attrs: {
-                              d:
-                                "M261.1,403.9l11.5,7c6.4,3.9,10.3,10.8,10.3,18.3v20.5c0,9.7-12.2,20.1-26.7,13.9l-3-8l7.8-2.8l2.6,5.8\n                                        c3.7,2,8.3,0.6,10.3-3.1c0.6-1.1,0.9-2.3,0.9-3.6l0.1-17.5c0-7.1-3.7-13.7-9.9-17.3l-6.9-4l-5.1-0.1v-6.3L261.1,403.9z"
-                            }
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#202528" },
+                            attrs: { offset: "0.4" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#252A2D" },
+                            attrs: { offset: "0.52" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#212629" },
+                            attrs: { offset: "0.66" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
                           })
                         ],
                         1
                       ),
                       _vm._v(" "),
+                      _c("polygon", {
+                        staticClass: "st112",
+                        attrs: {
+                          points:
+                            "673.1,745.3 748.3,789 869.4,718.5 795,675.5 \t\t\t"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st6",
+                        attrs: {
+                          d:
+                            "M845.8,695.1c0.9,0.1,1.4,0.7,1.3,1.2c-0.2,0.5-1.2,0.9-2.2,0.8c-1-0.2-1.4-0.8-1.1-1.3\n                                    C844.1,695.2,845,694.9,845.8,695.1z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st5",
+                        attrs: {
+                          d:
+                            "M699,768.8c3.8,0.6,6.3,3,5.5,5.3c-0.9,2.5-5.2,4.1-9.4,3.3c-4.2-0.8-6.3-3.4-5-5.8\n                                    C691.3,769.4,695.3,768.2,699,768.8z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st6",
+                        attrs: {
+                          d:
+                            "M680.7,784l7.1,4.1c0.4,0.3,1,0.1,1.3-0.3c0.1-0.1,0.1-0.3,0.1-0.5v-1c0-0.3-0.2-0.6-0.5-0.8l-7.1-4.1\n                                    c-0.5-0.3-1-0.1-1.3,0.3c-0.1,0.1-0.1,0.3-0.1,0.5v0.9C680.3,783.6,680.5,783.9,680.7,784z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st6",
+                        attrs: {
+                          d:
+                            "M831.6,689.6l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l0,0c0.4-0.2,0.6-0.8,0.4-1.2c-0.1-0.1-0.2-0.3-0.4-0.4l-8-4.7\n                                    c-0.7-0.4-1.7-0.4-2.4,0l0,0c-0.4,0.2-0.6,0.8-0.4,1.2C831.4,689.4,831.5,689.5,831.6,689.6z"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("g", { attrs: { id: "clip" } }, [
+                _c("g", { attrs: { id: "Layer_16" } }, [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M829.1,852.3c3.4-1.9,6.4-4.4,9.4-6.9c0.9-0.8,1.8-1.5,2.7-2.3c0.9-0.8,1.8-1.5,2.4-2.6c0.4-0.9,0.5-2,0.4-3\n                                c-0.3-2.7-1.9-5.1-3.8-7s-4.3-3.3-6.6-4.6c-1.5-0.9-3.1-1.8-4.6-2.8c-3.6-2.1-7.2-4.3-11.2-5.5c-3.6-1.1-7.5-1.4-11.2-0.6\n                                c-1.6,0.4-3.2,0.9-4.4,2.1c-1.4,1.4-2.1,3.4-2.3,5.4c-0.5,4.8,1.2,9.7,3.8,13.7c2.7,4.1,6.2,7.4,9.9,10.6c1.2,1,2.3,2,3.2,3.2\n                                c0.7,0.9,1,3,1.9,3.4c1.2,0.5,4-0.5,5.2-0.9C825.9,853.9,827.5,853.2,829.1,852.3z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", { attrs: { id: "Calque_2_16_" } }, [
+                  _c(
+                    "g",
+                    { attrs: { id: "Pince_2_" } },
+                    [
                       _c(
-                        "g",
-                        { attrs: { id: "manche-3_2_" } },
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_107_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "817.331",
+                            y1: "184.626",
+                            x2: "849.624",
+                            y2: "184.626",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
                         [
-                          _c(
-                            "linearGradient",
-                            {
-                              attrs: {
-                                id: "gdSVGID_122_",
-                                gradientUnits: "userSpaceOnUse",
-                                x1: "264.813",
-                                y1: "589.625",
-                                x2: "263.1011",
-                                y2: "546.2133",
-                                gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                              }
-                            },
-                            [
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#1E2326" },
-                                attrs: { offset: "1.000000e-02" }
-                              }),
-                              _vm._v(" "),
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#33373A" },
-                                attrs: { offset: "0.51" }
-                              }),
-                              _vm._v(" "),
-                              _c("stop", {
-                                staticStyle: { "stop-color": "#1E2326" },
-                                attrs: { offset: "1" }
-                              })
-                            ],
-                            1
-                          ),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#CB8E55" },
+                            attrs: { offset: "0" }
+                          }),
                           _vm._v(" "),
-                          _c("path", {
-                            staticClass: "st131",
-                            attrs: {
-                              d:
-                                "M253.4,406.8l11.3,6.9c6.4,3.9,10.3,10.8,10.4,18.4v20.3c0,7.1-5.7,12.8-12.8,12.8\n                                        c-2.1,0-4.3-0.5-6.2-1.6l-2.8-1.5c0,0-0.1,0,0-0.1v-6.1c0-0.1,0-0.1,0.1-0.1c0,0,0,0,0,0l5.1,2.7c3.8,2,8.5,0.6,10.5-3.1\n                                        c0.6-1.1,0.9-2.4,0.9-3.6l0.1-17.3c0-7.2-3.7-13.8-9.9-17.4l-6.8-3.9c0,0,0,0,0-0.1v-6.1C253.2,406.8,253.2,406.8,253.4,406.8\n                                        C253.3,406.8,253.3,406.8,253.4,406.8z"
-                            }
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#DAAE85" },
+                            attrs: { offset: "1" }
                           })
                         ],
                         1
-                      )
-                    ]),
-                    _vm._v(" "),
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st113",
+                        attrs: {
+                          d:
+                            "M817.3,820.3l10.2-7.3c0,0,1.6-0.8,1.5-2c-0.1-3.3,0-4.7,2.4-5.3c5.1-1.1,16.2,3.8,17.8,7.3\n                                    s-2.7,4.5-3.3,4.8c-0.5,0.2-2.2-0.6-4.1,0.8s-9.9,10.5-9.9,10.5l-2.3-1.5l9.2-9c0,0,2.7-2.6,4.1-2.5c1.4,0.1,4-0.2,4.3-1\n                                    c0.3-0.7,1-2.6-7.3-6.3c-2.2-1-5.4-2.1-8.2-1.4c-2.7,0.6,0.1,3.5-2.1,5.9l-10.9,8L817.3,820.3z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_108_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "779.6019",
+                            y1: "170.2364",
+                            x2: "831.7734",
+                            y2: "170.2364",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st114",
+                        attrs: {
+                          d:
+                            "M779.6,835.6l40.5,22.8l11.7-31.1L792,805.4c-0.6-0.3-1.4-0.1-1.7,0.5c0,0.1-0.1,0.1-0.1,0.2L779.6,835.6z\n                                    "
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_109_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "839.3318",
+                            y1: "150.8253",
+                            x2: "826.5569",
+                            y2: "158.6335",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st115",
+                        attrs: {
+                          d:
+                            "M834.1,833.7c-1.4-1.6-0.7-7.4-3.1-6.4c-1.7,3.8-11.7,31.1-11.7,31.1l19.3-18.3c0,0,2.4-2.8-0.6-3.7\n                                    C836,835.4,835.5,835.3,834.1,833.7z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_110_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "788.2238",
+                            y1: "188.4223",
+                            x2: "830.6758",
+                            y2: "188.4223",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#CB8E55" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#DAAE85" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st116",
+                        attrs: {
+                          d:
+                            "M788.2,837.7c0,0,21.9-46.2,22.6-48.2c0.4-1.2,0.4-1.3-0.7-5.4c-1-4.1,0.8-5.9,3.2-6.4\n                                    c2.4-0.5,5.5,0.3,9.4,2.1c3.9,1.8,7.3,4.9,7.7,6.5c0.9,3.3-0.4,5.3-1.4,5.9c-3.7,2.6-4.1,2.2-4.9,3.7l-14.2,53.7l-1.6-1\n                                    l14.2-53.5c0,0,0.4-1.6,2.8-2.8c0.6-0.3,3.1-1.3,3.3-2.2c0.4-1.7,0.4-4.2-3.3-6.9c-3.8-2.6-10.2-4.1-11-4.1\n                                    c-0.8,0-1.8,0.3-2.1,1.1c-0.3,0.8-0.7,1.5-0.1,4s1.1,2.7,0.6,5c-0.5,2.3-23.3,49.1-23.3,49.1L788.2,837.7z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_111_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "776.6711",
+                            y1: "164.5255",
+                            x2: "789.4105",
+                            y2: "164.5255",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st117",
+                        attrs: {
+                          d:
+                            "M779.1,832.4L779.1,832.4c-0.1,0-0.2-0.1-0.3-0.1c-0.6-0.1-1.4,0.4-1.8,1.4c-0.5,1.1-0.3,2.4,0.4,2.8l0,0\n                                    l10.7,6.2l1.3-4.3L779.1,832.4z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_112_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "806.2416",
+                            y1: "148.1555",
+                            x2: "819.2744",
+                            y2: "148.1555",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st118",
+                        attrs: {
+                          d:
+                            "M819.3,854.8l-10.6-6.1l0,0c-0.1,0-0.2-0.1-0.3-0.1c-0.6-0.1-1.4,0.4-1.8,1.4c-0.6,1.3-0.3,2.8,0.7,3\n                                    l10.7,6.1L819.3,854.8z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st6",
+                        attrs: {
+                          d:
+                            "M820.2,856.5c0,1.3-0.8,2.7-2,2.7c-1.2,0-1.5-1.6-0.9-3c0.4-1,1.2-1.5,1.8-1.4\n                                    C819.7,854.9,820.2,855.5,820.2,856.5z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st6",
+                        attrs: {
+                          d:
+                            "M790.5,840.1c0,1.3-0.8,2.7-2,2.7c-1.2,0-1.5-1.6-0.9-3c0.4-1,1.2-1.5,1.8-1.4\n                                    C790,838.5,790.5,839.2,790.5,840.1z"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("g", { attrs: { id: "animal" } }, [
+                _c("g", { attrs: { id: "Layer_15" } }, [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M958.7,634.1c-2.2-2.9-2.3-6.9-3.5-10.3c-3.1-8.5-12.8-12.4-21.7-14.3c-5.1-1.1-10.3-1.8-15.5-1.6\n                                c-9.7,0.4-18.9,4-28.6,4.8c-10.7,0.9-21.4-1.8-31.9-4.5c-4.9-1.2-9.8-2.5-14.3-4.7c-6.5-3.1-11.9-7.9-17.8-11.9\n                                c-11.9-8-26-12.8-40.3-13.7c-4.6-0.3-9.4-0.2-13.4,2c-4,2.2-7,6.9-5.8,11.4c1.1,4,5,6.5,9.1,7.4c4,0.9,8.2,0.4,12.3,0.4\n                                c11.4,0,22.7,3.9,31.8,10.8c3.4,2.6,6.5,5.7,10,8.2c9.3,6.9,20.9,9.8,32,13c1.9,0.5,3.8,1.1,5.4,2.3c1.7,1.3,2.8,3.2,3.5,5.1\n                                c2.4,6.5,0.9,13.7,1.6,20.6c0.7,6.9,5.2,14.7,12.1,14.3c3.4-0.2,6.5-2.4,9.9-2.9c7.8-1.1,13.9,6.6,21.5,9.1c2.5,0.8,5.6,1,7.7-0.7\n                                c1.1-0.9,1.8-2.1,2.5-3.4c4.7-8.5,9.3-16.9,14-25.4c0.9-1.7,1.9-3.5,3.6-4.5c5.9-3.9,12.2,3.5,18.1,1.3\n                                C968.7,644.1,961.4,637.6,958.7,634.1z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", { attrs: { id: "Calque_2_15_" } }, [
+                  _c(
+                    "g",
+                    { attrs: { id: "diplo_2_" } },
+                    [
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_113_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "939.6649",
+                            y1: "406.9879",
+                            x2: "938.8735",
+                            y2: "315.0109",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#2C3134" },
+                            attrs: { offset: "0.32" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st119",
+                        attrs: {
+                          d:
+                            "M903.4,580.3c0,0,11.8-6,16.5-10c4.7-4,15.4-14.3,30.3-10.6c14.9,3.7,14,3.8,18.7,3.3\n                                    c4.7-0.5,21-10.2,21.1-11.1c0.1-0.9-2.6-6.1-9.3-9.2c-6.7-3,0.5-4.3,2.3-4.1c1.8,0.2,11.1,3.3,14.7,8.3c0.7,1,1.1,2.1,1.2,3.3\n                                    c0.9,6.4-3.4,17.7-15.5,29.3c-14.6,13.9-12.8,12-14.4,14.4c0.2,4-2.9,22.3-2.9,27.3c0,4.2-0.5,8.5-1.4,12.6\n                                    c-0.6,2.4-0.6,7.7-0.4,9.6c0.2,1.9,0.2,3.4-1.8,3.9c-2.1,0.5-9.7,2.5-11.2-0.7c-0.8-2,1-3.7,0.9-5c-0.1-1.3-0.2-12.3-0.3-15.5\n                                    s-1-2.8-1-4.2c-1.6-1.6-2-0.7-3.4,0.4s-9.4,6.5-10.6,6.6c-1.2,0.2-9,31.8-9.6,37.9c-0.5,6.1-1.6,7.9-1.6,10.1\n                                    c-0.1,2.2,0.9,3.2,0,4.6c-0.9,1.4-2.7,5.4-7.9,4.7s-7-1.6-6.6-4.7c0.4-3,3.4-5.6,3.7-8.8c0.3-3.2-1.3-24.4-0.7-26.7\n                                    c0.6-2.3-0.9-7.7-2.4-8.3c-1.4-0.6-10.5-1.1-12.8-3.4c0,0-0.5,5.2-1.3,10.7s-1.2,9.2-1.6,11.4c-0.4,2.1-1,3-1.1,6.1\n                                    c0,3-0.2,3.8,0,5c0.2,1.1,0.1,5.4-1.8,6.3s-5.3,2.1-8.5,1.5c-3.2-0.7-4.7-1.3-4.7-3.9c0-2.7,0.8-3.1,2-5.4c1.1-2.3,2.4-8.6,2-16\n                                    s0.3-32.4,2.3-37.1s3.2-26.4,4-27S903.4,580.3,903.4,580.3z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_114_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "844.9182",
+                            y1: "427.8881",
+                            x2: "835.576",
+                            y2: "401.978",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#2C3134" },
+                            attrs: { offset: "0.32" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st120",
+                        attrs: {
+                          d:
+                            "M767.7,566.7c0,0,0.9,1.2,2.2,1.1s3.8-3.1,5.8-3.2c2-0.1,24.9-4.1,37.3,3.2c12.5,7.3,29.1,23.3,39.6,28.2\n                                    c10.5,4.9,29.4,16,33.7,16.9c4.4,0.9,12.7,4.1,19.5,2s12.9-6.4,14-8.4c1.1-2.1,4.4-17.1-1.6-21.3c-6-4.2-9-1.9-19.9-0.2\n                                    c-10.9,1.7-29.9-1.2-41.4-7.2c-11.4-6.1-33.6-22.7-52.1-26.7c-5.9-1.5-28.1-0.9-29.7-0.9s-4.9-0.4-7.6,0.7\n                                    c-2.7,1.1-1.7,3.6-1.8,4.5c-0.1,1-1.8,4.5-1.8,5.4c-0.1,0.9,0.2,4.2,2.1,4c1.9-0.1,4.4-1.6,4.4-1.6S768.4,566.3,767.7,566.7z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_115_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "980.4493",
+                            y1: "434.0897",
+                            x2: "989.6271",
+                            y2: "425.3344",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#2C3134" },
+                            attrs: { offset: "0.32" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st121",
+                        attrs: {
+                          d:
+                            "M969,593.9c1.6-2.4-0.1-0.5,14.4-14.4c12.1-11.5,16.4-22.9,15.5-29.3c-0.1-1.2-0.6-2.3-1.2-3.3\n                                    c-3.6-5.1-12.9-8.2-14.7-8.3c-1.8-0.2-0.8,1.2,5.9,4.2c6.7,3,7.1,6.8,5.3,11.2s-8.6,9.4-25,12.8S969.1,597.9,969,593.9z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_116_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "987.4286",
+                            y1: "459.4055",
+                            x2: "981.6792",
+                            y2: "453.9407",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#2C3134" },
+                            attrs: { offset: "0.32" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticClass: "st122",
+                        attrs: {
+                          d:
+                            "M991.8,546.6c-0.3-3.1-4.4-7.4-8.9-8c-1.8-0.2-9,1.1-2.3,4.1c6.7,3,9.4,8.3,9.3,9.2\n                                    C989.9,551.9,992.1,549.7,991.8,546.6z"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("g", { attrs: { id: "scaler" } }, [
+                _c("g", { attrs: { id: "Layer_17" } }, [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M777.9,888.7c-6.8,4.1-13.6,8.2-20.4,12.2c-2,1.2-4.2,2.5-6.5,2.7c-3.3,0.3-6.3-1.4-9.1-3\n                                c-51.2-29.6-102.4-59.2-153.6-88.7c-2.4-1.4-4.9-2.9-6.3-5.3c-1.4-2.4-1.3-5.9,1-7.5c1.1-0.7,2.4-0.9,3.7-1\n                                c17.6-1.7,34.7,5.7,50.4,13.9c14.8,7.7,29.1,16.3,42.9,25.7c10.2,7,20.2,14.4,31,20.3c17.7,9.6,37.6,15,57.7,15.7\n                                c4,0.1,14.6-0.8,17.2,3.1C788.8,881.3,781,886.9,777.9,888.7z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", { attrs: { id: "Calque_2_14_" } }, [
+                  _c(
+                    "g",
+                    { attrs: { id: "Latte_1_" } },
+                    [
+                      _c("polygon", {
+                        staticClass: "st1",
+                        attrs: {
+                          points:
+                            "580.5,800.2 750.6,898.4 786.3,877.8 620.8,781.7 616.7,779.3 \t\t\t"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "linearGradient",
+                        {
+                          attrs: {
+                            id: "gdSVGID_117_",
+                            gradientUnits: "userSpaceOnUse",
+                            x1: "691.0217",
+                            y1: "177.5862",
+                            x2: "666.8324",
+                            y2: "136.5133",
+                            gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                          }
+                        },
+                        [
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#33373A" },
+                            attrs: { offset: "0" }
+                          }),
+                          _vm._v(" "),
+                          _c("stop", {
+                            staticStyle: { "stop-color": "#1E2326" },
+                            attrs: { offset: "1" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticClass: "st123",
+                        attrs: {
+                          points:
+                            "580.5,798.6 750.6,896.8 786.3,876.2 620.8,780.1 616.7,777.7 \t\t\t"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "st124" }, [
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "619.1,779.7 619.9,780.1 610.5,785.6 609.7,785.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "621.2,780.9 621.9,781.3 616.6,784.4 615.9,784 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "623.2,782.1 624,782.5 614.5,788 613.8,787.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "625.3,783.2 626,783.6 620.7,786.7 619.9,786.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "627.3,784.4 628.1,784.8 618.6,790.3 617.9,789.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "629.3,785.6 630.1,786 624.8,789.1 624,788.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "631.4,786.8 632.1,787.2 622.7,792.7 622,792.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "633.4,787.9 634.2,788.3 628.9,791.4 628.1,791 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "635.5,789.1 636.2,789.5 626.8,795 626,794.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "637.5,790.2 638.3,790.7 632.9,793.8 632.2,793.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "639.6,791.4 640.3,791.9 630.9,797.4 630.1,796.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "641.6,792.6 642.3,793 637,796.1 636.3,795.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "643.7,793.8 644.4,794.2 635,799.7 634.2,799.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "645.7,794.9 646.4,795.4 641.1,798.4 640.4,798 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "647.7,796.1 648.5,796.6 639,802 638.3,801.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "649.8,797.3 650.5,797.7 645.2,800.8 644.4,800.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "651.8,798.5 652.6,798.9 643.1,804.4 642.4,804 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "653.8,799.6 654.6,800 649.3,803.1 648.5,802.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "655.9,800.8 656.7,801.2 647.2,806.7 646.5,806.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "657.9,802 658.7,802.4 653.4,805.5 652.6,805 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "660,803.2 660.7,803.6 651.3,809.1 650.5,808.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "662,804.3 662.8,804.7 657.4,807.8 656.7,807.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "664.1,805.5 664.8,805.9 655.4,811.4 654.6,811 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "666.1,806.6 666.9,807.1 661.5,810.2 660.8,809.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "668.2,807.8 668.9,808.3 659.5,813.8 658.7,813.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "670.2,809 670.9,809.4 665.6,812.5 664.9,812.1 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "672.2,810.2 673,810.6 663.5,816.1 662.8,815.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "674.3,811.3 675,811.8 669.7,814.8 668.9,814.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "676.3,812.5 677.1,813 667.6,818.4 666.9,818 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "678.3,813.7 679.1,814.1 673.8,817.2 673,816.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "680.4,814.9 681.2,815.3 671.7,820.8 671,820.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "682.4,816 683.2,816.4 677.9,819.5 677.1,819.1 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "684.5,817.2 685.2,817.6 675.8,823.1 675,822.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "686.5,818.4 687.3,818.8 682,821.9 681.2,821.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "688.6,819.6 689.3,820 679.9,825.5 679.1,825 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "690.6,820.7 691.4,821.1 686,824.2 685.3,823.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "692.7,821.9 693.4,822.3 684,827.8 683.2,827.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "694.7,823 695.4,823.5 690.1,826.6 689.4,826.1 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "696.7,824.2 697.5,824.7 688,830.2 687.3,829.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "698.8,825.4 699.5,825.8 694.2,828.9 693.4,828.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "700.8,826.6 701.6,827 692.1,832.5 691.4,832.1 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "702.9,827.7 703.6,828.2 698.3,831.3 697.5,830.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "704.9,828.9 705.7,829.4 696.2,834.8 695.5,834.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "706.9,830.1 707.7,830.5 702.4,833.6 701.6,833.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "709,831.3 709.7,831.7 700.3,837.2 699.6,836.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "711,832.4 711.8,832.8 706.5,835.9 705.7,835.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "713.1,833.6 713.8,834 704.4,839.5 703.6,839.1 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "715.1,834.8 715.9,835.2 710.5,838.3 709.8,837.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "717.2,836 717.9,836.4 708.5,841.9 707.7,841.4 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "719.2,837.1 719.9,837.5 714.6,840.6 713.9,840.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "721.2,838.3 722,838.7 712.6,844.2 711.8,843.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "723.3,839.4 724,839.9 718.7,843 718,842.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "725.3,840.6 726.1,841.1 716.6,846.6 715.9,846.1 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "727.4,841.8 728.1,842.2 722.8,845.3 722,844.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "729.4,843 730.2,843.4 720.7,848.9 720,848.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "731.4,844.1 732.2,844.6 726.9,847.7 726.1,847.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "733.5,845.3 734.2,845.8 724.8,851.2 724.1,850.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "735.5,846.5 736.3,846.9 731,850 730.2,849.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "737.6,847.7 738.3,848.1 728.9,853.6 728.1,853.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "739.6,848.8 740.4,849.2 735,852.3 734.3,851.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "741.7,850 742.4,850.4 733,855.9 732.2,855.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "743.7,851.2 744.4,851.6 739.1,854.7 738.4,854.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "745.8,852.4 746.5,852.8 737.1,858.3 736.3,857.8 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "747.8,853.5 748.5,853.9 743.2,857 742.5,856.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "749.8,854.7 750.6,855.1 741.1,860.6 740.4,860.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "751.9,855.8 752.6,856.3 747.3,859.4 746.5,858.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "753.9,857 754.7,857.5 745.2,863 744.5,862.5 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "755.9,858.2 756.7,858.6 751.4,861.7 750.6,861.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "758,859.4 758.8,859.8 749.3,865.3 748.6,864.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "760,860.5 760.8,861 755.5,864.1 754.7,863.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "762.1,861.7 762.8,862.2 753.4,867.6 752.6,867.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "764.1,862.9 764.9,863.3 759.5,866.4 758.8,866 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "766.2,864.1 766.9,864.5 757.5,870 756.7,869.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "768.2,865.2 768.9,865.6 763.6,868.7 762.9,868.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "770.3,866.4 771,866.8 761.6,872.3 760.8,871.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "772.3,867.6 773,868 767.7,871.1 767,870.7 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "774.3,868.8 775.1,869.2 765.6,874.7 764.9,874.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "776.4,869.9 777.1,870.3 771.8,873.4 771,873 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "778.4,871.1 779.2,871.5 769.7,877 769,876.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "782.5,873.4 783.3,873.9 773.8,879.3 773.1,878.9 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st125",
+                          attrs: {
+                            points:
+                              "780.5,872.2 781.2,872.7 775.9,875.8 775.1,875.3 \t\t\t\t"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticClass: "st1",
+                        attrs: {
+                          points:
+                            "786.3,876.2 786.3,877.8 750.6,898.4 580.5,800.2 580.5,798.6 750.6,896.8 \t\t\t"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("g", { attrs: { id: "cup" } }, [
+                _c("g", { attrs: { id: "Layer_23" } }, [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M274.7,465.3c-3,3.9-7.9,5.8-12.6,7.3c-17.2,5.2-36.1,6.1-53,0c-3.4-1.2-6.8-2.8-9.3-5.3\n                                c-2.6-2.6-4.1-6.1-5.3-9.5c-1.1-3-2.1-6.4-1-9.4c0.9-2.3,2.9-4,5.2-5.1c4.7-2.2,10.1-1.8,15.2-1.4c13.9,1.3,27.8,3.2,41.6,5.7\n                                c5.1,0.9,14.7,1,18.9,4.1C278.4,454.7,277.4,461.8,274.7,465.3z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", { attrs: { id: "Calque_2_13_" } }, [
                     _c(
                       "g",
-                      { staticClass: "st132" },
+                      { attrs: { id: "tasse_2_" } },
                       [
                         _c(
                           "linearGradient",
                           {
                             attrs: {
-                              id: "gdSVGID_123_",
+                              id: "gdSVGID_118_",
                               gradientUnits: "userSpaceOnUse",
-                              x1: "213.5571",
-                              y1: "602.2401",
-                              x2: "213.9795",
-                              y2: "602.2401",
+                              x1: "191.8796",
+                              y1: "576.1255",
+                              x2: "274.037",
+                              y2: "576.1255",
                               gradientTransform: "matrix(1 0 0 -1 0 1002)"
                             }
                           },
                           [
                             _c("stop", {
-                              staticStyle: { "stop-color": "#000000" },
-                              attrs: { offset: "1.000000e-02" }
+                              staticStyle: { "stop-color": "#33373A" },
+                              attrs: { offset: "0" }
                             }),
                             _vm._v(" "),
                             _c("stop", {
-                              staticStyle: {
-                                "stop-color": "#000000",
-                                "stop-opacity": "0"
-                              },
+                              staticStyle: { "stop-color": "#1E2326" },
                               attrs: { offset: "1" }
                             })
                           ],
@@ -58727,684 +59584,922 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("path", {
-                          staticClass: "st133",
+                          staticClass: "st126",
                           attrs: {
                             d:
-                              "M213.6,399.7l0.4,0.2C213.8,399.8,213.7,399.7,213.6,399.7z"
+                              "M274,449c0-0.5,0-1,0-1.5v-68.4h-82.1v67.7c0,0.5,0,1,0,1.4v0.9h0.1c1.1,10,12.1,19.2,29.5,22.4\n                                        c23.3,4.3,46.8-4.2,51.7-18.2c0.5-1.3,0.8-2.7,0.8-4.1l0,0L274,449z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "st127",
+                          attrs: {
+                            d:
+                              "M243,356.2c20.9,3.4,34.7,16.2,30.1,29.3c-4.9,14-28.4,22.5-51.7,18.2c-22.8-4.2-34.7-18.8-27.5-31.9\n                                        C200.8,359.7,222.5,352.9,243,356.2z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "st6",
+                          attrs: {
+                            d:
+                              "M243,378.9c-18.6-3-38,2.2-46.6,12.3c4.9,5.8,13.6,10.5,25.1,12.7c19.6,3.6,39.3-1.8,48-12\n                                        C264.2,385.6,254.8,380.8,243,378.9z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "linearGradient",
+                          {
+                            attrs: {
+                              id: "gdSVGID_119_",
+                              gradientUnits: "userSpaceOnUse",
+                              x1: "191.8789",
+                              y1: "621.8361",
+                              x2: "274.0598",
+                              y2: "621.8361",
+                              gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                            }
+                          },
+                          [
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#616567" },
+                              attrs: { offset: "0" }
+                            }),
+                            _vm._v(" "),
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#34393C" },
+                              attrs: { offset: "1" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "st128",
+                          attrs: {
+                            d:
+                              "M232.5,357.6c3.4,0,6.8,0.3,10.2,0.8c6.3,1,12.2,3,16.9,5.7c4.6,2.6,8,5.7,10.1,9.2\n                                        c2.3,3.8,2.7,7.7,1.4,11.6c-3.6,10.4-19.3,17.9-37.3,17.9c-4,0-8-0.4-11.9-1.1c-13-2.4-22.8-8.4-26.4-16c-2-4-1.8-8.8,0.5-12.6\n                                        c2.5-4.5,7.3-8.3,13.9-11.1S224.4,357.6,232.5,357.6L232.5,357.6 M232.5,355.4c-17,0-32.8,6.4-38.4,16.6\n                                        c-7.3,13.1,4.6,27.7,27.5,31.9c4.1,0.7,8.2,1.1,12.3,1.1c18.8,0,35.4-7.8,39.4-19.4c4.6-13.1-9.2-26-30.1-29.4\n                                        C239.5,355.7,236,355.4,232.5,355.4z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("g", { attrs: { id: "manche2_2_" } }, [
+                          _c(
+                            "g",
+                            { attrs: { id: "manche_2_" } },
+                            [
+                              _c(
+                                "linearGradient",
+                                {
+                                  attrs: {
+                                    id: "gdSVGID_120_",
+                                    gradientUnits: "userSpaceOnUse",
+                                    x1: "261.0641",
+                                    y1: "568.8512",
+                                    x2: "282.8745",
+                                    y2: "568.8512",
+                                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                                  }
+                                },
+                                [
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#1E2326" },
+                                    attrs: { offset: "1.000000e-02" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#33373A" },
+                                    attrs: { offset: "0.51" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#1E2326" },
+                                    attrs: { offset: "1" }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("path", {
+                                staticClass: "st129",
+                                attrs: {
+                                  d:
+                                    "M261.1,403.9l11.5,7c6.4,3.9,10.3,10.8,10.3,18.3v20.5c0,7-5.7,12.7-12.7,12.7c-2.1,0-4.2-0.5-6.1-1.6\n                                                l-3-1.6v-6.4l5.3,2.9c3.7,2,8.3,0.6,10.4-3.1c0.6-1.1,0.9-2.3,0.9-3.6l0.1-17.5c0-7.1-3.7-13.7-9.9-17.3l-6.9-4L261.1,403.9z"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "g",
+                            { attrs: { id: "manche-2_2_" } },
+                            [
+                              _c(
+                                "linearGradient",
+                                {
+                                  attrs: {
+                                    id: "gdSVGID_121_",
+                                    gradientUnits: "userSpaceOnUse",
+                                    x1: "253.4728",
+                                    y1: "584.7734",
+                                    x2: "269.5649",
+                                    y2: "558.592",
+                                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                                  }
+                                },
+                                [
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#1E2326" },
+                                    attrs: { offset: "1.000000e-02" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#33373A" },
+                                    attrs: { offset: "0.51" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#1E2326" },
+                                    attrs: { offset: "1" }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("path", {
+                                staticClass: "st130",
+                                attrs: {
+                                  d:
+                                    "M261.1,403.9l11.5,7c6.4,3.9,10.3,10.8,10.3,18.3v20.5c0,9.7-12.2,20.1-26.7,13.9l-3-8l7.8-2.8l2.6,5.8\n                                                c3.7,2,8.3,0.6,10.3-3.1c0.6-1.1,0.9-2.3,0.9-3.6l0.1-17.5c0-7.1-3.7-13.7-9.9-17.3l-6.9-4l-5.1-0.1v-6.3L261.1,403.9z"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "g",
+                            { attrs: { id: "manche-3_2_" } },
+                            [
+                              _c(
+                                "linearGradient",
+                                {
+                                  attrs: {
+                                    id: "gdSVGID_122_",
+                                    gradientUnits: "userSpaceOnUse",
+                                    x1: "264.813",
+                                    y1: "589.625",
+                                    x2: "263.1011",
+                                    y2: "546.2133",
+                                    gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                                  }
+                                },
+                                [
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#1E2326" },
+                                    attrs: { offset: "1.000000e-02" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#33373A" },
+                                    attrs: { offset: "0.51" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    staticStyle: { "stop-color": "#1E2326" },
+                                    attrs: { offset: "1" }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("path", {
+                                staticClass: "st131",
+                                attrs: {
+                                  d:
+                                    "M253.4,406.8l11.3,6.9c6.4,3.9,10.3,10.8,10.4,18.4v20.3c0,7.1-5.7,12.8-12.8,12.8\n                                                c-2.1,0-4.3-0.5-6.2-1.6l-2.8-1.5c0,0-0.1,0,0-0.1v-6.1c0-0.1,0-0.1,0.1-0.1c0,0,0,0,0,0l5.1,2.7c3.8,2,8.5,0.6,10.5-3.1\n                                                c0.6-1.1,0.9-2.4,0.9-3.6l0.1-17.3c0-7.2-3.7-13.8-9.9-17.4l-6.8-3.9c0,0,0,0,0-0.1v-6.1C253.2,406.8,253.2,406.8,253.4,406.8\n                                                C253.3,406.8,253.3,406.8,253.4,406.8z"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "g",
+                          { staticClass: "st132" },
+                          [
+                            _c(
+                              "linearGradient",
+                              {
+                                attrs: {
+                                  id: "gdSVGID_123_",
+                                  gradientUnits: "userSpaceOnUse",
+                                  x1: "213.5571",
+                                  y1: "602.2401",
+                                  x2: "213.9795",
+                                  y2: "602.2401",
+                                  gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                                }
+                              },
+                              [
+                                _c("stop", {
+                                  staticStyle: { "stop-color": "#000000" },
+                                  attrs: { offset: "1.000000e-02" }
+                                }),
+                                _vm._v(" "),
+                                _c("stop", {
+                                  staticStyle: {
+                                    "stop-color": "#000000",
+                                    "stop-opacity": "0"
+                                  },
+                                  attrs: { offset: "1" }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("path", {
+                              staticClass: "st133",
+                              attrs: {
+                                d:
+                                  "M213.6,399.7l0.4,0.2C213.8,399.8,213.7,399.7,213.6,399.7z"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "st134",
+                          attrs: {
+                            d:
+                              "M211.4,399c0,0-8.1-4.9-7.7,19.3c0.3,24.3-1.3,23-1.3,23h1.1c0,0,1-0.9,0.8-22.8c-0.6-24.1,8-19.1,8-19.1\n                                        L211.4,399z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "st135",
+                          attrs: {
+                            d:
+                              "M196.5,435.7l3.1-2.5c1.1-0.9,2.6-1.3,4-1l3.2,0.6c1.5,0.3,2.9,1.3,3.6,2.7l2.1,3.9\n                                        c0.2,0.4,0.3,0.8,0.3,1.3l-0.6,12.1c-0.1,1.4-1.2,2.4-2.6,2.4c-0.2,0-0.3,0-0.5-0.1l-12.2-3.1c-1.1-0.3-1.9-1.3-1.9-2.5\n                                        l0.4-12.1C195.6,436.8,195.9,436.1,196.5,435.7z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "linearGradient",
+                          {
+                            attrs: {
+                              id: "gdSVGID_124_",
+                              gradientUnits: "userSpaceOnUse",
+                              x1: "179.3142",
+                              y1: "558.4228",
+                              x2: "210.7602",
+                              y2: "558.4228",
+                              gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                            }
+                          },
+                          [
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#00E0E9" },
+                              attrs: { offset: "0" }
+                            }),
+                            _vm._v(" "),
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#007075" },
+                              attrs: { offset: "1" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "st136",
+                          attrs: {
+                            d:
+                              "M197,434.8l2.9-2.3c0.6-0.4,1.3-0.6,2-0.5l5.5,1.1c0.8,0.2,1.5,0.7,1.9,1.4l2.9,5.5l-0.6,12.7\n                                        c-0.1,1.4-1.3,2.5-2.7,2.4c-0.2,0-0.3,0-0.5-0.1l-11.9-3c-1.2-0.3-2-1.4-2-2.6l0.4-10.5C194.9,437.3,195.7,435.8,197,434.8z"
                           }
                         })
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st134",
-                      attrs: {
-                        d:
-                          "M211.4,399c0,0-8.1-4.9-7.7,19.3c0.3,24.3-1.3,23-1.3,23h1.1c0,0,1-0.9,0.8-22.8c-0.6-24.1,8-19.1,8-19.1\n                                L211.4,399z"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st135",
-                      attrs: {
-                        d:
-                          "M196.5,435.7l3.1-2.5c1.1-0.9,2.6-1.3,4-1l3.2,0.6c1.5,0.3,2.9,1.3,3.6,2.7l2.1,3.9\n                                c0.2,0.4,0.3,0.8,0.3,1.3l-0.6,12.1c-0.1,1.4-1.2,2.4-2.6,2.4c-0.2,0-0.3,0-0.5-0.1l-12.2-3.1c-1.1-0.3-1.9-1.3-1.9-2.5\n                                l0.4-12.1C195.6,436.8,195.9,436.1,196.5,435.7z"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "linearGradient",
-                      {
-                        attrs: {
-                          id: "gdSVGID_124_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "179.3142",
-                          y1: "558.4228",
-                          x2: "210.7602",
-                          y2: "558.4228",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                        }
-                      },
-                      [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#00E0E9" },
-                          attrs: { offset: "0" }
-                        }),
-                        _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#007075" },
-                          attrs: { offset: "1" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("path", {
-                      staticClass: "st136",
-                      attrs: {
-                        d:
-                          "M197,434.8l2.9-2.3c0.6-0.4,1.3-0.6,2-0.5l5.5,1.1c0.8,0.2,1.5,0.7,1.9,1.4l2.9,5.5l-0.6,12.7\n                                c-0.1,1.4-1.3,2.5-2.7,2.4c-0.2,0-0.3,0-0.5-0.1l-11.9-3c-1.2-0.3-2-1.4-2-2.6l0.4-10.5C194.9,437.3,195.7,435.8,197,434.8z"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("g", { attrs: { id: "Layer_27" } }, [
-              _c("g", [
-                _c("path", {
-                  staticClass: "st9",
-                  attrs: {
-                    d:
-                      "M198.3,442.4c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.2-0.4-0.2c0,0-0.1,0-0.1,0c-0.1-0.1-0.1-0.2-0.2-0.3\n                            c-0.1-0.1,0-0.2,0.1-0.2c0.1,0,0.1-0.1,0.1-0.2c0-0.1,0.1-0.1,0.1-0.2c0.1-0.1,0.2-0.1,0.3-0.2c0.2-0.1,0.2-0.1,0.1-0.3\n                            c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0.1,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1,0-0.2,0-0.2c0-0.1,0.1-0.1,0.1,0\n                            c0.1,0.1,0.1,0.2,0.2,0.3c0,0,0,0.1,0,0.1c0.2-0.3,0.5-0.5,0.9-0.6l0,0c-0.2-0.1-0.4-0.2-0.6-0.3c-1-0.2-2,0.4-2.2,1.3\n                            s0.4,2,1.3,2.2c0.2,0.1,0.4,0.1,0.6,0C198.5,443.1,198.4,442.8,198.3,442.4z"
-                  }
-                }),
+                    )
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("path", {
-                  staticClass: "st137",
-                  attrs: {
-                    d:
-                      "M209.3,444.8c-0.2-0.7-0.8-1.5-1.6-1.6c-0.4,0-0.8,0.1-1.1,0.3c-0.2,0.2-0.4,0.4-0.7,0.5\n                            c-0.1,0-0.2,0.1-0.2,0.1c-0.4,0.1-0.9-0.1-1.2-0.5c0.9-0.2,1.8-0.5,2.7-0.7c-0.1-0.7-0.5-1.3-1.2-1.5c-0.4-0.2-0.9-0.1-1.3,0\n                            l0.4-1.4l-0.8-0.2l-0.4,1.4c-0.2-0.3-0.6-0.5-0.9-0.6c-0.3-0.1-0.6-0.1-0.9,0c0.2,0.2,0.3,0.5,0.3,0.7c0.1,0,0.2,0,0.4,0\n                            c0.6,0.1,0.9,0.7,0.8,1.3c-0.1,0.4-0.4,0.7-0.8,0.8c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0\n                            c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c-0.1,0-0.2-0.1-0.2-0.1c0,0,0,0,0,0\n                            c-0.1-0.1-0.2-0.1-0.2-0.2c0.2-0.2,0.3-0.5,0.4-0.8c0.2-1-0.4-2-1.3-2.2c-1-0.2-2,0.4-2.2,1.3c-0.2,1,0.4,2,1.3,2.2\n                            c0.4,0.1,0.8,0.1,1.2-0.1c0.1,0.1,0.1,0.2,0.2,0.2c0,0,0,0,0,0c0,0,0.1,0,0.1,0.1c0,0,0,0,0,0c0.1,0,0.1,0.1,0.2,0.1c0,0,0,0,0,0\n                            c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0\n                            c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0\n                            c0.1,0,0.2,0,0.2,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0.2-0.1,0.4-0.2,0.6-0.3\n                            c0.2,0.5,0.8,0.9,1.3,1c0.4,0.1,0.8,0,1.2-0.2c0.3-0.2,0.5-0.4,0.7-0.6c0.3-0.3,0.7-0.5,1.1-0.3c0.3,0.2,0.6,0.6,0.7,1\n                            c0.1,0.3,0.1,0.6,0,0.9c-0.1,0.2-0.2,0.4-0.3,0.5c-0.6,0.6-1.3,0.8-2,0.8c-0.5,0-0.9-0.2-1.4-0.3c-1.1-0.3-1.9-1-2.9-1.6\n                            c-0.7-0.4-1.4-0.6-2.1-0.8c-0.4-0.1-1.2-0.2-1.4,0.3c-0.1,0.4,0.2,0.6,0.6,0.7c0.2,0,0.4,0,0.6-0.1c0.9-0.3,1.8,0.1,2.5,0.6\n                            c0.9,0.6,1.9,1.1,2.9,1.4c1.2,0.3,2.8,0.2,3.6-0.9C209.3,446,209.4,445.4,209.3,444.8z M200.2,443c-0.6-0.1-0.9-0.7-0.8-1.3\n                            c0.1-0.6,0.7-0.9,1.3-0.8c0.6,0.1,0.9,0.7,0.8,1.3S200.8,443.2,200.2,443z M205.7,442.2c0.2,0,0.3,0.1,0.5,0.3l-1.7,0.5\n                            C204.6,442.4,205.1,442.1,205.7,442.2z"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("g", { attrs: { id: "cards" } }, [
-            _c("g", { attrs: { id: "Layer_18" } }, [
-              _c("path", {
-                staticClass: "st0",
-                attrs: {
-                  d:
-                    "M540.8,940.1c-10-3.1-17.7-11-26.2-17.2c-14-10.3-30.7-16.4-44.9-26.5c-3.6-2.6-7.5-6.5-6.5-10.8\n                        c0.6-2.5,2.7-4.3,5-5.3c2.3-1,4.9-1.2,7.4-1.4c10.2-0.8,20.6-1.6,30.8-0.1c7.7,1.2,15.1,3.7,22.3,6.5c5.7,2.2,11.5,4.6,15.9,8.8\n                        c4,3.8,6.6,8.9,8.8,14c2.5,5.7,4.5,11.5,6.1,17.4c1.1,4.1,3.4,11.8-0.7,14.4C554.5,943,545.5,941.6,540.8,940.1z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", [
-              _c("g", { attrs: { id: "Calque_2_12_" } }, [
-                _c(
-                  "g",
-                  { attrs: { id: "business_cards_3_" } },
-                  [
-                    _c(
-                      "linearGradient",
-                      {
-                        attrs: {
-                          id: "gdSVGID_125_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "514.0715",
-                          y1: "191.8126",
-                          x2: "545.1618",
-                          y2: "137.9604",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                        }
-                      },
-                      [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#33373A" },
-                          attrs: { offset: "0" }
-                        }),
-                        _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#1E2326" },
-                          attrs: { offset: "1" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st138",
+                _c("g", { attrs: { id: "Layer_27" } }, [
+                  _c("g", [
+                    _c("path", {
+                      staticClass: "st9",
                       attrs: {
-                        points:
-                          "464.1,863.6 555,811.1 615.6,846.1 524.7,898.6 \t\t\t\t"
+                        d:
+                          "M198.3,442.4c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.2-0.4-0.2c0,0-0.1,0-0.1,0c-0.1-0.1-0.1-0.2-0.2-0.3\n                                    c-0.1-0.1,0-0.2,0.1-0.2c0.1,0,0.1-0.1,0.1-0.2c0-0.1,0.1-0.1,0.1-0.2c0.1-0.1,0.2-0.1,0.3-0.2c0.2-0.1,0.2-0.1,0.1-0.3\n                                    c0,0,0,0,0-0.1c0,0,0,0,0,0c0,0,0.1,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1,0-0.2,0-0.2c0-0.1,0.1-0.1,0.1,0\n                                    c0.1,0.1,0.1,0.2,0.2,0.3c0,0,0,0.1,0,0.1c0.2-0.3,0.5-0.5,0.9-0.6l0,0c-0.2-0.1-0.4-0.2-0.6-0.3c-1-0.2-2,0.4-2.2,1.3\n                                    s0.4,2,1.3,2.2c0.2,0.1,0.4,0.1,0.6,0C198.5,443.1,198.4,442.8,198.3,442.4z"
                       }
                     }),
                     _vm._v(" "),
-                    _c(
-                      "linearGradient",
-                      {
-                        attrs: {
-                          id: "gdSVGID_126_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "479.3531",
-                          y1: "83.4634",
-                          x2: "497.0148",
-                          y2: "114.0602",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                        }
-                      },
-                      [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#33373A" },
-                          attrs: { offset: "0" }
-                        }),
-                        _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#1E2326" },
-                          attrs: { offset: "1" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st139",
+                    _c("path", {
+                      staticClass: "st137",
                       attrs: {
-                        points:
-                          "464.1,863.6 464.1,886.4 524.7,921.4 524.7,898.6 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "linearGradient",
-                      {
-                        attrs: {
-                          id: "gdSVGID_127_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "574.8643",
-                          y1: "111.7786",
-                          x2: "565.5576",
-                          y2: "124.5536",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                        }
-                      },
-                      [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#33373A" },
-                          attrs: { offset: "0" }
-                        }),
-                        _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#1E2326" },
-                          attrs: { offset: "1" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st140",
-                      attrs: {
-                        points:
-                          "615.6,846.1 615.6,868.9 524.7,921.4 524.7,898.6 \t\t\t\t"
+                        d:
+                          "M209.3,444.8c-0.2-0.7-0.8-1.5-1.6-1.6c-0.4,0-0.8,0.1-1.1,0.3c-0.2,0.2-0.4,0.4-0.7,0.5\n                                    c-0.1,0-0.2,0.1-0.2,0.1c-0.4,0.1-0.9-0.1-1.2-0.5c0.9-0.2,1.8-0.5,2.7-0.7c-0.1-0.7-0.5-1.3-1.2-1.5c-0.4-0.2-0.9-0.1-1.3,0\n                                    l0.4-1.4l-0.8-0.2l-0.4,1.4c-0.2-0.3-0.6-0.5-0.9-0.6c-0.3-0.1-0.6-0.1-0.9,0c0.2,0.2,0.3,0.5,0.3,0.7c0.1,0,0.2,0,0.4,0\n                                    c0.6,0.1,0.9,0.7,0.8,1.3c-0.1,0.4-0.4,0.7-0.8,0.8c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0,0,0-0.1,0c0,0,0,0,0,0\n                                    c0,0-0.1,0-0.1,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c0,0,0,0,0,0c-0.1,0-0.2-0.1-0.2-0.1c0,0,0,0,0,0\n                                    c-0.1-0.1-0.2-0.1-0.2-0.2c0.2-0.2,0.3-0.5,0.4-0.8c0.2-1-0.4-2-1.3-2.2c-1-0.2-2,0.4-2.2,1.3c-0.2,1,0.4,2,1.3,2.2\n                                    c0.4,0.1,0.8,0.1,1.2-0.1c0.1,0.1,0.1,0.2,0.2,0.2c0,0,0,0,0,0c0,0,0.1,0,0.1,0.1c0,0,0,0,0,0c0.1,0,0.1,0.1,0.2,0.1c0,0,0,0,0,0\n                                    c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0\n                                    c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0\n                                    c0.1,0,0.2,0,0.2,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0,0,0.1,0,0.1,0c0,0,0,0,0,0c0.2-0.1,0.4-0.2,0.6-0.3\n                                    c0.2,0.5,0.8,0.9,1.3,1c0.4,0.1,0.8,0,1.2-0.2c0.3-0.2,0.5-0.4,0.7-0.6c0.3-0.3,0.7-0.5,1.1-0.3c0.3,0.2,0.6,0.6,0.7,1\n                                    c0.1,0.3,0.1,0.6,0,0.9c-0.1,0.2-0.2,0.4-0.3,0.5c-0.6,0.6-1.3,0.8-2,0.8c-0.5,0-0.9-0.2-1.4-0.3c-1.1-0.3-1.9-1-2.9-1.6\n                                    c-0.7-0.4-1.4-0.6-2.1-0.8c-0.4-0.1-1.2-0.2-1.4,0.3c-0.1,0.4,0.2,0.6,0.6,0.7c0.2,0,0.4,0,0.6-0.1c0.9-0.3,1.8,0.1,2.5,0.6\n                                    c0.9,0.6,1.9,1.1,2.9,1.4c1.2,0.3,2.8,0.2,3.6-0.9C209.3,446,209.4,445.4,209.3,444.8z M200.2,443c-0.6-0.1-0.9-0.7-0.8-1.3\n                                    c0.1-0.6,0.7-0.9,1.3-0.8c0.6,0.1,0.9,0.7,0.8,1.3S200.8,443.2,200.2,443z M205.7,442.2c0.2,0,0.3,0.1,0.5,0.3l-1.7,0.5\n                                    C204.6,442.4,205.1,442.1,205.7,442.2z"
                       }
                     })
-                  ],
-                  1
-                )
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c("g", { attrs: { id: "Calque_2_10_" } }, [
-                _c(
-                  "g",
-                  { attrs: { id: "business_cards_2_" } },
-                  [
-                    _c("polygon", {
-                      staticClass: "st141",
-                      attrs: {
-                        points:
-                          "511.3,881.4 602.3,828.9 650.7,887.8 559.7,940.3 \t\t\t\t"
-                      }
-                    }),
-                    _vm._v(" "),
+              _c("g", { attrs: { id: "cards" } }, [
+                _c("g", { attrs: { id: "Layer_18" } }, [
+                  _c("path", {
+                    staticClass: "st0",
+                    attrs: {
+                      d:
+                        "M540.8,940.1c-10-3.1-17.7-11-26.2-17.2c-14-10.3-30.7-16.4-44.9-26.5c-3.6-2.6-7.5-6.5-6.5-10.8\n                                c0.6-2.5,2.7-4.3,5-5.3c2.3-1,4.9-1.2,7.4-1.4c10.2-0.8,20.6-1.6,30.8-0.1c7.7,1.2,15.1,3.7,22.3,6.5c5.7,2.2,11.5,4.6,15.9,8.8\n                                c4,3.8,6.6,8.9,8.8,14c2.5,5.7,4.5,11.5,6.1,17.4c1.1,4.1,3.4,11.8-0.7,14.4C554.5,943,545.5,941.6,540.8,940.1z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", { attrs: { id: "Calque_2_12_" } }, [
                     _c(
-                      "linearGradient",
-                      {
-                        attrs: {
-                          id: "gdSVGID_128_",
-                          gradientUnits: "userSpaceOnUse",
-                          x1: "511.6809",
-                          y1: "118.5024",
-                          x2: "651.0316",
-                          y2: "118.5024",
-                          gradientTransform: "matrix(1 0 0 -1 0 1002)"
-                        }
-                      },
+                      "g",
+                      { attrs: { id: "business_cards_3_" } },
                       [
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#33373A" },
-                          attrs: { offset: "0" }
+                        _c(
+                          "linearGradient",
+                          {
+                            attrs: {
+                              id: "gdSVGID_125_",
+                              gradientUnits: "userSpaceOnUse",
+                              x1: "514.0715",
+                              y1: "191.8126",
+                              x2: "545.1618",
+                              y2: "137.9604",
+                              gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                            }
+                          },
+                          [
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#33373A" },
+                              attrs: { offset: "0" }
+                            }),
+                            _vm._v(" "),
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#1E2326" },
+                              attrs: { offset: "1" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st138",
+                          attrs: {
+                            points:
+                              "464.1,863.6 555,811.1 615.6,846.1 524.7,898.6 \t\t\t\t"
+                          }
                         }),
                         _vm._v(" "),
-                        _c("stop", {
-                          staticStyle: { "stop-color": "#1E2326" },
-                          attrs: { offset: "1" }
+                        _c(
+                          "linearGradient",
+                          {
+                            attrs: {
+                              id: "gdSVGID_126_",
+                              gradientUnits: "userSpaceOnUse",
+                              x1: "479.3531",
+                              y1: "83.4634",
+                              x2: "497.0148",
+                              y2: "114.0602",
+                              gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                            }
+                          },
+                          [
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#33373A" },
+                              attrs: { offset: "0" }
+                            }),
+                            _vm._v(" "),
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#1E2326" },
+                              attrs: { offset: "1" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st139",
+                          attrs: {
+                            points:
+                              "464.1,863.6 464.1,886.4 524.7,921.4 524.7,898.6 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "linearGradient",
+                          {
+                            attrs: {
+                              id: "gdSVGID_127_",
+                              gradientUnits: "userSpaceOnUse",
+                              x1: "574.8643",
+                              y1: "111.7786",
+                              x2: "565.5576",
+                              y2: "124.5536",
+                              gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                            }
+                          },
+                          [
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#33373A" },
+                              attrs: { offset: "0" }
+                            }),
+                            _vm._v(" "),
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#1E2326" },
+                              attrs: { offset: "1" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st140",
+                          attrs: {
+                            points:
+                              "615.6,846.1 615.6,868.9 524.7,921.4 524.7,898.6 \t\t\t\t"
+                          }
                         })
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st142",
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("g", { attrs: { id: "Calque_2_10_" } }, [
+                    _c(
+                      "g",
+                      { attrs: { id: "business_cards_2_" } },
+                      [
+                        _c("polygon", {
+                          staticClass: "st141",
+                          attrs: {
+                            points:
+                              "511.3,881.4 602.3,828.9 650.7,887.8 559.7,940.3 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "linearGradient",
+                          {
+                            attrs: {
+                              id: "gdSVGID_128_",
+                              gradientUnits: "userSpaceOnUse",
+                              x1: "511.6809",
+                              y1: "118.5024",
+                              x2: "651.0316",
+                              y2: "118.5024",
+                              gradientTransform: "matrix(1 0 0 -1 0 1002)"
+                            }
+                          },
+                          [
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#33373A" },
+                              attrs: { offset: "0" }
+                            }),
+                            _vm._v(" "),
+                            _c("stop", {
+                              staticStyle: { "stop-color": "#1E2326" },
+                              attrs: { offset: "1" }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st142",
+                          attrs: {
+                            points:
+                              "511.7,880.3 602.6,827.8 651,886.7 560.1,939.2 \t\t\t\t"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticClass: "st1",
+                          attrs: {
+                            points:
+                              "511.7,880.3 511.3,881.4 559.7,940.3 650.7,887.8 651,886.7 560.1,939.2 \t\t\t\t"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticClass: "st9",
+                    attrs: {
+                      d:
+                        "M576.8,887.5c-0.2-0.1-0.4-0.2-0.6-0.2c-0.3,0-0.7,0-0.9,0.3c-0.1,0.1-0.2,0.1-0.2,0.1\n                                c-0.3,0.1-0.5-0.2-0.8-0.3c-0.2-0.1-0.3-0.2-0.3-0.5c0-0.1,0-0.3,0-0.4c0-0.2-0.1-0.3,0-0.5c0-0.2,0.2-0.5,0.2-0.7\n                                c0.1-0.4,0.2-0.4-0.2-0.6c0,0-0.1-0.1-0.1-0.1c0,0,0,0,0,0c0,0,0.2,0,0.3,0c0,0,0.1,0,0.1,0c0,0,0-0.1-0.1-0.1\n                                c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.1,0-0.2,0.1-0.2c0.2,0,0.5,0.1,0.7,0.2c0,0,0.1,0.1,0.2,0.1c-0.1-0.7,0.1-1.5,0.4-2.2l-0.1,0\n                                c-0.4,0.1-0.9,0.2-1.3,0.5c-1.8,1.1-2.5,3.5-1.4,5.3s3.5,2.5,5.3,1.4c0.4-0.2,0.7-0.5,1-0.8C578.2,888.3,577.4,888,576.8,887.5z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st137",
+                    attrs: {
+                      d:
+                        "M596.9,875c-1.4-0.9-3.4-1.1-4.7,0c-0.6,0.5-1,1.3-1.1,2.1c-0.1,0.6-0.1,1.3-0.3,1.9\n                                c-0.1,0.2-0.1,0.3-0.2,0.5c-0.5,0.8-1.6,1.2-2.5,1c1-1.7,2-3.4,3-5.1c-1.1-0.9-2.7-1.1-4-0.5c-0.8,0.4-1.5,1.1-1.9,1.9l-1.6-2.7\n                                l-1.4,0.8l1.6,2.7c-0.8-0.1-1.5,0.1-2.2,0.5c-0.6,0.3-1,0.8-1.3,1.3c0.6,0.1,1.1,0.3,1.6,0.6c0.2-0.2,0.4-0.4,0.6-0.5\n                                c1-0.6,2.4-0.3,3,0.8c0.5,0.8,0.4,1.7-0.1,2.4c0,0,0,0,0,0.1c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0\n                                c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1c0,0,0,0,0,0c-0.2,0.1-0.3,0.1-0.5,0.2\n                                c0,0,0,0,0,0c-0.2,0-0.4,0-0.6,0c0-0.6-0.2-1.2-0.5-1.7c-1.1-1.8-3.5-2.5-5.3-1.4s-2.5,3.5-1.4,5.3s3.5,2.5,5.3,1.4\n                                c0.8-0.5,1.3-1.1,1.6-1.9c0.2,0,0.4,0,0.7,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0,0,0,0,0,0c0.1,0,0.3,0,0.4-0.1c0,0,0,0,0.1,0\n                                c0.1,0,0.1,0,0.2,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1\n                                c0,0,0,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0\n                                c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0c0.1-0.1,0.2-0.2,0.3-0.4c0,0,0,0,0,0\n                                c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0.2-0.4,0.3-0.8,0.4-1.3c1.2,0.4,2.5,0.3,3.6-0.4\n                                c0.7-0.5,1.3-1.3,1.5-2.1c0.2-0.7,0.2-1.4,0.2-2c0-0.9,0.3-1.7,1.2-2c0.8-0.2,1.8,0,2.5,0.4c0.6,0.3,1.1,0.8,1.4,1.4\n                                c0.2,0.4,0.3,0.8,0.3,1.3c0,1.8-0.8,3.2-1.8,4.2c-0.7,0.7-1.6,1.1-2.6,1.6c-2.1,1-4.5,1.3-6.7,1.9c-1.5,0.4-3.1,1.1-4.3,2\n                                c-0.7,0.5-2.1,1.5-1.6,2.5c0.4,0.7,1.2,0.7,1.8,0.2c0.3-0.3,0.6-0.7,0.8-1.1c0.9-1.7,2.9-2.4,4.7-2.9c2.2-0.5,4.5-1,6.5-2.2\n                                c2.4-1.3,4.6-3.8,4.1-6.7C598.7,876.8,597.9,875.7,596.9,875z M580.5,885.7c-1,0.6-2.4,0.3-3-0.8s-0.3-2.4,0.8-3\n                                c1-0.6,2.4-0.3,3,0.8C581.9,883.7,581.5,885.1,580.5,885.7z M587.6,876.4c0.4-0.2,0.7-0.3,1.1-0.3l-1.9,3.2\n                                C586.2,878.3,586.6,877,587.6,876.4z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticClass: "st9",
+                    attrs: {
+                      d:
+                        "M529.7,859.3c-0.2-0.1-0.4-0.1-0.7-0.1c-0.3,0-0.6,0.1-0.8,0.4c0,0.1-0.1,0.1-0.2,0.1\n                                c-0.3,0.1-0.5-0.1-0.8-0.2c-0.2,0-0.3-0.2-0.3-0.4c0-0.1-0.1-0.3-0.1-0.4c0-0.2-0.1-0.3-0.1-0.5c0-0.3,0.1-0.5,0.1-0.7\n                                c0.1-0.4,0.2-0.4-0.3-0.6c0,0-0.1-0.1-0.1-0.1c0,0,0,0,0,0c0,0,0.3,0,0.3,0c0,0,0.1,0,0.1,0c0,0,0-0.1-0.1-0.1\n                                c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.1,0-0.2,0.1-0.2c0.2,0,0.5,0.1,0.7,0.1c0,0,0.1,0,0.2,0.1c-0.1-0.7-0.1-1.5,0.1-2.2l-0.1,0\n                                c-0.4,0.1-0.8,0.3-1.2,0.6c-1.7,1.3-2,3.7-0.7,5.4s3.7,2,5.4,0.7c0.4-0.3,0.7-0.6,0.9-1C531.1,859.9,530.4,859.7,529.7,859.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st137",
+                    attrs: {
+                      d:
+                        "M548.1,844.4c-1.5-0.7-3.5-0.7-4.6,0.5c-0.6,0.6-0.8,1.4-0.9,2.2c0,0.6,0.1,1.3-0.1,1.9\n                                c0,0.2-0.1,0.3-0.2,0.5c-0.4,0.9-1.4,1.4-2.3,1.3c0.8-1.8,1.6-3.6,2.4-5.4c-1.2-0.8-2.8-0.8-4.1,0c-0.8,0.5-1.4,1.3-1.7,2.1\n                                l-1.9-2.5l-1.3,1l1.9,2.5c-0.8,0-1.5,0.3-2.2,0.8c-0.5,0.4-0.9,0.9-1.2,1.5c0.6,0,1.1,0.2,1.7,0.4c0.1-0.2,0.3-0.4,0.5-0.6\n                                c1-0.7,2.3-0.6,3.1,0.4c0.5,0.7,0.6,1.6,0.2,2.4c0,0,0,0,0,0.1c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0\n                                c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0-0.1,0.1-0.2,0.1c0,0-0.1,0.1-0.2,0.1c0,0,0,0,0,0c-0.2,0.1-0.3,0.2-0.5,0.2c0,0,0,0,0,0\n                                c-0.2,0.1-0.4,0.1-0.6,0.1c-0.1-0.6-0.3-1.1-0.7-1.6c-1.3-1.7-3.7-2-5.4-0.7c-1.7,1.3-2,3.7-0.7,5.4s3.7,2,5.4,0.7\n                                c0.7-0.5,1.2-1.3,1.4-2.1c0.2,0,0.5,0,0.7,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0,0,0,0,0,0c0.1,0,0.3-0.1,0.4-0.1c0,0,0,0,0.1,0\n                                c0.1,0,0.1,0,0.2-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0.1,0c0,0,0.1-0.1,0.1-0.1\n                                c0,0,0,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0\n                                c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0,0,0,0c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0.1-0.1,0.2-0.3,0.3-0.4c0,0,0,0,0,0\n                                c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0.2-0.4,0.2-0.9,0.3-1.3c1.2,0.3,2.5,0,3.5-0.8\n                                c0.7-0.6,1.1-1.4,1.3-2.3c0.1-0.7,0-1.4-0.1-2c-0.1-0.9,0.1-1.7,1-2.1c0.8-0.3,1.8-0.2,2.5,0.1c0.6,0.3,1.2,0.7,1.5,1.3\n                                c0.2,0.4,0.4,0.8,0.5,1.2c0.3,1.8-0.4,3.2-1.3,4.4c-0.7,0.8-1.5,1.3-2.4,1.9c-1.9,1.3-4.3,1.8-6.4,2.7c-1.5,0.6-2.9,1.5-4,2.5\n                                c-0.7,0.6-1.9,1.7-1.3,2.7c0.5,0.7,1.3,0.5,1.8-0.1c0.3-0.3,0.5-0.8,0.6-1.2c0.7-1.8,2.6-2.8,4.3-3.4c2.1-0.8,4.3-1.6,6.2-2.9\n                                c2.2-1.6,4.1-4.3,3.3-7.1C550.1,846,549.2,845,548.1,844.4z M533.1,857c-1,0.7-2.3,0.6-3.1-0.4s-0.6-2.3,0.4-3.1\n                                c1-0.7,2.3-0.6,3.1,0.4C534.3,854.9,534.1,856.3,533.1,857z M539.1,846.9c0.3-0.2,0.7-0.4,1.1-0.4l-1.5,3.4\n                                C537.9,849,538.1,847.7,539.1,846.9z"
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "g",
+                { attrs: { id: "glasses" } },
+                [
+                  _c(
+                    "linearGradient",
+                    {
                       attrs: {
-                        points:
-                          "511.7,880.3 602.6,827.8 651,886.7 560.1,939.2 \t\t\t\t"
+                        id: "gdSVGID_129_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "160.5344",
+                        y1: "463.5082",
+                        x2: "10.2425",
+                        y2: "463.5082",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("polygon", {
-                      staticClass: "st1",
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st143",
+                    attrs: {
+                      d:
+                        "M103.2,515.3c7.6-4.4,13.8-3.2,13.8-3.2l29.8,1.9c0.4,1.2,0.7,2.6,0.6,3.6c-0.1,1.1-1.1,2.5-2,3.6\n                            c-8.4-1.4-19.9-3.3-25-4c-8.4-1.2-15.1,2.9-15.1,2.9L8.8,576.7l-4.2-6.8C4.6,569.8,95.6,519.8,103.2,515.3z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
                       attrs: {
-                        points:
-                          "511.7,880.3 511.3,881.4 559.7,940.3 650.7,887.8 651,886.7 560.1,939.2 \t\t\t\t"
+                        id: "gdSVGID_130_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "155.5246",
+                        y1: "480.398",
+                        x2: "167.7195",
+                        y2: "480.398",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
                       }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("g", [
-              _c("path", {
-                staticClass: "st9",
-                attrs: {
-                  d:
-                    "M576.8,887.5c-0.2-0.1-0.4-0.2-0.6-0.2c-0.3,0-0.7,0-0.9,0.3c-0.1,0.1-0.2,0.1-0.2,0.1\n                        c-0.3,0.1-0.5-0.2-0.8-0.3c-0.2-0.1-0.3-0.2-0.3-0.5c0-0.1,0-0.3,0-0.4c0-0.2-0.1-0.3,0-0.5c0-0.2,0.2-0.5,0.2-0.7\n                        c0.1-0.4,0.2-0.4-0.2-0.6c0,0-0.1-0.1-0.1-0.1c0,0,0,0,0,0c0,0,0.2,0,0.3,0c0,0,0.1,0,0.1,0c0,0,0-0.1-0.1-0.1\n                        c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.1,0-0.2,0.1-0.2c0.2,0,0.5,0.1,0.7,0.2c0,0,0.1,0.1,0.2,0.1c-0.1-0.7,0.1-1.5,0.4-2.2l-0.1,0\n                        c-0.4,0.1-0.9,0.2-1.3,0.5c-1.8,1.1-2.5,3.5-1.4,5.3s3.5,2.5,5.3,1.4c0.4-0.2,0.7-0.5,1-0.8C578.2,888.3,577.4,888,576.8,887.5z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st137",
-                attrs: {
-                  d:
-                    "M596.9,875c-1.4-0.9-3.4-1.1-4.7,0c-0.6,0.5-1,1.3-1.1,2.1c-0.1,0.6-0.1,1.3-0.3,1.9\n                        c-0.1,0.2-0.1,0.3-0.2,0.5c-0.5,0.8-1.6,1.2-2.5,1c1-1.7,2-3.4,3-5.1c-1.1-0.9-2.7-1.1-4-0.5c-0.8,0.4-1.5,1.1-1.9,1.9l-1.6-2.7\n                        l-1.4,0.8l1.6,2.7c-0.8-0.1-1.5,0.1-2.2,0.5c-0.6,0.3-1,0.8-1.3,1.3c0.6,0.1,1.1,0.3,1.6,0.6c0.2-0.2,0.4-0.4,0.6-0.5\n                        c1-0.6,2.4-0.3,3,0.8c0.5,0.8,0.4,1.7-0.1,2.4c0,0,0,0,0,0.1c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0\n                        c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1c0,0,0,0,0,0c-0.2,0.1-0.3,0.1-0.5,0.2\n                        c0,0,0,0,0,0c-0.2,0-0.4,0-0.6,0c0-0.6-0.2-1.2-0.5-1.7c-1.1-1.8-3.5-2.5-5.3-1.4s-2.5,3.5-1.4,5.3s3.5,2.5,5.3,1.4\n                        c0.8-0.5,1.3-1.1,1.6-1.9c0.2,0,0.4,0,0.7,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0,0,0,0,0,0c0.1,0,0.3,0,0.4-0.1c0,0,0,0,0.1,0\n                        c0.1,0,0.1,0,0.2,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1\n                        c0,0,0,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0\n                        c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0c0.1-0.1,0.2-0.2,0.3-0.4c0,0,0,0,0,0\n                        c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0.2-0.4,0.3-0.8,0.4-1.3c1.2,0.4,2.5,0.3,3.6-0.4\n                        c0.7-0.5,1.3-1.3,1.5-2.1c0.2-0.7,0.2-1.4,0.2-2c0-0.9,0.3-1.7,1.2-2c0.8-0.2,1.8,0,2.5,0.4c0.6,0.3,1.1,0.8,1.4,1.4\n                        c0.2,0.4,0.3,0.8,0.3,1.3c0,1.8-0.8,3.2-1.8,4.2c-0.7,0.7-1.6,1.1-2.6,1.6c-2.1,1-4.5,1.3-6.7,1.9c-1.5,0.4-3.1,1.1-4.3,2\n                        c-0.7,0.5-2.1,1.5-1.6,2.5c0.4,0.7,1.2,0.7,1.8,0.2c0.3-0.3,0.6-0.7,0.8-1.1c0.9-1.7,2.9-2.4,4.7-2.9c2.2-0.5,4.5-1,6.5-2.2\n                        c2.4-1.3,4.6-3.8,4.1-6.7C598.7,876.8,597.9,875.7,596.9,875z M580.5,885.7c-1,0.6-2.4,0.3-3-0.8s-0.3-2.4,0.8-3\n                        c1-0.6,2.4-0.3,3,0.8C581.9,883.7,581.5,885.1,580.5,885.7z M587.6,876.4c0.4-0.2,0.7-0.3,1.1-0.3l-1.9,3.2\n                        C586.2,878.3,586.6,877,587.6,876.4z"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("g", [
-              _c("path", {
-                staticClass: "st9",
-                attrs: {
-                  d:
-                    "M529.7,859.3c-0.2-0.1-0.4-0.1-0.7-0.1c-0.3,0-0.6,0.1-0.8,0.4c0,0.1-0.1,0.1-0.2,0.1\n                        c-0.3,0.1-0.5-0.1-0.8-0.2c-0.2,0-0.3-0.2-0.3-0.4c0-0.1-0.1-0.3-0.1-0.4c0-0.2-0.1-0.3-0.1-0.5c0-0.3,0.1-0.5,0.1-0.7\n                        c0.1-0.4,0.2-0.4-0.3-0.6c0,0-0.1-0.1-0.1-0.1c0,0,0,0,0,0c0,0,0.3,0,0.3,0c0,0,0.1,0,0.1,0c0,0,0-0.1-0.1-0.1\n                        c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.1,0-0.2,0.1-0.2c0.2,0,0.5,0.1,0.7,0.1c0,0,0.1,0,0.2,0.1c-0.1-0.7-0.1-1.5,0.1-2.2l-0.1,0\n                        c-0.4,0.1-0.8,0.3-1.2,0.6c-1.7,1.3-2,3.7-0.7,5.4s3.7,2,5.4,0.7c0.4-0.3,0.7-0.6,0.9-1C531.1,859.9,530.4,859.7,529.7,859.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st137",
-                attrs: {
-                  d:
-                    "M548.1,844.4c-1.5-0.7-3.5-0.7-4.6,0.5c-0.6,0.6-0.8,1.4-0.9,2.2c0,0.6,0.1,1.3-0.1,1.9\n                        c0,0.2-0.1,0.3-0.2,0.5c-0.4,0.9-1.4,1.4-2.3,1.3c0.8-1.8,1.6-3.6,2.4-5.4c-1.2-0.8-2.8-0.8-4.1,0c-0.8,0.5-1.4,1.3-1.7,2.1\n                        l-1.9-2.5l-1.3,1l1.9,2.5c-0.8,0-1.5,0.3-2.2,0.8c-0.5,0.4-0.9,0.9-1.2,1.5c0.6,0,1.1,0.2,1.7,0.4c0.1-0.2,0.3-0.4,0.5-0.6\n                        c1-0.7,2.3-0.6,3.1,0.4c0.5,0.7,0.6,1.6,0.2,2.4c0,0,0,0,0,0.1c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0\n                        c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0c0,0-0.1,0.1-0.2,0.1c0,0-0.1,0.1-0.2,0.1c0,0,0,0,0,0c-0.2,0.1-0.3,0.2-0.5,0.2c0,0,0,0,0,0\n                        c-0.2,0.1-0.4,0.1-0.6,0.1c-0.1-0.6-0.3-1.1-0.7-1.6c-1.3-1.7-3.7-2-5.4-0.7c-1.7,1.3-2,3.7-0.7,5.4s3.7,2,5.4,0.7\n                        c0.7-0.5,1.2-1.3,1.4-2.1c0.2,0,0.5,0,0.7,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0,0,0,0,0,0c0.1,0,0.3-0.1,0.4-0.1c0,0,0,0,0.1,0\n                        c0.1,0,0.1,0,0.2-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0.1,0c0,0,0.1,0,0.1-0.1c0,0,0,0,0.1,0c0,0,0.1-0.1,0.1-0.1\n                        c0,0,0,0,0.1,0c0.1,0,0.1-0.1,0.2-0.1c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0\n                        c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0,0,0,0c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0.1-0.1,0.2-0.3,0.3-0.4c0,0,0,0,0,0\n                        c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0-0.1,0.1-0.1,0.1-0.2c0,0,0,0,0,0c0.2-0.4,0.2-0.9,0.3-1.3c1.2,0.3,2.5,0,3.5-0.8\n                        c0.7-0.6,1.1-1.4,1.3-2.3c0.1-0.7,0-1.4-0.1-2c-0.1-0.9,0.1-1.7,1-2.1c0.8-0.3,1.8-0.2,2.5,0.1c0.6,0.3,1.2,0.7,1.5,1.3\n                        c0.2,0.4,0.4,0.8,0.5,1.2c0.3,1.8-0.4,3.2-1.3,4.4c-0.7,0.8-1.5,1.3-2.4,1.9c-1.9,1.3-4.3,1.8-6.4,2.7c-1.5,0.6-2.9,1.5-4,2.5\n                        c-0.7,0.6-1.9,1.7-1.3,2.7c0.5,0.7,1.3,0.5,1.8-0.1c0.3-0.3,0.5-0.8,0.6-1.2c0.7-1.8,2.6-2.8,4.3-3.4c2.1-0.8,4.3-1.6,6.2-2.9\n                        c2.2-1.6,4.1-4.3,3.3-7.1C550.1,846,549.2,845,548.1,844.4z M533.1,857c-1,0.7-2.3,0.6-3.1-0.4s-0.6-2.3,0.4-3.1\n                        c1-0.7,2.3-0.6,3.1,0.4C534.3,854.9,534.1,856.3,533.1,857z M539.1,846.9c0.3-0.2,0.7-0.4,1.1-0.4l-1.5,3.4\n                        C537.9,849,538.1,847.7,539.1,846.9z"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "g",
-            { attrs: { id: "glasses" } },
-            [
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_129_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "160.5344",
-                    y1: "463.5082",
-                    x2: "10.2425",
-                    y2: "463.5082",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st144",
+                    attrs: {
+                      d:
+                        "M155.2,522.9c0,0-4.2-0.7-9.9-1.7c0.9-1.1,1.9-2.5,2-3.6c0.1-1-0.2-2.5-0.6-3.6l8.8,0.6L155.2,522.9z"
+                    }
                   }),
                   _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_131_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "12.763",
+                        y1: "463.5082",
+                        x2: "163.0549",
+                        y2: "463.5082",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st145",
+                    attrs: {
+                      d:
+                        "M41.7,553.3c-7.4,4.8-9.1,10.9-9.1,10.9L21,591.6c0.9,0.9,2,1.8,3,2.2c1,0.4,2.7,0.1,4.1-0.2\n                            c2.5-8.2,6-19.3,7.6-24.1c2.7-8,9.4-12.2,9.4-12.2l93.7-60.9l-4.2-6.8C134.6,489.6,49.1,548.5,41.7,553.3z"
+                    }
                   }),
                   _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_132_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "17.7728",
+                        y1: "480.398",
+                        x2: "5.5779",
+                        y2: "480.398",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#1E2326" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st146",
+                    attrs: {
+                      d:
+                        "M25.2,603.2c0,0,1.3-4.1,2.9-9.6c-1.4,0.3-3.1,0.6-4.1,0.2c-1-0.4-2.1-1.3-3-2.2l-3.4,8.1L25.2,603.2z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_133_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "78.9054",
+                        y1: "464.7877",
+                        x2: "10.2158",
+                        y2: "464.7877",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#23282B" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st147",
+                    attrs: {
+                      d:
+                        "M56.7,537c-1.3,0.1-2.6,0.4-3.9,0.7c-9.1,2.7-17,8-24.9,13.1c-6.6,4.2-13.3,8.4-18.9,13.9\n                            c-1.3,1.2-3.2,2.8-3.9,4.4c-0.5,1.1,0,1.5,0.6,2.6c1,1.6,1.9,3.1,2.9,4.7c0,0,4.9-2.4,9.2,1.8c4.3,4.2,9.3,8.3,14.7,11\n                            c6.3,3.1,13.5,0.3,19.4-2.7c5-2.6,9.9-5.7,13.6-10c7.7-8.8,7.7-20.3,4.6-31c0,0-4.1-6.7-4.1-6.7c-0.4-0.7-1.7-1-2.4-1.2\n                            C61.5,537,59,536.8,56.7,537z M66.7,571.1c-3.3,6.2-9.2,10.7-15.5,13.8c-6.2,3-13.1,4.6-19.3,0.8c-3.7-2.3-7.1-5.4-9.6-8.9\n                            c-2.2-3-4.5-6.9-3.8-10.7c0.4-2.3,1.9-4.2,3.4-5.8c2.9-3.1,6.4-5.5,10-7.8c5-3.2,10.2-6.1,15.7-8.3c4.2-1.7,10.6-3.7,14.7-0.8\n                            c7.9,5.5,8.6,19.1,4.8,27.1C67,570.6,66.8,570.8,66.7,571.1z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_134_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "1315.4594",
+                        y1: "464.7877",
+                        x2: "1246.7697",
+                        y2: "464.7877",
+                        gradientTransform:
+                          "matrix(-0.851 0.5252 0.5252 0.851 960.7245 -545.8555)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#23282B" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st148",
+                    attrs: {
+                      d:
+                        "M79.3,527.9c-0.2,0.7-0.5,2,0,2.7c0,0,4.1,6.7,4.1,6.7c8.2,7.5,18.5,12.7,29.8,9.8c5.5-1.4,10.5-4.3,15-7.7\n                            c5.3-3.9,11.1-9.1,11.1-16.1c0-6.1-1.5-12.3-3.3-18.1c-1.8-5.7,2.5-9,2.5-9c-1-1.6-1.9-3.1-2.9-4.7c-0.7-1.1-0.8-1.7-2-1.7\n                            c-1.8,0-4,1-5.7,1.5c-7.4,2.5-14.2,6.7-20.9,10.7c-8,4.8-16.4,9.5-22.8,16.4c-0.9,0.9-1.7,2-2.4,3.1\n                            C80.7,523.4,79.8,525.7,79.3,527.9z M107.1,545.6c-8.9-0.1-20.7-6.9-22.1-16.4c-0.7-5,4-9.8,7.4-12.8c4.4-4,9.3-7.3,14.4-10.3\n                            c3.6-2.2,7.4-4.2,11.5-5.4c2.2-0.7,4.6-1.1,6.8-0.4c3.8,1.1,6.2,5,7.9,8.2c2,3.8,3.3,8.3,3.7,12.6c0.6,7.2-3.8,12.7-9.3,16.9\n                            c-5.6,4.3-12.3,7.6-19.3,7.7C107.7,545.6,107.4,545.6,107.1,545.6z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_135_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "96.8175",
+                        y1: "455.3345",
+                        x2: "76.4799",
+                        y2: "455.3345",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#33373A" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#2C3134" },
+                        attrs: { offset: "0.32" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#23282B" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st149",
+                    attrs: {
+                      d:
+                        "M70.2,545.4c0,0-1.5-2.8,4.9-6.8c6.4-4,8.3-1.4,8.3-1.4l-3.7-10.6c0,0,0.2,2.5-7.4,7.2s-9.9,3.5-9.9,3.5\n                            L70.2,545.4z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_136_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "74.3632",
+                        y1: "465.571",
+                        x2: "21.4558",
+                        y2: "465.571",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#4F5356" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#A3A5A6" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st150",
+                    attrs: {
+                      d:
+                        "M47.4,544c-5.5,2.2-10.7,5.1-15.7,8.3c-3.6,2.3-7.1,4.8-10,7.8c-1.6,1.7-3,3.6-3.4,5.8\n                            c-0.7,3.8,1.7,7.7,3.8,10.7c2.5,3.5,5.9,6.6,9.6,8.9c6.2,3.8,13.1,2.3,19.3-0.8c6.3-3.1,12.3-7.6,15.5-13.8\n                            c0.1-0.2,0.3-0.5,0.4-0.7c3.9-8,3.2-21.6-4.8-27.1C58,540.3,51.6,542.4,47.4,544z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "linearGradient",
+                    {
+                      attrs: {
+                        id: "gdSVGID_137_",
+                        gradientUnits: "userSpaceOnUse",
+                        x1: "151.6608",
+                        y1: "465.571",
+                        x2: "98.7534",
+                        y2: "465.571",
+                        gradientTransform:
+                          "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
+                      }
+                    },
+                    [
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#4F5356" },
+                        attrs: { offset: "0" }
+                      }),
+                      _vm._v(" "),
+                      _c("stop", {
+                        staticStyle: { "stop-color": "#A3A5A6" },
+                        attrs: { offset: "1" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "st151",
+                    attrs: {
+                      d:
+                        "M118.1,500.6c-4.1,1.2-7.8,3.3-11.5,5.4c-5.1,3-10,6.3-14.4,10.3c-3.4,3-8.1,7.8-7.4,12.8\n                            c1.4,9.6,13.2,16.3,22.1,16.4c0.3,0,0.6,0,0.8,0c7-0.1,13.7-3.4,19.3-7.7c5.5-4.2,10-9.6,9.3-16.9c-0.4-4.3-1.6-8.8-3.7-12.6\n                            c-1.7-3.3-4.1-7.1-7.9-8.2C122.7,499.6,120.3,500,118.1,500.6z"
+                    }
                   })
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st143",
-                attrs: {
-                  d:
-                    "M103.2,515.3c7.6-4.4,13.8-3.2,13.8-3.2l29.8,1.9c0.4,1.2,0.7,2.6,0.6,3.6c-0.1,1.1-1.1,2.5-2,3.6\n                    c-8.4-1.4-19.9-3.3-25-4c-8.4-1.2-15.1,2.9-15.1,2.9L8.8,576.7l-4.2-6.8C4.6,569.8,95.6,519.8,103.2,515.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_130_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "155.5246",
-                    y1: "480.398",
-                    x2: "167.7195",
-                    y2: "480.398",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st144",
-                attrs: {
-                  d:
-                    "M155.2,522.9c0,0-4.2-0.7-9.9-1.7c0.9-1.1,1.9-2.5,2-3.6c0.1-1-0.2-2.5-0.6-3.6l8.8,0.6L155.2,522.9z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_131_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "12.763",
-                    y1: "463.5082",
-                    x2: "163.0549",
-                    y2: "463.5082",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st145",
-                attrs: {
-                  d:
-                    "M41.7,553.3c-7.4,4.8-9.1,10.9-9.1,10.9L21,591.6c0.9,0.9,2,1.8,3,2.2c1,0.4,2.7,0.1,4.1-0.2\n                    c2.5-8.2,6-19.3,7.6-24.1c2.7-8,9.4-12.2,9.4-12.2l93.7-60.9l-4.2-6.8C134.6,489.6,49.1,548.5,41.7,553.3z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_132_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "17.7728",
-                    y1: "480.398",
-                    x2: "5.5779",
-                    y2: "480.398",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#1E2326" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st146",
-                attrs: {
-                  d:
-                    "M25.2,603.2c0,0,1.3-4.1,2.9-9.6c-1.4,0.3-3.1,0.6-4.1,0.2c-1-0.4-2.1-1.3-3-2.2l-3.4,8.1L25.2,603.2z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_133_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "78.9054",
-                    y1: "464.7877",
-                    x2: "10.2158",
-                    y2: "464.7877",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#23282B" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st147",
-                attrs: {
-                  d:
-                    "M56.7,537c-1.3,0.1-2.6,0.4-3.9,0.7c-9.1,2.7-17,8-24.9,13.1c-6.6,4.2-13.3,8.4-18.9,13.9\n                    c-1.3,1.2-3.2,2.8-3.9,4.4c-0.5,1.1,0,1.5,0.6,2.6c1,1.6,1.9,3.1,2.9,4.7c0,0,4.9-2.4,9.2,1.8c4.3,4.2,9.3,8.3,14.7,11\n                    c6.3,3.1,13.5,0.3,19.4-2.7c5-2.6,9.9-5.7,13.6-10c7.7-8.8,7.7-20.3,4.6-31c0,0-4.1-6.7-4.1-6.7c-0.4-0.7-1.7-1-2.4-1.2\n                    C61.5,537,59,536.8,56.7,537z M66.7,571.1c-3.3,6.2-9.2,10.7-15.5,13.8c-6.2,3-13.1,4.6-19.3,0.8c-3.7-2.3-7.1-5.4-9.6-8.9\n                    c-2.2-3-4.5-6.9-3.8-10.7c0.4-2.3,1.9-4.2,3.4-5.8c2.9-3.1,6.4-5.5,10-7.8c5-3.2,10.2-6.1,15.7-8.3c4.2-1.7,10.6-3.7,14.7-0.8\n                    c7.9,5.5,8.6,19.1,4.8,27.1C67,570.6,66.8,570.8,66.7,571.1z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_134_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "1315.4594",
-                    y1: "464.7877",
-                    x2: "1246.7697",
-                    y2: "464.7877",
-                    gradientTransform:
-                      "matrix(-0.851 0.5252 0.5252 0.851 960.7245 -545.8555)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#23282B" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st148",
-                attrs: {
-                  d:
-                    "M79.3,527.9c-0.2,0.7-0.5,2,0,2.7c0,0,4.1,6.7,4.1,6.7c8.2,7.5,18.5,12.7,29.8,9.8c5.5-1.4,10.5-4.3,15-7.7\n                    c5.3-3.9,11.1-9.1,11.1-16.1c0-6.1-1.5-12.3-3.3-18.1c-1.8-5.7,2.5-9,2.5-9c-1-1.6-1.9-3.1-2.9-4.7c-0.7-1.1-0.8-1.7-2-1.7\n                    c-1.8,0-4,1-5.7,1.5c-7.4,2.5-14.2,6.7-20.9,10.7c-8,4.8-16.4,9.5-22.8,16.4c-0.9,0.9-1.7,2-2.4,3.1\n                    C80.7,523.4,79.8,525.7,79.3,527.9z M107.1,545.6c-8.9-0.1-20.7-6.9-22.1-16.4c-0.7-5,4-9.8,7.4-12.8c4.4-4,9.3-7.3,14.4-10.3\n                    c3.6-2.2,7.4-4.2,11.5-5.4c2.2-0.7,4.6-1.1,6.8-0.4c3.8,1.1,6.2,5,7.9,8.2c2,3.8,3.3,8.3,3.7,12.6c0.6,7.2-3.8,12.7-9.3,16.9\n                    c-5.6,4.3-12.3,7.6-19.3,7.7C107.7,545.6,107.4,545.6,107.1,545.6z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_135_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "96.8175",
-                    y1: "455.3345",
-                    x2: "76.4799",
-                    y2: "455.3345",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#33373A" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#2C3134" },
-                    attrs: { offset: "0.32" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#23282B" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st149",
-                attrs: {
-                  d:
-                    "M70.2,545.4c0,0-1.5-2.8,4.9-6.8c6.4-4,8.3-1.4,8.3-1.4l-3.7-10.6c0,0,0.2,2.5-7.4,7.2s-9.9,3.5-9.9,3.5\n                    L70.2,545.4z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_136_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "74.3632",
-                    y1: "465.571",
-                    x2: "21.4558",
-                    y2: "465.571",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#4F5356" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#A3A5A6" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st150",
-                attrs: {
-                  d:
-                    "M47.4,544c-5.5,2.2-10.7,5.1-15.7,8.3c-3.6,2.3-7.1,4.8-10,7.8c-1.6,1.7-3,3.6-3.4,5.8\n                    c-0.7,3.8,1.7,7.7,3.8,10.7c2.5,3.5,5.9,6.6,9.6,8.9c6.2,3.8,13.1,2.3,19.3-0.8c6.3-3.1,12.3-7.6,15.5-13.8\n                    c0.1-0.2,0.3-0.5,0.4-0.7c3.9-8,3.2-21.6-4.8-27.1C58,540.3,51.6,542.4,47.4,544z"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "linearGradient",
-                {
-                  attrs: {
-                    id: "gdSVGID_137_",
-                    gradientUnits: "userSpaceOnUse",
-                    x1: "151.6608",
-                    y1: "465.571",
-                    x2: "98.7534",
-                    y2: "465.571",
-                    gradientTransform:
-                      "matrix(0.851 -0.5252 0.5252 0.851 -239.0005 194.6554)"
-                  }
-                },
-                [
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#4F5356" },
-                    attrs: { offset: "0" }
-                  }),
-                  _vm._v(" "),
-                  _c("stop", {
-                    staticStyle: { "stop-color": "#A3A5A6" },
-                    attrs: { offset: "1" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("path", {
-                staticClass: "st151",
-                attrs: {
-                  d:
-                    "M118.1,500.6c-4.1,1.2-7.8,3.3-11.5,5.4c-5.1,3-10,6.3-14.4,10.3c-3.4,3-8.1,7.8-7.4,12.8\n                    c1.4,9.6,13.2,16.3,22.1,16.4c0.3,0,0.6,0,0.8,0c7-0.1,13.7-3.4,19.3-7.7c5.5-4.2,10-9.6,9.3-16.9c-0.4-4.3-1.6-8.8-3.7-12.6\n                    c-1.7-3.3-4.1-7.1-7.9-8.2C122.7,499.6,120.3,500,118.1,500.6z"
-                }
-              })
-            ],
-            1
+              )
+            ]
           )
-        ]
-      )
+        ])
+      ])
     ])
   ])
 }
@@ -59413,7 +60508,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
+    return _c("div", { staticClass: "col-3 content" }, [
       _c("div", { staticClass: "heading-light" }, [_vm._v("GRAPHICS")]),
       _vm._v(" "),
       _c("div", { staticClass: "heading-bold" }, [_vm._v("Designing")]),
@@ -59426,7 +60521,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("a", { staticClass: "button", attrs: { href: "#" } }, [
         _c("div", { staticClass: "button-background" }),
-        _c("div", { staticClass: "button-link" }, [_vm._v("SEE MORE")])
+        _c("div", { staticClass: "button-text" }, [_vm._v("SEE MORE")])
       ])
     ])
   }
@@ -59441,1217 +60536,10 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-$(function () {
-
-    var offset = $('.scroll').offset().top;
-    $(window).scroll(function () {
-        $(".scroll").css({
-            'opacity': 1 - $(window).scrollTop() * 3 / $(window).height()
-        });
-        if ($(window).scrollTop() > offset - 400) {} else {
-
-            //$(".scroll").fadeIn();
-        }
-        if ($(window).scrollTop() < offset + 400) {}
-    });
-});
 
 /***/ })
 /******/ ]);

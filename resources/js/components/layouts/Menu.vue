@@ -106,12 +106,12 @@
                 svg{
                     .st0{fill:$primary;}
                     .st1{fill:$white;}
-                    width: 7em;
+                    width: 5rem;
                 }
             }
             .contact-button{
                 background-color: $primary;
-                padding:1rem 0rem 1rem 1rem;
+                padding:1rem 2.5rem 1rem 1rem;
                 width:2.5em;
                 position: absolute;
                 top:50%;
@@ -153,12 +153,11 @@
             height: 100vh;
             top:0;
             right:0;
-            margin-right: 0.5rem;
             .social-links{
                 position:absolute;
                 top:0;
                 right:0;
-                margin: 1rem 1rem 0 0;
+                margin: 1rem 1.5vw 0 0;
             .social-button{
                     display:flex;
                     flex-direction: column;
@@ -180,9 +179,10 @@
                 right:0;
                 top:50%;
                 transform:translateY(-50%);
-                margin-right:1rem;
+                margin-right: 1.3vw;
                 z-index:99999;
                 svg{
+                    padding-left: 0.05vw;
                     .st0{
                         fill:#00E0E9;
                         transition: width 0.2s ease-in-out, x 0.2s ease-in-out,y 0.2s ease-in-out,transform 0.2s ease-in-out;
