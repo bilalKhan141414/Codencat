@@ -6,5 +6,7 @@
     <main-header></main-header>
     <cover></cover>
     <graphic-designing></graphic-designing>
+    <development></development>
+    <clients></clients>
 </div>
 @stop
