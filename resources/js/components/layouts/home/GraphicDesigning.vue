@@ -3,7 +3,7 @@
         <div class="row graphic-designing">
             <div class="col-3 content">
                 <div class="heading-light">GRAPHICS</div>
-                <div class="heading-bold">Designing</div>
+                <div class="heading-bold">DESIGNING</div>
                 <div class="para">We put our heads together to set out your goals and roll up our sleeves to reach them. Quality, taste, insight and method are values that will be reflected in our works.</div>
                 <a href="#" class="button">
                     <div class="button-background"></div><div class="button-text">SEE MORE</div>
@@ -1531,6 +1531,8 @@
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
+        padding-left: 4rem;
+
         .heading-light{
             text-align: left;
             margin-bottom: -20px;

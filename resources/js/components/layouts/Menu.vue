@@ -247,10 +247,10 @@
                     &:last-child{
                         position: relative;
                         width: 100%;
-                        height:58%;
+                        height:43vh;
                         p{
                             position: absolute;
-                            bottom:43px;
+                            bottom:0px;
                         }
                     }
                     p{
