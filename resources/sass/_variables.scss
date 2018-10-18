@@ -5,7 +5,7 @@
 }
 
 // Colors
-$white: #FBFBFB;
+$white: #ebebeb;
 $black: #1E2326;
 $blue: #00E0E9;
 $brown: #CB8E55;
@@ -15,12 +15,13 @@ $primary: $blue;
 $secondary: $brown;
 
 // Font Size
-$font-size-small:10px !important;
-$font-size-regular:16px;
-$font-size-large:20px;
+$font-size-small:0.8rem;
+$font-size-regular:0.9rem;
+$font-size-large:4rem;
 
 // Font weight
-$font-weight-light:300;
-$font-weight-medium:400;
+$font-weight-x-light:300;
+$font-weight-light:400;
+$font-weight-medium:500;
 $font-weight-regular:600;
 $font-weight-bold:700;

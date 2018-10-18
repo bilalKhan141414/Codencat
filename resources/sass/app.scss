@@ -2,48 +2,100 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap-4-grid/scss/grid';
 
 *{
+    margin: 0px;
     ::before,
     ::after{
-            margin: 0px;
-
+        margin: 0px;
     }
 }
+
+
+
+// hide scrollbar
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+
+// change selection colors
+::-moz-selection { /* Code for Firefox */
+    color: $white;
+    background: $secondary;
+}
+
+::selection {
+    color: $white;
+    background: $secondary;
+}
+
+
 body{
     background: $black;
-    position: relative;
+
     font-family: Sofia Pro !important;
 }
 
+//verticle background lines
 .verticle-lines{
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     top:0;
     width:100%;
     height:100%;
+    z-index: -1;
+    .verticle-line{
+        border-left: 1px solid white;
+        height: 100vh;
+        opacity: 0.1;
+        flex:2;
+    }
+    .verticle-line:nth-child(1),.verticle-line:nth-child(6){
+        flex: 0.5;
+    }
 }
-.verticle-line{
-    border-left: 1px solid white;
-    height: 100vh;
-    opacity: 0.1;
-    position: sticky;
-    top: 0;
+
+
+
+.theme-container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
-.light{
-    font-size: 1rem;
+//fonts size
+.heading-light{
+    font-size: $font-size-small;
     color: $primary;
-    font-weight:$font-weight-medium;
-    text-align: center;
-    margin-top: -15px;
-    letter-spacing: 3px;
+    font-weight:$font-weight-x-light;
+    letter-spacing: 4px;
 }
-.bold{
-    font-size: 4rem;
+.heading-bold{
+    font-size: $font-size-large;
     color: $white;
-    opacity: 0.1;
     font-weight:$font-weight-bold;
-    text-align: center;
+}
+.para{
+    font-size: $font-size-regular;
+    color: $white;
+    font-weight:$font-weight-x-light;
+    line-height: 1.3rem;
+}
+
+//button font
+.button-link, .button-text{
+    font-size: $font-size-small;
+    color: $white;
+    font-weight:$font-weight-bold;
+    letter-spacing: 4px;
 }
