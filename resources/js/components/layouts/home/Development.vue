@@ -1,5 +1,5 @@
 <template>
-    <div class="home-container">
+    <div class="theme-container">
         <div class="row development">
             <div class="col-9">
                 <div class="svg-cover">
@@ -355,12 +355,6 @@
 @import '../../../../sass/app.scss';
 
 
-.home-container{
-    width: 88%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 .development{
     height: 100vh;
     overflow: hidden;
@@ -370,7 +364,7 @@
         align-items: flex-end;
         justify-content: center;
         flex-direction: column;
-        padding-right: 4rem;
+        padding-right: 2rem;
 
         .heading-light{
             text-align: right;

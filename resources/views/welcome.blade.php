@@ -8,5 +8,6 @@
     <graphic-designing></graphic-designing>
     <development></development>
     <clients></clients>
+    <main-footer></main-footer>
 </div>
 @stop

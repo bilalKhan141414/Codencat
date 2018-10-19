@@ -4228,6 +4228,12 @@ html {
   background: #CB8E55;
 }
 
+.theme-container {
+  width: 88.8%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 body {
   background: #1E2326;
   font-family: Sofia Pro !important;
@@ -4261,14 +4267,6 @@ body {
   -webkit-box-flex: 0.5;
       -ms-flex: 0.5;
           flex: 0.5;
-}
-
-.theme-container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .heading-light {

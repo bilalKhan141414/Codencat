@@ -1,5 +1,5 @@
 <template>
-    <div class="home-container">
+    <div class="theme-container">
         <div class="our-clients">
             <div class="content">
                 <div class="heading-light">OUR</div>
@@ -717,110 +717,104 @@
 @import '../../../../sass/app.scss';
 
 
-.home-container{
-    width: 88%;
-    margin-right: auto;
-    margin-left: auto;
+.our-clients{
+    height: 100vh;
+    overflow: hidden;
 
-    .our-clients{
-        height: 100vh;
-        overflow: hidden;
+    .content{
+        padding-top: 5rem;
+        padding-left: 1rem;
 
-        .content{
-            padding-top: 5rem;
-            padding-left: 4rem;
-
-            .heading-light{
-                text-align: left;
-                margin-bottom: -20px;
-                padding: 0 0 0 5px;
-            }
-            .heading-bold{
-                text-align: left;
-            }
+        .heading-light{
+            text-align: left;
+            margin-bottom: -20px;
+            padding: 0 0 0 5px;
         }
-        .clients{
-            margin: 0 10.5vw;
-            align-items:center;
-            .client{
-                text-align: center;
-                padding: 2rem 0;
-                svg{
-                    width: 30%;
-                }
-            }
-            .client1{
-                svg{
-                    width: 35%;
-                    .st0{fill:#EBEBEB;}
-                    .st1{fill:#828384;}
-                }
-            }
-            .client2{
-                svg{
-
-                    .st0{fill:#EBEBEB;}
-                }
-            }
-            .client3{
-                svg{
-
-                    .st0{fill:#EBEBEB;}
-                    .st1{fill:#828384;}
-                    .st2{opacity:0.78;}
-                    .st3{opacity:0.4;fill:#828384;enable-background:new    ;}
-                }
-            }
-            .client4{
-                svg{
-                    width: 40%;
-                    .st0{fill:#EBEBEB;}
-                    .st1{fill:none;stroke:#828384;stroke-miterlimit:10;}
-                    .st2{fill:#828384;}
-                }
-            }
-            .client5{
-                svg{
-                    width: 40%;
-                    .st0{fill:#EBEBEB;}
-                }
-            }
-            .client6{
-                svg{
-                    width: 50%;
-                    .st0{fill:#EBEBEB;}
-                    .st1{fill:#828384;}
-                    .st2{clip-path:url(#SVGID_2_);}
-                }
-            }
-            .client7{
-                svg{
-
-                    .st0{fill:#828384;}
-                    .st1{fill:#EBEBEB;}
-                }
-            }
-            .client8{
-                svg{
-
-                    .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#828384;}
-                    .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#EBEBEB;}
-                    .st2{fill:#EBEBEB;}
-                    .st3{font-family:'Calibri';}
-                    .st4{font-size:44.93px;}
-                    .st5{font-size:44.64px;}
-                }
-            }
-            .client9{
-                svg{
-
-                    .st0{fill:#EBEBEB;}
-                    .st1{fill:#828384;}
-                }
-            }
-
+        .heading-bold{
+            text-align: left;
         }
     }
+    .clients{
+        margin: 0 10.5vw;
+        align-items:center;
+        .client{
+            text-align: center;
+            padding: 2rem 0;
+            svg{
+                width: 30%;
+            }
+        }
+        .client1{
+            svg{
+                width: 35%;
+                .st0{fill:#EBEBEB;}
+                .st1{fill:#828384;}
+            }
+        }
+        .client2{
+            svg{
 
+                .st0{fill:#EBEBEB;}
+            }
+        }
+        .client3{
+            svg{
+
+                .st0{fill:#EBEBEB;}
+                .st1{fill:#828384;}
+                .st2{opacity:0.78;}
+                .st3{opacity:0.4;fill:#828384;enable-background:new    ;}
+            }
+        }
+        .client4{
+            svg{
+                width: 40%;
+                .st0{fill:#EBEBEB;}
+                .st1{fill:none;stroke:#828384;stroke-miterlimit:10;}
+                .st2{fill:#828384;}
+            }
+        }
+        .client5{
+            svg{
+                width: 40%;
+                .st0{fill:#EBEBEB;}
+            }
+        }
+        .client6{
+            svg{
+                width: 50%;
+                .st0{fill:#EBEBEB;}
+                .st1{fill:#828384;}
+                .st2{clip-path:url(#SVGID_2_);}
+            }
+        }
+        .client7{
+            svg{
+
+                .st0{fill:#828384;}
+                .st1{fill:#EBEBEB;}
+            }
+        }
+        .client8{
+            svg{
+
+                .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#828384;}
+                .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#EBEBEB;}
+                .st2{fill:#EBEBEB;}
+                .st3{font-family:'Calibri';}
+                .st4{font-size:44.93px;}
+                .st5{font-size:44.64px;}
+            }
+        }
+        .client9{
+            svg{
+
+                .st0{fill:#EBEBEB;}
+                .st1{fill:#828384;}
+            }
+        }
+
+    }
 }
+
 </style>
