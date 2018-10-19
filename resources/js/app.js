@@ -19,6 +19,7 @@ Vue.component('cover', require('./components/layouts/home/HomeCover.vue'));
 Vue.component('graphic-designing', require('./components/layouts/home/GraphicDesigning.vue'));
 Vue.component('development', require('./components/layouts/home/Development.vue'));
 Vue.component('clients', require('./components/layouts/home/Clients.vue'));
+Vue.component('main-footer', require('./components/layouts/Footer.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -1,5 +1,5 @@
 <template>
-    <div class="home-container">
+    <div class="theme-container">
         <div class="row graphic-designing">
             <div class="col-3 content">
                 <div class="heading-light">GRAPHICS</div>
@@ -1516,11 +1516,7 @@
 @import '../../../../sass/app.scss';
 
 
-.home-container{
-    width: 88%;
-    margin-right: auto;
-    margin-left: auto;
-}
+
 
 .graphic-designing{
     height: 100vh;
@@ -1531,7 +1527,7 @@
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
-        padding-left: 4rem;
+        padding-left: 2rem;
 
         .heading-light{
             text-align: left;
