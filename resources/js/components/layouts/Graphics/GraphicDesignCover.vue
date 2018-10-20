@@ -985,6 +985,7 @@
            left:0;
            bottom:10%;
            width: 23%;
+           filter: drop-shadow(-8px -5px 5px $black-shadow);
            svg{
                 .st0{fill:url(#bSVGID_1_);}
                 .st1{fill:url(#bSVGID_2_);}
@@ -1008,6 +1009,7 @@
             left:50%;
             transform: translateX(-50%);
             width: 70%;
+            filter: drop-shadow(-8px -5px 5px $black-shadow);
            svg{
 
                 .st0{fill:#393D40;}
@@ -1024,6 +1026,7 @@
             left:50%;
             transform: translate(-37% , 33%);
             width: 50%;
+            filter: drop-shadow(-8px -5px 5px $black-shadow);
             svg{
                 .st0{fill:url(#tSVGID_1_);}
                 .st1{fill:url(#tSVGID_2_);}
@@ -1041,6 +1044,7 @@
             top: 50%;
             transform: translateY(-50%);
             width: 10%;
+            filter: drop-shadow(-8px -5px 5px $black-shadow);
             svg{
                 .st0{fill:#2C3438;}
                 .st1{fill:url(#pSVGID_1_);}
