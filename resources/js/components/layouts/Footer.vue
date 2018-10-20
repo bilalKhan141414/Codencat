@@ -1,5 +1,5 @@
 <template>
-    <div class="theme-container">
+    <div class="theme-container scroll-able">
         <div class="footer">
             <div class="row heading-bold">CODE<span>N</span>CAT</div>
             <div class="row">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-3 contact">
                     <div class="this-is-us">
-                        <div class="footer-heading">TELL US YOUR IDEA</div>
+                        <div class="footer-heading">SHARE YOUR IDEA</div>
                         <div class="footer-para">There are a lot of companies that do what we do. They share the same what and how, but our clients work with us for our why and our who. We're IndiaNIC, and you're in the right place.</div>
                     </div>
                     <div class="footer-bottom">
@@ -84,7 +84,7 @@
         height:87vh;
         &:hover{
             .background{
-                transform: translate(-15px, 5rem) skewY(20deg);
+                transform: translate(-15px, 0rem) skewY(0deg);
             }
         }
     }
@@ -100,6 +100,11 @@
         color: $white;
         font-weight:$font-weight-x-light;
         line-height: 1.5rem;
+    }
+    .links{
+        .footer-para{
+            font-weight: $font-weight-regular;
+        }
     }
     .footer-bottom{
         position: absolute;
@@ -126,11 +131,11 @@
         z-index: -1;
         bottom:0;
         width: 100%;
-        height: 150%;
-        transform: translate(-15px, 60rem) skewY(20deg);
+        height: 120%;
+        transform: translate(-15px, 60rem) skewY(50deg);
         background: $white;
         opacity: 0.1;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 1s ease-in-out;
     }
 
 }

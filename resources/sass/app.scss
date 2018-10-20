@@ -46,8 +46,9 @@ html {
 
 body{
     background: $black;
-
     font-family: Sofia Pro !important;
+
+
 }
 
 //verticle background lines
@@ -90,7 +91,13 @@ body{
     font-weight:$font-weight-x-light;
     line-height: 1.3rem;
 }
+.quote-para{
 
+    font-size: 1.3rem;
+    color: $white;
+    font-weight:$font-weight-medium;
+    line-height: 1.5rem;
+}
 //button font
 .button-link, .button-text{
     font-size: $font-size-small;

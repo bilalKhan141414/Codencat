@@ -1,5 +1,5 @@
 <template>
-    <div class="theme-container">
+    <div class="theme-container scroll-able">
         <div class="our-clients">
             <div class="content">
                 <div class="heading-light">OUR</div>
@@ -721,6 +721,7 @@
     height: 100vh;
     overflow: hidden;
 
+
     .content{
         padding-top: 5rem;
         padding-left: 1rem;
@@ -735,18 +736,18 @@
         }
     }
     .clients{
-        margin: 0 10.5vw;
+        margin: 0 11vw;
         align-items:center;
         .client{
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.8rem 0;
             svg{
-                width: 30%;
+                width: 20%;
             }
         }
         .client1{
             svg{
-                width: 35%;
+                width: 25%;
                 .st0{fill:#EBEBEB;}
                 .st1{fill:#828384;}
             }
@@ -768,7 +769,7 @@
         }
         .client4{
             svg{
-                width: 40%;
+                width: 30%;
                 .st0{fill:#EBEBEB;}
                 .st1{fill:none;stroke:#828384;stroke-miterlimit:10;}
                 .st2{fill:#828384;}
@@ -776,13 +777,13 @@
         }
         .client5{
             svg{
-                width: 40%;
+                width: 30%;
                 .st0{fill:#EBEBEB;}
             }
         }
         .client6{
             svg{
-                width: 50%;
+                width: 40%;
                 .st0{fill:#EBEBEB;}
                 .st1{fill:#828384;}
                 .st2{clip-path:url(#SVGID_2_);}

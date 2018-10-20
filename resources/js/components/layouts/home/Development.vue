@@ -1,5 +1,5 @@
 <template>
-    <div class="theme-container">
+    <div class="theme-container scroll-able">
         <div class="row development">
             <div class="col-9">
                 <div class="svg-cover">
@@ -358,6 +358,7 @@
 .development{
     height: 100vh;
     overflow: hidden;
+
 
     .content{
         display:flex;

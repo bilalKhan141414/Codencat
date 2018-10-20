@@ -4289,6 +4289,13 @@ body {
   line-height: 1.3rem;
 }
 
+.quote-para {
+  font-size: 1.3rem;
+  color: #ebebeb;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
 .button-link,
 .button-text {
   font-size: 0.8rem;
