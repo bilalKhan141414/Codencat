@@ -5,6 +5,7 @@
 
     <main-header></main-header>
     <graphic-design-cover></graphic-design-cover>
+    <business-card-mockup></business-card-mockup>
     <branding></branding>
     <logo></logo>
     <name></name>
@@ -12,5 +13,8 @@
     <websites></websites>
     <design></design>
     <e-commerce></e-commerce>
+    <tools></tools>
+    <services></services>
+    <main-footer></main-footer>
 </div>
 @stop

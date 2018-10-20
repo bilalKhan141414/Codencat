@@ -1,5 +1,5 @@
 <template>
-<div class="graphic-design-cover">
+<div class="graphic-design-cover scroll-able">
     <div class="illustration">
         <div class="left">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -172,8 +172,8 @@
                         </g>
                     </svg>
                 </div>
-                <div class="left-quote quote-para">DESIGN IS A WAY TO SAY WHO YOU ARE</div>
-                <div class="right-quote quote-para">WITHOUT HAVING TO SPEAK</div>
+                <div class="left-quote quote-para">DIGITAL DESIGN IS LIKE PAINTING</div>
+                <div class="right-quote quote-para">EXCEPT THE PAINT NEVER DRIES</div>
                 <div class="right-kamaz">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 62 50.4" style="enable-background:new 0 0 62 50.4;" xml:space="preserve">
@@ -271,11 +271,11 @@
                 .left-kamas{
                     align-self: flex-start;
                     padding-top:3rem;
-                    opacity: 0.1;
+                    filter: drop-shadow(0px 0px 10px $black-shadow);
                     svg{
                         width: 4rem;
                         .st0{enable-background:new    ;}
-                        .st1{fill:#EBEBEB;}
+                        .st1{fill:$black;}
                     }
                 }
                 .left-quote{
@@ -287,7 +287,7 @@
                 .right-quote{
                     margin: 6rem 0.5rem 2rem 0.5rem;
                     text-align: left;
-                    width: 6rem;
+                    width: 8rem;
                     align-self: flex-end;
                     color: $secondary;
                 }
@@ -295,11 +295,11 @@
                     align-self: flex-end;
                     margin-top: -1rem;
                     padding-top: 12rem;
-                    opacity: 0.1;
+                    filter: drop-shadow(0px 0px 10px $black-shadow);
                     svg{
                         width: 4rem;
                         .st0{enable-background:new    ;}
-                        .st1{fill:#EBEBEB;}
+                        .st1{fill:$black;}
                     }
                 }
             }

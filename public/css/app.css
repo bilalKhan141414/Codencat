@@ -4291,7 +4291,8 @@ body {
   line-height: 1.3rem;
 }
 
-.quote-para {
+.quote-para,
+.tool-name {
   font-size: 1.3rem;
   color: #ebebeb;
   font-weight: 500;

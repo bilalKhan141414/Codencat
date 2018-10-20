@@ -10,7 +10,7 @@
                     </div>
                     <div class="footer-bottom">
                         <div class="heading-bold">ABOUT</div>
-                        <div class="para">Creative content studio based in jersey City, Pakistan</div>
+                        <div class="para">Creative content studio based in Islamabad City, Pakistan</div>
                     </div>
                     <div class="background"></div>
                 </div>
@@ -21,7 +21,8 @@
                     </div>
                     <div class="footer-bottom">
                         <div class="heading-bold">CONTACT</div>
-                        <div class="para">Creative content studio based in jersey City, Pakistan</div>
+                        <div class="para">+92 337 6117677</div>
+                        <div class="para">codencat@gmail.com</div>
                     </div>
                     <div class="background"></div>
                 </div>
@@ -38,7 +39,8 @@
                             <i class="fab fa-pinterest-p"></i>
                             <i class="fab fa-behance"></i>
                         </div>
-                        <div class="para">Creative content studio based in jersey City, Pakistan</div>
+                        <div class="para">(C) Codencat 2019</div>
+                        <div class="para">All Rights Reserved</div>
                     </div>
                     <div class="background"></div>
                 </div>
@@ -53,7 +55,7 @@
                     </div>
                     <div class="footer-bottom">
                         <div class="heading-bold" style="visibility: hidden;">LINKS</div>
-                        <div class="para">Creative content studio based in jersey City, Pakistan</div>
+                        <div class="para">Made with <i class="fas fa-heart"></i></div>
                     </div>
                 </div>
             </div>
@@ -75,16 +77,19 @@
     }
     .heading-bold{
         justify-content: center;
+        font-size: 3rem;
+        padding-top:2rem;
         span{
             color: $primary;
         }
     }
     .about , .contact, .portfolio, .links{
         position: relative;
-        height:87vh;
+        height:85vh;
         &:hover{
             .background{
                 transform: translate(-15px, 0rem) skewY(0deg);
+
             }
         }
     }
@@ -100,10 +105,16 @@
         color: $white;
         font-weight:$font-weight-x-light;
         line-height: 1.5rem;
+
     }
     .links{
         .footer-para{
             font-weight: $font-weight-regular;
+            transition: color 0.2s ease-in-out;
+            cursor: pointer;
+            &:hover{
+                color: $secondary;
+            }
         }
     }
     .footer-bottom{
@@ -117,6 +128,10 @@
             padding-bottom: 0.8rem;
             i{
                 padding-right: 0.5rem;
+                transition: color 0.2s ease-in-out;
+                &:hover{
+                    color: $secondary;
+                }
             }
         }
         .heading-bold{

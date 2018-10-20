@@ -1,7 +1,6 @@
 <template>
-    <div class="branding">
+    <div class="branding scroll-able">
         <div class="theme-container">
-            <img src="images/branding.png" alt="Branding">
             <div class="branding-section">
                 <div class="heading">
                     <div class="heading-light">TIMELESS</div>
@@ -27,24 +26,21 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    img{
-        width: 100%;
-        height: 60vh;
-        object-fit: cover;
-    }
     .branding-section{
-        margin: 1rem;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         .heading{
             margin:2rem 0;
         }
         .details{
-            display: flex;
-            justify-content: space-between;
-            .para1{
-                width: 48%;
-            }
+            width: 45%;
+            text-align: center;
             .para2{
-                width: 48%;
+                padding-top: 1rem;
             }
         }
     }

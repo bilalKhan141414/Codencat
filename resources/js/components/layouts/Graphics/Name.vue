@@ -1,13 +1,13 @@
 <template>
-    <div class="branding">
+    <div class="branding scroll-able">
         <div class="theme-container">
             <div class="branding-section">
                 <div class="heading">
-                    <div class="heading-light">TIMELESS</div>
-                    <div class="heading-bold">Branding</div>
+                    <div class="heading-light">WHAT IS YOU</div>
+                    <div class="heading-bold">Brand Name</div>
                 </div>
                 <div class="para">
-                    Developing a visual identity starts with research, analysis and the creation of a logo. Your visual identity is the graphic universe of your brand and defined different elements: the specifications and usage rules of your logo, as well as the colors, font and iconographic style used.
+                    The name of your brand or your product is an important part of its design, as it will influence its personality and history. A good brand should have a unique, timeless name. Our structured process will help you find the tone, length and meaning that will be the most appropriate to represent the image of your brand or product.
                 </div>
             </div>
             <div class="whats-your-name">
@@ -376,6 +376,7 @@
     .theme-container{
         display:flex;
         align-items: center;
+        height: 100%;
     }
     .whats-your-name{
         flex:1;

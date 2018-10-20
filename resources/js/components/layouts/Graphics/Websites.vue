@@ -1,20 +1,17 @@
 <template>
-    <div class="branding">
+    <div class="branding scroll-able">
         <div class="theme-container">
             <div class="websites-image">
                 <img src="images/websites.png" alt="Branding">
             </div>
             <div class="branding-section">
                 <div class="heading">
-                    <div class="heading-light">TIMELESS</div>
-                    <div class="heading-bold">Branding</div>
+                    <div class="heading-light">STATIC / DUNAMIC</div>
+                    <div class="heading-bold">Websites</div>
                 </div>
                 <div class="details">
                     <div class="para1 para">
-                        Developing a visual identity starts with research, analysis and the creation of a logo. Your visual identity is the graphic universe of your brand and defined different elements: the specifications and usage rules of your logo, as well as the colors, font and iconographic style used.
-                    </div>
-                    <div class="para2 para">
-                        We remain attentive to your needs throughout the creative process and take your wishes and remarks into account. The goal is to best reflect the values of your business.
+                        A web site is the most valuable marketing tool, as it can be viewed by more than 4 billion people in the world: it is a large-scale marketing tool for your business.
                     </div>
                 </div>
             </div>
@@ -43,14 +40,12 @@
         margin: 1rem;
         .heading{
             margin:2rem 0;
+            .heading-light{
+                padding: 0;
+            }
         }
         .details{
-            display: flex;
-            justify-content: space-between;
             .para1{
-                width: 48%;
-            }
-            .para2{
                 width: 48%;
             }
         }

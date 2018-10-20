@@ -1,5 +1,5 @@
 <template>
-<div class="graphic-design-cover">
+<div class="graphic-design-cover scroll-able">
     <div class="illustration">
         <div class="left">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1069,11 +1069,11 @@
                 .left-kamas{
                     align-self: flex-start;
                     padding-top:3rem;
-                    opacity: 0.1;
+                    filter: drop-shadow(0px 0px 10px $black-shadow);
                     svg{
                         width: 4rem;
                         .st0{enable-background:new    ;}
-                        .st1{fill:#EBEBEB;}
+                        .st1{fill:$black;}
                     }
                 }
                 .left-quote{
@@ -1093,11 +1093,11 @@
                     align-self: flex-end;
                     margin-top: -1rem;
                     padding-top: 12rem;
-                    opacity: 0.1;
+                    filter: drop-shadow(0px 0px 10px $black-shadow);
                     svg{
                         width: 4rem;
                         .st0{enable-background:new    ;}
-                        .st1{fill:#EBEBEB;}
+                        .st1{fill:$black;}
                     }
                 }
             }

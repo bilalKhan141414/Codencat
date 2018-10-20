@@ -163,12 +163,13 @@
                     flex-direction: column;
                 i{
                     font-size: 0.9rem;
-                    color:$white;
+                    color: $primary;
                     text-align: center;
                     padding:0.5em;
+                    transition: color 0.2s ease-in-out;
                 }
                 :hover{
-                    color: $primary;
+                    color: $secondary;
                 }
 
             }

@@ -24,6 +24,7 @@ Vue.component('main-footer', require('./components/layouts/Footer.vue'));
 
 //graphicdesign page
 Vue.component('graphic-design-cover', require('./components/layouts/Graphics/GraphicDesignCover.vue'));
+Vue.component('business-card-mockup', require('./components/layouts/Graphics/BusinessCardMockup.vue'));
 Vue.component('branding', require('./components/layouts/Graphics/Branding.vue'));
 Vue.component('logo', require('./components/layouts/Graphics/Logo.vue'));
 Vue.component('name', require('./components/layouts/Graphics/Name.vue'));
@@ -31,6 +32,8 @@ Vue.component('digital-design-cover', require('./components/layouts/Graphics/Dig
 Vue.component('websites', require('./components/layouts/Graphics/Websites.vue'));
 Vue.component('design', require('./components/layouts/Graphics/Design.vue'));
 Vue.component('e-commerce', require('./components/layouts/Graphics/E-Commerce.vue'));
+Vue.component('tools', require('./components/layouts/Graphics/Tools.vue'));
+Vue.component('services', require('./components/layouts/Graphics/Services.vue'));
 
 const app = new Vue({
     el: '#app'
