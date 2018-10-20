@@ -1,5 +1,5 @@
 <template>
-    <div class="home-cover">
+    <div class="home-cover scroll-able">
         <div class="cover">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 854 671.7" style="enable-background:new 0 0 854 671.7;" xml:space="preserve">
@@ -844,6 +844,7 @@
     overflow: hidden;
     position : relative;
     z-index: 1;
+
     .slogan{
         color: white;
         position: absolute;

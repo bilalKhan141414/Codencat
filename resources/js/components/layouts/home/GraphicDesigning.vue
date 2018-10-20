@@ -1,5 +1,5 @@
 <template>
-    <div class="theme-container">
+    <div class="theme-container scroll-able">
         <div class="row graphic-designing">
             <div class="col-3 content">
                 <div class="heading-light">GRAPHICS</div>
@@ -1521,6 +1521,7 @@
 .graphic-designing{
     height: 100vh;
     overflow: hidden;
+
 
     .content{
         display:flex;

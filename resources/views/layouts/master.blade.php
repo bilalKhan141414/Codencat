@@ -24,5 +24,6 @@
     @yield('content')
 
     <script src="{{'js/app.js'}}"></script>
+    <script src="{{'js/jquery.scrollify.js'}}"></script>
 </body>
 </html>
