@@ -851,7 +851,7 @@
         left: 50%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-        bottom:1%;
+        bottom:6%;
         width: 100vw;
         .heading-light{
             text-align: center;
