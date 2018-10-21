@@ -299,7 +299,6 @@
                 top:0;
                 right:0;
                 margin: 1rem 1.5vw 0 0;
-                z-index: 9999;
             .social-button{
                     display:flex;
                     flex-direction: column;
