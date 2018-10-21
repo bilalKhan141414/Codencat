@@ -65,6 +65,425 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(45)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -374,425 +793,6 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(45)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-var options = null
-var ssrIdKey = 'data-vue-ssr-id'
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction, _options) {
-  isProduction = _isProduction
-
-  options = _options || {}
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-  if (options.ssrId) {
-    styleElement.setAttribute(ssrIdKey, obj.id)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -826,7 +826,7 @@ module.exports = g;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var normalizeHeaderName = __webpack_require__(24);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -14050,7 +14050,7 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var settle = __webpack_require__(25);
 var buildURL = __webpack_require__(27);
 var parseHeaders = __webpack_require__(28);
@@ -14298,7 +14298,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(73);
+module.exports = __webpack_require__(113);
 
 
 /***/ }),
@@ -14329,18 +14329,21 @@ Vue.component('development', __webpack_require__(57));
 Vue.component('clients', __webpack_require__(61));
 Vue.component('main-footer', __webpack_require__(65));
 
-//graphicdesign page
+//design page
 Vue.component('graphic-design-cover', __webpack_require__(69));
-Vue.component('business-card-mockup', __webpack_require__(114));
+Vue.component('business-card-mockup', __webpack_require__(73));
 Vue.component('branding', __webpack_require__(77));
-Vue.component('logo', __webpack_require__(82));
-Vue.component('name', __webpack_require__(86));
-Vue.component('digital-design-cover', __webpack_require__(90));
-Vue.component('websites', __webpack_require__(94));
-Vue.component('design', __webpack_require__(98));
-Vue.component('e-commerce', __webpack_require__(102));
-Vue.component('tools', __webpack_require__(106));
-Vue.component('services', __webpack_require__(110));
+Vue.component('logo', __webpack_require__(81));
+Vue.component('name', __webpack_require__(85));
+Vue.component('digital-design-cover', __webpack_require__(89));
+Vue.component('websites', __webpack_require__(93));
+Vue.component('design', __webpack_require__(97));
+Vue.component('e-commerce', __webpack_require__(101));
+Vue.component('tools', __webpack_require__(105));
+Vue.component('services', __webpack_require__(109));
+
+//development page
+Vue.component('web-development-cover', __webpack_require__(117));
 
 var app = new Vue({
   el: '#app'
@@ -35513,7 +35516,7 @@ module.exports = __webpack_require__(21);
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var bind = __webpack_require__(8);
 var Axios = __webpack_require__(23);
 var defaults = __webpack_require__(5);
@@ -35600,7 +35603,7 @@ function isSlowBuffer (obj) {
 
 
 var defaults = __webpack_require__(5);
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var InterceptorManager = __webpack_require__(32);
 var dispatchRequest = __webpack_require__(33);
 
@@ -35685,7 +35688,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -35765,7 +35768,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -35838,7 +35841,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -35898,7 +35901,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -36016,7 +36019,7 @@ module.exports = btoa;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -36076,7 +36079,7 @@ module.exports = (
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -36135,7 +36138,7 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var transformData = __webpack_require__(34);
 var isCancel = __webpack_require__(12);
 var defaults = __webpack_require__(5);
@@ -36228,7 +36231,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 /**
  * Transform the data for a request or a response
@@ -47626,7 +47629,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(43)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
@@ -47679,7 +47682,7 @@ var content = __webpack_require__(44);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("0c426a07", content, false, {});
+var update = __webpack_require__(1)("0c426a07", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47698,7 +47701,7 @@ if(false) {
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -48465,7 +48468,7 @@ var render = function() {
                     staticClass: "st2",
                     attrs: {
                       d:
-                        "M9.8,263.8c4.6,3.8,10.7,6.6,16.4,8.4c8.4,2.7,17.5,5.1,26.4,6.2c7.5-16.2,15.9-32.5,25.4-48.7\n                            c-27.1,4.5-48.3,10.9-70.3,24.6C5.7,257.2,5.7,260.4,9.8,263.8z"
+                        "M9.8,263.8c4.6,3.8,10.7,6.6,16.4,8.4c8.4,2.7,17.5,5.1,26.4,6.2c7.5-16.2,15.9-32.5,25.4-48.7\r\n                            c-27.1,4.5-48.3,10.9-70.3,24.6C5.7,257.2,5.7,260.4,9.8,263.8z"
                     }
                   }),
                   _vm._v(" "),
@@ -48599,7 +48602,7 @@ var render = function() {
                     staticClass: "st4",
                     attrs: {
                       d:
-                        "M51,676.9c-6.5,20.2-10.4,43.7-8.9,63c2.6,8.3,16.3,26.9,38.1,16.7c4.1-1.9,8.2-4.4,12.2-7.3\n                            C80.2,728,64.6,701.3,51,676.9z"
+                        "M51,676.9c-6.5,20.2-10.4,43.7-8.9,63c2.6,8.3,16.3,26.9,38.1,16.7c4.1-1.9,8.2-4.4,12.2-7.3\r\n                            C80.2,728,64.6,701.3,51,676.9z"
                     }
                   })
                 ],
@@ -48666,7 +48669,7 @@ var render = function() {
                 staticClass: "st5",
                 attrs: {
                   d:
-                    "M923.1,609.1c-10.4-3.8-21.9,1.7-26.6,11.7c-28.2,59.5-65.2,116.1-113.5,161.4c-49.6,46.4-112.8,74.3-180.3,86\n                        c-228.3,39.4-310-156-308.2-260.5c-14,132.3,23.1,269,67.3,334.9c74.1,17,162.7,17.3,235.2,0c20.1-4.8,39.9-10.9,59.2-18.3\n                        c17.3-6.6,34.1-14.2,50.5-22.8c52.9-27.7,100.4-65.4,139.5-110.6c39.3-45.4,69.9-98.1,89.6-154.7c0,0,0-0.1,0.1-0.1\n                        C939.6,625.1,933.9,613.2,923.1,609.1z"
+                    "M923.1,609.1c-10.4-3.8-21.9,1.7-26.6,11.7c-28.2,59.5-65.2,116.1-113.5,161.4c-49.6,46.4-112.8,74.3-180.3,86\r\n                        c-228.3,39.4-310-156-308.2-260.5c-14,132.3,23.1,269,67.3,334.9c74.1,17,162.7,17.3,235.2,0c20.1-4.8,39.9-10.9,59.2-18.3\r\n                        c17.3-6.6,34.1-14.2,50.5-22.8c52.9-27.7,100.4-65.4,139.5-110.6c39.3-45.4,69.9-98.1,89.6-154.7c0,0,0-0.1,0.1-0.1\r\n                        C939.6,625.1,933.9,613.2,923.1,609.1z"
                 }
               }),
               _vm._v(" "),
@@ -48733,7 +48736,7 @@ var render = function() {
                     staticClass: "st6",
                     attrs: {
                       d:
-                        "M437.2,953.8c-27.5-3.7-51.3-7.5-75.4-11.2c10.9,20.8,23.2,36.7,35.4,46.2c4.1,1.7,8.6,2.7,13,3.1\n                            c5.6,0.6,11.3,0.5,16.8-1c2.3-0.6,4.5-1.5,6.4-3c4.5-3.5,4.9-9.5,4.9-14.8C438.3,967.4,437.2,954.6,437.2,953.8z"
+                        "M437.2,953.8c-27.5-3.7-51.3-7.5-75.4-11.2c10.9,20.8,23.2,36.7,35.4,46.2c4.1,1.7,8.6,2.7,13,3.1\r\n                            c5.6,0.6,11.3,0.5,16.8-1c2.3-0.6,4.5-1.5,6.4-3c4.5-3.5,4.9-9.5,4.9-14.8C438.3,967.4,437.2,954.6,437.2,953.8z"
                     }
                   }),
                   _vm._v(" "),
@@ -48864,7 +48867,7 @@ var render = function() {
                 staticClass: "st8",
                 attrs: {
                   d:
-                    "M510,297.5c-17.9,3.6-30.2,7.1-30.2,7.1S114.4,410.3,51,676.8c0,0,0,0,0,0c94.2,208,346.5,312.2,346.5,312.2\n                        C346.3,943.7,273.7,778,295.9,594.8C315.9,429.7,410.8,332.2,510,297.5z"
+                    "M510,297.5c-17.9,3.6-30.2,7.1-30.2,7.1S114.4,410.3,51,676.8c0,0,0,0,0,0c94.2,208,346.5,312.2,346.5,312.2\r\n                        C346.3,943.7,273.7,778,295.9,594.8C315.9,429.7,410.8,332.2,510,297.5z"
                 }
               }),
               _vm._v(" "),
@@ -48928,7 +48931,7 @@ var render = function() {
                 staticClass: "st9",
                 attrs: {
                   d:
-                    "M892.5,327.4c4.1,1.6,18.4,3.5,20.4,3.9c14.9,2.6,25.2,3.9,38.8,4c0.1,0,0.1-0.1,0.1-0.2\n                        c-2.4-6.1-6.4-11.9-10.2-16.8c-10.7-13.7-20.6-27.8-30.1-42c-21.5-32.3-37.1-67.8-60.5-98.9c-11.7-15.5-24.5-30.2-38.2-43.9\n                        c-24.9-24.8-52.9-46.3-83-64.3c-11-6.5-22.2-12.6-33.7-18.2C431.9-73.7,123.9,62.1,7.6,254.3c261.2-119.6,651,60,651,59.9\n                        c0.2,0,5.3,2.5,8,3.8c3.5,1.7-2.6,11.3-3.5,14c-4.4,13.4-6.4,28.9,4.6,38.1c14,11.8,17.5,30,33.9,37.9c10.7,5.2,17.8-0.1,27.7-3.5\n                        c14.5-5,29.9-6.6,44.6-3.3c12,2.7,20.8,2.1,31-3.6c20.2-11.1,35-27,53.4-41c2.7-2.1,10.3-0.1,13.4,0.8c10.8,3,19.2,6.3,30.4,9\n                        c3.1,0.7,9.6,1.9,13.4,1.6c0.1,0,0.1-0.1,0.1-0.1c-1-4.1-3.4-8.1-5.5-11.8c-2-3.6-4-6.8-6.2-9.9c-4.2-6.1-8.5-12.1-11.5-18.6\n                        C892.3,327.5,892.4,327.4,892.5,327.4z"
+                    "M892.5,327.4c4.1,1.6,18.4,3.5,20.4,3.9c14.9,2.6,25.2,3.9,38.8,4c0.1,0,0.1-0.1,0.1-0.2\r\n                        c-2.4-6.1-6.4-11.9-10.2-16.8c-10.7-13.7-20.6-27.8-30.1-42c-21.5-32.3-37.1-67.8-60.5-98.9c-11.7-15.5-24.5-30.2-38.2-43.9\r\n                        c-24.9-24.8-52.9-46.3-83-64.3c-11-6.5-22.2-12.6-33.7-18.2C431.9-73.7,123.9,62.1,7.6,254.3c261.2-119.6,651,60,651,59.9\r\n                        c0.2,0,5.3,2.5,8,3.8c3.5,1.7-2.6,11.3-3.5,14c-4.4,13.4-6.4,28.9,4.6,38.1c14,11.8,17.5,30,33.9,37.9c10.7,5.2,17.8-0.1,27.7-3.5\r\n                        c14.5-5,29.9-6.6,44.6-3.3c12,2.7,20.8,2.1,31-3.6c20.2-11.1,35-27,53.4-41c2.7-2.1,10.3-0.1,13.4,0.8c10.8,3,19.2,6.3,30.4,9\r\n                        c3.1,0.7,9.6,1.9,13.4,1.6c0.1,0,0.1-0.1,0.1-0.1c-1-4.1-3.4-8.1-5.5-11.8c-2-3.6-4-6.8-6.2-9.9c-4.2-6.1-8.5-12.1-11.5-18.6\r\n                        C892.3,327.5,892.4,327.4,892.5,327.4z"
                 }
               }),
               _vm._v(" "),
@@ -48992,7 +48995,7 @@ var render = function() {
                 staticClass: "st10",
                 attrs: {
                   d:
-                    "M78.1,229.7C-68.7,479.8,42.1,740,42.1,740c15.1-313.1,437.7-435.4,437.7-435.4s78.6-22.7,128.1-11.2\n                        C496.8,247.8,256.1,178.2,78.1,229.7z"
+                    "M78.1,229.7C-68.7,479.8,42.1,740,42.1,740c15.1-313.1,437.7-435.4,437.7-435.4s78.6-22.7,128.1-11.2\r\n                        C496.8,247.8,256.1,178.2,78.1,229.7z"
                 }
               })
             ],
@@ -49025,7 +49028,7 @@ var render = function() {
                     staticClass: "st0",
                     attrs: {
                       d:
-                        "M671.7,329.6C625,286.5,566.9,265,497.6,265c-72.9,0-135.1,24.4-186.3,73.4s-77,109.9-77,182.8\n                                c0,69.9,24.4,129.9,73.2,180.3c49,50.3,114.8,75.5,197.6,75.5c49.9,0,98.9-10.2,147-30.8c15.7-6.7,23.3-24.6,16.9-40.4l0,0\n                                c-6.6-16.3-25.2-23.8-41.4-16.9c-41.8,18-82.7,26.9-122.6,26.9c-63.5,0-112.7-19.3-147.6-58.1c-34.8-38.6-52.2-84.1-52.2-136.2\n                                c0-56.6,18.7-103.8,56-141.7c37.2-37.8,83-56.8,137.3-56.8c50,0,92.3,15.6,126.8,46.7C659.8,400.8,677,440,677,487.2\n                                c0,32.3-7.9,59.2-23.7,80.6c-15.8,21.5-32.2,32.2-49.2,32.2c-9.2,0-13.8-4.9-13.8-14.8c0-8,0.6-17.4,1.8-28.3L611.5,398h-66.8\n                                l-4.3,15.6c-17-13.9-35.7-20.9-56-20.9c-32.2,0-59.7,12.8-82.6,38.4c-23,25.6-34.4,58.6-34.4,98.9c0,39.4,10.1,71.2,30.5,95.4\n                                c20.4,24.2,44.8,36.2,73.4,36.2c25.6,0,47.4-10.8,65.6-32.2c13.7,20.6,33.8,30.8,60.5,30.8c39.2,0,73-17,101.5-51.2\n                                c28.5-34,42.8-75.2,42.8-123.4C741.8,424.7,718.5,372.6,671.7,329.6z M517.7,569.9c-11.8,15.9-25.9,23.9-42.3,23.9\n                                c-11.2,0-20.2-5.8-26.9-17.5c-6.9-11.7-10.3-26.2-10.3-43.7c0-21.5,4.8-38.9,14.4-52c9.6-13.2,21.5-19.8,35.7-19.8\n                                c12.3,0,23.3,4.9,32.9,14.8c9.6,9.9,14.4,23.1,14.4,39.6C535.5,535.8,529.5,553.9,517.7,569.9z"
+                        "M671.7,329.6C625,286.5,566.9,265,497.6,265c-72.9,0-135.1,24.4-186.3,73.4s-77,109.9-77,182.8\r\n                                c0,69.9,24.4,129.9,73.2,180.3c49,50.3,114.8,75.5,197.6,75.5c49.9,0,98.9-10.2,147-30.8c15.7-6.7,23.3-24.6,16.9-40.4l0,0\r\n                                c-6.6-16.3-25.2-23.8-41.4-16.9c-41.8,18-82.7,26.9-122.6,26.9c-63.5,0-112.7-19.3-147.6-58.1c-34.8-38.6-52.2-84.1-52.2-136.2\r\n                                c0-56.6,18.7-103.8,56-141.7c37.2-37.8,83-56.8,137.3-56.8c50,0,92.3,15.6,126.8,46.7C659.8,400.8,677,440,677,487.2\r\n                                c0,32.3-7.9,59.2-23.7,80.6c-15.8,21.5-32.2,32.2-49.2,32.2c-9.2,0-13.8-4.9-13.8-14.8c0-8,0.6-17.4,1.8-28.3L611.5,398h-66.8\r\n                                l-4.3,15.6c-17-13.9-35.7-20.9-56-20.9c-32.2,0-59.7,12.8-82.6,38.4c-23,25.6-34.4,58.6-34.4,98.9c0,39.4,10.1,71.2,30.5,95.4\r\n                                c20.4,24.2,44.8,36.2,73.4,36.2c25.6,0,47.4-10.8,65.6-32.2c13.7,20.6,33.8,30.8,60.5,30.8c39.2,0,73-17,101.5-51.2\r\n                                c28.5-34,42.8-75.2,42.8-123.4C741.8,424.7,718.5,372.6,671.7,329.6z M517.7,569.9c-11.8,15.9-25.9,23.9-42.3,23.9\r\n                                c-11.2,0-20.2-5.8-26.9-17.5c-6.9-11.7-10.3-26.2-10.3-43.7c0-21.5,4.8-38.9,14.4-52c9.6-13.2,21.5-19.8,35.7-19.8\r\n                                c12.3,0,23.3,4.9,32.9,14.8c9.6,9.9,14.4,23.1,14.4,39.6C535.5,535.8,529.5,553.9,517.7,569.9z"
                     }
                   })
                 ])
@@ -49233,7 +49236,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(49)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
@@ -49286,7 +49289,7 @@ var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("01e9c041", content, false, {});
+var update = __webpack_require__(1)("01e9c041", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49305,12 +49308,12 @@ if(false) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n\n/*!\r\n * Bootstrap Grid v4.1.2 (https://getbootstrap.com/)\r\n * Copyright 2011-2018 The Bootstrap Authors\r\n * Copyright 2011-2018 Twitter, Inc.\r\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\r\n */\n@-ms-viewport {\n  width: device-width;\n}\nhtml[data-v-f703cbce] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -ms-overflow-style: scrollbar;\n}\n*[data-v-f703cbce],\n*[data-v-f703cbce]::before,\n*[data-v-f703cbce]::after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n.container[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container[data-v-f703cbce] {\n      max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container[data-v-f703cbce] {\n      max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container[data-v-f703cbce] {\n      max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container[data-v-f703cbce] {\n      max-width: 1140px;\n}\n}\n.container-fluid[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.row[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters[data-v-f703cbce] {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col[data-v-f703cbce],\n  .no-gutters > [class*=\"col-\"][data-v-f703cbce] {\n    padding-right: 0;\n    padding-left: 0;\n}\n.col-1[data-v-f703cbce], .col-2[data-v-f703cbce], .col-3[data-v-f703cbce], .col-4[data-v-f703cbce], .col-5[data-v-f703cbce], .col-6[data-v-f703cbce], .col-7[data-v-f703cbce], .col-8[data-v-f703cbce], .col-9[data-v-f703cbce], .col-10[data-v-f703cbce], .col-11[data-v-f703cbce], .col-12[data-v-f703cbce], .col[data-v-f703cbce],\n.col-auto[data-v-f703cbce], .col-sm-1[data-v-f703cbce], .col-sm-2[data-v-f703cbce], .col-sm-3[data-v-f703cbce], .col-sm-4[data-v-f703cbce], .col-sm-5[data-v-f703cbce], .col-sm-6[data-v-f703cbce], .col-sm-7[data-v-f703cbce], .col-sm-8[data-v-f703cbce], .col-sm-9[data-v-f703cbce], .col-sm-10[data-v-f703cbce], .col-sm-11[data-v-f703cbce], .col-sm-12[data-v-f703cbce], .col-sm[data-v-f703cbce],\n.col-sm-auto[data-v-f703cbce], .col-md-1[data-v-f703cbce], .col-md-2[data-v-f703cbce], .col-md-3[data-v-f703cbce], .col-md-4[data-v-f703cbce], .col-md-5[data-v-f703cbce], .col-md-6[data-v-f703cbce], .col-md-7[data-v-f703cbce], .col-md-8[data-v-f703cbce], .col-md-9[data-v-f703cbce], .col-md-10[data-v-f703cbce], .col-md-11[data-v-f703cbce], .col-md-12[data-v-f703cbce], .col-md[data-v-f703cbce],\n.col-md-auto[data-v-f703cbce], .col-lg-1[data-v-f703cbce], .col-lg-2[data-v-f703cbce], .col-lg-3[data-v-f703cbce], .col-lg-4[data-v-f703cbce], .col-lg-5[data-v-f703cbce], .col-lg-6[data-v-f703cbce], .col-lg-7[data-v-f703cbce], .col-lg-8[data-v-f703cbce], .col-lg-9[data-v-f703cbce], .col-lg-10[data-v-f703cbce], .col-lg-11[data-v-f703cbce], .col-lg-12[data-v-f703cbce], .col-lg[data-v-f703cbce],\n.col-lg-auto[data-v-f703cbce], .col-xl-1[data-v-f703cbce], .col-xl-2[data-v-f703cbce], .col-xl-3[data-v-f703cbce], .col-xl-4[data-v-f703cbce], .col-xl-5[data-v-f703cbce], .col-xl-6[data-v-f703cbce], .col-xl-7[data-v-f703cbce], .col-xl-8[data-v-f703cbce], .col-xl-9[data-v-f703cbce], .col-xl-10[data-v-f703cbce], .col-xl-11[data-v-f703cbce], .col-xl-12[data-v-f703cbce], .col-xl[data-v-f703cbce],\n.col-xl-auto[data-v-f703cbce] {\n  position: relative;\n  width: 100%;\n  min-height: 1px;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col[data-v-f703cbce] {\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  max-width: 100%;\n}\n.col-auto[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  width: auto;\n  max-width: none;\n}\n.col-1[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 8.33333%;\n          flex: 0 0 8.33333%;\n  max-width: 8.33333%;\n}\n.col-2[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 16.66667%;\n          flex: 0 0 16.66667%;\n  max-width: 16.66667%;\n}\n.col-3[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 25%;\n          flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 33.33333%;\n          flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n}\n.col-5[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 41.66667%;\n          flex: 0 0 41.66667%;\n  max-width: 41.66667%;\n}\n.col-6[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 50%;\n          flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 58.33333%;\n          flex: 0 0 58.33333%;\n  max-width: 58.33333%;\n}\n.col-8[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 66.66667%;\n          flex: 0 0 66.66667%;\n  max-width: 66.66667%;\n}\n.col-9[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 75%;\n          flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 83.33333%;\n          flex: 0 0 83.33333%;\n  max-width: 83.33333%;\n}\n.col-11[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 91.66667%;\n          flex: 0 0 91.66667%;\n  max-width: 91.66667%;\n}\n.col-12[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 100%;\n          flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 0;\n      -ms-flex-order: -1;\n          order: -1;\n}\n.order-last[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 14;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.order-0[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 1;\n      -ms-flex-order: 0;\n          order: 0;\n}\n.order-1[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 2;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.order-2[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 3;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.order-3[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 4;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.order-4[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 5;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.order-5[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 6;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.order-6[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 7;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.order-7[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 8;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.order-8[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 9;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.order-9[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 10;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.order-10[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 11;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.order-11[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 12;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.order-12[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 13;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.offset-1[data-v-f703cbce] {\n  margin-left: 8.33333%;\n}\n.offset-2[data-v-f703cbce] {\n  margin-left: 16.66667%;\n}\n.offset-3[data-v-f703cbce] {\n  margin-left: 25%;\n}\n.offset-4[data-v-f703cbce] {\n  margin-left: 33.33333%;\n}\n.offset-5[data-v-f703cbce] {\n  margin-left: 41.66667%;\n}\n.offset-6[data-v-f703cbce] {\n  margin-left: 50%;\n}\n.offset-7[data-v-f703cbce] {\n  margin-left: 58.33333%;\n}\n.offset-8[data-v-f703cbce] {\n  margin-left: 66.66667%;\n}\n.offset-9[data-v-f703cbce] {\n  margin-left: 75%;\n}\n.offset-10[data-v-f703cbce] {\n  margin-left: 83.33333%;\n}\n.offset-11[data-v-f703cbce] {\n  margin-left: 91.66667%;\n}\n@media (min-width: 576px) {\n.col-sm[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-sm-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-sm-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-sm-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-sm-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-sm-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-sm-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-sm-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-sm-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-sm-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-sm-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-sm-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-sm-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-sm-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-sm-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-sm-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-sm-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-sm-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-sm-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-sm-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-sm-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-sm-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-sm-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-sm-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-sm-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-sm-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-sm-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-sm-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-sm-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-sm-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-sm-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-sm-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-sm-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-sm-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-sm-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-sm-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-sm-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 768px) {\n.col-md[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-md-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-md-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-md-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-md-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-md-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-md-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-md-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-md-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-md-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-md-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-md-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-md-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-md-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-md-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-md-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-md-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-md-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-md-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-md-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-md-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-md-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-md-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-md-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-md-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-md-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-md-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-md-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-md-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-md-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-md-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-md-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-md-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-md-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-md-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-md-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-md-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-lg-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-lg-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-lg-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-lg-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-lg-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-lg-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-lg-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-lg-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-lg-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-lg-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-lg-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-lg-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-lg-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-lg-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-lg-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-lg-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-lg-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-lg-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-lg-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-lg-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-lg-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-lg-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-lg-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-lg-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-lg-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-lg-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-lg-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-lg-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-lg-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-lg-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-lg-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-lg-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-lg-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-lg-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-lg-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-lg-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-xl-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-xl-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-xl-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-xl-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-xl-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-xl-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-xl-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-xl-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-xl-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-xl-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-xl-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-xl-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-xl-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-xl-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-xl-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-xl-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-xl-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-xl-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-xl-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-xl-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-xl-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-xl-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-xl-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-xl-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-xl-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-xl-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-xl-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-xl-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-xl-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-xl-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-xl-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-xl-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-xl-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-xl-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-xl-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-xl-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n.d-none[data-v-f703cbce] {\n  display: none !important;\n}\n.d-inline[data-v-f703cbce] {\n  display: inline !important;\n}\n.d-inline-block[data-v-f703cbce] {\n  display: inline-block !important;\n}\n.d-block[data-v-f703cbce] {\n  display: block !important;\n}\n.d-table[data-v-f703cbce] {\n  display: table !important;\n}\n.d-table-row[data-v-f703cbce] {\n  display: table-row !important;\n}\n.d-table-cell[data-v-f703cbce] {\n  display: table-cell !important;\n}\n.d-flex[data-v-f703cbce] {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.d-inline-flex[data-v-f703cbce] {\n  display: -webkit-inline-box !important;\n  display: -ms-inline-flexbox !important;\n  display: inline-flex !important;\n}\n@media (min-width: 576px) {\n.d-sm-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-sm-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-sm-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-sm-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-sm-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-sm-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-sm-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-sm-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-sm-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 768px) {\n.d-md-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-md-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-md-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-md-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-md-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-md-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-md-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-md-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-md-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 992px) {\n.d-lg-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-lg-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-lg-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-lg-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-lg-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-lg-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-lg-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-lg-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-lg-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 1200px) {\n.d-xl-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-xl-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-xl-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-xl-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-xl-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-xl-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-xl-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-xl-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-xl-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media print {\n.d-print-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-print-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-print-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-print-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-print-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-print-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-print-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-print-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-print-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n.flex-row[data-v-f703cbce] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: row !important;\n          flex-direction: row !important;\n}\n.flex-column[data-v-f703cbce] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: column !important;\n          flex-direction: column !important;\n}\n.flex-row-reverse[data-v-f703cbce] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: row-reverse !important;\n          flex-direction: row-reverse !important;\n}\n.flex-column-reverse[data-v-f703cbce] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: column-reverse !important;\n          flex-direction: column-reverse !important;\n}\n.flex-wrap[data-v-f703cbce] {\n  -ms-flex-wrap: wrap !important;\n      flex-wrap: wrap !important;\n}\n.flex-nowrap[data-v-f703cbce] {\n  -ms-flex-wrap: nowrap !important;\n      flex-wrap: nowrap !important;\n}\n.flex-wrap-reverse[data-v-f703cbce] {\n  -ms-flex-wrap: wrap-reverse !important;\n      flex-wrap: wrap-reverse !important;\n}\n.flex-fill[data-v-f703cbce] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex: 1 1 auto !important;\n          flex: 1 1 auto !important;\n}\n.flex-grow-0[data-v-f703cbce] {\n  -webkit-box-flex: 0 !important;\n      -ms-flex-positive: 0 !important;\n          flex-grow: 0 !important;\n}\n.flex-grow-1[data-v-f703cbce] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex-positive: 1 !important;\n          flex-grow: 1 !important;\n}\n.flex-shrink-0[data-v-f703cbce] {\n  -ms-flex-negative: 0 !important;\n      flex-shrink: 0 !important;\n}\n.flex-shrink-1[data-v-f703cbce] {\n  -ms-flex-negative: 1 !important;\n      flex-shrink: 1 !important;\n}\n.justify-content-start[data-v-f703cbce] {\n  -webkit-box-pack: start !important;\n      -ms-flex-pack: start !important;\n          justify-content: flex-start !important;\n}\n.justify-content-end[data-v-f703cbce] {\n  -webkit-box-pack: end !important;\n      -ms-flex-pack: end !important;\n          justify-content: flex-end !important;\n}\n.justify-content-center[data-v-f703cbce] {\n  -webkit-box-pack: center !important;\n      -ms-flex-pack: center !important;\n          justify-content: center !important;\n}\n.justify-content-between[data-v-f703cbce] {\n  -webkit-box-pack: justify !important;\n      -ms-flex-pack: justify !important;\n          justify-content: space-between !important;\n}\n.justify-content-around[data-v-f703cbce] {\n  -ms-flex-pack: distribute !important;\n      justify-content: space-around !important;\n}\n.align-items-start[data-v-f703cbce] {\n  -webkit-box-align: start !important;\n      -ms-flex-align: start !important;\n          align-items: flex-start !important;\n}\n.align-items-end[data-v-f703cbce] {\n  -webkit-box-align: end !important;\n      -ms-flex-align: end !important;\n          align-items: flex-end !important;\n}\n.align-items-center[data-v-f703cbce] {\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important;\n}\n.align-items-baseline[data-v-f703cbce] {\n  -webkit-box-align: baseline !important;\n      -ms-flex-align: baseline !important;\n          align-items: baseline !important;\n}\n.align-items-stretch[data-v-f703cbce] {\n  -webkit-box-align: stretch !important;\n      -ms-flex-align: stretch !important;\n          align-items: stretch !important;\n}\n.align-content-start[data-v-f703cbce] {\n  -ms-flex-line-pack: start !important;\n      align-content: flex-start !important;\n}\n.align-content-end[data-v-f703cbce] {\n  -ms-flex-line-pack: end !important;\n      align-content: flex-end !important;\n}\n.align-content-center[data-v-f703cbce] {\n  -ms-flex-line-pack: center !important;\n      align-content: center !important;\n}\n.align-content-between[data-v-f703cbce] {\n  -ms-flex-line-pack: justify !important;\n      align-content: space-between !important;\n}\n.align-content-around[data-v-f703cbce] {\n  -ms-flex-line-pack: distribute !important;\n      align-content: space-around !important;\n}\n.align-content-stretch[data-v-f703cbce] {\n  -ms-flex-line-pack: stretch !important;\n      align-content: stretch !important;\n}\n.align-self-auto[data-v-f703cbce] {\n  -ms-flex-item-align: auto !important;\n      align-self: auto !important;\n}\n.align-self-start[data-v-f703cbce] {\n  -ms-flex-item-align: start !important;\n      align-self: flex-start !important;\n}\n.align-self-end[data-v-f703cbce] {\n  -ms-flex-item-align: end !important;\n      align-self: flex-end !important;\n}\n.align-self-center[data-v-f703cbce] {\n  -ms-flex-item-align: center !important;\n      align-self: center !important;\n}\n.align-self-baseline[data-v-f703cbce] {\n  -ms-flex-item-align: baseline !important;\n      align-self: baseline !important;\n}\n.align-self-stretch[data-v-f703cbce] {\n  -ms-flex-item-align: stretch !important;\n      align-self: stretch !important;\n}\n@media (min-width: 576px) {\n.flex-sm-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-sm-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-sm-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-sm-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-sm-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-sm-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-sm-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-sm-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-sm-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-sm-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-sm-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-sm-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-sm-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-sm-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-sm-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-sm-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-sm-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-sm-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-sm-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-sm-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-sm-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-sm-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-sm-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-sm-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-sm-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-sm-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-sm-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-sm-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-sm-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-sm-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-sm-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-sm-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-sm-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-sm-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 768px) {\n.flex-md-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-md-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-md-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-md-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-md-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-md-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-md-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-md-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-md-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-md-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-md-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-md-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-md-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-md-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-md-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-md-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-md-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-md-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-md-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-md-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-md-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-md-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-md-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-md-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-md-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-md-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-md-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-md-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-md-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-md-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-md-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-md-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-md-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-md-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 992px) {\n.flex-lg-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-lg-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-lg-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-lg-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-lg-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-lg-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-lg-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-lg-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-lg-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-lg-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-lg-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-lg-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-lg-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-lg-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-lg-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-lg-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-lg-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-lg-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-lg-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-lg-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-lg-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-lg-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-lg-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-lg-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-lg-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-lg-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-lg-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-lg-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-lg-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-lg-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-lg-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-lg-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-lg-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-lg-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 1200px) {\n.flex-xl-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-xl-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-xl-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-xl-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-xl-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-xl-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-xl-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-xl-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-xl-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-xl-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-xl-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-xl-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-xl-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-xl-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-xl-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-xl-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-xl-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-xl-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-xl-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-xl-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-xl-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-xl-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-xl-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-xl-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-xl-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-xl-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-xl-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-xl-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-xl-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-xl-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-xl-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-xl-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-xl-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-xl-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n.w-25[data-v-f703cbce] {\n  width: 25% !important;\n}\n.w-50[data-v-f703cbce] {\n  width: 50% !important;\n}\n.w-75[data-v-f703cbce] {\n  width: 75% !important;\n}\n.w-100[data-v-f703cbce] {\n  width: 100% !important;\n}\n.w-auto[data-v-f703cbce] {\n  width: auto !important;\n}\n.h-25[data-v-f703cbce] {\n  height: 25% !important;\n}\n.h-50[data-v-f703cbce] {\n  height: 50% !important;\n}\n.h-75[data-v-f703cbce] {\n  height: 75% !important;\n}\n.h-100[data-v-f703cbce] {\n  height: 100% !important;\n}\n.h-auto[data-v-f703cbce] {\n  height: auto !important;\n}\n.mw-100[data-v-f703cbce] {\n  max-width: 100% !important;\n}\n.mh-100[data-v-f703cbce] {\n  max-height: 100% !important;\n}\n.m-0[data-v-f703cbce] {\n  margin: 0 !important;\n}\n.mt-0[data-v-f703cbce],\n.my-0[data-v-f703cbce] {\n  margin-top: 0 !important;\n}\n.mr-0[data-v-f703cbce],\n.mx-0[data-v-f703cbce] {\n  margin-right: 0 !important;\n}\n.mb-0[data-v-f703cbce],\n.my-0[data-v-f703cbce] {\n  margin-bottom: 0 !important;\n}\n.ml-0[data-v-f703cbce],\n.mx-0[data-v-f703cbce] {\n  margin-left: 0 !important;\n}\n.m-1[data-v-f703cbce] {\n  margin: 0.25rem !important;\n}\n.mt-1[data-v-f703cbce],\n.my-1[data-v-f703cbce] {\n  margin-top: 0.25rem !important;\n}\n.mr-1[data-v-f703cbce],\n.mx-1[data-v-f703cbce] {\n  margin-right: 0.25rem !important;\n}\n.mb-1[data-v-f703cbce],\n.my-1[data-v-f703cbce] {\n  margin-bottom: 0.25rem !important;\n}\n.ml-1[data-v-f703cbce],\n.mx-1[data-v-f703cbce] {\n  margin-left: 0.25rem !important;\n}\n.m-2[data-v-f703cbce] {\n  margin: 0.5rem !important;\n}\n.mt-2[data-v-f703cbce],\n.my-2[data-v-f703cbce] {\n  margin-top: 0.5rem !important;\n}\n.mr-2[data-v-f703cbce],\n.mx-2[data-v-f703cbce] {\n  margin-right: 0.5rem !important;\n}\n.mb-2[data-v-f703cbce],\n.my-2[data-v-f703cbce] {\n  margin-bottom: 0.5rem !important;\n}\n.ml-2[data-v-f703cbce],\n.mx-2[data-v-f703cbce] {\n  margin-left: 0.5rem !important;\n}\n.m-3[data-v-f703cbce] {\n  margin: 1rem !important;\n}\n.mt-3[data-v-f703cbce],\n.my-3[data-v-f703cbce] {\n  margin-top: 1rem !important;\n}\n.mr-3[data-v-f703cbce],\n.mx-3[data-v-f703cbce] {\n  margin-right: 1rem !important;\n}\n.mb-3[data-v-f703cbce],\n.my-3[data-v-f703cbce] {\n  margin-bottom: 1rem !important;\n}\n.ml-3[data-v-f703cbce],\n.mx-3[data-v-f703cbce] {\n  margin-left: 1rem !important;\n}\n.m-4[data-v-f703cbce] {\n  margin: 1.5rem !important;\n}\n.mt-4[data-v-f703cbce],\n.my-4[data-v-f703cbce] {\n  margin-top: 1.5rem !important;\n}\n.mr-4[data-v-f703cbce],\n.mx-4[data-v-f703cbce] {\n  margin-right: 1.5rem !important;\n}\n.mb-4[data-v-f703cbce],\n.my-4[data-v-f703cbce] {\n  margin-bottom: 1.5rem !important;\n}\n.ml-4[data-v-f703cbce],\n.mx-4[data-v-f703cbce] {\n  margin-left: 1.5rem !important;\n}\n.m-5[data-v-f703cbce] {\n  margin: 3rem !important;\n}\n.mt-5[data-v-f703cbce],\n.my-5[data-v-f703cbce] {\n  margin-top: 3rem !important;\n}\n.mr-5[data-v-f703cbce],\n.mx-5[data-v-f703cbce] {\n  margin-right: 3rem !important;\n}\n.mb-5[data-v-f703cbce],\n.my-5[data-v-f703cbce] {\n  margin-bottom: 3rem !important;\n}\n.ml-5[data-v-f703cbce],\n.mx-5[data-v-f703cbce] {\n  margin-left: 3rem !important;\n}\n.p-0[data-v-f703cbce] {\n  padding: 0 !important;\n}\n.pt-0[data-v-f703cbce],\n.py-0[data-v-f703cbce] {\n  padding-top: 0 !important;\n}\n.pr-0[data-v-f703cbce],\n.px-0[data-v-f703cbce] {\n  padding-right: 0 !important;\n}\n.pb-0[data-v-f703cbce],\n.py-0[data-v-f703cbce] {\n  padding-bottom: 0 !important;\n}\n.pl-0[data-v-f703cbce],\n.px-0[data-v-f703cbce] {\n  padding-left: 0 !important;\n}\n.p-1[data-v-f703cbce] {\n  padding: 0.25rem !important;\n}\n.pt-1[data-v-f703cbce],\n.py-1[data-v-f703cbce] {\n  padding-top: 0.25rem !important;\n}\n.pr-1[data-v-f703cbce],\n.px-1[data-v-f703cbce] {\n  padding-right: 0.25rem !important;\n}\n.pb-1[data-v-f703cbce],\n.py-1[data-v-f703cbce] {\n  padding-bottom: 0.25rem !important;\n}\n.pl-1[data-v-f703cbce],\n.px-1[data-v-f703cbce] {\n  padding-left: 0.25rem !important;\n}\n.p-2[data-v-f703cbce] {\n  padding: 0.5rem !important;\n}\n.pt-2[data-v-f703cbce],\n.py-2[data-v-f703cbce] {\n  padding-top: 0.5rem !important;\n}\n.pr-2[data-v-f703cbce],\n.px-2[data-v-f703cbce] {\n  padding-right: 0.5rem !important;\n}\n.pb-2[data-v-f703cbce],\n.py-2[data-v-f703cbce] {\n  padding-bottom: 0.5rem !important;\n}\n.pl-2[data-v-f703cbce],\n.px-2[data-v-f703cbce] {\n  padding-left: 0.5rem !important;\n}\n.p-3[data-v-f703cbce] {\n  padding: 1rem !important;\n}\n.pt-3[data-v-f703cbce],\n.py-3[data-v-f703cbce] {\n  padding-top: 1rem !important;\n}\n.pr-3[data-v-f703cbce],\n.px-3[data-v-f703cbce] {\n  padding-right: 1rem !important;\n}\n.pb-3[data-v-f703cbce],\n.py-3[data-v-f703cbce] {\n  padding-bottom: 1rem !important;\n}\n.pl-3[data-v-f703cbce],\n.px-3[data-v-f703cbce] {\n  padding-left: 1rem !important;\n}\n.p-4[data-v-f703cbce] {\n  padding: 1.5rem !important;\n}\n.pt-4[data-v-f703cbce],\n.py-4[data-v-f703cbce] {\n  padding-top: 1.5rem !important;\n}\n.pr-4[data-v-f703cbce],\n.px-4[data-v-f703cbce] {\n  padding-right: 1.5rem !important;\n}\n.pb-4[data-v-f703cbce],\n.py-4[data-v-f703cbce] {\n  padding-bottom: 1.5rem !important;\n}\n.pl-4[data-v-f703cbce],\n.px-4[data-v-f703cbce] {\n  padding-left: 1.5rem !important;\n}\n.p-5[data-v-f703cbce] {\n  padding: 3rem !important;\n}\n.pt-5[data-v-f703cbce],\n.py-5[data-v-f703cbce] {\n  padding-top: 3rem !important;\n}\n.pr-5[data-v-f703cbce],\n.px-5[data-v-f703cbce] {\n  padding-right: 3rem !important;\n}\n.pb-5[data-v-f703cbce],\n.py-5[data-v-f703cbce] {\n  padding-bottom: 3rem !important;\n}\n.pl-5[data-v-f703cbce],\n.px-5[data-v-f703cbce] {\n  padding-left: 3rem !important;\n}\n.m-auto[data-v-f703cbce] {\n  margin: auto !important;\n}\n.mt-auto[data-v-f703cbce],\n.my-auto[data-v-f703cbce] {\n  margin-top: auto !important;\n}\n.mr-auto[data-v-f703cbce],\n.mx-auto[data-v-f703cbce] {\n  margin-right: auto !important;\n}\n.mb-auto[data-v-f703cbce],\n.my-auto[data-v-f703cbce] {\n  margin-bottom: auto !important;\n}\n.ml-auto[data-v-f703cbce],\n.mx-auto[data-v-f703cbce] {\n  margin-left: auto !important;\n}\n@media (min-width: 576px) {\n.m-sm-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-sm-0[data-v-f703cbce],\n  .my-sm-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-sm-0[data-v-f703cbce],\n  .mx-sm-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-sm-0[data-v-f703cbce],\n  .my-sm-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-sm-0[data-v-f703cbce],\n  .mx-sm-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-sm-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-sm-1[data-v-f703cbce],\n  .my-sm-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-sm-1[data-v-f703cbce],\n  .mx-sm-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-sm-1[data-v-f703cbce],\n  .my-sm-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-sm-1[data-v-f703cbce],\n  .mx-sm-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-sm-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-sm-2[data-v-f703cbce],\n  .my-sm-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-sm-2[data-v-f703cbce],\n  .mx-sm-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-sm-2[data-v-f703cbce],\n  .my-sm-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-sm-2[data-v-f703cbce],\n  .mx-sm-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-sm-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-sm-3[data-v-f703cbce],\n  .my-sm-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-sm-3[data-v-f703cbce],\n  .mx-sm-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-sm-3[data-v-f703cbce],\n  .my-sm-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-sm-3[data-v-f703cbce],\n  .mx-sm-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-sm-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-sm-4[data-v-f703cbce],\n  .my-sm-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-sm-4[data-v-f703cbce],\n  .mx-sm-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-sm-4[data-v-f703cbce],\n  .my-sm-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-sm-4[data-v-f703cbce],\n  .mx-sm-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-sm-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-sm-5[data-v-f703cbce],\n  .my-sm-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-sm-5[data-v-f703cbce],\n  .mx-sm-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-sm-5[data-v-f703cbce],\n  .my-sm-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-sm-5[data-v-f703cbce],\n  .mx-sm-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-sm-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-sm-0[data-v-f703cbce],\n  .py-sm-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-sm-0[data-v-f703cbce],\n  .px-sm-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-sm-0[data-v-f703cbce],\n  .py-sm-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-sm-0[data-v-f703cbce],\n  .px-sm-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-sm-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-sm-1[data-v-f703cbce],\n  .py-sm-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-sm-1[data-v-f703cbce],\n  .px-sm-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-sm-1[data-v-f703cbce],\n  .py-sm-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-sm-1[data-v-f703cbce],\n  .px-sm-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-sm-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-sm-2[data-v-f703cbce],\n  .py-sm-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-sm-2[data-v-f703cbce],\n  .px-sm-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-sm-2[data-v-f703cbce],\n  .py-sm-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-sm-2[data-v-f703cbce],\n  .px-sm-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-sm-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-sm-3[data-v-f703cbce],\n  .py-sm-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-sm-3[data-v-f703cbce],\n  .px-sm-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-sm-3[data-v-f703cbce],\n  .py-sm-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-sm-3[data-v-f703cbce],\n  .px-sm-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-sm-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-sm-4[data-v-f703cbce],\n  .py-sm-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-sm-4[data-v-f703cbce],\n  .px-sm-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-sm-4[data-v-f703cbce],\n  .py-sm-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-sm-4[data-v-f703cbce],\n  .px-sm-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-sm-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-sm-5[data-v-f703cbce],\n  .py-sm-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-sm-5[data-v-f703cbce],\n  .px-sm-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-sm-5[data-v-f703cbce],\n  .py-sm-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-sm-5[data-v-f703cbce],\n  .px-sm-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-sm-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-sm-auto[data-v-f703cbce],\n  .my-sm-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-sm-auto[data-v-f703cbce],\n  .mx-sm-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-sm-auto[data-v-f703cbce],\n  .my-sm-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-sm-auto[data-v-f703cbce],\n  .mx-sm-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 768px) {\n.m-md-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-md-0[data-v-f703cbce],\n  .my-md-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-md-0[data-v-f703cbce],\n  .mx-md-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-md-0[data-v-f703cbce],\n  .my-md-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-md-0[data-v-f703cbce],\n  .mx-md-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-md-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-md-1[data-v-f703cbce],\n  .my-md-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-md-1[data-v-f703cbce],\n  .mx-md-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-md-1[data-v-f703cbce],\n  .my-md-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-md-1[data-v-f703cbce],\n  .mx-md-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-md-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-md-2[data-v-f703cbce],\n  .my-md-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-md-2[data-v-f703cbce],\n  .mx-md-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-md-2[data-v-f703cbce],\n  .my-md-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-md-2[data-v-f703cbce],\n  .mx-md-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-md-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-md-3[data-v-f703cbce],\n  .my-md-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-md-3[data-v-f703cbce],\n  .mx-md-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-md-3[data-v-f703cbce],\n  .my-md-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-md-3[data-v-f703cbce],\n  .mx-md-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-md-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-md-4[data-v-f703cbce],\n  .my-md-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-md-4[data-v-f703cbce],\n  .mx-md-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-md-4[data-v-f703cbce],\n  .my-md-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-md-4[data-v-f703cbce],\n  .mx-md-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-md-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-md-5[data-v-f703cbce],\n  .my-md-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-md-5[data-v-f703cbce],\n  .mx-md-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-md-5[data-v-f703cbce],\n  .my-md-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-md-5[data-v-f703cbce],\n  .mx-md-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-md-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-md-0[data-v-f703cbce],\n  .py-md-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-md-0[data-v-f703cbce],\n  .px-md-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-md-0[data-v-f703cbce],\n  .py-md-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-md-0[data-v-f703cbce],\n  .px-md-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-md-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-md-1[data-v-f703cbce],\n  .py-md-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-md-1[data-v-f703cbce],\n  .px-md-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-md-1[data-v-f703cbce],\n  .py-md-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-md-1[data-v-f703cbce],\n  .px-md-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-md-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-md-2[data-v-f703cbce],\n  .py-md-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-md-2[data-v-f703cbce],\n  .px-md-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-md-2[data-v-f703cbce],\n  .py-md-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-md-2[data-v-f703cbce],\n  .px-md-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-md-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-md-3[data-v-f703cbce],\n  .py-md-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-md-3[data-v-f703cbce],\n  .px-md-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-md-3[data-v-f703cbce],\n  .py-md-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-md-3[data-v-f703cbce],\n  .px-md-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-md-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-md-4[data-v-f703cbce],\n  .py-md-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-md-4[data-v-f703cbce],\n  .px-md-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-md-4[data-v-f703cbce],\n  .py-md-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-md-4[data-v-f703cbce],\n  .px-md-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-md-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-md-5[data-v-f703cbce],\n  .py-md-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-md-5[data-v-f703cbce],\n  .px-md-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-md-5[data-v-f703cbce],\n  .py-md-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-md-5[data-v-f703cbce],\n  .px-md-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-md-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-md-auto[data-v-f703cbce],\n  .my-md-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-md-auto[data-v-f703cbce],\n  .mx-md-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-md-auto[data-v-f703cbce],\n  .my-md-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-md-auto[data-v-f703cbce],\n  .mx-md-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 992px) {\n.m-lg-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-lg-0[data-v-f703cbce],\n  .my-lg-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-lg-0[data-v-f703cbce],\n  .mx-lg-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-lg-0[data-v-f703cbce],\n  .my-lg-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-lg-0[data-v-f703cbce],\n  .mx-lg-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-lg-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-lg-1[data-v-f703cbce],\n  .my-lg-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-lg-1[data-v-f703cbce],\n  .mx-lg-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-lg-1[data-v-f703cbce],\n  .my-lg-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-lg-1[data-v-f703cbce],\n  .mx-lg-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-lg-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-lg-2[data-v-f703cbce],\n  .my-lg-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-lg-2[data-v-f703cbce],\n  .mx-lg-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-lg-2[data-v-f703cbce],\n  .my-lg-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-lg-2[data-v-f703cbce],\n  .mx-lg-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-lg-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-lg-3[data-v-f703cbce],\n  .my-lg-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-lg-3[data-v-f703cbce],\n  .mx-lg-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-lg-3[data-v-f703cbce],\n  .my-lg-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-lg-3[data-v-f703cbce],\n  .mx-lg-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-lg-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-lg-4[data-v-f703cbce],\n  .my-lg-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-lg-4[data-v-f703cbce],\n  .mx-lg-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-lg-4[data-v-f703cbce],\n  .my-lg-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-lg-4[data-v-f703cbce],\n  .mx-lg-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-lg-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-lg-5[data-v-f703cbce],\n  .my-lg-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-lg-5[data-v-f703cbce],\n  .mx-lg-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-lg-5[data-v-f703cbce],\n  .my-lg-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-lg-5[data-v-f703cbce],\n  .mx-lg-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-lg-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-lg-0[data-v-f703cbce],\n  .py-lg-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-lg-0[data-v-f703cbce],\n  .px-lg-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-lg-0[data-v-f703cbce],\n  .py-lg-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-lg-0[data-v-f703cbce],\n  .px-lg-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-lg-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-lg-1[data-v-f703cbce],\n  .py-lg-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-lg-1[data-v-f703cbce],\n  .px-lg-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-lg-1[data-v-f703cbce],\n  .py-lg-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-lg-1[data-v-f703cbce],\n  .px-lg-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-lg-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-lg-2[data-v-f703cbce],\n  .py-lg-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-lg-2[data-v-f703cbce],\n  .px-lg-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-lg-2[data-v-f703cbce],\n  .py-lg-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-lg-2[data-v-f703cbce],\n  .px-lg-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-lg-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-lg-3[data-v-f703cbce],\n  .py-lg-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-lg-3[data-v-f703cbce],\n  .px-lg-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-lg-3[data-v-f703cbce],\n  .py-lg-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-lg-3[data-v-f703cbce],\n  .px-lg-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-lg-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-lg-4[data-v-f703cbce],\n  .py-lg-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-lg-4[data-v-f703cbce],\n  .px-lg-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-lg-4[data-v-f703cbce],\n  .py-lg-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-lg-4[data-v-f703cbce],\n  .px-lg-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-lg-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-lg-5[data-v-f703cbce],\n  .py-lg-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-lg-5[data-v-f703cbce],\n  .px-lg-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-lg-5[data-v-f703cbce],\n  .py-lg-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-lg-5[data-v-f703cbce],\n  .px-lg-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-lg-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-lg-auto[data-v-f703cbce],\n  .my-lg-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-lg-auto[data-v-f703cbce],\n  .mx-lg-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-lg-auto[data-v-f703cbce],\n  .my-lg-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-lg-auto[data-v-f703cbce],\n  .mx-lg-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 1200px) {\n.m-xl-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-xl-0[data-v-f703cbce],\n  .my-xl-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-xl-0[data-v-f703cbce],\n  .mx-xl-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-xl-0[data-v-f703cbce],\n  .my-xl-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-xl-0[data-v-f703cbce],\n  .mx-xl-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-xl-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-xl-1[data-v-f703cbce],\n  .my-xl-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-xl-1[data-v-f703cbce],\n  .mx-xl-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-xl-1[data-v-f703cbce],\n  .my-xl-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-xl-1[data-v-f703cbce],\n  .mx-xl-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-xl-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-xl-2[data-v-f703cbce],\n  .my-xl-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-xl-2[data-v-f703cbce],\n  .mx-xl-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-xl-2[data-v-f703cbce],\n  .my-xl-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-xl-2[data-v-f703cbce],\n  .mx-xl-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-xl-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-xl-3[data-v-f703cbce],\n  .my-xl-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-xl-3[data-v-f703cbce],\n  .mx-xl-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-xl-3[data-v-f703cbce],\n  .my-xl-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-xl-3[data-v-f703cbce],\n  .mx-xl-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-xl-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-xl-4[data-v-f703cbce],\n  .my-xl-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-xl-4[data-v-f703cbce],\n  .mx-xl-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-xl-4[data-v-f703cbce],\n  .my-xl-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-xl-4[data-v-f703cbce],\n  .mx-xl-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-xl-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-xl-5[data-v-f703cbce],\n  .my-xl-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-xl-5[data-v-f703cbce],\n  .mx-xl-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-xl-5[data-v-f703cbce],\n  .my-xl-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-xl-5[data-v-f703cbce],\n  .mx-xl-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-xl-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-xl-0[data-v-f703cbce],\n  .py-xl-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-xl-0[data-v-f703cbce],\n  .px-xl-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-xl-0[data-v-f703cbce],\n  .py-xl-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-xl-0[data-v-f703cbce],\n  .px-xl-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-xl-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-xl-1[data-v-f703cbce],\n  .py-xl-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-xl-1[data-v-f703cbce],\n  .px-xl-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-xl-1[data-v-f703cbce],\n  .py-xl-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-xl-1[data-v-f703cbce],\n  .px-xl-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-xl-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-xl-2[data-v-f703cbce],\n  .py-xl-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-xl-2[data-v-f703cbce],\n  .px-xl-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-xl-2[data-v-f703cbce],\n  .py-xl-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-xl-2[data-v-f703cbce],\n  .px-xl-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-xl-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-xl-3[data-v-f703cbce],\n  .py-xl-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-xl-3[data-v-f703cbce],\n  .px-xl-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-xl-3[data-v-f703cbce],\n  .py-xl-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-xl-3[data-v-f703cbce],\n  .px-xl-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-xl-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-xl-4[data-v-f703cbce],\n  .py-xl-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-xl-4[data-v-f703cbce],\n  .px-xl-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-xl-4[data-v-f703cbce],\n  .py-xl-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-xl-4[data-v-f703cbce],\n  .px-xl-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-xl-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-xl-5[data-v-f703cbce],\n  .py-xl-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-xl-5[data-v-f703cbce],\n  .px-xl-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-xl-5[data-v-f703cbce],\n  .py-xl-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-xl-5[data-v-f703cbce],\n  .px-xl-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-xl-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-xl-auto[data-v-f703cbce],\n  .my-xl-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-xl-auto[data-v-f703cbce],\n  .mx-xl-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-xl-auto[data-v-f703cbce],\n  .my-xl-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-xl-auto[data-v-f703cbce],\n  .mx-xl-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n.visible[data-v-f703cbce] {\n  visibility: visible !important;\n}\n.invisible[data-v-f703cbce] {\n  visibility: hidden !important;\n}\n*[data-v-f703cbce] {\n  margin: 0px;\n}\n*[data-v-f703cbce] ::before,\n  *[data-v-f703cbce] ::after {\n    margin: 0px;\n}\nhtml[data-v-f703cbce] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-f703cbce]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-f703cbce]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-f703cbce]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\n.theme-container[data-v-f703cbce] {\n  width: 88.8%;\n  margin-right: auto;\n  margin-left: auto;\n}\nbody[data-v-f703cbce] {\n  background: #1E2326;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-lines .verticle-line[data-v-f703cbce] {\n    border-left: 1px solid white;\n    height: 100vh;\n    opacity: 0.1;\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.verticle-lines .verticle-line[data-v-f703cbce]:nth-child(1), .verticle-lines .verticle-line[data-v-f703cbce]:nth-child(6) {\n    -webkit-box-flex: 0.5;\n        -ms-flex: 0.5;\n            flex: 0.5;\n}\n.heading-light[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n  margin-bottom: -20px;\n  padding: 0 0 0 5px;\n}\n.heading-bold[data-v-f703cbce] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-f703cbce] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.quote-para[data-v-f703cbce], .tool-name[data-v-f703cbce] {\n  font-size: 1.3rem;\n  color: #ebebeb;\n  font-weight: 500;\n  line-height: 1.5rem;\n}\n.button-link[data-v-f703cbce], .button-text[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-cover[data-v-f703cbce] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.home-cover .slogan[data-v-f703cbce] {\n    color: white;\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    bottom: 1%;\n    width: 100vw;\n}\n.home-cover .slogan .heading-light[data-v-f703cbce] {\n      text-align: center;\n      margin-top: -15px;\n}\n.home-cover .slogan .heading-bold[data-v-f703cbce] {\n      opacity: 0.1;\n      text-align: center;\n}\n.home-cover .scroll[data-v-f703cbce] {\n    position: absolute;\n    bottom: 5%;\n    right: 1.5vw;\n    -webkit-animation: scroll-down-data-v-f703cbce 1s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: scroll-down-data-v-f703cbce 1s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: ease-in-out;\n            animation-timing-function: ease-in-out;\n}\n.home-cover .scroll .text[data-v-f703cbce] {\n      color: #ebebeb;\n      text-orientation: rtl;\n      -webkit-writing-mode: vertical-lr;\n          -ms-writing-mode: tb-lr;\n              writing-mode: vertical-lr;\n      -webkit-transform: rotate(180deg);\n              transform: rotate(180deg);\n      font-size: 0.7rem;\n      letter-spacing: 2px;\n      line-height: 21px;\n      margin: 0 0 1rem 0.4rem;\n}\n.home-cover .scroll svg[data-v-f703cbce] {\n      width: 2.1rem;\n}\n.home-cover .scroll svg .st0[data-v-f703cbce] {\n        fill: #00E0E9;\n}\n@-webkit-keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n50% {\n    ms-transform: translate(0, 10px);\n    -webkit-transform: translate(0, 10px);\n    transform: translate(0, 10px);\n}\n100% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n}\n@keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n50% {\n    ms-transform: translate(0, 10px);\n    -webkit-transform: translate(0, 10px);\n    transform: translate(0, 10px);\n}\n100% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n}\n.cover svg[data-v-f703cbce] {\n  width: 100%;\n  height: 95vh;\n}\n.cover svg .st0[data-v-f703cbce] {\n    fill: #1E2326;\n}\n.cover svg .st1[data-v-f703cbce] {\n    fill: url(#SVGID_2_);\n}\n.cover svg .st2[data-v-f703cbce] {\n    opacity: 1;\n    fill: #34393C;\n}\n.cover svg .st3[data-v-f703cbce] {\n    fill: url(#SVGID_3_);\n}\n.cover svg .st4[data-v-f703cbce] {\n    fill: url(#hcSVGID_4_);\n}\n.cover svg .st5[data-v-f703cbce] {\n    fill: url(#SVGID_5_);\n}\n.cover svg .st6[data-v-f703cbce] {\n    fill: url(#SVGID_6_);\n}\n.cover svg .st7[data-v-f703cbce] {\n    fill: url(#SVGID_7_);\n}\n.cover svg .st8[data-v-f703cbce] {\n    fill: url(#SVGID_8_);\n}\n.cover svg .st9[data-v-f703cbce] {\n    fill: url(#SVGID_9_);\n}\n.cover svg .st10[data-v-f703cbce] {\n    fill: url(#SVGID_10_);\n}\n.cover svg .st11[data-v-f703cbce] {\n    fill: url(#SVGID_11_);\n}\n.cover svg .st12[data-v-f703cbce] {\n    fill: url(#SVGID_12_);\n}\n.cover svg .st13[data-v-f703cbce] {\n    fill: none;\n    stroke: #1E2326;\n    stroke-miterlimit: 10;\n}\n.cover svg .st14[data-v-f703cbce] {\n    fill: url(#SVGID_13_);\n}\n.cover svg .st15[data-v-f703cbce] {\n    fill: #1C2123;\n}\n.cover svg .st16[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_15_);\n            clip-path: url(#SVGID_15_);\n    fill: #151819;\n}\n.cover svg .st17[data-v-f703cbce] {\n    fill: #121516;\n}\n.cover svg .st18[data-v-f703cbce] {\n    fill: url(#SVGID_16_);\n}\n.cover svg .st19[data-v-f703cbce] {\n    fill: url(#SVGID_17_);\n}\n.cover svg .st20[data-v-f703cbce] {\n    fill: #FFFFFF;\n}\n.cover svg .st21[data-v-f703cbce] {\n    display: inline;\n}\n.cover svg .st22[data-v-f703cbce] {\n    display: inline;\n    opacity: 0.5;\n    fill: url(#SVGID_18_);\n}\n.cover svg .st23[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: #FDFEFF;\n}\n.cover svg .st24[data-v-f703cbce] {\n    opacity: 0.2;\n    -webkit-clip-path: url(#SVGID_20_);\n            clip-path: url(#SVGID_20_);\n    fill: url(#smoke_2_);\n}\n.cover svg .st25[data-v-f703cbce] {\n    opacity: 0.2;\n    fill: url(#SVGID_21_);\n}\n.cover svg .st26[data-v-f703cbce] {\n    fill: url(#SVGID_22_);\n}\n.cover svg .st27[data-v-f703cbce] {\n    fill: url(#SVGID_23_);\n}\n.cover svg .st28[data-v-f703cbce] {\n    fill: #BABABA;\n}\n.cover svg .st29[data-v-f703cbce] {\n    fill: #DEE7F9;\n}\n.cover svg .st30[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_25_);\n            clip-path: url(#SVGID_25_);\n    fill: #C46970;\n}\n.cover svg .st31[data-v-f703cbce] {\n    fill: url(#SVGID_26_);\n}\n.cover svg .st32[data-v-f703cbce] {\n    fill: url(#SVGID_27_);\n}\n.cover svg .st33[data-v-f703cbce] {\n    fill: #A3A5A6;\n}\n.cover svg .st34[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #C46970;\n}\n.cover svg .st35[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #A3A5A6;\n}\n.cover svg .st36[data-v-f703cbce] {\n    fill: url(#SVGID_30_);\n}\n.cover svg .st37[data-v-f703cbce] {\n    fill: url(#SVGID_31_);\n}\n.cover svg .st38[data-v-f703cbce] {\n    fill: #6D4930;\n}\n.cover svg .st39[data-v-f703cbce] {\n    fill: #CB8E55;\n}\n.cover svg .st40[data-v-f703cbce] {\n    fill: #2A3033;\n}\n.cover svg .st41[data-v-f703cbce] {\n    fill: #007075;\n}\n.cover svg .st42[data-v-f703cbce] {\n    fill: url(#SVGID_32_);\n}\n.cover svg .st43[data-v-f703cbce] {\n    fill: url(#SVGID_33_);\n}\n.cover svg .st44[data-v-f703cbce] {\n    fill: url(#SVGID_34_);\n}\n.cover svg .st45[data-v-f703cbce] {\n    opacity: 0.38;\n    fill: url(#SVGID_35_);\n}\n.cover svg .st46[data-v-f703cbce] {\n    opacity: 0.78;\n    fill: #1E2326;\n}\n.cover svg .st47[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #34393C;\n}\n.cover svg .st48[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st49[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_36_);\n}\n.cover svg .st50[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_37_);\n}\n.cover svg .st51[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_38_);\n}\n.cover svg .st52[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_39_);\n}\n.cover svg .st53[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_40_);\n}\n.cover svg .st54[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_41_);\n}\n.cover svg .st55[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_42_);\n}\n.cover svg .st56[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_43_);\n}\n.cover svg .st57[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_44_);\n}\n.cover svg .st58[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_45_);\n}\n.cover svg .st59[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_46_);\n}\n.cover svg .st60[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_47_);\n}\n.cover svg .st61[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_48_);\n}\n.cover svg .st62[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_49_);\n}\n.cover svg .st63[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_50_);\n}\n.cover svg .st64[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_51_);\n}\n.cover svg .st65[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_52_);\n}\n.cover svg .st66[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_53_);\n}\n.cover svg .st67[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_54_);\n}\n.cover svg .st68[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_55_);\n}\n.cover svg .st69[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_56_);\n}\n.cover svg .st70[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_57_);\n}\n.cover svg .st71[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_58_);\n}\n.cover svg .st72[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_59_);\n}\n.cover svg .st73[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_60_);\n}\n.cover svg .st74[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_61_);\n}\n.cover svg .st75[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_62_);\n}\n.cover svg .st76[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_63_);\n}\n.cover svg .st77[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_64_);\n}\n.cover svg .st78[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_65_);\n}\n.cover svg .st79[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_66_);\n}\n.cover svg .st80[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_67_);\n}\n.cover svg .st81[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_68_);\n}\n.cover svg .st82[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_69_);\n}\n.cover svg .st83[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_70_);\n}\n.cover svg .st84[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_71_);\n}\n.cover svg .st85[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_72_);\n}\n.cover svg .st86[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_73_);\n}\n.cover svg .st87[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_74_);\n}\n.cover svg .st88[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_75_);\n}\n.cover svg .st89[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_76_);\n}\n.cover svg .st90[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_77_);\n}\n.cover svg .st91[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_78_);\n}\n.cover svg .st92[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_79_);\n}\n.cover svg .st93[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_80_);\n}\n.cover svg .st94[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_81_);\n}\n.cover svg .st95[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_82_);\n}\n.cover svg .st96[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_83_);\n}\n.cover svg .st97[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_84_);\n}\n.cover svg .st98[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_85_);\n}\n.cover svg .st99[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_86_);\n}\n.cover svg .st100[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_87_);\n}\n.cover svg .st101[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_88_);\n}\n.cover svg .st102[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_89_);\n}\n.cover svg .st103[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_90_);\n}\n.cover svg .st104[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_91_);\n}\n.cover svg .st105[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_93_);\n            clip-path: url(#SVGID_93_);\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st106[data-v-f703cbce] {\n    display: none;\n    fill: #00E0E9;\n}\n.cover svg .st107[data-v-f703cbce] {\n    font-family: 'SofiaPro-Bold';\n}\n.cover svg .st108[data-v-f703cbce] {\n    font-size: 5.444px;\n}\n.cover svg .st109[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: url(#SVGID_94_);\n}\n.cover svg .st110[data-v-f703cbce] {\n    fill: #33373A;\n    stroke: #33373A;\n    stroke-miterlimit: 10;\n}\n.cover svg .st111[data-v-f703cbce] {\n    fill: none;\n    stroke: #F7E9E1;\n    stroke-width: 1.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-miterlimit: 10;\n}\n.cover svg .st112[data-v-f703cbce] {\n    fill: none;\n    stroke: #34393C;\n    stroke-miterlimit: 10;\n}\n.cover svg .st113[data-v-f703cbce] {\n    fill: #34393C;\n}\n.cover svg .st114[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_95_);\n            clip-path: url(#SVGID_95_);\n}\n.cover svg #hi[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #programer[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 0.5s;\n    transition: -webkit-transform 0.5s;\n    transition: transform 0.5s;\n    transition: transform 0.5s, -webkit-transform 0.5s;\n}\n.cover svg #programer[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-0.5rem);\n              transform: translateY(-0.5rem);\n}\n.cover svg #programer:hover + #hi[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock #round[data-v-f703cbce] {\n      -webkit-animation: clock-data-v-f703cbce 60s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: clock-data-v-f703cbce 60s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: linear;\n              animation-timing-function: linear;\n      -webkit-transform-origin: 72.5px 92.9px 0px;\n              transform-origin: 72.5px 92.9px 0px;\n}\n@-webkit-keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n.cover svg #light #toplight[data-v-f703cbce] {\n    -webkit-animation: toplight-data-v-f703cbce 4s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: toplight-data-v-f703cbce 4s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #lightbulb[data-v-f703cbce] {\n    -webkit-animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-delay: 4s;\n    /* Safari 4.0 - 8.0 */\n    animation-delay: 4s;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #laptoplight[data-v-f703cbce] {\n    -webkit-animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n@-webkit-keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.cover svg #spider[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 1s;\n    transition: -webkit-transform 1s;\n    transition: transform 1s;\n    transition: transform 1s, -webkit-transform 1s;\n}\n.cover svg #spider[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-1rem);\n              transform: translateY(-1rem);\n}\n.cover svg #donttouch[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #books:hover + #donttouch[data-v-f703cbce] {\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.resources/assets/font/Sofia-Pro-Black.otf';\n}\n\n/*!\r\n * Bootstrap Grid v4.1.2 (https://getbootstrap.com/)\r\n * Copyright 2011-2018 The Bootstrap Authors\r\n * Copyright 2011-2018 Twitter, Inc.\r\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\r\n */\n@-ms-viewport {\n  width: device-width;\n}\nhtml[data-v-f703cbce] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -ms-overflow-style: scrollbar;\n}\n*[data-v-f703cbce],\n*[data-v-f703cbce]::before,\n*[data-v-f703cbce]::after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n.container[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container[data-v-f703cbce] {\n      max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container[data-v-f703cbce] {\n      max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container[data-v-f703cbce] {\n      max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container[data-v-f703cbce] {\n      max-width: 1140px;\n}\n}\n.container-fluid[data-v-f703cbce] {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.row[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters[data-v-f703cbce] {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col[data-v-f703cbce],\n  .no-gutters > [class*=\"col-\"][data-v-f703cbce] {\n    padding-right: 0;\n    padding-left: 0;\n}\n.col-1[data-v-f703cbce], .col-2[data-v-f703cbce], .col-3[data-v-f703cbce], .col-4[data-v-f703cbce], .col-5[data-v-f703cbce], .col-6[data-v-f703cbce], .col-7[data-v-f703cbce], .col-8[data-v-f703cbce], .col-9[data-v-f703cbce], .col-10[data-v-f703cbce], .col-11[data-v-f703cbce], .col-12[data-v-f703cbce], .col[data-v-f703cbce],\n.col-auto[data-v-f703cbce], .col-sm-1[data-v-f703cbce], .col-sm-2[data-v-f703cbce], .col-sm-3[data-v-f703cbce], .col-sm-4[data-v-f703cbce], .col-sm-5[data-v-f703cbce], .col-sm-6[data-v-f703cbce], .col-sm-7[data-v-f703cbce], .col-sm-8[data-v-f703cbce], .col-sm-9[data-v-f703cbce], .col-sm-10[data-v-f703cbce], .col-sm-11[data-v-f703cbce], .col-sm-12[data-v-f703cbce], .col-sm[data-v-f703cbce],\n.col-sm-auto[data-v-f703cbce], .col-md-1[data-v-f703cbce], .col-md-2[data-v-f703cbce], .col-md-3[data-v-f703cbce], .col-md-4[data-v-f703cbce], .col-md-5[data-v-f703cbce], .col-md-6[data-v-f703cbce], .col-md-7[data-v-f703cbce], .col-md-8[data-v-f703cbce], .col-md-9[data-v-f703cbce], .col-md-10[data-v-f703cbce], .col-md-11[data-v-f703cbce], .col-md-12[data-v-f703cbce], .col-md[data-v-f703cbce],\n.col-md-auto[data-v-f703cbce], .col-lg-1[data-v-f703cbce], .col-lg-2[data-v-f703cbce], .col-lg-3[data-v-f703cbce], .col-lg-4[data-v-f703cbce], .col-lg-5[data-v-f703cbce], .col-lg-6[data-v-f703cbce], .col-lg-7[data-v-f703cbce], .col-lg-8[data-v-f703cbce], .col-lg-9[data-v-f703cbce], .col-lg-10[data-v-f703cbce], .col-lg-11[data-v-f703cbce], .col-lg-12[data-v-f703cbce], .col-lg[data-v-f703cbce],\n.col-lg-auto[data-v-f703cbce], .col-xl-1[data-v-f703cbce], .col-xl-2[data-v-f703cbce], .col-xl-3[data-v-f703cbce], .col-xl-4[data-v-f703cbce], .col-xl-5[data-v-f703cbce], .col-xl-6[data-v-f703cbce], .col-xl-7[data-v-f703cbce], .col-xl-8[data-v-f703cbce], .col-xl-9[data-v-f703cbce], .col-xl-10[data-v-f703cbce], .col-xl-11[data-v-f703cbce], .col-xl-12[data-v-f703cbce], .col-xl[data-v-f703cbce],\n.col-xl-auto[data-v-f703cbce] {\n  position: relative;\n  width: 100%;\n  min-height: 1px;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col[data-v-f703cbce] {\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  max-width: 100%;\n}\n.col-auto[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  width: auto;\n  max-width: none;\n}\n.col-1[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 8.33333%;\n          flex: 0 0 8.33333%;\n  max-width: 8.33333%;\n}\n.col-2[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 16.66667%;\n          flex: 0 0 16.66667%;\n  max-width: 16.66667%;\n}\n.col-3[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 25%;\n          flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 33.33333%;\n          flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n}\n.col-5[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 41.66667%;\n          flex: 0 0 41.66667%;\n  max-width: 41.66667%;\n}\n.col-6[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 50%;\n          flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 58.33333%;\n          flex: 0 0 58.33333%;\n  max-width: 58.33333%;\n}\n.col-8[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 66.66667%;\n          flex: 0 0 66.66667%;\n  max-width: 66.66667%;\n}\n.col-9[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 75%;\n          flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 83.33333%;\n          flex: 0 0 83.33333%;\n  max-width: 83.33333%;\n}\n.col-11[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 91.66667%;\n          flex: 0 0 91.66667%;\n  max-width: 91.66667%;\n}\n.col-12[data-v-f703cbce] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 100%;\n          flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 0;\n      -ms-flex-order: -1;\n          order: -1;\n}\n.order-last[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 14;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.order-0[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 1;\n      -ms-flex-order: 0;\n          order: 0;\n}\n.order-1[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 2;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.order-2[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 3;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.order-3[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 4;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.order-4[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 5;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.order-5[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 6;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.order-6[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 7;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.order-7[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 8;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.order-8[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 9;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.order-9[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 10;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.order-10[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 11;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.order-11[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 12;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.order-12[data-v-f703cbce] {\n  -webkit-box-ordinal-group: 13;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.offset-1[data-v-f703cbce] {\n  margin-left: 8.33333%;\n}\n.offset-2[data-v-f703cbce] {\n  margin-left: 16.66667%;\n}\n.offset-3[data-v-f703cbce] {\n  margin-left: 25%;\n}\n.offset-4[data-v-f703cbce] {\n  margin-left: 33.33333%;\n}\n.offset-5[data-v-f703cbce] {\n  margin-left: 41.66667%;\n}\n.offset-6[data-v-f703cbce] {\n  margin-left: 50%;\n}\n.offset-7[data-v-f703cbce] {\n  margin-left: 58.33333%;\n}\n.offset-8[data-v-f703cbce] {\n  margin-left: 66.66667%;\n}\n.offset-9[data-v-f703cbce] {\n  margin-left: 75%;\n}\n.offset-10[data-v-f703cbce] {\n  margin-left: 83.33333%;\n}\n.offset-11[data-v-f703cbce] {\n  margin-left: 91.66667%;\n}\n@media (min-width: 576px) {\n.col-sm[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-sm-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-sm-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-sm-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-sm-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-sm-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-sm-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-sm-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-sm-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-sm-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-sm-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-sm-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-sm-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-sm-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-sm-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-sm-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-sm-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-sm-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-sm-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-sm-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-sm-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-sm-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-sm-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-sm-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-sm-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-sm-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-sm-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-sm-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-sm-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-sm-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-sm-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-sm-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-sm-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-sm-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-sm-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-sm-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-sm-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 768px) {\n.col-md[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-md-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-md-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-md-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-md-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-md-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-md-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-md-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-md-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-md-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-md-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-md-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-md-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-md-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-md-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-md-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-md-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-md-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-md-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-md-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-md-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-md-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-md-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-md-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-md-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-md-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-md-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-md-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-md-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-md-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-md-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-md-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-md-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-md-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-md-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-md-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-md-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-lg-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-lg-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-lg-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-lg-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-lg-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-lg-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-lg-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-lg-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-lg-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-lg-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-lg-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-lg-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-lg-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-lg-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-lg-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-lg-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-lg-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-lg-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-lg-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-lg-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-lg-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-lg-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-lg-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-lg-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-lg-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-lg-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-lg-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-lg-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-lg-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-lg-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-lg-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-lg-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-lg-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-lg-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-lg-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-lg-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl[data-v-f703cbce] {\n    -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    max-width: 100%;\n}\n.col-xl-auto[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n    width: auto;\n    max-width: none;\n}\n.col-xl-1[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 8.33333%;\n            flex: 0 0 8.33333%;\n    max-width: 8.33333%;\n}\n.col-xl-2[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 16.66667%;\n            flex: 0 0 16.66667%;\n    max-width: 16.66667%;\n}\n.col-xl-3[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 25%;\n            flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 33.33333%;\n            flex: 0 0 33.33333%;\n    max-width: 33.33333%;\n}\n.col-xl-5[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 41.66667%;\n            flex: 0 0 41.66667%;\n    max-width: 41.66667%;\n}\n.col-xl-6[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 50%;\n            flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 58.33333%;\n            flex: 0 0 58.33333%;\n    max-width: 58.33333%;\n}\n.col-xl-8[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 66.66667%;\n            flex: 0 0 66.66667%;\n    max-width: 66.66667%;\n}\n.col-xl-9[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 75%;\n            flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 83.33333%;\n            flex: 0 0 83.33333%;\n    max-width: 83.33333%;\n}\n.col-xl-11[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 91.66667%;\n            flex: 0 0 91.66667%;\n    max-width: 91.66667%;\n}\n.col-xl-12[data-v-f703cbce] {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 0;\n        -ms-flex-order: -1;\n            order: -1;\n}\n.order-xl-last[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 14;\n        -ms-flex-order: 13;\n            order: 13;\n}\n.order-xl-0[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 1;\n        -ms-flex-order: 0;\n            order: 0;\n}\n.order-xl-1[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 2;\n        -ms-flex-order: 1;\n            order: 1;\n}\n.order-xl-2[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 3;\n        -ms-flex-order: 2;\n            order: 2;\n}\n.order-xl-3[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 4;\n        -ms-flex-order: 3;\n            order: 3;\n}\n.order-xl-4[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 5;\n        -ms-flex-order: 4;\n            order: 4;\n}\n.order-xl-5[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 6;\n        -ms-flex-order: 5;\n            order: 5;\n}\n.order-xl-6[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 7;\n        -ms-flex-order: 6;\n            order: 6;\n}\n.order-xl-7[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 8;\n        -ms-flex-order: 7;\n            order: 7;\n}\n.order-xl-8[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 9;\n        -ms-flex-order: 8;\n            order: 8;\n}\n.order-xl-9[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 10;\n        -ms-flex-order: 9;\n            order: 9;\n}\n.order-xl-10[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 11;\n        -ms-flex-order: 10;\n            order: 10;\n}\n.order-xl-11[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 12;\n        -ms-flex-order: 11;\n            order: 11;\n}\n.order-xl-12[data-v-f703cbce] {\n    -webkit-box-ordinal-group: 13;\n        -ms-flex-order: 12;\n            order: 12;\n}\n.offset-xl-0[data-v-f703cbce] {\n    margin-left: 0;\n}\n.offset-xl-1[data-v-f703cbce] {\n    margin-left: 8.33333%;\n}\n.offset-xl-2[data-v-f703cbce] {\n    margin-left: 16.66667%;\n}\n.offset-xl-3[data-v-f703cbce] {\n    margin-left: 25%;\n}\n.offset-xl-4[data-v-f703cbce] {\n    margin-left: 33.33333%;\n}\n.offset-xl-5[data-v-f703cbce] {\n    margin-left: 41.66667%;\n}\n.offset-xl-6[data-v-f703cbce] {\n    margin-left: 50%;\n}\n.offset-xl-7[data-v-f703cbce] {\n    margin-left: 58.33333%;\n}\n.offset-xl-8[data-v-f703cbce] {\n    margin-left: 66.66667%;\n}\n.offset-xl-9[data-v-f703cbce] {\n    margin-left: 75%;\n}\n.offset-xl-10[data-v-f703cbce] {\n    margin-left: 83.33333%;\n}\n.offset-xl-11[data-v-f703cbce] {\n    margin-left: 91.66667%;\n}\n}\n.d-none[data-v-f703cbce] {\n  display: none !important;\n}\n.d-inline[data-v-f703cbce] {\n  display: inline !important;\n}\n.d-inline-block[data-v-f703cbce] {\n  display: inline-block !important;\n}\n.d-block[data-v-f703cbce] {\n  display: block !important;\n}\n.d-table[data-v-f703cbce] {\n  display: table !important;\n}\n.d-table-row[data-v-f703cbce] {\n  display: table-row !important;\n}\n.d-table-cell[data-v-f703cbce] {\n  display: table-cell !important;\n}\n.d-flex[data-v-f703cbce] {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.d-inline-flex[data-v-f703cbce] {\n  display: -webkit-inline-box !important;\n  display: -ms-inline-flexbox !important;\n  display: inline-flex !important;\n}\n@media (min-width: 576px) {\n.d-sm-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-sm-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-sm-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-sm-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-sm-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-sm-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-sm-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-sm-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-sm-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 768px) {\n.d-md-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-md-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-md-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-md-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-md-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-md-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-md-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-md-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-md-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 992px) {\n.d-lg-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-lg-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-lg-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-lg-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-lg-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-lg-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-lg-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-lg-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-lg-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media (min-width: 1200px) {\n.d-xl-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-xl-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-xl-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-xl-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-xl-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-xl-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-xl-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-xl-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-xl-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n@media print {\n.d-print-none[data-v-f703cbce] {\n    display: none !important;\n}\n.d-print-inline[data-v-f703cbce] {\n    display: inline !important;\n}\n.d-print-inline-block[data-v-f703cbce] {\n    display: inline-block !important;\n}\n.d-print-block[data-v-f703cbce] {\n    display: block !important;\n}\n.d-print-table[data-v-f703cbce] {\n    display: table !important;\n}\n.d-print-table-row[data-v-f703cbce] {\n    display: table-row !important;\n}\n.d-print-table-cell[data-v-f703cbce] {\n    display: table-cell !important;\n}\n.d-print-flex[data-v-f703cbce] {\n    display: -webkit-box !important;\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n.d-print-inline-flex[data-v-f703cbce] {\n    display: -webkit-inline-box !important;\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n}\n.flex-row[data-v-f703cbce] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: row !important;\n          flex-direction: row !important;\n}\n.flex-column[data-v-f703cbce] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: normal !important;\n      -ms-flex-direction: column !important;\n          flex-direction: column !important;\n}\n.flex-row-reverse[data-v-f703cbce] {\n  -webkit-box-orient: horizontal !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: row-reverse !important;\n          flex-direction: row-reverse !important;\n}\n.flex-column-reverse[data-v-f703cbce] {\n  -webkit-box-orient: vertical !important;\n  -webkit-box-direction: reverse !important;\n      -ms-flex-direction: column-reverse !important;\n          flex-direction: column-reverse !important;\n}\n.flex-wrap[data-v-f703cbce] {\n  -ms-flex-wrap: wrap !important;\n      flex-wrap: wrap !important;\n}\n.flex-nowrap[data-v-f703cbce] {\n  -ms-flex-wrap: nowrap !important;\n      flex-wrap: nowrap !important;\n}\n.flex-wrap-reverse[data-v-f703cbce] {\n  -ms-flex-wrap: wrap-reverse !important;\n      flex-wrap: wrap-reverse !important;\n}\n.flex-fill[data-v-f703cbce] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex: 1 1 auto !important;\n          flex: 1 1 auto !important;\n}\n.flex-grow-0[data-v-f703cbce] {\n  -webkit-box-flex: 0 !important;\n      -ms-flex-positive: 0 !important;\n          flex-grow: 0 !important;\n}\n.flex-grow-1[data-v-f703cbce] {\n  -webkit-box-flex: 1 !important;\n      -ms-flex-positive: 1 !important;\n          flex-grow: 1 !important;\n}\n.flex-shrink-0[data-v-f703cbce] {\n  -ms-flex-negative: 0 !important;\n      flex-shrink: 0 !important;\n}\n.flex-shrink-1[data-v-f703cbce] {\n  -ms-flex-negative: 1 !important;\n      flex-shrink: 1 !important;\n}\n.justify-content-start[data-v-f703cbce] {\n  -webkit-box-pack: start !important;\n      -ms-flex-pack: start !important;\n          justify-content: flex-start !important;\n}\n.justify-content-end[data-v-f703cbce] {\n  -webkit-box-pack: end !important;\n      -ms-flex-pack: end !important;\n          justify-content: flex-end !important;\n}\n.justify-content-center[data-v-f703cbce] {\n  -webkit-box-pack: center !important;\n      -ms-flex-pack: center !important;\n          justify-content: center !important;\n}\n.justify-content-between[data-v-f703cbce] {\n  -webkit-box-pack: justify !important;\n      -ms-flex-pack: justify !important;\n          justify-content: space-between !important;\n}\n.justify-content-around[data-v-f703cbce] {\n  -ms-flex-pack: distribute !important;\n      justify-content: space-around !important;\n}\n.align-items-start[data-v-f703cbce] {\n  -webkit-box-align: start !important;\n      -ms-flex-align: start !important;\n          align-items: flex-start !important;\n}\n.align-items-end[data-v-f703cbce] {\n  -webkit-box-align: end !important;\n      -ms-flex-align: end !important;\n          align-items: flex-end !important;\n}\n.align-items-center[data-v-f703cbce] {\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important;\n}\n.align-items-baseline[data-v-f703cbce] {\n  -webkit-box-align: baseline !important;\n      -ms-flex-align: baseline !important;\n          align-items: baseline !important;\n}\n.align-items-stretch[data-v-f703cbce] {\n  -webkit-box-align: stretch !important;\n      -ms-flex-align: stretch !important;\n          align-items: stretch !important;\n}\n.align-content-start[data-v-f703cbce] {\n  -ms-flex-line-pack: start !important;\n      align-content: flex-start !important;\n}\n.align-content-end[data-v-f703cbce] {\n  -ms-flex-line-pack: end !important;\n      align-content: flex-end !important;\n}\n.align-content-center[data-v-f703cbce] {\n  -ms-flex-line-pack: center !important;\n      align-content: center !important;\n}\n.align-content-between[data-v-f703cbce] {\n  -ms-flex-line-pack: justify !important;\n      align-content: space-between !important;\n}\n.align-content-around[data-v-f703cbce] {\n  -ms-flex-line-pack: distribute !important;\n      align-content: space-around !important;\n}\n.align-content-stretch[data-v-f703cbce] {\n  -ms-flex-line-pack: stretch !important;\n      align-content: stretch !important;\n}\n.align-self-auto[data-v-f703cbce] {\n  -ms-flex-item-align: auto !important;\n      align-self: auto !important;\n}\n.align-self-start[data-v-f703cbce] {\n  -ms-flex-item-align: start !important;\n      align-self: flex-start !important;\n}\n.align-self-end[data-v-f703cbce] {\n  -ms-flex-item-align: end !important;\n      align-self: flex-end !important;\n}\n.align-self-center[data-v-f703cbce] {\n  -ms-flex-item-align: center !important;\n      align-self: center !important;\n}\n.align-self-baseline[data-v-f703cbce] {\n  -ms-flex-item-align: baseline !important;\n      align-self: baseline !important;\n}\n.align-self-stretch[data-v-f703cbce] {\n  -ms-flex-item-align: stretch !important;\n      align-self: stretch !important;\n}\n@media (min-width: 576px) {\n.flex-sm-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-sm-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-sm-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-sm-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-sm-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-sm-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-sm-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-sm-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-sm-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-sm-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-sm-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-sm-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-sm-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-sm-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-sm-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-sm-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-sm-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-sm-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-sm-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-sm-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-sm-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-sm-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-sm-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-sm-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-sm-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-sm-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-sm-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-sm-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-sm-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-sm-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-sm-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-sm-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-sm-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-sm-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 768px) {\n.flex-md-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-md-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-md-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-md-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-md-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-md-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-md-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-md-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-md-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-md-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-md-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-md-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-md-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-md-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-md-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-md-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-md-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-md-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-md-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-md-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-md-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-md-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-md-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-md-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-md-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-md-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-md-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-md-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-md-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-md-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-md-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-md-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-md-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-md-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 992px) {\n.flex-lg-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-lg-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-lg-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-lg-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-lg-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-lg-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-lg-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-lg-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-lg-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-lg-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-lg-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-lg-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-lg-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-lg-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-lg-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-lg-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-lg-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-lg-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-lg-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-lg-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-lg-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-lg-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-lg-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-lg-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-lg-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-lg-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-lg-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-lg-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-lg-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-lg-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-lg-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-lg-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-lg-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-lg-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n@media (min-width: 1200px) {\n.flex-xl-row[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: row !important;\n            flex-direction: row !important;\n}\n.flex-xl-column[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: normal !important;\n        -ms-flex-direction: column !important;\n            flex-direction: column !important;\n}\n.flex-xl-row-reverse[data-v-f703cbce] {\n    -webkit-box-orient: horizontal !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: row-reverse !important;\n            flex-direction: row-reverse !important;\n}\n.flex-xl-column-reverse[data-v-f703cbce] {\n    -webkit-box-orient: vertical !important;\n    -webkit-box-direction: reverse !important;\n        -ms-flex-direction: column-reverse !important;\n            flex-direction: column-reverse !important;\n}\n.flex-xl-wrap[data-v-f703cbce] {\n    -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n}\n.flex-xl-nowrap[data-v-f703cbce] {\n    -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n}\n.flex-xl-wrap-reverse[data-v-f703cbce] {\n    -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n}\n.flex-xl-fill[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex: 1 1 auto !important;\n            flex: 1 1 auto !important;\n}\n.flex-xl-grow-0[data-v-f703cbce] {\n    -webkit-box-flex: 0 !important;\n        -ms-flex-positive: 0 !important;\n            flex-grow: 0 !important;\n}\n.flex-xl-grow-1[data-v-f703cbce] {\n    -webkit-box-flex: 1 !important;\n        -ms-flex-positive: 1 !important;\n            flex-grow: 1 !important;\n}\n.flex-xl-shrink-0[data-v-f703cbce] {\n    -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n}\n.flex-xl-shrink-1[data-v-f703cbce] {\n    -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n}\n.justify-content-xl-start[data-v-f703cbce] {\n    -webkit-box-pack: start !important;\n        -ms-flex-pack: start !important;\n            justify-content: flex-start !important;\n}\n.justify-content-xl-end[data-v-f703cbce] {\n    -webkit-box-pack: end !important;\n        -ms-flex-pack: end !important;\n            justify-content: flex-end !important;\n}\n.justify-content-xl-center[data-v-f703cbce] {\n    -webkit-box-pack: center !important;\n        -ms-flex-pack: center !important;\n            justify-content: center !important;\n}\n.justify-content-xl-between[data-v-f703cbce] {\n    -webkit-box-pack: justify !important;\n        -ms-flex-pack: justify !important;\n            justify-content: space-between !important;\n}\n.justify-content-xl-around[data-v-f703cbce] {\n    -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n}\n.align-items-xl-start[data-v-f703cbce] {\n    -webkit-box-align: start !important;\n        -ms-flex-align: start !important;\n            align-items: flex-start !important;\n}\n.align-items-xl-end[data-v-f703cbce] {\n    -webkit-box-align: end !important;\n        -ms-flex-align: end !important;\n            align-items: flex-end !important;\n}\n.align-items-xl-center[data-v-f703cbce] {\n    -webkit-box-align: center !important;\n        -ms-flex-align: center !important;\n            align-items: center !important;\n}\n.align-items-xl-baseline[data-v-f703cbce] {\n    -webkit-box-align: baseline !important;\n        -ms-flex-align: baseline !important;\n            align-items: baseline !important;\n}\n.align-items-xl-stretch[data-v-f703cbce] {\n    -webkit-box-align: stretch !important;\n        -ms-flex-align: stretch !important;\n            align-items: stretch !important;\n}\n.align-content-xl-start[data-v-f703cbce] {\n    -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n}\n.align-content-xl-end[data-v-f703cbce] {\n    -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n}\n.align-content-xl-center[data-v-f703cbce] {\n    -ms-flex-line-pack: center !important;\n        align-content: center !important;\n}\n.align-content-xl-between[data-v-f703cbce] {\n    -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n}\n.align-content-xl-around[data-v-f703cbce] {\n    -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n}\n.align-content-xl-stretch[data-v-f703cbce] {\n    -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n}\n.align-self-xl-auto[data-v-f703cbce] {\n    -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n}\n.align-self-xl-start[data-v-f703cbce] {\n    -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n}\n.align-self-xl-end[data-v-f703cbce] {\n    -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n}\n.align-self-xl-center[data-v-f703cbce] {\n    -ms-flex-item-align: center !important;\n        align-self: center !important;\n}\n.align-self-xl-baseline[data-v-f703cbce] {\n    -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n}\n.align-self-xl-stretch[data-v-f703cbce] {\n    -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n}\n}\n.w-25[data-v-f703cbce] {\n  width: 25% !important;\n}\n.w-50[data-v-f703cbce] {\n  width: 50% !important;\n}\n.w-75[data-v-f703cbce] {\n  width: 75% !important;\n}\n.w-100[data-v-f703cbce] {\n  width: 100% !important;\n}\n.w-auto[data-v-f703cbce] {\n  width: auto !important;\n}\n.h-25[data-v-f703cbce] {\n  height: 25% !important;\n}\n.h-50[data-v-f703cbce] {\n  height: 50% !important;\n}\n.h-75[data-v-f703cbce] {\n  height: 75% !important;\n}\n.h-100[data-v-f703cbce] {\n  height: 100% !important;\n}\n.h-auto[data-v-f703cbce] {\n  height: auto !important;\n}\n.mw-100[data-v-f703cbce] {\n  max-width: 100% !important;\n}\n.mh-100[data-v-f703cbce] {\n  max-height: 100% !important;\n}\n.m-0[data-v-f703cbce] {\n  margin: 0 !important;\n}\n.mt-0[data-v-f703cbce],\n.my-0[data-v-f703cbce] {\n  margin-top: 0 !important;\n}\n.mr-0[data-v-f703cbce],\n.mx-0[data-v-f703cbce] {\n  margin-right: 0 !important;\n}\n.mb-0[data-v-f703cbce],\n.my-0[data-v-f703cbce] {\n  margin-bottom: 0 !important;\n}\n.ml-0[data-v-f703cbce],\n.mx-0[data-v-f703cbce] {\n  margin-left: 0 !important;\n}\n.m-1[data-v-f703cbce] {\n  margin: 0.25rem !important;\n}\n.mt-1[data-v-f703cbce],\n.my-1[data-v-f703cbce] {\n  margin-top: 0.25rem !important;\n}\n.mr-1[data-v-f703cbce],\n.mx-1[data-v-f703cbce] {\n  margin-right: 0.25rem !important;\n}\n.mb-1[data-v-f703cbce],\n.my-1[data-v-f703cbce] {\n  margin-bottom: 0.25rem !important;\n}\n.ml-1[data-v-f703cbce],\n.mx-1[data-v-f703cbce] {\n  margin-left: 0.25rem !important;\n}\n.m-2[data-v-f703cbce] {\n  margin: 0.5rem !important;\n}\n.mt-2[data-v-f703cbce],\n.my-2[data-v-f703cbce] {\n  margin-top: 0.5rem !important;\n}\n.mr-2[data-v-f703cbce],\n.mx-2[data-v-f703cbce] {\n  margin-right: 0.5rem !important;\n}\n.mb-2[data-v-f703cbce],\n.my-2[data-v-f703cbce] {\n  margin-bottom: 0.5rem !important;\n}\n.ml-2[data-v-f703cbce],\n.mx-2[data-v-f703cbce] {\n  margin-left: 0.5rem !important;\n}\n.m-3[data-v-f703cbce] {\n  margin: 1rem !important;\n}\n.mt-3[data-v-f703cbce],\n.my-3[data-v-f703cbce] {\n  margin-top: 1rem !important;\n}\n.mr-3[data-v-f703cbce],\n.mx-3[data-v-f703cbce] {\n  margin-right: 1rem !important;\n}\n.mb-3[data-v-f703cbce],\n.my-3[data-v-f703cbce] {\n  margin-bottom: 1rem !important;\n}\n.ml-3[data-v-f703cbce],\n.mx-3[data-v-f703cbce] {\n  margin-left: 1rem !important;\n}\n.m-4[data-v-f703cbce] {\n  margin: 1.5rem !important;\n}\n.mt-4[data-v-f703cbce],\n.my-4[data-v-f703cbce] {\n  margin-top: 1.5rem !important;\n}\n.mr-4[data-v-f703cbce],\n.mx-4[data-v-f703cbce] {\n  margin-right: 1.5rem !important;\n}\n.mb-4[data-v-f703cbce],\n.my-4[data-v-f703cbce] {\n  margin-bottom: 1.5rem !important;\n}\n.ml-4[data-v-f703cbce],\n.mx-4[data-v-f703cbce] {\n  margin-left: 1.5rem !important;\n}\n.m-5[data-v-f703cbce] {\n  margin: 3rem !important;\n}\n.mt-5[data-v-f703cbce],\n.my-5[data-v-f703cbce] {\n  margin-top: 3rem !important;\n}\n.mr-5[data-v-f703cbce],\n.mx-5[data-v-f703cbce] {\n  margin-right: 3rem !important;\n}\n.mb-5[data-v-f703cbce],\n.my-5[data-v-f703cbce] {\n  margin-bottom: 3rem !important;\n}\n.ml-5[data-v-f703cbce],\n.mx-5[data-v-f703cbce] {\n  margin-left: 3rem !important;\n}\n.p-0[data-v-f703cbce] {\n  padding: 0 !important;\n}\n.pt-0[data-v-f703cbce],\n.py-0[data-v-f703cbce] {\n  padding-top: 0 !important;\n}\n.pr-0[data-v-f703cbce],\n.px-0[data-v-f703cbce] {\n  padding-right: 0 !important;\n}\n.pb-0[data-v-f703cbce],\n.py-0[data-v-f703cbce] {\n  padding-bottom: 0 !important;\n}\n.pl-0[data-v-f703cbce],\n.px-0[data-v-f703cbce] {\n  padding-left: 0 !important;\n}\n.p-1[data-v-f703cbce] {\n  padding: 0.25rem !important;\n}\n.pt-1[data-v-f703cbce],\n.py-1[data-v-f703cbce] {\n  padding-top: 0.25rem !important;\n}\n.pr-1[data-v-f703cbce],\n.px-1[data-v-f703cbce] {\n  padding-right: 0.25rem !important;\n}\n.pb-1[data-v-f703cbce],\n.py-1[data-v-f703cbce] {\n  padding-bottom: 0.25rem !important;\n}\n.pl-1[data-v-f703cbce],\n.px-1[data-v-f703cbce] {\n  padding-left: 0.25rem !important;\n}\n.p-2[data-v-f703cbce] {\n  padding: 0.5rem !important;\n}\n.pt-2[data-v-f703cbce],\n.py-2[data-v-f703cbce] {\n  padding-top: 0.5rem !important;\n}\n.pr-2[data-v-f703cbce],\n.px-2[data-v-f703cbce] {\n  padding-right: 0.5rem !important;\n}\n.pb-2[data-v-f703cbce],\n.py-2[data-v-f703cbce] {\n  padding-bottom: 0.5rem !important;\n}\n.pl-2[data-v-f703cbce],\n.px-2[data-v-f703cbce] {\n  padding-left: 0.5rem !important;\n}\n.p-3[data-v-f703cbce] {\n  padding: 1rem !important;\n}\n.pt-3[data-v-f703cbce],\n.py-3[data-v-f703cbce] {\n  padding-top: 1rem !important;\n}\n.pr-3[data-v-f703cbce],\n.px-3[data-v-f703cbce] {\n  padding-right: 1rem !important;\n}\n.pb-3[data-v-f703cbce],\n.py-3[data-v-f703cbce] {\n  padding-bottom: 1rem !important;\n}\n.pl-3[data-v-f703cbce],\n.px-3[data-v-f703cbce] {\n  padding-left: 1rem !important;\n}\n.p-4[data-v-f703cbce] {\n  padding: 1.5rem !important;\n}\n.pt-4[data-v-f703cbce],\n.py-4[data-v-f703cbce] {\n  padding-top: 1.5rem !important;\n}\n.pr-4[data-v-f703cbce],\n.px-4[data-v-f703cbce] {\n  padding-right: 1.5rem !important;\n}\n.pb-4[data-v-f703cbce],\n.py-4[data-v-f703cbce] {\n  padding-bottom: 1.5rem !important;\n}\n.pl-4[data-v-f703cbce],\n.px-4[data-v-f703cbce] {\n  padding-left: 1.5rem !important;\n}\n.p-5[data-v-f703cbce] {\n  padding: 3rem !important;\n}\n.pt-5[data-v-f703cbce],\n.py-5[data-v-f703cbce] {\n  padding-top: 3rem !important;\n}\n.pr-5[data-v-f703cbce],\n.px-5[data-v-f703cbce] {\n  padding-right: 3rem !important;\n}\n.pb-5[data-v-f703cbce],\n.py-5[data-v-f703cbce] {\n  padding-bottom: 3rem !important;\n}\n.pl-5[data-v-f703cbce],\n.px-5[data-v-f703cbce] {\n  padding-left: 3rem !important;\n}\n.m-auto[data-v-f703cbce] {\n  margin: auto !important;\n}\n.mt-auto[data-v-f703cbce],\n.my-auto[data-v-f703cbce] {\n  margin-top: auto !important;\n}\n.mr-auto[data-v-f703cbce],\n.mx-auto[data-v-f703cbce] {\n  margin-right: auto !important;\n}\n.mb-auto[data-v-f703cbce],\n.my-auto[data-v-f703cbce] {\n  margin-bottom: auto !important;\n}\n.ml-auto[data-v-f703cbce],\n.mx-auto[data-v-f703cbce] {\n  margin-left: auto !important;\n}\n@media (min-width: 576px) {\n.m-sm-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-sm-0[data-v-f703cbce],\n  .my-sm-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-sm-0[data-v-f703cbce],\n  .mx-sm-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-sm-0[data-v-f703cbce],\n  .my-sm-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-sm-0[data-v-f703cbce],\n  .mx-sm-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-sm-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-sm-1[data-v-f703cbce],\n  .my-sm-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-sm-1[data-v-f703cbce],\n  .mx-sm-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-sm-1[data-v-f703cbce],\n  .my-sm-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-sm-1[data-v-f703cbce],\n  .mx-sm-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-sm-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-sm-2[data-v-f703cbce],\n  .my-sm-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-sm-2[data-v-f703cbce],\n  .mx-sm-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-sm-2[data-v-f703cbce],\n  .my-sm-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-sm-2[data-v-f703cbce],\n  .mx-sm-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-sm-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-sm-3[data-v-f703cbce],\n  .my-sm-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-sm-3[data-v-f703cbce],\n  .mx-sm-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-sm-3[data-v-f703cbce],\n  .my-sm-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-sm-3[data-v-f703cbce],\n  .mx-sm-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-sm-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-sm-4[data-v-f703cbce],\n  .my-sm-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-sm-4[data-v-f703cbce],\n  .mx-sm-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-sm-4[data-v-f703cbce],\n  .my-sm-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-sm-4[data-v-f703cbce],\n  .mx-sm-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-sm-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-sm-5[data-v-f703cbce],\n  .my-sm-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-sm-5[data-v-f703cbce],\n  .mx-sm-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-sm-5[data-v-f703cbce],\n  .my-sm-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-sm-5[data-v-f703cbce],\n  .mx-sm-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-sm-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-sm-0[data-v-f703cbce],\n  .py-sm-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-sm-0[data-v-f703cbce],\n  .px-sm-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-sm-0[data-v-f703cbce],\n  .py-sm-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-sm-0[data-v-f703cbce],\n  .px-sm-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-sm-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-sm-1[data-v-f703cbce],\n  .py-sm-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-sm-1[data-v-f703cbce],\n  .px-sm-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-sm-1[data-v-f703cbce],\n  .py-sm-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-sm-1[data-v-f703cbce],\n  .px-sm-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-sm-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-sm-2[data-v-f703cbce],\n  .py-sm-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-sm-2[data-v-f703cbce],\n  .px-sm-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-sm-2[data-v-f703cbce],\n  .py-sm-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-sm-2[data-v-f703cbce],\n  .px-sm-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-sm-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-sm-3[data-v-f703cbce],\n  .py-sm-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-sm-3[data-v-f703cbce],\n  .px-sm-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-sm-3[data-v-f703cbce],\n  .py-sm-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-sm-3[data-v-f703cbce],\n  .px-sm-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-sm-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-sm-4[data-v-f703cbce],\n  .py-sm-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-sm-4[data-v-f703cbce],\n  .px-sm-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-sm-4[data-v-f703cbce],\n  .py-sm-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-sm-4[data-v-f703cbce],\n  .px-sm-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-sm-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-sm-5[data-v-f703cbce],\n  .py-sm-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-sm-5[data-v-f703cbce],\n  .px-sm-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-sm-5[data-v-f703cbce],\n  .py-sm-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-sm-5[data-v-f703cbce],\n  .px-sm-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-sm-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-sm-auto[data-v-f703cbce],\n  .my-sm-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-sm-auto[data-v-f703cbce],\n  .mx-sm-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-sm-auto[data-v-f703cbce],\n  .my-sm-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-sm-auto[data-v-f703cbce],\n  .mx-sm-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 768px) {\n.m-md-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-md-0[data-v-f703cbce],\n  .my-md-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-md-0[data-v-f703cbce],\n  .mx-md-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-md-0[data-v-f703cbce],\n  .my-md-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-md-0[data-v-f703cbce],\n  .mx-md-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-md-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-md-1[data-v-f703cbce],\n  .my-md-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-md-1[data-v-f703cbce],\n  .mx-md-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-md-1[data-v-f703cbce],\n  .my-md-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-md-1[data-v-f703cbce],\n  .mx-md-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-md-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-md-2[data-v-f703cbce],\n  .my-md-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-md-2[data-v-f703cbce],\n  .mx-md-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-md-2[data-v-f703cbce],\n  .my-md-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-md-2[data-v-f703cbce],\n  .mx-md-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-md-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-md-3[data-v-f703cbce],\n  .my-md-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-md-3[data-v-f703cbce],\n  .mx-md-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-md-3[data-v-f703cbce],\n  .my-md-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-md-3[data-v-f703cbce],\n  .mx-md-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-md-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-md-4[data-v-f703cbce],\n  .my-md-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-md-4[data-v-f703cbce],\n  .mx-md-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-md-4[data-v-f703cbce],\n  .my-md-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-md-4[data-v-f703cbce],\n  .mx-md-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-md-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-md-5[data-v-f703cbce],\n  .my-md-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-md-5[data-v-f703cbce],\n  .mx-md-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-md-5[data-v-f703cbce],\n  .my-md-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-md-5[data-v-f703cbce],\n  .mx-md-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-md-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-md-0[data-v-f703cbce],\n  .py-md-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-md-0[data-v-f703cbce],\n  .px-md-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-md-0[data-v-f703cbce],\n  .py-md-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-md-0[data-v-f703cbce],\n  .px-md-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-md-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-md-1[data-v-f703cbce],\n  .py-md-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-md-1[data-v-f703cbce],\n  .px-md-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-md-1[data-v-f703cbce],\n  .py-md-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-md-1[data-v-f703cbce],\n  .px-md-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-md-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-md-2[data-v-f703cbce],\n  .py-md-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-md-2[data-v-f703cbce],\n  .px-md-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-md-2[data-v-f703cbce],\n  .py-md-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-md-2[data-v-f703cbce],\n  .px-md-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-md-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-md-3[data-v-f703cbce],\n  .py-md-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-md-3[data-v-f703cbce],\n  .px-md-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-md-3[data-v-f703cbce],\n  .py-md-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-md-3[data-v-f703cbce],\n  .px-md-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-md-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-md-4[data-v-f703cbce],\n  .py-md-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-md-4[data-v-f703cbce],\n  .px-md-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-md-4[data-v-f703cbce],\n  .py-md-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-md-4[data-v-f703cbce],\n  .px-md-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-md-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-md-5[data-v-f703cbce],\n  .py-md-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-md-5[data-v-f703cbce],\n  .px-md-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-md-5[data-v-f703cbce],\n  .py-md-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-md-5[data-v-f703cbce],\n  .px-md-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-md-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-md-auto[data-v-f703cbce],\n  .my-md-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-md-auto[data-v-f703cbce],\n  .mx-md-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-md-auto[data-v-f703cbce],\n  .my-md-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-md-auto[data-v-f703cbce],\n  .mx-md-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 992px) {\n.m-lg-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-lg-0[data-v-f703cbce],\n  .my-lg-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-lg-0[data-v-f703cbce],\n  .mx-lg-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-lg-0[data-v-f703cbce],\n  .my-lg-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-lg-0[data-v-f703cbce],\n  .mx-lg-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-lg-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-lg-1[data-v-f703cbce],\n  .my-lg-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-lg-1[data-v-f703cbce],\n  .mx-lg-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-lg-1[data-v-f703cbce],\n  .my-lg-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-lg-1[data-v-f703cbce],\n  .mx-lg-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-lg-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-lg-2[data-v-f703cbce],\n  .my-lg-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-lg-2[data-v-f703cbce],\n  .mx-lg-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-lg-2[data-v-f703cbce],\n  .my-lg-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-lg-2[data-v-f703cbce],\n  .mx-lg-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-lg-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-lg-3[data-v-f703cbce],\n  .my-lg-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-lg-3[data-v-f703cbce],\n  .mx-lg-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-lg-3[data-v-f703cbce],\n  .my-lg-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-lg-3[data-v-f703cbce],\n  .mx-lg-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-lg-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-lg-4[data-v-f703cbce],\n  .my-lg-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-lg-4[data-v-f703cbce],\n  .mx-lg-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-lg-4[data-v-f703cbce],\n  .my-lg-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-lg-4[data-v-f703cbce],\n  .mx-lg-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-lg-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-lg-5[data-v-f703cbce],\n  .my-lg-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-lg-5[data-v-f703cbce],\n  .mx-lg-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-lg-5[data-v-f703cbce],\n  .my-lg-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-lg-5[data-v-f703cbce],\n  .mx-lg-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-lg-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-lg-0[data-v-f703cbce],\n  .py-lg-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-lg-0[data-v-f703cbce],\n  .px-lg-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-lg-0[data-v-f703cbce],\n  .py-lg-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-lg-0[data-v-f703cbce],\n  .px-lg-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-lg-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-lg-1[data-v-f703cbce],\n  .py-lg-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-lg-1[data-v-f703cbce],\n  .px-lg-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-lg-1[data-v-f703cbce],\n  .py-lg-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-lg-1[data-v-f703cbce],\n  .px-lg-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-lg-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-lg-2[data-v-f703cbce],\n  .py-lg-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-lg-2[data-v-f703cbce],\n  .px-lg-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-lg-2[data-v-f703cbce],\n  .py-lg-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-lg-2[data-v-f703cbce],\n  .px-lg-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-lg-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-lg-3[data-v-f703cbce],\n  .py-lg-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-lg-3[data-v-f703cbce],\n  .px-lg-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-lg-3[data-v-f703cbce],\n  .py-lg-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-lg-3[data-v-f703cbce],\n  .px-lg-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-lg-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-lg-4[data-v-f703cbce],\n  .py-lg-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-lg-4[data-v-f703cbce],\n  .px-lg-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-lg-4[data-v-f703cbce],\n  .py-lg-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-lg-4[data-v-f703cbce],\n  .px-lg-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-lg-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-lg-5[data-v-f703cbce],\n  .py-lg-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-lg-5[data-v-f703cbce],\n  .px-lg-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-lg-5[data-v-f703cbce],\n  .py-lg-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-lg-5[data-v-f703cbce],\n  .px-lg-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-lg-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-lg-auto[data-v-f703cbce],\n  .my-lg-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-lg-auto[data-v-f703cbce],\n  .mx-lg-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-lg-auto[data-v-f703cbce],\n  .my-lg-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-lg-auto[data-v-f703cbce],\n  .mx-lg-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n@media (min-width: 1200px) {\n.m-xl-0[data-v-f703cbce] {\n    margin: 0 !important;\n}\n.mt-xl-0[data-v-f703cbce],\n  .my-xl-0[data-v-f703cbce] {\n    margin-top: 0 !important;\n}\n.mr-xl-0[data-v-f703cbce],\n  .mx-xl-0[data-v-f703cbce] {\n    margin-right: 0 !important;\n}\n.mb-xl-0[data-v-f703cbce],\n  .my-xl-0[data-v-f703cbce] {\n    margin-bottom: 0 !important;\n}\n.ml-xl-0[data-v-f703cbce],\n  .mx-xl-0[data-v-f703cbce] {\n    margin-left: 0 !important;\n}\n.m-xl-1[data-v-f703cbce] {\n    margin: 0.25rem !important;\n}\n.mt-xl-1[data-v-f703cbce],\n  .my-xl-1[data-v-f703cbce] {\n    margin-top: 0.25rem !important;\n}\n.mr-xl-1[data-v-f703cbce],\n  .mx-xl-1[data-v-f703cbce] {\n    margin-right: 0.25rem !important;\n}\n.mb-xl-1[data-v-f703cbce],\n  .my-xl-1[data-v-f703cbce] {\n    margin-bottom: 0.25rem !important;\n}\n.ml-xl-1[data-v-f703cbce],\n  .mx-xl-1[data-v-f703cbce] {\n    margin-left: 0.25rem !important;\n}\n.m-xl-2[data-v-f703cbce] {\n    margin: 0.5rem !important;\n}\n.mt-xl-2[data-v-f703cbce],\n  .my-xl-2[data-v-f703cbce] {\n    margin-top: 0.5rem !important;\n}\n.mr-xl-2[data-v-f703cbce],\n  .mx-xl-2[data-v-f703cbce] {\n    margin-right: 0.5rem !important;\n}\n.mb-xl-2[data-v-f703cbce],\n  .my-xl-2[data-v-f703cbce] {\n    margin-bottom: 0.5rem !important;\n}\n.ml-xl-2[data-v-f703cbce],\n  .mx-xl-2[data-v-f703cbce] {\n    margin-left: 0.5rem !important;\n}\n.m-xl-3[data-v-f703cbce] {\n    margin: 1rem !important;\n}\n.mt-xl-3[data-v-f703cbce],\n  .my-xl-3[data-v-f703cbce] {\n    margin-top: 1rem !important;\n}\n.mr-xl-3[data-v-f703cbce],\n  .mx-xl-3[data-v-f703cbce] {\n    margin-right: 1rem !important;\n}\n.mb-xl-3[data-v-f703cbce],\n  .my-xl-3[data-v-f703cbce] {\n    margin-bottom: 1rem !important;\n}\n.ml-xl-3[data-v-f703cbce],\n  .mx-xl-3[data-v-f703cbce] {\n    margin-left: 1rem !important;\n}\n.m-xl-4[data-v-f703cbce] {\n    margin: 1.5rem !important;\n}\n.mt-xl-4[data-v-f703cbce],\n  .my-xl-4[data-v-f703cbce] {\n    margin-top: 1.5rem !important;\n}\n.mr-xl-4[data-v-f703cbce],\n  .mx-xl-4[data-v-f703cbce] {\n    margin-right: 1.5rem !important;\n}\n.mb-xl-4[data-v-f703cbce],\n  .my-xl-4[data-v-f703cbce] {\n    margin-bottom: 1.5rem !important;\n}\n.ml-xl-4[data-v-f703cbce],\n  .mx-xl-4[data-v-f703cbce] {\n    margin-left: 1.5rem !important;\n}\n.m-xl-5[data-v-f703cbce] {\n    margin: 3rem !important;\n}\n.mt-xl-5[data-v-f703cbce],\n  .my-xl-5[data-v-f703cbce] {\n    margin-top: 3rem !important;\n}\n.mr-xl-5[data-v-f703cbce],\n  .mx-xl-5[data-v-f703cbce] {\n    margin-right: 3rem !important;\n}\n.mb-xl-5[data-v-f703cbce],\n  .my-xl-5[data-v-f703cbce] {\n    margin-bottom: 3rem !important;\n}\n.ml-xl-5[data-v-f703cbce],\n  .mx-xl-5[data-v-f703cbce] {\n    margin-left: 3rem !important;\n}\n.p-xl-0[data-v-f703cbce] {\n    padding: 0 !important;\n}\n.pt-xl-0[data-v-f703cbce],\n  .py-xl-0[data-v-f703cbce] {\n    padding-top: 0 !important;\n}\n.pr-xl-0[data-v-f703cbce],\n  .px-xl-0[data-v-f703cbce] {\n    padding-right: 0 !important;\n}\n.pb-xl-0[data-v-f703cbce],\n  .py-xl-0[data-v-f703cbce] {\n    padding-bottom: 0 !important;\n}\n.pl-xl-0[data-v-f703cbce],\n  .px-xl-0[data-v-f703cbce] {\n    padding-left: 0 !important;\n}\n.p-xl-1[data-v-f703cbce] {\n    padding: 0.25rem !important;\n}\n.pt-xl-1[data-v-f703cbce],\n  .py-xl-1[data-v-f703cbce] {\n    padding-top: 0.25rem !important;\n}\n.pr-xl-1[data-v-f703cbce],\n  .px-xl-1[data-v-f703cbce] {\n    padding-right: 0.25rem !important;\n}\n.pb-xl-1[data-v-f703cbce],\n  .py-xl-1[data-v-f703cbce] {\n    padding-bottom: 0.25rem !important;\n}\n.pl-xl-1[data-v-f703cbce],\n  .px-xl-1[data-v-f703cbce] {\n    padding-left: 0.25rem !important;\n}\n.p-xl-2[data-v-f703cbce] {\n    padding: 0.5rem !important;\n}\n.pt-xl-2[data-v-f703cbce],\n  .py-xl-2[data-v-f703cbce] {\n    padding-top: 0.5rem !important;\n}\n.pr-xl-2[data-v-f703cbce],\n  .px-xl-2[data-v-f703cbce] {\n    padding-right: 0.5rem !important;\n}\n.pb-xl-2[data-v-f703cbce],\n  .py-xl-2[data-v-f703cbce] {\n    padding-bottom: 0.5rem !important;\n}\n.pl-xl-2[data-v-f703cbce],\n  .px-xl-2[data-v-f703cbce] {\n    padding-left: 0.5rem !important;\n}\n.p-xl-3[data-v-f703cbce] {\n    padding: 1rem !important;\n}\n.pt-xl-3[data-v-f703cbce],\n  .py-xl-3[data-v-f703cbce] {\n    padding-top: 1rem !important;\n}\n.pr-xl-3[data-v-f703cbce],\n  .px-xl-3[data-v-f703cbce] {\n    padding-right: 1rem !important;\n}\n.pb-xl-3[data-v-f703cbce],\n  .py-xl-3[data-v-f703cbce] {\n    padding-bottom: 1rem !important;\n}\n.pl-xl-3[data-v-f703cbce],\n  .px-xl-3[data-v-f703cbce] {\n    padding-left: 1rem !important;\n}\n.p-xl-4[data-v-f703cbce] {\n    padding: 1.5rem !important;\n}\n.pt-xl-4[data-v-f703cbce],\n  .py-xl-4[data-v-f703cbce] {\n    padding-top: 1.5rem !important;\n}\n.pr-xl-4[data-v-f703cbce],\n  .px-xl-4[data-v-f703cbce] {\n    padding-right: 1.5rem !important;\n}\n.pb-xl-4[data-v-f703cbce],\n  .py-xl-4[data-v-f703cbce] {\n    padding-bottom: 1.5rem !important;\n}\n.pl-xl-4[data-v-f703cbce],\n  .px-xl-4[data-v-f703cbce] {\n    padding-left: 1.5rem !important;\n}\n.p-xl-5[data-v-f703cbce] {\n    padding: 3rem !important;\n}\n.pt-xl-5[data-v-f703cbce],\n  .py-xl-5[data-v-f703cbce] {\n    padding-top: 3rem !important;\n}\n.pr-xl-5[data-v-f703cbce],\n  .px-xl-5[data-v-f703cbce] {\n    padding-right: 3rem !important;\n}\n.pb-xl-5[data-v-f703cbce],\n  .py-xl-5[data-v-f703cbce] {\n    padding-bottom: 3rem !important;\n}\n.pl-xl-5[data-v-f703cbce],\n  .px-xl-5[data-v-f703cbce] {\n    padding-left: 3rem !important;\n}\n.m-xl-auto[data-v-f703cbce] {\n    margin: auto !important;\n}\n.mt-xl-auto[data-v-f703cbce],\n  .my-xl-auto[data-v-f703cbce] {\n    margin-top: auto !important;\n}\n.mr-xl-auto[data-v-f703cbce],\n  .mx-xl-auto[data-v-f703cbce] {\n    margin-right: auto !important;\n}\n.mb-xl-auto[data-v-f703cbce],\n  .my-xl-auto[data-v-f703cbce] {\n    margin-bottom: auto !important;\n}\n.ml-xl-auto[data-v-f703cbce],\n  .mx-xl-auto[data-v-f703cbce] {\n    margin-left: auto !important;\n}\n}\n.visible[data-v-f703cbce] {\n  visibility: visible !important;\n}\n.invisible[data-v-f703cbce] {\n  visibility: hidden !important;\n}\n*[data-v-f703cbce] {\n  margin: 0px;\n}\n*[data-v-f703cbce] ::before,\n  *[data-v-f703cbce] ::after {\n    margin: 0px;\n}\nhtml[data-v-f703cbce] {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n[data-v-f703cbce]::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */\n}\n[data-v-f703cbce]::-moz-selection {\n  /* Code for Firefox */\n  color: #ebebeb;\n  background: #CB8E55;\n}\n[data-v-f703cbce]::selection {\n  color: #ebebeb;\n  background: #CB8E55;\n}\n.theme-container[data-v-f703cbce] {\n  width: 88.8%;\n  margin-right: auto;\n  margin-left: auto;\n}\nbody[data-v-f703cbce] {\n  background: #1E2326;\n  font-family: Sofia Pro !important;\n}\n.verticle-lines[data-v-f703cbce] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1;\n}\n.verticle-lines .verticle-line[data-v-f703cbce] {\n    border-left: 1px solid white;\n    height: 100vh;\n    opacity: 0.1;\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.verticle-lines .verticle-line[data-v-f703cbce]:nth-child(1), .verticle-lines .verticle-line[data-v-f703cbce]:nth-child(6) {\n    -webkit-box-flex: 0.5;\n        -ms-flex: 0.5;\n            flex: 0.5;\n}\n.heading-light[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #00E0E9;\n  font-weight: 300;\n  letter-spacing: 4px;\n  margin-bottom: -20px;\n  padding: 0 0 0 5px;\n}\n.heading-bold[data-v-f703cbce] {\n  font-size: 4rem;\n  color: #ebebeb;\n  font-weight: 700;\n}\n.para[data-v-f703cbce] {\n  font-size: 0.9rem;\n  color: #ebebeb;\n  font-weight: 300;\n  line-height: 1.3rem;\n}\n.quote-para[data-v-f703cbce], .tool-name[data-v-f703cbce] {\n  font-size: 1.3rem;\n  color: #ebebeb;\n  font-weight: 500;\n  line-height: 1.5rem;\n}\n.button-link[data-v-f703cbce], .button-text[data-v-f703cbce] {\n  font-size: 0.8rem;\n  color: #ebebeb;\n  font-weight: 700;\n  letter-spacing: 4px;\n}\n.home-cover[data-v-f703cbce] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n  position: relative;\n  z-index: 1;\n}\n.home-cover .slogan[data-v-f703cbce] {\n    color: white;\n    position: absolute;\n    left: 50%;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    bottom: 1%;\n    width: 100vw;\n}\n.home-cover .slogan .heading-light[data-v-f703cbce] {\n      text-align: center;\n      margin-top: -15px;\n}\n.home-cover .slogan .heading-bold[data-v-f703cbce] {\n      opacity: 0.1;\n      text-align: center;\n}\n.home-cover .scroll[data-v-f703cbce] {\n    position: absolute;\n    bottom: 5%;\n    right: 1.5vw;\n    -webkit-animation: scroll-down-data-v-f703cbce 1s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: scroll-down-data-v-f703cbce 1s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: ease-in-out;\n            animation-timing-function: ease-in-out;\n}\n.home-cover .scroll .text[data-v-f703cbce] {\n      color: #ebebeb;\n      text-orientation: rtl;\n      -webkit-writing-mode: vertical-lr;\n          -ms-writing-mode: tb-lr;\n              writing-mode: vertical-lr;\n      -webkit-transform: rotate(180deg);\n              transform: rotate(180deg);\n      font-size: 0.7rem;\n      letter-spacing: 2px;\n      line-height: 21px;\n      margin: 0 0 1rem 0.4rem;\n}\n.home-cover .scroll svg[data-v-f703cbce] {\n      width: 2.1rem;\n}\n.home-cover .scroll svg .st0[data-v-f703cbce] {\n        fill: #00E0E9;\n}\n@-webkit-keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n50% {\n    ms-transform: translate(0, 10px);\n    -webkit-transform: translate(0, 10px);\n    transform: translate(0, 10px);\n}\n100% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n}\n@keyframes scroll-down-data-v-f703cbce {\n0% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n50% {\n    ms-transform: translate(0, 10px);\n    -webkit-transform: translate(0, 10px);\n    transform: translate(0, 10px);\n}\n100% {\n    ms-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n}\n}\n.cover svg[data-v-f703cbce] {\n  width: 100%;\n  height: 95vh;\n}\n.cover svg .st0[data-v-f703cbce] {\n    fill: #1E2326;\n}\n.cover svg .st1[data-v-f703cbce] {\n    fill: url(#SVGID_2_);\n}\n.cover svg .st2[data-v-f703cbce] {\n    opacity: 1;\n    fill: #34393C;\n}\n.cover svg .st3[data-v-f703cbce] {\n    fill: url(#SVGID_3_);\n}\n.cover svg .st4[data-v-f703cbce] {\n    fill: url(#hcSVGID_4_);\n}\n.cover svg .st5[data-v-f703cbce] {\n    fill: url(#SVGID_5_);\n}\n.cover svg .st6[data-v-f703cbce] {\n    fill: url(#SVGID_6_);\n}\n.cover svg .st7[data-v-f703cbce] {\n    fill: url(#SVGID_7_);\n}\n.cover svg .st8[data-v-f703cbce] {\n    fill: url(#SVGID_8_);\n}\n.cover svg .st9[data-v-f703cbce] {\n    fill: url(#SVGID_9_);\n}\n.cover svg .st10[data-v-f703cbce] {\n    fill: url(#SVGID_10_);\n}\n.cover svg .st11[data-v-f703cbce] {\n    fill: url(#SVGID_11_);\n}\n.cover svg .st12[data-v-f703cbce] {\n    fill: url(#SVGID_12_);\n}\n.cover svg .st13[data-v-f703cbce] {\n    fill: none;\n    stroke: #1E2326;\n    stroke-miterlimit: 10;\n}\n.cover svg .st14[data-v-f703cbce] {\n    fill: url(#SVGID_13_);\n}\n.cover svg .st15[data-v-f703cbce] {\n    fill: #1C2123;\n}\n.cover svg .st16[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_15_);\n            clip-path: url(#SVGID_15_);\n    fill: #151819;\n}\n.cover svg .st17[data-v-f703cbce] {\n    fill: #121516;\n}\n.cover svg .st18[data-v-f703cbce] {\n    fill: url(#SVGID_16_);\n}\n.cover svg .st19[data-v-f703cbce] {\n    fill: url(#SVGID_17_);\n}\n.cover svg .st20[data-v-f703cbce] {\n    fill: #FFFFFF;\n}\n.cover svg .st21[data-v-f703cbce] {\n    display: inline;\n}\n.cover svg .st22[data-v-f703cbce] {\n    display: inline;\n    opacity: 0.5;\n    fill: url(#SVGID_18_);\n}\n.cover svg .st23[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: #FDFEFF;\n}\n.cover svg .st24[data-v-f703cbce] {\n    opacity: 0.2;\n    -webkit-clip-path: url(#SVGID_20_);\n            clip-path: url(#SVGID_20_);\n    fill: url(#smoke_2_);\n}\n.cover svg .st25[data-v-f703cbce] {\n    opacity: 0.2;\n    fill: url(#SVGID_21_);\n}\n.cover svg .st26[data-v-f703cbce] {\n    fill: url(#SVGID_22_);\n}\n.cover svg .st27[data-v-f703cbce] {\n    fill: url(#SVGID_23_);\n}\n.cover svg .st28[data-v-f703cbce] {\n    fill: #BABABA;\n}\n.cover svg .st29[data-v-f703cbce] {\n    fill: #DEE7F9;\n}\n.cover svg .st30[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_25_);\n            clip-path: url(#SVGID_25_);\n    fill: #C46970;\n}\n.cover svg .st31[data-v-f703cbce] {\n    fill: url(#SVGID_26_);\n}\n.cover svg .st32[data-v-f703cbce] {\n    fill: url(#SVGID_27_);\n}\n.cover svg .st33[data-v-f703cbce] {\n    fill: #A3A5A6;\n}\n.cover svg .st34[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #C46970;\n}\n.cover svg .st35[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_29_);\n            clip-path: url(#SVGID_29_);\n    fill: #A3A5A6;\n}\n.cover svg .st36[data-v-f703cbce] {\n    fill: url(#SVGID_30_);\n}\n.cover svg .st37[data-v-f703cbce] {\n    fill: url(#SVGID_31_);\n}\n.cover svg .st38[data-v-f703cbce] {\n    fill: #6D4930;\n}\n.cover svg .st39[data-v-f703cbce] {\n    fill: #CB8E55;\n}\n.cover svg .st40[data-v-f703cbce] {\n    fill: #2A3033;\n}\n.cover svg .st41[data-v-f703cbce] {\n    fill: #007075;\n}\n.cover svg .st42[data-v-f703cbce] {\n    fill: url(#SVGID_32_);\n}\n.cover svg .st43[data-v-f703cbce] {\n    fill: url(#SVGID_33_);\n}\n.cover svg .st44[data-v-f703cbce] {\n    fill: url(#SVGID_34_);\n}\n.cover svg .st45[data-v-f703cbce] {\n    opacity: 0.38;\n    fill: url(#SVGID_35_);\n}\n.cover svg .st46[data-v-f703cbce] {\n    opacity: 0.78;\n    fill: #1E2326;\n}\n.cover svg .st47[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #34393C;\n}\n.cover svg .st48[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st49[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_36_);\n}\n.cover svg .st50[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_37_);\n}\n.cover svg .st51[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_38_);\n}\n.cover svg .st52[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_39_);\n}\n.cover svg .st53[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_40_);\n}\n.cover svg .st54[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_41_);\n}\n.cover svg .st55[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_42_);\n}\n.cover svg .st56[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_43_);\n}\n.cover svg .st57[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_44_);\n}\n.cover svg .st58[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_45_);\n}\n.cover svg .st59[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_46_);\n}\n.cover svg .st60[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_47_);\n}\n.cover svg .st61[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_48_);\n}\n.cover svg .st62[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_49_);\n}\n.cover svg .st63[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_50_);\n}\n.cover svg .st64[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_51_);\n}\n.cover svg .st65[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_52_);\n}\n.cover svg .st66[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_53_);\n}\n.cover svg .st67[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_54_);\n}\n.cover svg .st68[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_55_);\n}\n.cover svg .st69[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_56_);\n}\n.cover svg .st70[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_57_);\n}\n.cover svg .st71[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_58_);\n}\n.cover svg .st72[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_59_);\n}\n.cover svg .st73[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_60_);\n}\n.cover svg .st74[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_61_);\n}\n.cover svg .st75[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_62_);\n}\n.cover svg .st76[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_63_);\n}\n.cover svg .st77[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_64_);\n}\n.cover svg .st78[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_65_);\n}\n.cover svg .st79[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_66_);\n}\n.cover svg .st80[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_67_);\n}\n.cover svg .st81[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_68_);\n}\n.cover svg .st82[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_69_);\n}\n.cover svg .st83[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_70_);\n}\n.cover svg .st84[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_71_);\n}\n.cover svg .st85[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_72_);\n}\n.cover svg .st86[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_73_);\n}\n.cover svg .st87[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_74_);\n}\n.cover svg .st88[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_75_);\n}\n.cover svg .st89[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_76_);\n}\n.cover svg .st90[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_77_);\n}\n.cover svg .st91[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_78_);\n}\n.cover svg .st92[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_79_);\n}\n.cover svg .st93[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_80_);\n}\n.cover svg .st94[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_81_);\n}\n.cover svg .st95[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_82_);\n}\n.cover svg .st96[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_83_);\n}\n.cover svg .st97[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_84_);\n}\n.cover svg .st98[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_85_);\n}\n.cover svg .st99[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_86_);\n}\n.cover svg .st100[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_87_);\n}\n.cover svg .st101[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_88_);\n}\n.cover svg .st102[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_89_);\n}\n.cover svg .st103[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_90_);\n}\n.cover svg .st104[data-v-f703cbce] {\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: url(#SVGID_91_);\n}\n.cover svg .st105[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_93_);\n            clip-path: url(#SVGID_93_);\n    fill-rule: evenodd;\n    clip-rule: evenodd;\n    fill: #2D2D2D;\n    stroke: #A3A5A6;\n    stroke-miterlimit: 10;\n}\n.cover svg .st106[data-v-f703cbce] {\n    display: none;\n    fill: #00E0E9;\n}\n.cover svg .st107[data-v-f703cbce] {\n    font-family: 'SofiaPro-Bold';\n}\n.cover svg .st108[data-v-f703cbce] {\n    font-size: 5.444px;\n}\n.cover svg .st109[data-v-f703cbce] {\n    opacity: 0.3;\n    fill: url(#SVGID_94_);\n}\n.cover svg .st110[data-v-f703cbce] {\n    fill: #33373A;\n    stroke: #33373A;\n    stroke-miterlimit: 10;\n}\n.cover svg .st111[data-v-f703cbce] {\n    fill: none;\n    stroke: #F7E9E1;\n    stroke-width: 1.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-miterlimit: 10;\n}\n.cover svg .st112[data-v-f703cbce] {\n    fill: none;\n    stroke: #34393C;\n    stroke-miterlimit: 10;\n}\n.cover svg .st113[data-v-f703cbce] {\n    fill: #34393C;\n}\n.cover svg .st114[data-v-f703cbce] {\n    -webkit-clip-path: url(#SVGID_95_);\n            clip-path: url(#SVGID_95_);\n}\n.cover svg #hi[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #programer[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 0.5s;\n    transition: -webkit-transform 0.5s;\n    transition: transform 0.5s;\n    transition: transform 0.5s, -webkit-transform 0.5s;\n}\n.cover svg #programer[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-0.5rem);\n              transform: translateY(-0.5rem);\n}\n.cover svg #programer:hover + #hi[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock[data-v-f703cbce] {\n    opacity: 1;\n}\n.cover svg #clock #round[data-v-f703cbce] {\n      -webkit-animation: clock-data-v-f703cbce 60s infinite;\n      /* Safari 4+ */\n      /* Fx 5+ */\n      /* Opera 12+ */\n      animation: clock-data-v-f703cbce 60s infinite;\n      /* IE 10+, Fx 29+ */\n      -webkit-animation-timing-function: linear;\n              animation-timing-function: linear;\n      -webkit-transform-origin: 72.5px 92.9px 0px;\n              transform-origin: 72.5px 92.9px 0px;\n}\n@-webkit-keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes clock-data-v-f703cbce {\n0% {\n    ms-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    ms-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n.cover svg #light #toplight[data-v-f703cbce] {\n    -webkit-animation: toplight-data-v-f703cbce 7s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: toplight-data-v-f703cbce 7s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #lightbulb[data-v-f703cbce] {\n    -webkit-animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: lightbulb-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-direction: alternate;\n    /* Safari 4.0 - 8.0 */\n    animation-direction: alternate;\n    -webkit-animation-delay: 7s;\n    /* Safari 4.0 - 8.0 */\n    animation-delay: 7s;\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n.cover svg #light #laptoplight[data-v-f703cbce] {\n    -webkit-animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* Safari 4+ */\n    /* Fx 5+ */\n    /* Opera 12+ */\n    animation: laptoplight-data-v-f703cbce 3s infinite;\n    /* IE 10+, Fx 29+ */\n    -webkit-animation-timing-function: linear;\n            animation-timing-function: linear;\n}\n@-webkit-keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes toplight-data-v-f703cbce {\n0% {\n    opacity: 0.3;\n}\n10% {\n    opacity: 0.3;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 0.3;\n}\n40% {\n    opacity: 0.3;\n}\n50% {\n    opacity: 0.3;\n}\n60% {\n    opacity: 0.3;\n}\n70% {\n    opacity: 0.3;\n}\n80% {\n    opacity: 0.3;\n}\n90% {\n    opacity: 0.3;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes lightbulb-data-v-f703cbce {\n0% {\n    opacity: 1;\n}\n10% {\n    opacity: 1;\n}\n20% {\n    opacity: 0;\n}\n30% {\n    opacity: 1;\n}\n40% {\n    opacity: 1;\n}\n50% {\n    opacity: 1;\n}\n60% {\n    opacity: 1;\n}\n70% {\n    opacity: 1;\n}\n80% {\n    opacity: 1;\n}\n90% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes laptoplight-data-v-f703cbce {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n20% {\n    opacity: 1;\n}\n30% {\n    opacity: 0;\n}\n40% {\n    opacity: 0;\n}\n50% {\n    opacity: 0;\n}\n60% {\n    opacity: 0;\n}\n70% {\n    opacity: 0;\n}\n80% {\n    opacity: 0;\n}\n90% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.cover svg #spider[data-v-f703cbce] {\n    -webkit-transition: -webkit-transform 1s;\n    transition: -webkit-transform 1s;\n    transition: transform 1s;\n    transition: transform 1s, -webkit-transform 1s;\n}\n.cover svg #spider[data-v-f703cbce]:hover {\n      -webkit-transform: translateY(-1rem);\n              transform: translateY(-1rem);\n}\n.cover svg #donttouch[data-v-f703cbce] {\n    opacity: 0;\n    -webkit-transition: opacity 0.5s ease-in-out;\n    transition: opacity 0.5s ease-in-out;\n}\n.cover svg #books:hover + #donttouch[data-v-f703cbce] {\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -54689,7 +54692,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(54)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -54742,7 +54745,7 @@ var content = __webpack_require__(55);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("0c49fbe6", content, false, {});
+var update = __webpack_require__(1)("0c49fbe6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -54761,7 +54764,7 @@ if(false) {
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -61384,7 +61387,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(58)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -61437,7 +61440,7 @@ var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("4d8e7b75", content, false, {});
+var update = __webpack_require__(1)("4d8e7b75", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61456,7 +61459,7 @@ if(false) {
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -63065,7 +63068,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(62)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -63118,7 +63121,7 @@ var content = __webpack_require__(63);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("cc48c916", content, false, {});
+var update = __webpack_require__(1)("cc48c916", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63137,7 +63140,7 @@ if(false) {
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -65178,7 +65181,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(66)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -65231,7 +65234,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("2205f800", content, false, {});
+var update = __webpack_require__(1)("2205f800", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -65250,7 +65253,7 @@ if(false) {
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -65437,7 +65440,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(70)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -65490,7 +65493,7 @@ var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1919e9f0", content, false, {});
+var update = __webpack_require__(1)("1919e9f0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -65509,7 +65512,7 @@ if(false) {
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -65590,7 +65593,7 @@ var render = function() {
                       staticClass: "st0",
                       attrs: {
                         d:
-                          "M182.1,310.8c0,0,8.2,0,12.6-1.3c1-0.3,2-0.3,3,0l3.1,1v20.8l-2.7,1.2c-1.3,0.6-2.7,0.7-4,0.4\n                                c-4-0.9-8.1-1.4-12.2-1.4c-7.6,0-181.9-0.4-181.9-0.4v-18.8L182.1,310.8z"
+                          "M182.1,310.8c0,0,8.2,0,12.6-1.3c1-0.3,2-0.3,3,0l3.1,1v20.8l-2.7,1.2c-1.3,0.6-2.7,0.7-4,0.4\r\n                                c-4-0.9-8.1-1.4-12.2-1.4c-7.6,0-181.9-0.4-181.9-0.4v-18.8L182.1,310.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -65672,7 +65675,7 @@ var render = function() {
                       staticClass: "st4",
                       attrs: {
                         d:
-                          "M172.7,324.9H141c-2,0-3.5-1.6-3.5-3.5V321c0-2,1.6-3.5,3.5-3.5h31.7c2,0,3.5,1.6,3.5,3.5v0.4\n                                C176.3,323.3,174.7,324.9,172.7,324.9z"
+                          "M172.7,324.9H141c-2,0-3.5-1.6-3.5-3.5V321c0-2,1.6-3.5,3.5-3.5h31.7c2,0,3.5,1.6,3.5,3.5v0.4\r\n                                C176.3,323.3,174.7,324.9,172.7,324.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -66679,7 +66682,7 @@ var render = function() {
                       staticClass: "st9",
                       attrs: {
                         d:
-                          "M124.6,260.5H0l0,0V0l0,0h124.4c4.4,0,7.9,3.5,7.9,7.9v244.8C132.3,257.1,128.9,260.5,124.6,260.5\n                                    L124.6,260.5z"
+                          "M124.6,260.5H0l0,0V0l0,0h124.4c4.4,0,7.9,3.5,7.9,7.9v244.8C132.3,257.1,128.9,260.5,124.6,260.5\r\n                                    L124.6,260.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -66695,7 +66698,7 @@ var render = function() {
                       staticClass: "st9",
                       attrs: {
                         d:
-                          "M143,261.8l182-1.2c0.6,0,1-0.5,1-1.1L324.9,4.6c0-0.6-0.5-1.1-1.1-1.1L141.8,2.9c-2.3,0-4.3,1.9-4.3,4.2\n                                    c0,0,0,0,0,0v249.2C137.5,259.3,139.9,261.7,143,261.8C143,261.8,143,261.8,143,261.8z"
+                          "M143,261.8l182-1.2c0.6,0,1-0.5,1-1.1L324.9,4.6c0-0.6-0.5-1.1-1.1-1.1L141.8,2.9c-2.3,0-4.3,1.9-4.3,4.2\r\n                                    c0,0,0,0,0,0v249.2C137.5,259.3,139.9,261.7,143,261.8C143,261.8,143,261.8,143,261.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -66703,7 +66706,7 @@ var render = function() {
                       staticClass: "st10",
                       attrs: {
                         d:
-                          "M316.9,260.5H146c-3.1,0-5.7-2.5-5.7-5.7V9.2c0-3.1,2.5-5.7,5.7-5.7h170.9c3.1,0,5.7,2.5,5.7,5.7v245.6\n                                    C322.5,258,320,260.5,316.9,260.5z"
+                          "M316.9,260.5H146c-3.1,0-5.7-2.5-5.7-5.7V9.2c0-3.1,2.5-5.7,5.7-5.7h170.9c3.1,0,5.7,2.5,5.7,5.7v245.6\r\n                                    C322.5,258,320,260.5,316.9,260.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -67237,7 +67240,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M304.8,114.8c-0.9-0.1-1.8-0.1-2.7,0c-4,0.2-8-0.4-12,0.4c-1.2,0.2-2.3,0.6-3.4,1.1\n                                    c-1.1,0.5-2,1.2-3.3,1.9v-7l-0.7,1c0.2,1.1,0.3,2.3,0.2,3.4c-0.3,1.1,0.5,2.2-0.1,3.1c-0.9,1.2-1.8,2.4-2.6,3.7\n                                    c-1.6,2.4-2,5.1-2.1,7.9s0,5.9,0,8.8c0,0.5-0.2,1,0,1.3c0.8,1.4,0.1,2.4-0.5,3.5c-0.1,0.2,0,0.4,0,0.7c0.8,0.3,1.1-0.6,1.6-0.9\n                                    h3.1c1.1,0.9,0.7,2,0.4,3.1l0.6-0.5l-0.2,1.1l0.3-0.2v-2.6c0.8-0.7,1.8-1,2.8-0.8c2.9,0,5.9,0,8.8,0c0.6,0,1.1-0.1,1.7-0.2\n                                    c2.7-0.8,5.1-2.3,7-4.4h7.8c-1.1-0.3-2.3-0.4-3.5-0.3c-1.2,0-2.5,0-3.7,0v-0.9l-1.3,0.9h-2.6c0.5-0.9,0.9-1.4,1.2-2\n                                    c0.2-0.6,0.4-1.3,0.6-1.9h3.5v0.7l0.7-0.9h4.9c0,0,0.1-0.1,0.2-0.2c0-0.1,0-0.1-0.1-0.2h-4.2l-0.6-0.6c0.3-1.2,0.6-2.4,1-3.5\n                                    c1.3,0,2.7,0,4-0.2l-0.3-0.8h-3.8v-4c1.4-0.1,2.6,0.1,3.9-0.5h-4c0-0.9,0-1.6,0-2.4s0-1.4,0.1-2.1c0.7,0,1.5,0,2.2,0\n                                    c0.6-0.1,1.2,0.4,1.9-0.5h-4.1v-4.3c0.4-0.5,1-0.8,0.8-1.5C307.4,114.5,306.1,114.9,304.8,114.8z M282.9,122.3\n                                    c-1.7,0.6-2.2,2.6-3.6,4.1l-0.1-0.3c-0.1,0.3-0.2,0.6-0.3,1.1c0.8-3.7,2.5-5.4,4-7.7L282.9,122.3z M294.8,137\n                                    c-0.4,0.3-0.8,0.6-1.2,0.8c-0.7,0.4-1.5,0.7-2.3,0.8c-2.3,0.1-4.6,0.1-7,0c-0.1,0-0.2-0.3-0.4-0.4s-0.4-0.4-0.4-0.6\n                                    c0-2.2-0.1-4.4,0-6.5s2.1-5.1,4.3-5.6c0.8-0.2,1.7-0.4,2.5-0.4c1.9,0,3.8,0,5.6,0c0.2,0,0.4,0.3,0.6,0.4\n                                    c0.2,0.1,0.4,0.4,0.4,0.6c0,1,0,1.9,0,3c-1.1,0-2.2,0-3.3,0c-0.1,0-0.2-0.3-0.4-0.4c-0.4,0.5-1.4,0.3-1.5,1.2\n                                    c-1.5,1.2-2.5,2.8-4.2,3.8c-0.7,0.6-1.4,1.3-2,2c-0.1,0.1,0,0.4,0,0.6c0.2,0,0.4,0,0.7,0c0.2-1,1.4-0.9,1.7-1.8h8.6\n                                    c-0.4,0.4-0.7,0.8-1,1.1C295.4,136.2,295.1,136.6,294.8,137z M302.3,139.2c-1.2,1.7-3.5,3-7.1,3.6l1.8-0.9\n                                    c0.3-0.9,2.2-0.8,2.4-2.3C300.2,139.2,301.3,139,302.3,139.2L302.3,139.2z M301.9,129.2H298c-0.2-1.3-0.3-2.6-0.5-3.9h4.3\n                                    L301.9,129.2z M306,134.1h-3.5v-3.9h4.1L306,134.1z M306.9,129.1h-4.3v-3.9h4.3C306.3,126.5,306.3,127.9,306.9,129.1\n                                    L306.9,129.1z M303.3,119.6c0.8-1.2,2.1-1.9,2.8-3.4c0.3,1.1,0.4,2.3,0.3,3.4H303.3z M306.1,116c-0.9,0.7-1.7,1.5-2.5,2.4\n                                    c-0.8,0.9-2,1.4-3.3,1.4c-3.2-0.1-6.3,0-9.5,0c-2.4-0.1-4.7,0.5-6.7,1.8c-0.1,0.1-0.3,0-0.5,0v-2.6c1.8-1.7,4.1-2.3,6.4-3.2\n                                    c0.4-0.1,0.7-0.1,1.1-0.1h14.2C305.5,115.7,305.8,115.8,306.1,116C306.1,115.9,306.1,116,306.1,116L306.1,116z"
+                          "M304.8,114.8c-0.9-0.1-1.8-0.1-2.7,0c-4,0.2-8-0.4-12,0.4c-1.2,0.2-2.3,0.6-3.4,1.1\r\n                                    c-1.1,0.5-2,1.2-3.3,1.9v-7l-0.7,1c0.2,1.1,0.3,2.3,0.2,3.4c-0.3,1.1,0.5,2.2-0.1,3.1c-0.9,1.2-1.8,2.4-2.6,3.7\r\n                                    c-1.6,2.4-2,5.1-2.1,7.9s0,5.9,0,8.8c0,0.5-0.2,1,0,1.3c0.8,1.4,0.1,2.4-0.5,3.5c-0.1,0.2,0,0.4,0,0.7c0.8,0.3,1.1-0.6,1.6-0.9\r\n                                    h3.1c1.1,0.9,0.7,2,0.4,3.1l0.6-0.5l-0.2,1.1l0.3-0.2v-2.6c0.8-0.7,1.8-1,2.8-0.8c2.9,0,5.9,0,8.8,0c0.6,0,1.1-0.1,1.7-0.2\r\n                                    c2.7-0.8,5.1-2.3,7-4.4h7.8c-1.1-0.3-2.3-0.4-3.5-0.3c-1.2,0-2.5,0-3.7,0v-0.9l-1.3,0.9h-2.6c0.5-0.9,0.9-1.4,1.2-2\r\n                                    c0.2-0.6,0.4-1.3,0.6-1.9h3.5v0.7l0.7-0.9h4.9c0,0,0.1-0.1,0.2-0.2c0-0.1,0-0.1-0.1-0.2h-4.2l-0.6-0.6c0.3-1.2,0.6-2.4,1-3.5\r\n                                    c1.3,0,2.7,0,4-0.2l-0.3-0.8h-3.8v-4c1.4-0.1,2.6,0.1,3.9-0.5h-4c0-0.9,0-1.6,0-2.4s0-1.4,0.1-2.1c0.7,0,1.5,0,2.2,0\r\n                                    c0.6-0.1,1.2,0.4,1.9-0.5h-4.1v-4.3c0.4-0.5,1-0.8,0.8-1.5C307.4,114.5,306.1,114.9,304.8,114.8z M282.9,122.3\r\n                                    c-1.7,0.6-2.2,2.6-3.6,4.1l-0.1-0.3c-0.1,0.3-0.2,0.6-0.3,1.1c0.8-3.7,2.5-5.4,4-7.7L282.9,122.3z M294.8,137\r\n                                    c-0.4,0.3-0.8,0.6-1.2,0.8c-0.7,0.4-1.5,0.7-2.3,0.8c-2.3,0.1-4.6,0.1-7,0c-0.1,0-0.2-0.3-0.4-0.4s-0.4-0.4-0.4-0.6\r\n                                    c0-2.2-0.1-4.4,0-6.5s2.1-5.1,4.3-5.6c0.8-0.2,1.7-0.4,2.5-0.4c1.9,0,3.8,0,5.6,0c0.2,0,0.4,0.3,0.6,0.4\r\n                                    c0.2,0.1,0.4,0.4,0.4,0.6c0,1,0,1.9,0,3c-1.1,0-2.2,0-3.3,0c-0.1,0-0.2-0.3-0.4-0.4c-0.4,0.5-1.4,0.3-1.5,1.2\r\n                                    c-1.5,1.2-2.5,2.8-4.2,3.8c-0.7,0.6-1.4,1.3-2,2c-0.1,0.1,0,0.4,0,0.6c0.2,0,0.4,0,0.7,0c0.2-1,1.4-0.9,1.7-1.8h8.6\r\n                                    c-0.4,0.4-0.7,0.8-1,1.1C295.4,136.2,295.1,136.6,294.8,137z M302.3,139.2c-1.2,1.7-3.5,3-7.1,3.6l1.8-0.9\r\n                                    c0.3-0.9,2.2-0.8,2.4-2.3C300.2,139.2,301.3,139,302.3,139.2L302.3,139.2z M301.9,129.2H298c-0.2-1.3-0.3-2.6-0.5-3.9h4.3\r\n                                    L301.9,129.2z M306,134.1h-3.5v-3.9h4.1L306,134.1z M306.9,129.1h-4.3v-3.9h4.3C306.3,126.5,306.3,127.9,306.9,129.1\r\n                                    L306.9,129.1z M303.3,119.6c0.8-1.2,2.1-1.9,2.8-3.4c0.3,1.1,0.4,2.3,0.3,3.4H303.3z M306.1,116c-0.9,0.7-1.7,1.5-2.5,2.4\r\n                                    c-0.8,0.9-2,1.4-3.3,1.4c-3.2-0.1-6.3,0-9.5,0c-2.4-0.1-4.7,0.5-6.7,1.8c-0.1,0.1-0.3,0-0.5,0v-2.6c1.8-1.7,4.1-2.3,6.4-3.2\r\n                                    c0.4-0.1,0.7-0.1,1.1-0.1h14.2C305.5,115.7,305.8,115.8,306.1,116C306.1,115.9,306.1,116,306.1,116L306.1,116z"
                       }
                     }),
                     _vm._v(" "),
@@ -67245,7 +67248,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M224.1,146.8c0.3-0.6,0.5-1.3,1.4-1.5c0.4-0.1,0.6-0.8,0.8-1.1h4.4v3.2l0.9-0.2v-2.9l12.7-0.4\n                                    c2.9-1.4,5.3-2.2,7-4.3h8.3v-0.9h-7.3l2.2-4c1.7-0.2,3.4,0.2,5.1-0.5h-4.9l0.7-3.5l-0.3-0.6h4.2c0.1,0,0.2-0.2,0.2-0.2l-0.7-0.7\n                                    l-3.3,0.3l-0.4-0.4c1.2-1.3-0.9-2.6,0.2-3.9c1.4-0.1,2.8,0.1,4.2-0.5H255c0.2-1.3-0.2-2.4,0.4-3.5l-0.3-0.5\n                                    c1.6-0.2,3.1,0.1,4.6-0.2c-0.1-0.3-0.2-0.5-0.2-0.8h-4.3c0-0.4,0.6-0.7,0-1.1c-0.2-0.1-0.1-0.7-0.1-1.1c0.1-0.4,0.3-0.8,0.5-1.1\n                                    l-0.5-0.5l5.4-5.7c0,0,0-0.1,0-0.4c-0.3,0.1-0.6,0.1-0.9,0.3c-0.5,0.3-0.7,0.9-1.2,1.3c-1.3,1.1-2.4,2.3-3.5,3.5\n                                    c-0.6,0.1-1.3,0.2-1.9,0.3c-4.6,0-9.2,0-13.8,0c-1.6,0-3.1,0.4-4.5,1.2c-1,0.5-1.9,1.1-3.1,1.7v-6h-0.9v6.9\n                                    c-1,1.1-2.3,1.9-2.3,3.5c0.3-0.3,0.6-0.5,0.9-0.8c0.4-0.5,0.7-1,1.3-1.7v2.8c-1.5,0.5-1.8,2.3-3.2,3.8l-0.1-0.3\n                                    c0.2-1,0.5-1.9,0.9-2.9c0.1-0.3,0.1-0.5,0.1-0.8c-0.3,0.2-0.6,0.5-0.9,0.9c-0.7,1.7-1.2,3.5-1.4,5.3v14.9\n                                    c-0.9,0.9-1.9,1.8-2.8,2.8c-0.2,0.2-0.2,0.6-0.3,1C223.4,147.4,223.9,147.2,224.1,146.8z M231.2,126.6c1-0.7,2.2-1,3.4-1\n                                    c-1.4,0.8-2.4,1.5-2.8,2.9L231.2,126.6z M231.5,131.1c0.2-1.9,1.3-3.6,2.9-4.6c1.4-0.9,3.1-1.4,4.9-1.3c1.6,0.1,3.1,0,4.9,0v0.9\n                                    l0.8-0.5v3.6h-3c0.7-1.1,1.4-2.1,2.2-3.2c-0.3,0-0.6,0-0.8,0.2c-0.9,1-1.8,2-2.8,3s-2,1.9-3,2.8c-0.1,0.1-0.1,0.3-0.1,0.5\n                                    c-0.6,0.4-0.8,0.4-0.8,0.5c-0.9,0.9-1.8,1.7-2.6,2.6c-0.2,0.2-0.1,0.5-0.2,0.8c1.2,0.1,1.6-0.9,1.9-1.7h8.6\n                                    c-0.7,2.2-2.7,3.8-5,3.9c-2.3,0.2-4.7,0.2-7,0.1c-0.1,0-0.2-0.3-0.4-0.4c-0.6,0-0.4-0.5-0.4-0.8\n                                    C231.5,135.3,231.5,133.2,231.5,131.1z M249.5,124.6h-3c-0.3-0.4-0.1-0.6,0.2-0.9C249.4,122.6,249.7,123.6,249.5,124.6\n                                    L249.5,124.6z M247,123.4c0.9-0.9,1.9-1.5,3.1-2.1L247,123.4z M249.5,125.2c0.5,1.2-0.4,2.6,0.6,3.8l-0.5,0.5\n                                    c-0.3-0.1-0.7-0.2-1-0.3c-0.5,0-1,0-1.6,0h-1.3v-4L249.5,125.2z M249.6,134.1h-4v-4c0.6,0,1.3-0.1,2.1-0.1h2.3\n                                    C249.3,131.4,249.7,132.7,249.6,134.1L249.6,134.1z M245.7,134.7h3.4c0.3,1.6-0.9,2.6-1.4,4h-2.9\n                                    C245,137.4,245.3,136.1,245.7,134.7L245.7,134.7z M244.9,135.6L244.9,135.6l0.1,0.1L244.9,135.6z M245,133.5\n                                    c-0.3,0.3-0.5,0.6-0.8,0.6c-2.5,0-4.9,0-7.3,0c-0.2-1.5,1.3-1.2,1.8-2c0-0.1,0.1-0.2,0.2-0.2c3.5-1.9,4.8-1.9,6.1-1.9\n                                    C245.1,131.3,245,132.4,245,133.5z M244.5,136.2c-0.1,0.8-0.2,1.6-0.5,2.3h-2.2C242.9,138,243.8,137.2,244.5,136.2L244.5,136.2z\n                                    M235.1,143.2c-1.1,0.1-2.4-0.4-3.6,0.4c0-0.7-0.1-1.3-0.1-1.9s0-1.3,0-2.2c1.9,0,3.8,0,5.6,0c0.8,0,1.7,0.4,2.3-0.4\n                                    c0,0,0.1,0,0.2,0c0.6,0.2,1.2,0.3,1.8,0.4c0.7-0.1,1.4-0.2,2-0.4c-1.1,2.3-3.1,2.8-4.6,4.1C237.7,143.2,236.4,143.2,235.1,143.2\n                                    L235.1,143.2z M244.2,139.3l2.1,0.4c-1.5,2-3.6,2.7-5.8,3.4C241.9,141.9,243.6,140.9,244.2,139.3L244.2,139.3z M244.5,142.7\n                                    c1.3-1.3,2.4-2.3,3.5-3.4l2,0.5C248.4,140.9,246.9,142.4,244.5,142.7L244.5,142.7z M251,138.6h-2.5c0.6-1.4,1.1-2.6,1.6-3.9h2.9\n                                    C253.5,136.5,251.8,137.2,251,138.6L251,138.6z M254.1,132.2c-0.3,0.5,0.1,1.5-0.7,2h-3.3c0.7-1.3,0.2-2.6,0.4-4h3.9\n                                    C254.6,130.9,254.5,131.6,254.1,132.2L254.1,132.2z M254.5,129.6c-0.4-0.1-0.7-0.3-1.1-0.3c-0.5-0.1-1-0.1-1.6,0\n                                    c-0.4,0.1-0.9,0.2-1.3,0.3v-4.3h4c0,0.6,0.1,1.3,0.1,2.1S254.5,128.7,254.5,129.6L254.5,129.6z M254.4,124.7h-3.9v-3.8\n                                    c0.7-0.2,1.5-0.7,2-0.5c0.8,0.4,1.3,0.6,2-0.4L254.4,124.7z M251.8,118.7l0.5-0.4c2.2-0.5,2.2,0.4,2.2,1.4\n                                    c-0.9,0.2-1.9,0-3.2,0.2C251.5,119.2,251.6,118.8,251.8,118.7L251.8,118.7z M231.5,121.7c0-0.9,0-1.8,0-2.8\n                                    c1.2-0.6,2.4-1.3,3.5-2c1.1-0.8,2.5-0.4,3.6-1.2c0.2-0.1,0.6,0,0.9,0h13.7c0.2,0,0.4,0.1,0.6,0.2c-0.2,0.2-0.4,0.5-0.6,0.7\n                                    c-0.6,0.4-1.2,0.7-1.3,1.4c-1.3,0.8-1.6,1.4-2.4,1.8h-11c-2,0.2-3.9,0.6-5.7,1.4c-0.3,0.3-0.6,0.6-0.8,0.9l3.1-1.1\n                                    c0.2-0.1,0.5-0.2,0.8-0.3h13.4c-0.9,0.8-1.6,1.4-2.4,2c-0.4,0.3-0.6,0.7-0.5,1.1c0,0,0,0,0.1,0l-1.4,0.9c-3.2,0-6.7,0-10.2,0\n                                    c-1.1,0-2.2,0.3-3.3,0.9l-0.5-0.5c0.7-0.9,0-2.1,0.8-3C231.8,121.9,231.5,121.7,231.5,121.7L231.5,121.7z M230.5,140.4\n                                    c0,1,0,2.1,0,3.4c-0.4-0.3-0.5-0.4-0.7-0.6c-0.4-0.5-0.7,1-1.3,0.1c-0.4,0.1-0.8,0.2-1.2,0.4v-1h-0.7c-0.7-0.9,0-1.6,0.3-2.4\n                                    l-0.5-0.5c0.1-0.1,0.2-0.2,0.3-0.2c2.4-0.1,2.4-0.1,3.3,0.4C230.3,140.2,230.6,140.3,230.5,140.4L230.5,140.4z M230.5,123.8v1.7\n                                    l-3.1,3.1c-0.1,0.1-0.1,0.2-0.1,0.3c0,0,0-0.1,0-0.1c-0.1,0.3-0.2,0.6-0.3,1.1C227.3,127.4,228.6,125.2,230.5,123.8L230.5,123.8\n                                    z M227.4,126.8L227.4,126.8C227.4,126.8,227.4,126.7,227.4,126.8L227.4,126.8z M227.9,129.8c1-0.9,1.8-1.8,2.6-2.6v11.6h-4.1\n                                    c0.1-0.4,0.2-0.7,0.3-1.1C225.8,134.8,227.1,132.1,227.9,129.8L227.9,129.8z"
+                          "M224.1,146.8c0.3-0.6,0.5-1.3,1.4-1.5c0.4-0.1,0.6-0.8,0.8-1.1h4.4v3.2l0.9-0.2v-2.9l12.7-0.4\r\n                                    c2.9-1.4,5.3-2.2,7-4.3h8.3v-0.9h-7.3l2.2-4c1.7-0.2,3.4,0.2,5.1-0.5h-4.9l0.7-3.5l-0.3-0.6h4.2c0.1,0,0.2-0.2,0.2-0.2l-0.7-0.7\r\n                                    l-3.3,0.3l-0.4-0.4c1.2-1.3-0.9-2.6,0.2-3.9c1.4-0.1,2.8,0.1,4.2-0.5H255c0.2-1.3-0.2-2.4,0.4-3.5l-0.3-0.5\r\n                                    c1.6-0.2,3.1,0.1,4.6-0.2c-0.1-0.3-0.2-0.5-0.2-0.8h-4.3c0-0.4,0.6-0.7,0-1.1c-0.2-0.1-0.1-0.7-0.1-1.1c0.1-0.4,0.3-0.8,0.5-1.1\r\n                                    l-0.5-0.5l5.4-5.7c0,0,0-0.1,0-0.4c-0.3,0.1-0.6,0.1-0.9,0.3c-0.5,0.3-0.7,0.9-1.2,1.3c-1.3,1.1-2.4,2.3-3.5,3.5\r\n                                    c-0.6,0.1-1.3,0.2-1.9,0.3c-4.6,0-9.2,0-13.8,0c-1.6,0-3.1,0.4-4.5,1.2c-1,0.5-1.9,1.1-3.1,1.7v-6h-0.9v6.9\r\n                                    c-1,1.1-2.3,1.9-2.3,3.5c0.3-0.3,0.6-0.5,0.9-0.8c0.4-0.5,0.7-1,1.3-1.7v2.8c-1.5,0.5-1.8,2.3-3.2,3.8l-0.1-0.3\r\n                                    c0.2-1,0.5-1.9,0.9-2.9c0.1-0.3,0.1-0.5,0.1-0.8c-0.3,0.2-0.6,0.5-0.9,0.9c-0.7,1.7-1.2,3.5-1.4,5.3v14.9\r\n                                    c-0.9,0.9-1.9,1.8-2.8,2.8c-0.2,0.2-0.2,0.6-0.3,1C223.4,147.4,223.9,147.2,224.1,146.8z M231.2,126.6c1-0.7,2.2-1,3.4-1\r\n                                    c-1.4,0.8-2.4,1.5-2.8,2.9L231.2,126.6z M231.5,131.1c0.2-1.9,1.3-3.6,2.9-4.6c1.4-0.9,3.1-1.4,4.9-1.3c1.6,0.1,3.1,0,4.9,0v0.9\r\n                                    l0.8-0.5v3.6h-3c0.7-1.1,1.4-2.1,2.2-3.2c-0.3,0-0.6,0-0.8,0.2c-0.9,1-1.8,2-2.8,3s-2,1.9-3,2.8c-0.1,0.1-0.1,0.3-0.1,0.5\r\n                                    c-0.6,0.4-0.8,0.4-0.8,0.5c-0.9,0.9-1.8,1.7-2.6,2.6c-0.2,0.2-0.1,0.5-0.2,0.8c1.2,0.1,1.6-0.9,1.9-1.7h8.6\r\n                                    c-0.7,2.2-2.7,3.8-5,3.9c-2.3,0.2-4.7,0.2-7,0.1c-0.1,0-0.2-0.3-0.4-0.4c-0.6,0-0.4-0.5-0.4-0.8\r\n                                    C231.5,135.3,231.5,133.2,231.5,131.1z M249.5,124.6h-3c-0.3-0.4-0.1-0.6,0.2-0.9C249.4,122.6,249.7,123.6,249.5,124.6\r\n                                    L249.5,124.6z M247,123.4c0.9-0.9,1.9-1.5,3.1-2.1L247,123.4z M249.5,125.2c0.5,1.2-0.4,2.6,0.6,3.8l-0.5,0.5\r\n                                    c-0.3-0.1-0.7-0.2-1-0.3c-0.5,0-1,0-1.6,0h-1.3v-4L249.5,125.2z M249.6,134.1h-4v-4c0.6,0,1.3-0.1,2.1-0.1h2.3\r\n                                    C249.3,131.4,249.7,132.7,249.6,134.1L249.6,134.1z M245.7,134.7h3.4c0.3,1.6-0.9,2.6-1.4,4h-2.9\r\n                                    C245,137.4,245.3,136.1,245.7,134.7L245.7,134.7z M244.9,135.6L244.9,135.6l0.1,0.1L244.9,135.6z M245,133.5\r\n                                    c-0.3,0.3-0.5,0.6-0.8,0.6c-2.5,0-4.9,0-7.3,0c-0.2-1.5,1.3-1.2,1.8-2c0-0.1,0.1-0.2,0.2-0.2c3.5-1.9,4.8-1.9,6.1-1.9\r\n                                    C245.1,131.3,245,132.4,245,133.5z M244.5,136.2c-0.1,0.8-0.2,1.6-0.5,2.3h-2.2C242.9,138,243.8,137.2,244.5,136.2L244.5,136.2z\r\n                                    M235.1,143.2c-1.1,0.1-2.4-0.4-3.6,0.4c0-0.7-0.1-1.3-0.1-1.9s0-1.3,0-2.2c1.9,0,3.8,0,5.6,0c0.8,0,1.7,0.4,2.3-0.4\r\n                                    c0,0,0.1,0,0.2,0c0.6,0.2,1.2,0.3,1.8,0.4c0.7-0.1,1.4-0.2,2-0.4c-1.1,2.3-3.1,2.8-4.6,4.1C237.7,143.2,236.4,143.2,235.1,143.2\r\n                                    L235.1,143.2z M244.2,139.3l2.1,0.4c-1.5,2-3.6,2.7-5.8,3.4C241.9,141.9,243.6,140.9,244.2,139.3L244.2,139.3z M244.5,142.7\r\n                                    c1.3-1.3,2.4-2.3,3.5-3.4l2,0.5C248.4,140.9,246.9,142.4,244.5,142.7L244.5,142.7z M251,138.6h-2.5c0.6-1.4,1.1-2.6,1.6-3.9h2.9\r\n                                    C253.5,136.5,251.8,137.2,251,138.6L251,138.6z M254.1,132.2c-0.3,0.5,0.1,1.5-0.7,2h-3.3c0.7-1.3,0.2-2.6,0.4-4h3.9\r\n                                    C254.6,130.9,254.5,131.6,254.1,132.2L254.1,132.2z M254.5,129.6c-0.4-0.1-0.7-0.3-1.1-0.3c-0.5-0.1-1-0.1-1.6,0\r\n                                    c-0.4,0.1-0.9,0.2-1.3,0.3v-4.3h4c0,0.6,0.1,1.3,0.1,2.1S254.5,128.7,254.5,129.6L254.5,129.6z M254.4,124.7h-3.9v-3.8\r\n                                    c0.7-0.2,1.5-0.7,2-0.5c0.8,0.4,1.3,0.6,2-0.4L254.4,124.7z M251.8,118.7l0.5-0.4c2.2-0.5,2.2,0.4,2.2,1.4\r\n                                    c-0.9,0.2-1.9,0-3.2,0.2C251.5,119.2,251.6,118.8,251.8,118.7L251.8,118.7z M231.5,121.7c0-0.9,0-1.8,0-2.8\r\n                                    c1.2-0.6,2.4-1.3,3.5-2c1.1-0.8,2.5-0.4,3.6-1.2c0.2-0.1,0.6,0,0.9,0h13.7c0.2,0,0.4,0.1,0.6,0.2c-0.2,0.2-0.4,0.5-0.6,0.7\r\n                                    c-0.6,0.4-1.2,0.7-1.3,1.4c-1.3,0.8-1.6,1.4-2.4,1.8h-11c-2,0.2-3.9,0.6-5.7,1.4c-0.3,0.3-0.6,0.6-0.8,0.9l3.1-1.1\r\n                                    c0.2-0.1,0.5-0.2,0.8-0.3h13.4c-0.9,0.8-1.6,1.4-2.4,2c-0.4,0.3-0.6,0.7-0.5,1.1c0,0,0,0,0.1,0l-1.4,0.9c-3.2,0-6.7,0-10.2,0\r\n                                    c-1.1,0-2.2,0.3-3.3,0.9l-0.5-0.5c0.7-0.9,0-2.1,0.8-3C231.8,121.9,231.5,121.7,231.5,121.7L231.5,121.7z M230.5,140.4\r\n                                    c0,1,0,2.1,0,3.4c-0.4-0.3-0.5-0.4-0.7-0.6c-0.4-0.5-0.7,1-1.3,0.1c-0.4,0.1-0.8,0.2-1.2,0.4v-1h-0.7c-0.7-0.9,0-1.6,0.3-2.4\r\n                                    l-0.5-0.5c0.1-0.1,0.2-0.2,0.3-0.2c2.4-0.1,2.4-0.1,3.3,0.4C230.3,140.2,230.6,140.3,230.5,140.4L230.5,140.4z M230.5,123.8v1.7\r\n                                    l-3.1,3.1c-0.1,0.1-0.1,0.2-0.1,0.3c0,0,0-0.1,0-0.1c-0.1,0.3-0.2,0.6-0.3,1.1C227.3,127.4,228.6,125.2,230.5,123.8L230.5,123.8\r\n                                    z M227.4,126.8L227.4,126.8C227.4,126.8,227.4,126.7,227.4,126.8L227.4,126.8z M227.9,129.8c1-0.9,1.8-1.8,2.6-2.6v11.6h-4.1\r\n                                    c0.1-0.4,0.2-0.7,0.3-1.1C225.8,134.8,227.1,132.1,227.9,129.8L227.9,129.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67253,7 +67256,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M310.6,214.4c-0.1-1.1-0.3-2.1-0.8-3.1c-1.3-3.4-3.9-5.7-6.5-8.2c-0.5,0.7-1,1.4-1.7,2\n                                    c-0.6,0.4-1.1,0.9-1.5,1.5c-0.3,0.6-1.2,0.8-1.6,1.4c-0.6,1-2,1.3-2.3,2.6c-1.9,1-3.1,2.8-4.6,4.2c-1.3,1.4-2.1,3.2-2.4,5.1\n                                    c0.2,1.7,0.7,3.3,1.6,4.7c1.8,1.9,3.7,3.7,5.4,5.5l6.5-6.5c0.8-1.8,1.7-4,0.2-6.3c-0.8,0.8-1.9,1.3-2.2,2\n                                    c-0.4,1.2-1.7,1.3-2.3,2.2c-0.6,0.8-1.3,1.6-2,2.4v-7.2c0.2,0,0.5,0,0.6-0.1c2.1-2.1,4.2-4.2,6.3-6.4c0.4,0.7,0.8,1.3,1.3,1.9\n                                    c1.2,1.1,2.1,2.5,2.7,4.1c0.8,2.3,0.9,4.7,0.4,7c-0.2,1.1-1.1,1.9-1,3.1c2.1-1.8,3.4-4.4,3.6-7.1c0-0.4,0.2-0.8,0.3-1.2\n                                    c0.1-0.7,0.1-1.4,0-2.1C310.8,215.2,310.6,214.8,310.6,214.4z"
+                          "M310.6,214.4c-0.1-1.1-0.3-2.1-0.8-3.1c-1.3-3.4-3.9-5.7-6.5-8.2c-0.5,0.7-1,1.4-1.7,2\r\n                                    c-0.6,0.4-1.1,0.9-1.5,1.5c-0.3,0.6-1.2,0.8-1.6,1.4c-0.6,1-2,1.3-2.3,2.6c-1.9,1-3.1,2.8-4.6,4.2c-1.3,1.4-2.1,3.2-2.4,5.1\r\n                                    c0.2,1.7,0.7,3.3,1.6,4.7c1.8,1.9,3.7,3.7,5.4,5.5l6.5-6.5c0.8-1.8,1.7-4,0.2-6.3c-0.8,0.8-1.9,1.3-2.2,2\r\n                                    c-0.4,1.2-1.7,1.3-2.3,2.2c-0.6,0.8-1.3,1.6-2,2.4v-7.2c0.2,0,0.5,0,0.6-0.1c2.1-2.1,4.2-4.2,6.3-6.4c0.4,0.7,0.8,1.3,1.3,1.9\r\n                                    c1.2,1.1,2.1,2.5,2.7,4.1c0.8,2.3,0.9,4.7,0.4,7c-0.2,1.1-1.1,1.9-1,3.1c2.1-1.8,3.4-4.4,3.6-7.1c0-0.4,0.2-0.8,0.3-1.2\r\n                                    c0.1-0.7,0.1-1.4,0-2.1C310.8,215.2,310.6,214.8,310.6,214.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -67261,7 +67264,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M183.7,208.7c-0.3,0-0.6,0-0.9,0.1c-2.9,1.1-4.9,3.8-5.1,6.8c-0.1,2.3,0,4.6,0,7.1\n                                    c3.6-0.3,7.2,0.5,10.5-0.5l2.6-2.3l0.8-1.8c-3.1-0.1-6,0.1-9.1-0.1c1-1,1.8-1.9,2.7-2.7s1.6-1.9,2.9-2.2\n                                    c1.3,0.9,2.8,0.4,4.1,0.4c1.5,0.2,3,0,4.4-0.6c0,1.4-0.1,2.6,0,3.8c0,1.1-0.2,2.1-0.7,3.1c-0.4,0.9-0.9,1.8-1.5,2.6\n                                    c-1.4,2.2-3.7,3.8-6.4,4.3c-0.3,0.1-0.6,0.4-0.9,0.6l0.2,0.4c0.5-0.2,1-0.4,1.5-0.5c0.6-0.1,1.4,0,1.9-0.3s1.6,0.3,2-0.6\n                                    c4.2-1.9,4.8-2.9,6.9-5.6c1.1-1.5,1.7-3.2,1.9-5.1c0.2-2.3,0.2-4.7,0.1-7L183.7,208.7z"
+                          "M183.7,208.7c-0.3,0-0.6,0-0.9,0.1c-2.9,1.1-4.9,3.8-5.1,6.8c-0.1,2.3,0,4.6,0,7.1\r\n                                    c3.6-0.3,7.2,0.5,10.5-0.5l2.6-2.3l0.8-1.8c-3.1-0.1-6,0.1-9.1-0.1c1-1,1.8-1.9,2.7-2.7s1.6-1.9,2.9-2.2\r\n                                    c1.3,0.9,2.8,0.4,4.1,0.4c1.5,0.2,3,0,4.4-0.6c0,1.4-0.1,2.6,0,3.8c0,1.1-0.2,2.1-0.7,3.1c-0.4,0.9-0.9,1.8-1.5,2.6\r\n                                    c-1.4,2.2-3.7,3.8-6.4,4.3c-0.3,0.1-0.6,0.4-0.9,0.6l0.2,0.4c0.5-0.2,1-0.4,1.5-0.5c0.6-0.1,1.4,0,1.9-0.3s1.6,0.3,2-0.6\r\n                                    c4.2-1.9,4.8-2.9,6.9-5.6c1.1-1.5,1.7-3.2,1.9-5.1c0.2-2.3,0.2-4.7,0.1-7L183.7,208.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67269,7 +67272,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M247.2,225.5c-0.8,0.5-1.7,0.7-2.4,1.3c-0.1,0.1-0.5,0-0.7,0s-0.2,0.2-0.3,0.2c1.1,0.1,2.2,0.1,3.3-0.1\n                                    c1.8-0.5,3.5-1.4,5-2.5c1.1-0.9,2-2,2.9-3.1c1.8-2.1,2.2-4.9,2.7-7.5c0.2-1.7,0.2-3.4,0.1-5.1c-5.5,0-10.9,0.1-16.2,0\n                                    c-1.7-0.1-3.3,0.4-4.7,1.2c-1.7,1.1-2.8,2.8-3.1,4.8c0,2.6,0,5.2,0,8c2.4,0,4.7-0.1,7,0c1,0,2.1-0.1,3-0.5\n                                    c1.8-0.7,3.2-2.2,3.6-4h-8.8c1.5-1.9,3.4-3.1,4.4-4.9h9.7c0,1.6-0.1,3.1-0.4,4.6C251.4,221.3,250.6,223.2,247.2,225.5z"
+                          "M247.2,225.5c-0.8,0.5-1.7,0.7-2.4,1.3c-0.1,0.1-0.5,0-0.7,0s-0.2,0.2-0.3,0.2c1.1,0.1,2.2,0.1,3.3-0.1\r\n                                    c1.8-0.5,3.5-1.4,5-2.5c1.1-0.9,2-2,2.9-3.1c1.8-2.1,2.2-4.9,2.7-7.5c0.2-1.7,0.2-3.4,0.1-5.1c-5.5,0-10.9,0.1-16.2,0\r\n                                    c-1.7-0.1-3.3,0.4-4.7,1.2c-1.7,1.1-2.8,2.8-3.1,4.8c0,2.6,0,5.2,0,8c2.4,0,4.7-0.1,7,0c1,0,2.1-0.1,3-0.5\r\n                                    c1.8-0.7,3.2-2.2,3.6-4h-8.8c1.5-1.9,3.4-3.1,4.4-4.9h9.7c0,1.6-0.1,3.1-0.4,4.6C251.4,221.3,250.6,223.2,247.2,225.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -67277,7 +67280,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M204.9,112.5l2.7-2.5l-0.6-0.6l-5.4,5.4c-5,0-9.8,0-14.7,0c-1.8,0.1-3.5,0.5-5.1,1.2\n                                    c-2.9,1.2-5.3,3.3-6.9,6.1c-1.3,2.3-2,4.9-2,7.5c-0.1,4.6,0,9.3,0,13.9c-1.6,1.6-3.1,3.1-4.7,4.7c-0.2,0.2-0.2,0.6-0.4,1.1\n                                    l5.6-5.6c5.3,0,10.4,0,15.5,0c1.9,0,3.7-0.4,5.3-1.3c0.9-0.4,1.7-0.9,2.5-1.5c0.8-0.7,1.9-1.2,1.9-2.6l-3.9,3.1\n                                    c-1.5-0.1-2.4,1.6-4.3,1.3c3.2-1.6,5.6-4.5,6.6-8h3.4v0.8l0.8-1h5.6l-0.8-0.8c-1.3,0.2-2.8-0.3-3.9,0.3l-0.6-0.3\n                                    c0.3-1.4,0.6-2.7,0.9-4.1h4.3v-0.3l-4.4-0.1v-4.4c1.3,0.7,2.6,0.2,3.7,0l0.8-0.3l-0.1-0.3h-4.4V120h4.4v-0.3l-4.5-0.1v-4.7\n                                    L204.9,112.5z M173.7,141.9v-9.8c0.8-2.4,2.3-4.6,4.3-6.1c0.3,0,0.5,0.1,0.6,0c1.5-1.1,3.2-0.9,4.8-0.9s3.2,0,4.7,0\n                                    c0.9,0,1.8-0.1,2.6-0.2c0,0.1,0,0.2,0,0.2L174,142.3c-0.1-0.1-0.1-0.1-0.2-0.2C173.7,142.1,173.7,142,173.7,141.9L173.7,141.9z\n                                    M191.7,129.1h-3.4c-0.1-0.1-0.1-0.1-0.2-0.2s0.1-0.1,0.1-0.2l3.4-3.4L191.7,129.1z M191.8,131.8c0,0.8,0,1.5,0,2.3\n                                    c-0.8-0.5-1.8-0.5-2.6,0c-0.9-0.8-2-0.1-3-0.4s-1.7,1-2.7,0.2c1-1.8,3-2.6,3.8-4.2h4.3C191.7,130.4,191.7,131.1,191.8,131.8\n                                    L191.8,131.8z M186.9,143.2c0.1-0.3,0.2-0.8,0.4-0.9c2.6-0.4,3.3-2.7,4.5-4.5c0.2-0.4,0.4-0.8,0.5-1.1l-0.9,0.3\n                                    c-0.1,1.2-1,2-1.6,3c-0.7,0.9-1.5,1.7-2.5,2.3c-0.8,0.5-1.8,0.8-2.8,0.9c-3.4,0.1-6.9,0-10.6,0c4.4-1.7,7.8-3,10.4-4.1\n                                    c-8.8,2.6-8,1.8-7.3,1s1.9-1.6,2.7-2.6c0.8-1,1.8-2,2.8-2.9h9.2c0,0.3,0.1,0.6,0.1,0.9c0.5-0.4,0.5-0.6,0.5-0.8h4\n                                    C195,138.3,192.9,141.3,186.9,143.2L186.9,143.2z M196.7,133.1l-0.5,0.5l-3.5,0.3l-0.3-0.3c0.7-1.2,0.1-2.6,0.4-3.9h3.9\n                                    L196.7,133.1z M194.3,124.8l0.7,0.4l0.5-0.5l1.1,0.5v3.9h-3.9v-3.8L194.3,124.8z M193.3,124.1l3.3-3.3v3.3H193.3z M196.3,119.7\n                                    c-4.1,0-8.5-0.1-13,0c-2.2-0.1-4.2,0.9-5.5,2.7c0.2,0,0.5,0.1,0.7,0c0.9-0.6,1.8-1.2,2.5-1.7c4.7-1,9.2-0.4,13.7-0.6\n                                    c0.4,0,0.7,0,0.9,0l-4.1,4.1c-2.7,0-5.8,0-9,0c-1.6,0-2.8,0.9-4.3,1.2c-0.2,0-0.3,0.4-0.5,0.7h0.2c-0.6,0.1-1,0.1-1.2,0.3\n                                    c-1,1-2,2.1-2.9,3.1c0.1-0.7,0.3-1.5,0.5-2.2c0.7-1.9,2.1-3.4,3.3-4.9c-0.3,0.1-0.8,0.1-1,0.3c-0.9,1-1.7,2.1-2.6,3.2\n                                    c0.1-1.1,0.4-2.2,1-3.1c0.8-1.4,1.8-2.7,2.9-3.8c1.6-1.5,3.5-2.6,5.6-3.3c0.1-0.1,0.3-0.1,0.4-0.1c2.3-0.2,4.5-0.4,6.8-0.4\n                                    c1.5,0,3,0.6,4.6,0.4c0.7-0.1,1.4-0.2,2.2-0.2s1.2,0.3,1.8-0.2c0.3-0.2,0.8,0,1.3,0L196.3,119.7z M200.7,133.7h-3.4v-4h3.8\n                                    C201.6,131,200.9,132.3,200.7,133.7L200.7,133.7z M201.1,129.1h-3.8v-3.8c1.3-0.4,2.6,0.4,3.8-0.5l0.5,1.6\n                                    C200.7,127,201.6,128.1,201.1,129.1L201.1,129.1z M201.6,124.1c-0.6,0-1.3,0-2,0.1h-2.3v-4h4.4\n                                    C200.8,121.5,201.5,122.8,201.6,124.1L201.6,124.1z M201.3,116.8c0.5,1.4,0.5,1.4-0.2,2.9l-0.3-0.3c-1,0.4-2,0.5-3,0.2\n                                    c1.5-1.2,2.1-2.9,4-3.3L201.3,116.8z"
+                          "M204.9,112.5l2.7-2.5l-0.6-0.6l-5.4,5.4c-5,0-9.8,0-14.7,0c-1.8,0.1-3.5,0.5-5.1,1.2\r\n                                    c-2.9,1.2-5.3,3.3-6.9,6.1c-1.3,2.3-2,4.9-2,7.5c-0.1,4.6,0,9.3,0,13.9c-1.6,1.6-3.1,3.1-4.7,4.7c-0.2,0.2-0.2,0.6-0.4,1.1\r\n                                    l5.6-5.6c5.3,0,10.4,0,15.5,0c1.9,0,3.7-0.4,5.3-1.3c0.9-0.4,1.7-0.9,2.5-1.5c0.8-0.7,1.9-1.2,1.9-2.6l-3.9,3.1\r\n                                    c-1.5-0.1-2.4,1.6-4.3,1.3c3.2-1.6,5.6-4.5,6.6-8h3.4v0.8l0.8-1h5.6l-0.8-0.8c-1.3,0.2-2.8-0.3-3.9,0.3l-0.6-0.3\r\n                                    c0.3-1.4,0.6-2.7,0.9-4.1h4.3v-0.3l-4.4-0.1v-4.4c1.3,0.7,2.6,0.2,3.7,0l0.8-0.3l-0.1-0.3h-4.4V120h4.4v-0.3l-4.5-0.1v-4.7\r\n                                    L204.9,112.5z M173.7,141.9v-9.8c0.8-2.4,2.3-4.6,4.3-6.1c0.3,0,0.5,0.1,0.6,0c1.5-1.1,3.2-0.9,4.8-0.9s3.2,0,4.7,0\r\n                                    c0.9,0,1.8-0.1,2.6-0.2c0,0.1,0,0.2,0,0.2L174,142.3c-0.1-0.1-0.1-0.1-0.2-0.2C173.7,142.1,173.7,142,173.7,141.9L173.7,141.9z\r\n                                    M191.7,129.1h-3.4c-0.1-0.1-0.1-0.1-0.2-0.2s0.1-0.1,0.1-0.2l3.4-3.4L191.7,129.1z M191.8,131.8c0,0.8,0,1.5,0,2.3\r\n                                    c-0.8-0.5-1.8-0.5-2.6,0c-0.9-0.8-2-0.1-3-0.4s-1.7,1-2.7,0.2c1-1.8,3-2.6,3.8-4.2h4.3C191.7,130.4,191.7,131.1,191.8,131.8\r\n                                    L191.8,131.8z M186.9,143.2c0.1-0.3,0.2-0.8,0.4-0.9c2.6-0.4,3.3-2.7,4.5-4.5c0.2-0.4,0.4-0.8,0.5-1.1l-0.9,0.3\r\n                                    c-0.1,1.2-1,2-1.6,3c-0.7,0.9-1.5,1.7-2.5,2.3c-0.8,0.5-1.8,0.8-2.8,0.9c-3.4,0.1-6.9,0-10.6,0c4.4-1.7,7.8-3,10.4-4.1\r\n                                    c-8.8,2.6-8,1.8-7.3,1s1.9-1.6,2.7-2.6c0.8-1,1.8-2,2.8-2.9h9.2c0,0.3,0.1,0.6,0.1,0.9c0.5-0.4,0.5-0.6,0.5-0.8h4\r\n                                    C195,138.3,192.9,141.3,186.9,143.2L186.9,143.2z M196.7,133.1l-0.5,0.5l-3.5,0.3l-0.3-0.3c0.7-1.2,0.1-2.6,0.4-3.9h3.9\r\n                                    L196.7,133.1z M194.3,124.8l0.7,0.4l0.5-0.5l1.1,0.5v3.9h-3.9v-3.8L194.3,124.8z M193.3,124.1l3.3-3.3v3.3H193.3z M196.3,119.7\r\n                                    c-4.1,0-8.5-0.1-13,0c-2.2-0.1-4.2,0.9-5.5,2.7c0.2,0,0.5,0.1,0.7,0c0.9-0.6,1.8-1.2,2.5-1.7c4.7-1,9.2-0.4,13.7-0.6\r\n                                    c0.4,0,0.7,0,0.9,0l-4.1,4.1c-2.7,0-5.8,0-9,0c-1.6,0-2.8,0.9-4.3,1.2c-0.2,0-0.3,0.4-0.5,0.7h0.2c-0.6,0.1-1,0.1-1.2,0.3\r\n                                    c-1,1-2,2.1-2.9,3.1c0.1-0.7,0.3-1.5,0.5-2.2c0.7-1.9,2.1-3.4,3.3-4.9c-0.3,0.1-0.8,0.1-1,0.3c-0.9,1-1.7,2.1-2.6,3.2\r\n                                    c0.1-1.1,0.4-2.2,1-3.1c0.8-1.4,1.8-2.7,2.9-3.8c1.6-1.5,3.5-2.6,5.6-3.3c0.1-0.1,0.3-0.1,0.4-0.1c2.3-0.2,4.5-0.4,6.8-0.4\r\n                                    c1.5,0,3,0.6,4.6,0.4c0.7-0.1,1.4-0.2,2.2-0.2s1.2,0.3,1.8-0.2c0.3-0.2,0.8,0,1.3,0L196.3,119.7z M200.7,133.7h-3.4v-4h3.8\r\n                                    C201.6,131,200.9,132.3,200.7,133.7L200.7,133.7z M201.1,129.1h-3.8v-3.8c1.3-0.4,2.6,0.4,3.8-0.5l0.5,1.6\r\n                                    C200.7,127,201.6,128.1,201.1,129.1L201.1,129.1z M201.6,124.1c-0.6,0-1.3,0-2,0.1h-2.3v-4h4.4\r\n                                    C200.8,121.5,201.5,122.8,201.6,124.1L201.6,124.1z M201.3,116.8c0.5,1.4,0.5,1.4-0.2,2.9l-0.3-0.3c-1,0.4-2,0.5-3,0.2\r\n                                    c1.5-1.2,2.1-2.9,4-3.3L201.3,116.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67285,7 +67288,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M191.3,136.6c0.3-0.3,0.5-0.7,0.4-1.1c-0.7,0.6-2.6,1.6-7.5,3.6c1.9-0.6,4.2-1.3,7.1-2.1\n                                    C191.4,136.9,191.4,136.7,191.3,136.6z"
+                          "M191.3,136.6c0.3-0.3,0.5-0.7,0.4-1.1c-0.7,0.6-2.6,1.6-7.5,3.6c1.9-0.6,4.2-1.3,7.1-2.1\r\n                                    C191.4,136.9,191.4,136.7,191.3,136.6z"
                       }
                     }),
                     _vm._v(" "),
@@ -67293,7 +67296,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M286.2,226l0.1,0.7h0.3c0-0.3,0-0.6-0.1-0.9h-0.3c0-0.3-0.1-0.6-0.2-0.8c-1.3-2.5-1.6-5.4-0.7-8.1\n                                    c0.5-2,1.6-3.8,3.1-5.3c3.9-3.7,7.6-7.5,11.4-11.3v-0.6l-3.1-3.1c-0.8,0.4-1.5,1-2,1.7c-0.5,0.7-1.1,1.4-1.7,2\n                                    c-0.7,0.7-1.4,1.3-2.2,1.9l-2.1,1.9c-0.6,0.6-1,1.4-1.7,1.8c-0.7,0.6-1.3,1.3-1.8,2.1c-1.9,2.4-2.8,5.3-2.7,8.4\n                                    c0.1,1.5-0.1,3.1,0.5,4.6C283.6,222.9,284.7,224.7,286.2,226z"
+                          "M286.2,226l0.1,0.7h0.3c0-0.3,0-0.6-0.1-0.9h-0.3c0-0.3-0.1-0.6-0.2-0.8c-1.3-2.5-1.6-5.4-0.7-8.1\r\n                                    c0.5-2,1.6-3.8,3.1-5.3c3.9-3.7,7.6-7.5,11.4-11.3v-0.6l-3.1-3.1c-0.8,0.4-1.5,1-2,1.7c-0.5,0.7-1.1,1.4-1.7,2\r\n                                    c-0.7,0.7-1.4,1.3-2.2,1.9l-2.1,1.9c-0.6,0.6-1,1.4-1.7,1.8c-0.7,0.6-1.3,1.3-1.8,2.1c-1.9,2.4-2.8,5.3-2.7,8.4\r\n                                    c0.1,1.5-0.1,3.1,0.5,4.6C283.6,222.9,284.7,224.7,286.2,226z"
                       }
                     }),
                     _vm._v(" "),
@@ -67301,7 +67304,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M203,37.6c-2.4-0.5-4.9,0.4-7.3-0.5c-2.3,0.8-4.7,0.3-7,0.3s-5,0-7.4,0h-7.5v28.8H203V37.6z M202,38v8.6\n                                    c-0.5-0.6-0.9-1.4-1.2-2.2c-0.1-1-1.1-1.2-1.5-2c-0.2-0.4-0.5-0.8-0.8-1.1C196.8,38,199.4,38,202,38z M174.6,38h9\n                                    c-1.4,0.2-2.4,1.3-3.4,1.9c-1.2,0.7-2.3,1.7-3.1,2.9c-0.4,0.7-0.9,1.3-1.3,2.1c-1.1,1.1-1.1,0.9-1.1,0.8\n                                    C174.6,43.2,174.6,40.7,174.6,38L174.6,38z M180.1,65.9c-1.1-0.1-2.4,0.4-3.4-0.4c-0.5,0.7-0.9-0.3-1.4,0\n                                    c-0.2,0.2-0.4,0.3-0.6,0.5v-9c0.8,2,2,3.8,3.7,5.2c1.6,1.5,3.4,2.7,5.3,3.7C182.4,66,181.2,66,180.1,65.9L180.1,65.9z\n                                    M201.9,57.4c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.1,0.2v8.3c-1.5-1.2-2.8,0.3-4.3,0c-1.6-0.1-3.2-0.1-4.8,0\n                                    c1-1.1,2.6-0.9,3.2-2.3c-1.5,0.5-3.1,1.1-4.5,1.8c-1.2,0-2.7,0-4.2,0c-1,0-2,0-3-0.3c-2.1-0.7-4-1.8-5.6-3.3\n                                    c-1.9-1.9-3.3-4.3-4.1-6.9c-0.1-0.3-0.2-0.7-0.2-1c0-0.9,0.1-1.8,0-2.7c-0.2-2.2,0.7-4.1,1.6-6c5.3-5.6,5.8-5.5,6.2-5.8\n                                    c2.3-1.3,4.9-1.8,7.4-1.5c1,0.1,2.1,0.4,3,0.8c0.7,0.3,1.4,0.6,2.2,0.8c4.4,3.6,4.4,3.9,4.4,4c1.6,1.4,1.7,3.7,2.7,5.4\n                                    c-0.1,2.5,0.4,5-0.6,7.4c-0.5,1.4-1.3,2.8-2.2,4c-0.2,0.3-0.3,0.6-0.3,1C200.6,60.6,201,58.9,201.9,57.4L201.9,57.4z"
+                          "M203,37.6c-2.4-0.5-4.9,0.4-7.3-0.5c-2.3,0.8-4.7,0.3-7,0.3s-5,0-7.4,0h-7.5v28.8H203V37.6z M202,38v8.6\r\n                                    c-0.5-0.6-0.9-1.4-1.2-2.2c-0.1-1-1.1-1.2-1.5-2c-0.2-0.4-0.5-0.8-0.8-1.1C196.8,38,199.4,38,202,38z M174.6,38h9\r\n                                    c-1.4,0.2-2.4,1.3-3.4,1.9c-1.2,0.7-2.3,1.7-3.1,2.9c-0.4,0.7-0.9,1.3-1.3,2.1c-1.1,1.1-1.1,0.9-1.1,0.8\r\n                                    C174.6,43.2,174.6,40.7,174.6,38L174.6,38z M180.1,65.9c-1.1-0.1-2.4,0.4-3.4-0.4c-0.5,0.7-0.9-0.3-1.4,0\r\n                                    c-0.2,0.2-0.4,0.3-0.6,0.5v-9c0.8,2,2,3.8,3.7,5.2c1.6,1.5,3.4,2.7,5.3,3.7C182.4,66,181.2,66,180.1,65.9L180.1,65.9z\r\n                                    M201.9,57.4c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.1,0.2v8.3c-1.5-1.2-2.8,0.3-4.3,0c-1.6-0.1-3.2-0.1-4.8,0\r\n                                    c1-1.1,2.6-0.9,3.2-2.3c-1.5,0.5-3.1,1.1-4.5,1.8c-1.2,0-2.7,0-4.2,0c-1,0-2,0-3-0.3c-2.1-0.7-4-1.8-5.6-3.3\r\n                                    c-1.9-1.9-3.3-4.3-4.1-6.9c-0.1-0.3-0.2-0.7-0.2-1c0-0.9,0.1-1.8,0-2.7c-0.2-2.2,0.7-4.1,1.6-6c5.3-5.6,5.8-5.5,6.2-5.8\r\n                                    c2.3-1.3,4.9-1.8,7.4-1.5c1,0.1,2.1,0.4,3,0.8c0.7,0.3,1.4,0.6,2.2,0.8c4.4,3.6,4.4,3.9,4.4,4c1.6,1.4,1.7,3.7,2.7,5.4\r\n                                    c-0.1,2.5,0.4,5-0.6,7.4c-0.5,1.4-1.3,2.8-2.2,4c-0.2,0.3-0.3,0.6-0.3,1C200.6,60.6,201,58.9,201.9,57.4L201.9,57.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -67309,7 +67312,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M238.5,199.8c-4.2,1.6-7.4,5-8.8,9.3c-0.4,1.4-0.5,2.8-0.3,4.2c1.3-5.5,6.1-9.4,11.8-9.5\n                                    c5.3,0.1,10.7,0,15.9,0l0.6-0.6v-3.9c-5.4,0-10.6,0-15.8,0C240.7,199.2,239.6,199.4,238.5,199.8z"
+                          "M238.5,199.8c-4.2,1.6-7.4,5-8.8,9.3c-0.4,1.4-0.5,2.8-0.3,4.2c1.3-5.5,6.1-9.4,11.8-9.5\r\n                                    c5.3,0.1,10.7,0,15.9,0l0.6-0.6v-3.9c-5.4,0-10.6,0-15.8,0C240.7,199.2,239.6,199.4,238.5,199.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67317,7 +67320,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M173.6,210.2c-0.3,1.3-0.4,2.6-0.2,3.9c0.9-4.8,3.4-8.2,8.2-9.8c1.1-0.3,2.2-0.5,3.3-0.6\n                                    c1.3-0.1,2.6,0,3.8,0h12.9v-4.5h-15.6c-2.7,0-5.2,1-7.2,2.8C176.3,204.1,174.4,206.9,173.6,210.2z"
+                          "M173.6,210.2c-0.3,1.3-0.4,2.6-0.2,3.9c0.9-4.8,3.4-8.2,8.2-9.8c1.1-0.3,2.2-0.5,3.3-0.6\r\n                                    c1.3-0.1,2.6,0,3.8,0h12.9v-4.5h-15.6c-2.7,0-5.2,1-7.2,2.8C176.3,204.1,174.4,206.9,173.6,210.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -67325,7 +67328,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M278,66.4c5.3,0,10.4,0,15.6,0c1,0,2-0.2,3-0.4c0.7-0.2,1.3-0.6,1.9-0.8c2.6-0.8,4.3-2.8,6-4.7\n                                    c1.7-2,2.7-4.5,2.9-7.1c0.2-5.2,0.1-10.5,0.1-15.9c-0.6-0.1-1.2-0.1-1.9,0c-0.6,0.2-0.9-0.7-1.5-0.2c-0.4,0.3-1.2,0.1-1.7,0.1\n                                    H291c-0.4-0.1-0.9-0.1-1.4,0c-2.6,0.9-5.2,1.9-7.2,3.9c-2.8,2.8-4.4,6.5-4.5,10.4c-0.1,4.2,0,8.4,0,12.6V66.4z M279,52.4\n                                    c0.1-0.8,0.3-1.5,0.6-2.2c1.9-4,3.7-5.5,8-7.1c0.5-0.1,1-0.2,1.5-0.2H302v1.7c0,3,0,6,0,9c0,1.8-0.4,3.6-1.2,5.2\n                                    c-0.1,0.4-0.2,0.8-0.2,1.3c0.3-0.2,0.8-0.4,0.8-0.7c0.3-1.6,1.1-3.1,1-4.8c-0.1-4.1,0-8.3,0-12.6h-1.7c-3.4,0-6.8-0.1-10.2,0\n                                    c-1.9,0.1-3.8,0.5-5.6,1.3c-2.1,1.1-3.9,2.8-5.2,4.8c-0.2,0.4-0.4,0.7-0.7,1c1.3-5.2,4.3-8.9,10.1-10.8\n                                    c5.2-0.9,11.1-0.1,17.1-0.5c0,0.6,0.1,1.2,0.1,1.8c0,4.4,0,8.9,0,13.3c0,2.6-1,5.2-2.7,7.2c-1.1,1.5-2.5,2.7-4.1,3.7\n                                    c-1.4,0.8-3,1.4-4.6,1.7c0.7-1,2-0.7,2.3-1.8c-1.5,0.1-2.5,1.3-3.8,1.6c-4.4,1-8.8,0.5-13.3,0.6c-0.4,0-0.9,0-1.4,0\n                                    C278.9,61.4,278.9,56.9,279,52.4L279,52.4z"
+                          "M278,66.4c5.3,0,10.4,0,15.6,0c1,0,2-0.2,3-0.4c0.7-0.2,1.3-0.6,1.9-0.8c2.6-0.8,4.3-2.8,6-4.7\r\n                                    c1.7-2,2.7-4.5,2.9-7.1c0.2-5.2,0.1-10.5,0.1-15.9c-0.6-0.1-1.2-0.1-1.9,0c-0.6,0.2-0.9-0.7-1.5-0.2c-0.4,0.3-1.2,0.1-1.7,0.1\r\n                                    H291c-0.4-0.1-0.9-0.1-1.4,0c-2.6,0.9-5.2,1.9-7.2,3.9c-2.8,2.8-4.4,6.5-4.5,10.4c-0.1,4.2,0,8.4,0,12.6V66.4z M279,52.4\r\n                                    c0.1-0.8,0.3-1.5,0.6-2.2c1.9-4,3.7-5.5,8-7.1c0.5-0.1,1-0.2,1.5-0.2H302v1.7c0,3,0,6,0,9c0,1.8-0.4,3.6-1.2,5.2\r\n                                    c-0.1,0.4-0.2,0.8-0.2,1.3c0.3-0.2,0.8-0.4,0.8-0.7c0.3-1.6,1.1-3.1,1-4.8c-0.1-4.1,0-8.3,0-12.6h-1.7c-3.4,0-6.8-0.1-10.2,0\r\n                                    c-1.9,0.1-3.8,0.5-5.6,1.3c-2.1,1.1-3.9,2.8-5.2,4.8c-0.2,0.4-0.4,0.7-0.7,1c1.3-5.2,4.3-8.9,10.1-10.8\r\n                                    c5.2-0.9,11.1-0.1,17.1-0.5c0,0.6,0.1,1.2,0.1,1.8c0,4.4,0,8.9,0,13.3c0,2.6-1,5.2-2.7,7.2c-1.1,1.5-2.5,2.7-4.1,3.7\r\n                                    c-1.4,0.8-3,1.4-4.6,1.7c0.7-1,2-0.7,2.3-1.8c-1.5,0.1-2.5,1.3-3.8,1.6c-4.4,1-8.8,0.5-13.3,0.6c-0.4,0-0.9,0-1.4,0\r\n                                    C278.9,61.4,278.9,56.9,279,52.4L279,52.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -67333,7 +67336,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M266.4,215.5c-0.2,0.9-0.4,1.8-0.6,2.6c-0.7,3-2,5.9-3.9,8.3c-2.4,3.1-5.5,5.5-9.1,6.9\n                                    c-1.8,0.6-5.7,1.7-7,1.6c-0.9-0.1-1.8,0-2.7,0c-2.3-0.1-4.5-0.7-6.6-1.5c-0.9-0.4-1.8-0.8-2.6-1.3c-2.8-1.4-5.2-3.5-7-6\n                                    c-1.4-2-2.5-4.2-3.3-6.5c-0.6-2.2-1-4.5-1.1-6.8c0-0.8,0.4-1.7,0.4-2.5c0.1-2,0.6-3.9,1.4-5.7c1.7-3.9,4.5-7.2,8-9.5\n                                    c2.1-1.5,4.6-2.5,7.1-3c0.7-0.2,1.4-0.4,2.1-0.7c-0.3-0.5-0.6-0.7-0.9-0.6c-3.1,0.8-6,2-8.7,3.6c-3.1,2.1-5.6,4.9-7.3,8.1\n                                    c-1.8,2.9-2.7,6.3-2.6,9.8c0,1.3-0.1,2.6,0,3.8c0.1,1.1,0.2,2.1,0.4,3.2c0,0.3,0.4,0.5,0.4,0.7c0.1,1.4,1,2.5,1.5,3.7\n                                    c1.8,3.9,5.8,7.7,9.6,9.7c2.1,1.1,7.7,2.8,9.8,2.6c1.5-0.1,3-0.2,4.6-0.4c2-0.2,3.6-1.3,5.5-1.5c1.2-1.4,3.3-1.5,4.4-3\n                                    c3.1-1.9,5-4.9,6.6-8c0.6-1.2,1.1-2.4,1.5-3.7c0.3-1.1,0-2.3,0.8-3.3c0,0-0.1-0.2-0.2-0.4L266.4,215.5z"
+                          "M266.4,215.5c-0.2,0.9-0.4,1.8-0.6,2.6c-0.7,3-2,5.9-3.9,8.3c-2.4,3.1-5.5,5.5-9.1,6.9\r\n                                    c-1.8,0.6-5.7,1.7-7,1.6c-0.9-0.1-1.8,0-2.7,0c-2.3-0.1-4.5-0.7-6.6-1.5c-0.9-0.4-1.8-0.8-2.6-1.3c-2.8-1.4-5.2-3.5-7-6\r\n                                    c-1.4-2-2.5-4.2-3.3-6.5c-0.6-2.2-1-4.5-1.1-6.8c0-0.8,0.4-1.7,0.4-2.5c0.1-2,0.6-3.9,1.4-5.7c1.7-3.9,4.5-7.2,8-9.5\r\n                                    c2.1-1.5,4.6-2.5,7.1-3c0.7-0.2,1.4-0.4,2.1-0.7c-0.3-0.5-0.6-0.7-0.9-0.6c-3.1,0.8-6,2-8.7,3.6c-3.1,2.1-5.6,4.9-7.3,8.1\r\n                                    c-1.8,2.9-2.7,6.3-2.6,9.8c0,1.3-0.1,2.6,0,3.8c0.1,1.1,0.2,2.1,0.4,3.2c0,0.3,0.4,0.5,0.4,0.7c0.1,1.4,1,2.5,1.5,3.7\r\n                                    c1.8,3.9,5.8,7.7,9.6,9.7c2.1,1.1,7.7,2.8,9.8,2.6c1.5-0.1,3-0.2,4.6-0.4c2-0.2,3.6-1.3,5.5-1.5c1.2-1.4,3.3-1.5,4.4-3\r\n                                    c3.1-1.9,5-4.9,6.6-8c0.6-1.2,1.1-2.4,1.5-3.7c0.3-1.1,0-2.3,0.8-3.3c0,0-0.1-0.2-0.2-0.4L266.4,215.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -67349,7 +67352,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M226.1,62.8v3.7c3.1,0,6,0.1,8.9,0s5.9,0.3,8.9-0.4c0.9-0.2,1.8-0.5,2.6-0.8c2.8-1.2,5.2-3.2,6.7-5.9\n                                    c1.3-2,2-4.3,1.9-6.7c-0.1-1.5-0.1-3,0-4.5c0.1-1.4-0.4-3,0.4-4.3c0.1-0.2-0.1-0.6-0.1-0.8s-0.3-0.6-0.3-0.8\n                                    c0.5-1,0.5-2.2,0-3.3c-0.1-0.3,0.1-0.7,0.2-1c0-0.1,0.1-0.2,0.1-0.3s-0.2-0.2-1.9,0.3h1c0,5.4,0.1,10.6-0.1,15.9\n                                    c-0.2,1.9-0.9,3.7-1.9,5.3c-1.4,2.4-3.6,4-5.9,5.4c-1.1,0.6-2.4,1-3.6,1c-1.8,0.1-3.4,0.7-5.2,0.5s-3.5,0-5.2,0h-5.4l-0.7-0.7\n                                    c0-4.6,0-9.2,0-13.9c0-1,0.2-2,0.6-2.9c0.4-0.7,0.1-1.3,14.1-6.5c-13.4,4.2-13,3.7-12.7,3.1c1.5-3.1,4.2-5.4,7.5-6.3\n                                    c1.9-0.6,4-1,6-0.9c3.3,0.1,6.6,0,10,0l1.1-0.5c-0.4,0-0.7,0-1.1,0c-4.4,0-8.9,0-13.3,0c-0.5-0.1-1.1-0.1-1.6,0\n                                    c-2.2,0.9-4.5,1.8-6.2,3.5c-0.9,0.8-1.6,1.7-2.3,2.6c-0.6,0.9-1,1.9-1.4,2.9c-0.7,1.5-1.1,3.1-1.1,4.7\n                                    C226.1,55.1,226.1,58.9,226.1,62.8z"
+                          "M226.1,62.8v3.7c3.1,0,6,0.1,8.9,0s5.9,0.3,8.9-0.4c0.9-0.2,1.8-0.5,2.6-0.8c2.8-1.2,5.2-3.2,6.7-5.9\r\n                                    c1.3-2,2-4.3,1.9-6.7c-0.1-1.5-0.1-3,0-4.5c0.1-1.4-0.4-3,0.4-4.3c0.1-0.2-0.1-0.6-0.1-0.8s-0.3-0.6-0.3-0.8\r\n                                    c0.5-1,0.5-2.2,0-3.3c-0.1-0.3,0.1-0.7,0.2-1c0-0.1,0.1-0.2,0.1-0.3s-0.2-0.2-1.9,0.3h1c0,5.4,0.1,10.6-0.1,15.9\r\n                                    c-0.2,1.9-0.9,3.7-1.9,5.3c-1.4,2.4-3.6,4-5.9,5.4c-1.1,0.6-2.4,1-3.6,1c-1.8,0.1-3.4,0.7-5.2,0.5s-3.5,0-5.2,0h-5.4l-0.7-0.7\r\n                                    c0-4.6,0-9.2,0-13.9c0-1,0.2-2,0.6-2.9c0.4-0.7,0.1-1.3,14.1-6.5c-13.4,4.2-13,3.7-12.7,3.1c1.5-3.1,4.2-5.4,7.5-6.3\r\n                                    c1.9-0.6,4-1,6-0.9c3.3,0.1,6.6,0,10,0l1.1-0.5c-0.4,0-0.7,0-1.1,0c-4.4,0-8.9,0-13.3,0c-0.5-0.1-1.1-0.1-1.6,0\r\n                                    c-2.2,0.9-4.5,1.8-6.2,3.5c-0.9,0.8-1.6,1.7-2.3,2.6c-0.6,0.9-1,1.9-1.4,2.9c-0.7,1.5-1.1,3.1-1.1,4.7\r\n                                    C226.1,55.1,226.1,58.9,226.1,62.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67397,7 +67400,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M226.8,84.1l0.9-0.4l0.4,0.3l2.4-0.6c1.3-1.2,1.5-2.9,1.3-4.8h-4.3c-1.6,1.4-1,3.3-1.1,5\n                                    C226.5,83.7,226.7,83.9,226.8,84.1z"
+                          "M226.8,84.1l0.9-0.4l0.4,0.3l2.4-0.6c1.3-1.2,1.5-2.9,1.3-4.8h-4.3c-1.6,1.4-1,3.3-1.1,5\r\n                                    C226.5,83.7,226.7,83.9,226.8,84.1z"
                       }
                     }),
                     _vm._v(" "),
@@ -67421,7 +67424,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M189.8,87.8c-0.8-0.2-1.6-1.3-2.5,0.1v4.5c0.4,0.6,1.1,0.8,1.8,0.6l1-0.8c0.9-1.4-0.9-2.4,0.2-3.4\n                                    C190.1,88.4,190,88.1,189.8,87.8z M189,87.9v1.6l-1-0.2L189,87.9z M188.2,92.2v-1.8h1.2C189.6,91.4,189.4,92,188.2,92.2z"
+                          "M189.8,87.8c-0.8-0.2-1.6-1.3-2.5,0.1v4.5c0.4,0.6,1.1,0.8,1.8,0.6l1-0.8c0.9-1.4-0.9-2.4,0.2-3.4\r\n                                    C190.1,88.4,190,88.1,189.8,87.8z M189,87.9v1.6l-1-0.2L189,87.9z M188.2,92.2v-1.8h1.2C189.6,91.4,189.4,92,188.2,92.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -67429,7 +67432,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M282.5,160l-1.4-0.7c0.2,1.2,1.1,2,0.3,2.9c-2,0.4-1.3-1.5-2.1-2.3l1.1-1.8h2l-1.4-1l-1.9,1\n                                    c-0.8,2.1-0.6,3.7,1.2,5.1l2.3-0.7L282.5,160z"
+                          "M282.5,160l-1.4-0.7c0.2,1.2,1.1,2,0.3,2.9c-2,0.4-1.3-1.5-2.1-2.3l1.1-1.8h2l-1.4-1l-1.9,1\r\n                                    c-0.8,2.1-0.6,3.7,1.2,5.1l2.3-0.7L282.5,160z"
                       }
                     }),
                     _vm._v(" "),
@@ -67437,7 +67440,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M191.3,83.9c-0.6-1.8-1.1-3.5-1.6-5.3h-1.1c0.1,1.9-1.3,3.4-1.3,5.4h0.8c0.1-0.4,0.2-0.9,0.3-1.4h1.4\n                                    C190.2,83.2,190.1,84.3,191.3,83.9z M189.1,81.7v-1.2h0.2c0,0.4,0.1,0.8,0.2,1.2L189.1,81.7z"
+                          "M191.3,83.9c-0.6-1.8-1.1-3.5-1.6-5.3h-1.1c0.1,1.9-1.3,3.4-1.3,5.4h0.8c0.1-0.4,0.2-0.9,0.3-1.4h1.4\r\n                                    C190.2,83.2,190.1,84.3,191.3,83.9z M189.1,81.7v-1.2h0.2c0,0.4,0.1,0.8,0.2,1.2L189.1,81.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67445,7 +67448,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M174.7,170.3h2.6v-3.1l-1.4,0.1c0.4,1,1.2,1.9-0.1,2.5l-1.1-0.6V166c0.5-0.2,1-0.5,1.4-0.6l0.9,0.5\n                                    l-0.2-0.9h-2.2l-1.5,3L174.7,170.3z"
+                          "M174.7,170.3h2.6v-3.1l-1.4,0.1c0.4,1,1.2,1.9-0.1,2.5l-1.1-0.6V166c0.5-0.2,1-0.5,1.4-0.6l0.9,0.5\r\n                                    l-0.2-0.9h-2.2l-1.5,3L174.7,170.3z"
                       }
                     }),
                     _vm._v(" "),
@@ -67453,7 +67456,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M230.3,166.7c0.1,0,0.2-0.1,0.3-0.2l-0.8-0.8l-1.8,0.7c-0.2,0.4-0.4,0.7-0.6,1.2v3l1.1,1h1.8l0.5-0.5v-2.4\n                                    h-1.2l0.5,2.3l-1.8-0.4v-3.1C228.9,166.5,229.7,166.8,230.3,166.7z"
+                          "M230.3,166.7c0.1,0,0.2-0.1,0.3-0.2l-0.8-0.8l-1.8,0.7c-0.2,0.4-0.4,0.7-0.6,1.2v3l1.1,1h1.8l0.5-0.5v-2.4\r\n                                    h-1.2l0.5,2.3l-1.8-0.4v-3.1C228.9,166.5,229.7,166.8,230.3,166.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67461,7 +67464,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M267.7,191.4l0.6-1.1l1.6-0.3l-0.1-0.2h-2.4l-0.6,0.5v2.2h1.7c0.2,0.5,0.4,0.9,0.7,1.5l-1.4,1.1l-1-0.3\n                                    c0,0.4,0.1,0.6,0.1,0.9h2.6l0.9-2.2l-0.6-1.3L267.7,191.4z"
+                          "M267.7,191.4l0.6-1.1l1.6-0.3l-0.1-0.2h-2.4l-0.6,0.5v2.2h1.7c0.2,0.5,0.4,0.9,0.7,1.5l-1.4,1.1l-1-0.3\r\n                                    c0,0.4,0.1,0.6,0.1,0.9h2.6l0.9-2.2l-0.6-1.3L267.7,191.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -67469,7 +67472,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M264.6,195.2h0.7l0.6-1.8c-0.9-1-0.1-2.4-0.7-3.7c-1.7,0.9-2.3,2.4-3.1,4.2l2.5,0.2L264.6,195.2z\n                                    M264.4,193l-1.1-0.3l1.1-1.4V193z"
+                          "M264.6,195.2h0.7l0.6-1.8c-0.9-1-0.1-2.4-0.7-3.7c-1.7,0.9-2.3,2.4-3.1,4.2l2.5,0.2L264.6,195.2z\r\n                                    M264.4,193l-1.1-0.3l1.1-1.4V193z"
                       }
                     }),
                     _vm._v(" "),
@@ -67477,7 +67480,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M285.9,84c1.2,0.1,2.3,0,3.5-0.1l-0.1-0.7h-1.6l1.7-1.7v-1.7l-0.7-0.6h-1.9L286,80c0.4,0,0.8,0,1.3,0\n                                    c0.1,0,0.2-0.1,0.3-0.2l1.2,0.5L285.9,84z"
+                          "M285.9,84c1.2,0.1,2.3,0,3.5-0.1l-0.1-0.7h-1.6l1.7-1.7v-1.7l-0.7-0.6h-1.9L286,80c0.4,0,0.8,0,1.3,0\r\n                                    c0.1,0,0.2-0.1,0.3-0.2l1.2,0.5L285.9,84z"
                       }
                     }),
                     _vm._v(" "),
@@ -67485,7 +67488,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M284.9,241.8l-0.5,0.4l-0.9-0.6l-1,2.3l0.6,1.3l1.1-0.9c0.1,0.4,0.2,0.7,0.2,0.6l1.5-1l-0.6-0.7l0.6-0.9\n                                    L284.9,241.8z"
+                          "M284.9,241.8l-0.5,0.4l-0.9-0.6l-1,2.3l0.6,1.3l1.1-0.9c0.1,0.4,0.2,0.7,0.2,0.6l1.5-1l-0.6-0.7l0.6-0.9\r\n                                    L284.9,241.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67493,7 +67496,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M241.3,79c0-0.1,0.1-0.2,0.1-0.3h-1.7l-1.3,1v3.2l1,1h2.1v-0.7c-0.7-0.3-1.7,0.3-2.2-0.9v-1.7\n                                    C239.5,79.6,240.3,79,241.3,79z"
+                          "M241.3,79c0-0.1,0.1-0.2,0.1-0.3h-1.7l-1.3,1v3.2l1,1h2.1v-0.7c-0.7-0.3-1.7,0.3-2.2-0.9v-1.7\r\n                                    C239.5,79.6,240.3,79,241.3,79z"
                       }
                     }),
                     _vm._v(" "),
@@ -67501,7 +67504,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M237.4,160.7c-0.2-1,0.2-2.1-0.4-3.4c-0.9,1.3-1.7,2.4-2.4,3.4c-0.1,0.1,0.1,0.3,0.1,0.6h1.5\n                                    c0.2,0.6,0.3,1,0.5,1.6c0.5-0.7,0.9-1.2,1.3-1.7c0.1-0.1,0-0.2,0-0.3L237.4,160.7z M236.1,161.2v-1.7h0.8L236.1,161.2z"
+                          "M237.4,160.7c-0.2-1,0.2-2.1-0.4-3.4c-0.9,1.3-1.7,2.4-2.4,3.4c-0.1,0.1,0.1,0.3,0.1,0.6h1.5\r\n                                    c0.2,0.6,0.3,1,0.5,1.6c0.5-0.7,0.9-1.2,1.3-1.7c0.1-0.1,0-0.2,0-0.3L237.4,160.7z M236.1,161.2v-1.7h0.8L236.1,161.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -67509,7 +67512,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M182.9,156.2l-1.6,0.8l0.1,0.8c0.6-0.8,1.2-0.7,2-0.2l-1.7,1.3l1.3,0.8c0.4,1.5-0.8,1.5-1.7,1.9h2.1\n                                    l0.7-0.7c-0.1-0.8-0.3-1.7-0.4-2.7l0.3-0.4L182.9,156.2z"
+                          "M182.9,156.2l-1.6,0.8l0.1,0.8c0.6-0.8,1.2-0.7,2-0.2l-1.7,1.3l1.3,0.8c0.4,1.5-0.8,1.5-1.7,1.9h2.1\r\n                                    l0.7-0.7c-0.1-0.8-0.3-1.7-0.4-2.7l0.3-0.4L182.9,156.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -67517,7 +67520,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M292.4,79.9l-0.7,1.2l-1.3-1.2l-0.2,0.2c0.2,0.7,0.4,1.3,0.6,2l-0.9,1.7c1,0.7,1.1-1,2-0.7l0.4,0.9\n                                    l0.8-0.2c-0.4-0.8-0.7-1.6-1.1-2.3l1.2-1.3L292.4,79.9z"
+                          "M292.4,79.9l-0.7,1.2l-1.3-1.2l-0.2,0.2c0.2,0.7,0.4,1.3,0.6,2l-0.9,1.7c1,0.7,1.1-1,2-0.7l0.4,0.9\r\n                                    l0.8-0.2c-0.4-0.8-0.7-1.6-1.1-2.3l1.2-1.3L292.4,79.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -67525,7 +67528,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M176.8,239.7l-0.8-1.5l-0.7,1.2l-0.7-1.1l-0.8,1.4l0.5,1l-1,0.3l0.9,1.5l0.7-1.2c0.2,0.3,0.3,0.6,0.5,1\n                                    l1.5-1.3l-1.1-0.5L176.8,239.7z"
+                          "M176.8,239.7l-0.8-1.5l-0.7,1.2l-0.7-1.1l-0.8,1.4l0.5,1l-1,0.3l0.9,1.5l0.7-1.2c0.2,0.3,0.3,0.6,0.5,1\r\n                                    l1.5-1.3l-1.1-0.5L176.8,239.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67533,7 +67536,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M288.3,241l-2.2,0.5l0.2,0.8l1.4-0.6l0.7,0.8l-2.2,3.3h3.1v-0.2l-1.9-0.2l1.9-2.5\n                                    C289.5,241.7,288.7,241.4,288.3,241z"
+                          "M288.3,241l-2.2,0.5l0.2,0.8l1.4-0.6l0.7,0.8l-2.2,3.3h3.1v-0.2l-1.9-0.2l1.9-2.5\r\n                                    C289.5,241.7,288.7,241.4,288.3,241z"
                       }
                     }),
                     _vm._v(" "),
@@ -67541,7 +67544,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M186,88.5c-0.4,0.9-0.9,0.4-1.3,0.1l-1.2,1l1,0.5l-1,0.5l0.8,1.6l0.6-1.1l0.8,0.9l1.1-1l-0.4-0.6\n                                    c0.2-0.4,0.4-0.8,0.6-1.1L186,88.5z"
+                          "M186,88.5c-0.4,0.9-0.9,0.4-1.3,0.1l-1.2,1l1,0.5l-1,0.5l0.8,1.6l0.6-1.1l0.8,0.9l1.1-1l-0.4-0.6\r\n                                    c0.2-0.4,0.4-0.8,0.6-1.1L186,88.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -67549,7 +67552,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M186,79.3l-0.8,1.2l-0.3-0.8l-0.9,0.7c0,0.8-0.1,1.2-0.1,1.8l0.7,1.3l0.8-1.2l0.3,0.8l1.2-1.2\n                                    c-1-0.4-0.4-0.9-0.1-1.3L186,79.3z"
+                          "M186,79.3l-0.8,1.2l-0.3-0.8l-0.9,0.7c0,0.8-0.1,1.2-0.1,1.8l0.7,1.3l0.8-1.2l0.3,0.8l1.2-1.2\r\n                                    c-1-0.4-0.4-0.9-0.1-1.3L186,79.3z"
                       }
                     }),
                     _vm._v(" "),
@@ -67557,7 +67560,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M239.7,161.5c0-0.1,0.2-0.1,0.4-0.2c0.3,0.4,0.5,0.9,0.7,1.2h1.1l-1.3-1.9c0.3-0.5,0.6-1,0.9-1.5\n                                    c0.1-0.1-0.1-0.4-0.1-0.6c-0.4,0.4-0.8,0.7-1.3,1.2l-0.7-1.2l-0.7,0.3c0.3,0.6,0.6,1.2,0.9,1.8l-1.3,2\n                                    C239.3,162.7,239.5,162.2,239.7,161.5z"
+                          "M239.7,161.5c0-0.1,0.2-0.1,0.4-0.2c0.3,0.4,0.5,0.9,0.7,1.2h1.1l-1.3-1.9c0.3-0.5,0.6-1,0.9-1.5\r\n                                    c0.1-0.1-0.1-0.4-0.1-0.6c-0.4,0.4-0.8,0.7-1.3,1.2l-0.7-1.2l-0.7,0.3c0.3,0.6,0.6,1.2,0.9,1.8l-1.3,2\r\n                                    C239.3,162.7,239.5,162.2,239.7,161.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -67565,7 +67568,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M184.8,161.4l1.3-1c0.5,0.2,0.6,1.2,1.6,0.6c-0.3-0.6-0.6-1.3-1-1.9c0.2-0.4,1.2-0.6,0.6-1.6l-1.1,0.6\n                                    l-1.3-0.5l-0.2,0.3l0.9,1.4l-1.2,1.9L184.8,161.4z"
+                          "M184.8,161.4l1.3-1c0.5,0.2,0.6,1.2,1.6,0.6c-0.3-0.6-0.6-1.3-1-1.9c0.2-0.4,1.2-0.6,0.6-1.6l-1.1,0.6\r\n                                    l-1.3-0.5l-0.2,0.3l0.9,1.4l-1.2,1.9L184.8,161.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -67573,7 +67576,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M237.2,79.6l-0.8,0.5l-0.4-0.3l-1,1.1c-0.1,0.4-0.1,0.8-0.2,1.4l0.6,1c0.1-0.4,0.2-0.7,0.4-1.1l0.6,1.2\n                                    l1.4-1.4l-1-0.4l1-0.9C237.6,80.3,237.4,79.9,237.2,79.6z"
+                          "M237.2,79.6l-0.8,0.5l-0.4-0.3l-1,1.1c-0.1,0.4-0.1,0.8-0.2,1.4l0.6,1c0.1-0.4,0.2-0.7,0.4-1.1l0.6,1.2\r\n                                    l1.4-1.4l-1-0.4l1-0.9C237.6,80.3,237.4,79.9,237.2,79.6z"
                       }
                     }),
                     _vm._v(" "),
@@ -67589,7 +67592,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M271.4,188.5c-0.3,0.5-0.2,1.3,0.4,1.6c0.1,0,0.1,0.1,0.2,0.1c0.6,0.3,1.3,0,1.6-0.9\n                                    C273,188.1,272.2,188.3,271.4,188.5z M272.5,189.7h-0.2l-0.2-0.8h0.4V189.7z"
+                          "M271.4,188.5c-0.3,0.5-0.2,1.3,0.4,1.6c0.1,0,0.1,0.1,0.2,0.1c0.6,0.3,1.3,0,1.6-0.9\r\n                                    C273,188.1,272.2,188.3,271.4,188.5z M272.5,189.7h-0.2l-0.2-0.8h0.4V189.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67621,7 +67624,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M248.2,192v0.9h0.9h0l0.3,0.4l0.1-0.1l-0.4-0.3l0,0l-0.9-0.9v-0.7c0.6-0.4,1.1-1,1.5-1.5\n                                    c-1,0.6-1.7,1-2.3,1.5c-0.1,0.1,0,0.4-0.1,0.7L248.2,192z"
+                          "M248.2,192v0.9h0.9h0l0.3,0.4l0.1-0.1l-0.4-0.3l0,0l-0.9-0.9v-0.7c0.6-0.4,1.1-1,1.5-1.5\r\n                                    c-1,0.6-1.7,1-2.3,1.5c-0.1,0.1,0,0.4-0.1,0.7L248.2,192z"
                       }
                     }),
                     _vm._v(" "),
@@ -67653,7 +67656,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M259.2,195.9c0.3,0.4,0.6,0.7,1,1c0.6-1.2,0-1.4-0.6-1.7c-0.1,0-0.2,0.1-0.4,0.2\n                                    C259.1,195.5,259,195.8,259.2,195.9z"
+                          "M259.2,195.9c0.3,0.4,0.6,0.7,1,1c0.6-1.2,0-1.4-0.6-1.7c-0.1,0-0.2,0.1-0.4,0.2\r\n                                    C259.1,195.5,259,195.8,259.2,195.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -67799,7 +67802,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M196.3,63.7c0.3,0,0.6,0,0.8-0.2c0.7-0.7,1.3-1.4,1.9-2.1c-0.3,0-0.6,0-0.8,0.2\n                                    C197.5,62.3,196.9,63,196.3,63.7z"
+                          "M196.3,63.7c0.3,0,0.6,0,0.8-0.2c0.7-0.7,1.3-1.4,1.9-2.1c-0.3,0-0.6,0-0.8,0.2\r\n                                    C197.5,62.3,196.9,63,196.3,63.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67815,7 +67818,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M106.4,204.8c-0.2-1.2-0.5-2.4-0.8-3.6c-0.7-3-2.4-5.5-4-8.1c-0.4-0.7-1.2-1.1-1.4-0.8\n                                    c-0.2-0.4-0.3-0.9-0.5-1.3c-0.6-0.7-1-1.6-1.8-2c-1.7-0.9-2.7-2.8-4.7-3.4c-0.9-0.3-1.7-1.1-2.6-1.6c-0.8-0.4-1.7-0.7-2.6-1\n                                    c-0.9-0.4-1.9-0.7-2.9-0.9c-1.1-0.1-2.1-0.4-3.1-0.5c-4.1-0.4-8.1,0.1-12,1.4c-1.2,0.5-2.4,1-3.5,1.6c-1.2,0.6-2.3,1.2-3.4,2\n                                    c-2.1,1.5-3.9,3.3-5.5,5.3c-1.9,2.4-3.4,5.1-4.5,8c-1.1,2.6-1.6,5.4-1.7,8.2c-0.1,2.9,0.2,5.7,0.9,8.5c0.7,2.2,1.2,4.4,2.8,6.2\n                                    c-0.2-0.6,0.2-1.2,0.8-1.4c0,0,0,0,0,0c0.7-0.2,1.2-0.8,1.5-1.4c-1.2-0.1-1.6,1.2-2.8,1.4c-0.8-2.2-1.5-4.4-2.3-6.7\n                                    c0-0.1,0-0.1,0-0.2c-0.2-2.2-0.4-4.4-0.4-6.6c0.1-1.5,0.3-2.9,0.7-4.3c0,0,0.2-0.3,0.5-0.6c1.3,0.6,2.1,1.8,3.5,2v-0.5l-3.2-2.3\n                                    c-0.3-1.2,0.2-2.5,1.1-3.3l3.6,2.6l-1.3,3.6l-0.2-0.1c0,1.5,0,3,0,4.4c-0.2,3.7,0.3,4.8,1.9,9.3l-0.9,1.3l1.3-0.4l1.5,2.8\n                                    l-3.3,2.3l-2-1.9c0,0.3,0.1,0.6,0.2,0.9c0.8,1.3,1.7,2.4,2.7,3.6c1.6,1.8,3.4,3.5,5.4,5c2.2,1.5,4.6,2.7,7.2,3.6\n                                    c1,0.4,2,0.5,3.1,0.5c1.1,0,2.1,0.7,3.3,0.5c0.7-0.3,1.4-0.1,1.9,0.4c0.6-0.7,1.4-0.4,2.2-0.4c1.6-0.2,3.1-0.3,4.7-0.5\n                                    c0.1,0,0.2-0.2,0.4-0.2c1.6-0.4,3.2-1,4.7-1.7c1.8-1,4-1.7,5.1-3.7c-0.8-0.2-1.2,0.5-1.7,0.9c-0.5-0.1-1.1-0.3-1.3,0.1l0,0\n                                    c-0.6-0.9-1.4-1.7-2.1-2.5c0.8-0.7,1.7-1.3,2.7-1.8l1.5,0.5l-0.9-1.2c0.7-0.5,1.4-1.1,2.1-1.7c0.5-0.6,1-1.3,1.4-2\n                                    c1,0.7,1.7,1.3,2.5,1.8c0.4,0.3,0.6,0.7,0.5,1.2c1.3-0.4,1.7-1.7,2.3-2.7c2.3-4.1,3.6-8.6,3.8-13.3\n                                    C106.8,208.2,106.7,206.5,106.4,204.8z M104.9,202.2c-0.3,0.6-0.8,1-1.3,1.3c-2.3-0.1-2.6-1-2.8-1.9c0.5-1.4,2.1-1.8,3.1-2.8\n                                    C104.5,199.8,104.9,201,104.9,202.2z M96.3,215.7c-1.8-0.6-3.1-1.9-4.7-3.2l5.7-4C97.5,211,97.2,213.4,96.3,215.7z M82.6,191.5\n                                    c0.9-0.2,2,0.5,3,1c0.9,0.4,1.8,0.8,2.7,1.3c0.8,0.6,1.6,1.2,2.3,1.8l-10.8,7.9v-12C80.6,190.9,81.6,191.6,82.6,191.5z\n                                    M79.7,190.9v-3.8c1.3,1,2.8,0.1,4.1,0.7s2.8,0.2,3.8,1s2.3,0.8,3.3,1.7c1,0.9,2.1,1.6,3.3,2.3l-2.2,1.8h-1.3\n                                    c-1.4-1.3-3.2-2.3-5.1-2.8C83.7,191.1,81.7,190.8,79.7,190.9L79.7,190.9z M94.2,198.8l2.3,4.6l-8.8,6.4l-4.3-3.2L94.2,198.8z\n                                    M97.9,212.9c0.3-1.2-0.4-2.4,0.4-3.5l-0.6-0.8l3.3-2.6c0.3,1.1,0.5,2.2,0.6,3.3c-0.1,1-0.2,2.1-0.4,3.1\n                                    c-0.1,1.1-0.3,2.2-0.5,3.3c-0.3,1-0.6,2-1.1,2.9l-2.8-2.1C97.2,215.1,97.6,214,97.9,212.9L97.9,212.9z M101,193.6l2.6,4.4\n                                    l-3.2,2.6l-2.6-4.4L101,193.6z M98,190.9c0.7-0.3,1.2,0,1.7,0.9c0.1,0.2,0.2,0.4,0.4,0.5c-0.6,1.4-1.5,2.5-2.8,3.3\n                                    c-0.3-0.4-0.6-0.9-1-1.3s-0.9-0.9-1.3-1.3c0.5-0.4,1-0.8,1.5-1.2C97,191.5,97.5,191.2,98,190.9L98,190.9z M79.6,182\n                                    c1.4,0.3,2.7,0.6,4.1,0.9s2.7,0.4,4.3,0.7c0.4,0.3,0.9,0.6,1.4,0.8c2.4,0.8,4.7,2.1,6.5,3.9c0.6,0.6,1.2,1,1.9,1.6\n                                    c-0.7,1.3-2.3,1.4-3.3,2.5c-4.4-3.5-9.1-5.9-14.9-5.8L79.6,182z M79.5,213c0-0.9,0-1.8,0-2.9l2.3,1l0.1-0.2h-0.1\n                                    c-0.7-0.1-1.2-1.1-2.2-2.1l2.2,2.1l0,0c-0.7-2-0.5-3.9,0.8-3.6l4.2,3l-2.9,2.1c-0.8-0.2-1.1-1.2-2.1-1.4\n                                    c0.9,0.8,1.2,1.2,1.6,1.6l-4.1,3.3C79.6,214.9,79.7,213.9,79.5,213L79.5,213z M73.3,225.5c-1.5,0-3-0.4-4.4-1.2l6.5-4.9\n                                    c1.4-0.1,2.1,1.3,3.6,1.7c-1.1,1-2.3,1.9-3.5,2.6C74.6,224.2,74,225,73.3,225.5z M78.7,213.3v2.1l-3.9-2.7\n                                    c1.3-0.4,1.9-1.5,2.9-2.1c1.3,0.1,1.1,0.6,1.1,1.1S78.7,212.7,78.7,213.3L78.7,213.3z M76.3,210.9c-0.7,0.4-1.3,1-1.9,1.5\n                                    l-2.7-1.9l1.5-1.8c0.5-0.3,1-0.4,1.5-0.4l1.1-1l2.8,1.7l-1.3,1.6C76.9,210.6,76.6,210.7,76.3,210.9L76.3,210.9z M73.3,208.1\n                                    l-0.1,0.1c-5.2-0.3-7.8-2.7-11-4.5l2.2-4.4c0.5,0.1,0.9,0.3,1.4,0.5c2,1.4,4,2.8,6,4.3c1.1,0.8,2.2,1.6,3.3,2.5\n                                    C74.4,207.1,73.9,207.9,73.3,208.1L73.3,208.1z M71.5,209.5c-0.1,0.1-0.3,0.2-0.5,0.3L71.5,209.5z M66.7,213\n                                    c-1.3,0.7-2.5,1.6-3.6,2.6c-1.9-2.1-1.9-4.4-1.7-7C63.2,210.1,65.3,211,66.7,213L66.7,213z M63.2,216c0.7-0.2,1.4-0.5,2-1\n                                    c0.7-0.5,1.4-1.1,2.2-1.7l2.9,1.8v0.7c-0.3,0.1-0.7,0.2-1,0.3c-1.6,1.1-3.2,2.3-4.9,3.4l-1.7-2.4L63.2,216z M70.5,215.8\n                                    c2.1,0.4,3.2,2.2,4.8,2.9c-1,1-2.2,1.9-3.4,2.6c-1.3,0.6-1.9,2.2-3.3,2.3c-1.2-1.2-2.4-2.4-3.6-3.6\n                                    C66.6,218.7,68.5,217.5,70.5,215.8L70.5,215.8z M77.9,210.4c0.3-0.2,0.6-0.3,1-0.3L77.9,210.4z M78.7,197.4v6.1l-10.7-8\n                                    c2-1.9,4.5-2.7,6.8-3.6c1.3-0.3,2.6-0.5,3.9-0.6L78.7,197.4z M62.4,188.2c0.9-0.9,2-1.6,3.1-2.1c1.4-0.7,2.9-1.4,4.2-2.2\n                                    c1.1-0.7,2.3-0.3,3.4-0.8s2.7-0.4,4-0.6c0.5-0.1,1-0.3,1.5-0.6v4.7c-5.4,0.2-10.6,2.4-14.6,6.1l-3.7-2.7\n                                    C61,189.3,61.8,188.8,62.4,188.2L62.4,188.2z M59.7,190.4l3.7,2.7c-0.7,0.9-1.4,1.8-2.2,2.5c-0.9-0.8-1.9-1.5-3-2.1\n                                    C58.4,192.3,58.9,191.2,59.7,190.4L59.7,190.4z M58.4,200.6l-3.5-2.4c-0.1-1.9,1.9-2.8,2-4.5H58c0.3,0.6,0.5,0.9,0.7,1.3\n                                    l2.1,1.1L58.4,200.6z M60.3,202.2c-0.5-0.4-1-0.8-1.4-1.2l2.1-4c1.5-0.2,2.2,1.1,3.2,1.5c-0.8,1.5-1.7,2.9-2.6,4.5\n                                    C61.2,202.7,60.7,202.5,60.3,202.2L60.3,202.2z M61.2,229.4c-1.1-1.4-2.3-2.8-3.6-4c1.2-0.6,1.9-2,3.4-2.3\n                                    c1.3,1,1.9,2.4,3.3,3.1c-0.4,1.7-2.4,1.6-2.9,3c1.3-0.4,2.5-1.1,3.4-2.2l3.2,2l-3.8,2.6L61.2,229.4z M78.6,236.1\n                                    c-1.6,0.8-3.2-0.4-4.8-0.4s-3-0.8-4.5-1.4c-1.5-0.6-2.9-1.4-4.3-2.2l3.6-2.5c0.6-0.2,1.3,0.3,2.1,0.7c1.3,0.6,2.6,1,3.9,1.3\n                                    c1.3,0.3,2.7,0.4,4,0.4L78.6,236.1z M77.1,227.4c-1.4-0.2-2.7-0.5-4-1l0.4-0.6c1.3-0.4,1.7-1.1,2.3-1.3c1.1-0.6,2.1-1.4,3-2.3\n                                    v4.7l1,0.1v-4.8c0.8,0.6,1.4,1,2,1.4c0.3,0.1,0.6,0.2,0.8,0.2c-0.6-1.1-1.6-1.9-2.7-2.2l2.6-2c1.3,0.3,5.4,3.2,7.2,5\n                                    c-1.2,0.7-2.3,1.7-3.8,1.6c-0.9,0.9-2.2,1.4-3.5,1.4C80.6,227.5,78.8,227.5,77.1,227.4L77.1,227.4z M93,231.6\n                                    c-3.8,2.9-8.5,4.6-13.3,4.6v-4.2c3.4,0.1,6.9-0.8,9.9-2.4C90.9,230.1,92,230.8,93,231.6z M90,223.6c-0.1,0-0.3,0-0.4-0.1\n                                    c-1.8-1.9-4.3-3-6.3-4.9l4.1-3l1.5,0.6c-0.2-0.4-0.4-0.8-0.6-1.2l2.7-1.9l4.8,3.5c-0.2,0.7-0.4,1.3-0.7,1.9\n                                    c-0.3,0.4-0.7,0.8-1.2,1c-1.4-1.1-2.8-2.1-4.2-3.2c-0.3-0.1-0.6-0.2-0.8-0.2v0.7c1.7,0.9,3.3,2,4.7,3.3L90,223.6L90,223.6z\n                                    M93.2,226.1l-2.2-1.6l3.7-3.7l2.2,1.6L93.2,226.1z M97.6,222l-2.5-1.7c-0.1-0.5,0-1.1,0.3-1.5c2.2-0.9,3-0.3,3.8,0.3\n                                    C98.7,220,98.2,220.9,97.6,222L97.6,222z M105.3,215.9l-1.9,5.4c-1.1-0.6-1.9-1.7-3.2-1.8c0.8,0.9,1.7,1.7,2.7,2.4l-1.7,2.8\n                                    l-3-2.2c0.7-1.1,0.9-2.4,1.8-3c0.3-0.4,0.2-0.8,0.3-1c1.1-1.6,0.7-3.7,1.7-5.3c0.1-0.4,0.2-0.7,0.1-1.1c0-1.5,0-3,0-4.4\n                                    c-0.1-0.7-0.2-1.3-0.4-2l2.1-2.1c0.8-0.3,1.1-0.4,1.5-0.4C106.1,207.3,106.1,211.6,105.3,215.9L105.3,215.9z"
+                          "M106.4,204.8c-0.2-1.2-0.5-2.4-0.8-3.6c-0.7-3-2.4-5.5-4-8.1c-0.4-0.7-1.2-1.1-1.4-0.8\r\n                                    c-0.2-0.4-0.3-0.9-0.5-1.3c-0.6-0.7-1-1.6-1.8-2c-1.7-0.9-2.7-2.8-4.7-3.4c-0.9-0.3-1.7-1.1-2.6-1.6c-0.8-0.4-1.7-0.7-2.6-1\r\n                                    c-0.9-0.4-1.9-0.7-2.9-0.9c-1.1-0.1-2.1-0.4-3.1-0.5c-4.1-0.4-8.1,0.1-12,1.4c-1.2,0.5-2.4,1-3.5,1.6c-1.2,0.6-2.3,1.2-3.4,2\r\n                                    c-2.1,1.5-3.9,3.3-5.5,5.3c-1.9,2.4-3.4,5.1-4.5,8c-1.1,2.6-1.6,5.4-1.7,8.2c-0.1,2.9,0.2,5.7,0.9,8.5c0.7,2.2,1.2,4.4,2.8,6.2\r\n                                    c-0.2-0.6,0.2-1.2,0.8-1.4c0,0,0,0,0,0c0.7-0.2,1.2-0.8,1.5-1.4c-1.2-0.1-1.6,1.2-2.8,1.4c-0.8-2.2-1.5-4.4-2.3-6.7\r\n                                    c0-0.1,0-0.1,0-0.2c-0.2-2.2-0.4-4.4-0.4-6.6c0.1-1.5,0.3-2.9,0.7-4.3c0,0,0.2-0.3,0.5-0.6c1.3,0.6,2.1,1.8,3.5,2v-0.5l-3.2-2.3\r\n                                    c-0.3-1.2,0.2-2.5,1.1-3.3l3.6,2.6l-1.3,3.6l-0.2-0.1c0,1.5,0,3,0,4.4c-0.2,3.7,0.3,4.8,1.9,9.3l-0.9,1.3l1.3-0.4l1.5,2.8\r\n                                    l-3.3,2.3l-2-1.9c0,0.3,0.1,0.6,0.2,0.9c0.8,1.3,1.7,2.4,2.7,3.6c1.6,1.8,3.4,3.5,5.4,5c2.2,1.5,4.6,2.7,7.2,3.6\r\n                                    c1,0.4,2,0.5,3.1,0.5c1.1,0,2.1,0.7,3.3,0.5c0.7-0.3,1.4-0.1,1.9,0.4c0.6-0.7,1.4-0.4,2.2-0.4c1.6-0.2,3.1-0.3,4.7-0.5\r\n                                    c0.1,0,0.2-0.2,0.4-0.2c1.6-0.4,3.2-1,4.7-1.7c1.8-1,4-1.7,5.1-3.7c-0.8-0.2-1.2,0.5-1.7,0.9c-0.5-0.1-1.1-0.3-1.3,0.1l0,0\r\n                                    c-0.6-0.9-1.4-1.7-2.1-2.5c0.8-0.7,1.7-1.3,2.7-1.8l1.5,0.5l-0.9-1.2c0.7-0.5,1.4-1.1,2.1-1.7c0.5-0.6,1-1.3,1.4-2\r\n                                    c1,0.7,1.7,1.3,2.5,1.8c0.4,0.3,0.6,0.7,0.5,1.2c1.3-0.4,1.7-1.7,2.3-2.7c2.3-4.1,3.6-8.6,3.8-13.3\r\n                                    C106.8,208.2,106.7,206.5,106.4,204.8z M104.9,202.2c-0.3,0.6-0.8,1-1.3,1.3c-2.3-0.1-2.6-1-2.8-1.9c0.5-1.4,2.1-1.8,3.1-2.8\r\n                                    C104.5,199.8,104.9,201,104.9,202.2z M96.3,215.7c-1.8-0.6-3.1-1.9-4.7-3.2l5.7-4C97.5,211,97.2,213.4,96.3,215.7z M82.6,191.5\r\n                                    c0.9-0.2,2,0.5,3,1c0.9,0.4,1.8,0.8,2.7,1.3c0.8,0.6,1.6,1.2,2.3,1.8l-10.8,7.9v-12C80.6,190.9,81.6,191.6,82.6,191.5z\r\n                                    M79.7,190.9v-3.8c1.3,1,2.8,0.1,4.1,0.7s2.8,0.2,3.8,1s2.3,0.8,3.3,1.7c1,0.9,2.1,1.6,3.3,2.3l-2.2,1.8h-1.3\r\n                                    c-1.4-1.3-3.2-2.3-5.1-2.8C83.7,191.1,81.7,190.8,79.7,190.9L79.7,190.9z M94.2,198.8l2.3,4.6l-8.8,6.4l-4.3-3.2L94.2,198.8z\r\n                                    M97.9,212.9c0.3-1.2-0.4-2.4,0.4-3.5l-0.6-0.8l3.3-2.6c0.3,1.1,0.5,2.2,0.6,3.3c-0.1,1-0.2,2.1-0.4,3.1\r\n                                    c-0.1,1.1-0.3,2.2-0.5,3.3c-0.3,1-0.6,2-1.1,2.9l-2.8-2.1C97.2,215.1,97.6,214,97.9,212.9L97.9,212.9z M101,193.6l2.6,4.4\r\n                                    l-3.2,2.6l-2.6-4.4L101,193.6z M98,190.9c0.7-0.3,1.2,0,1.7,0.9c0.1,0.2,0.2,0.4,0.4,0.5c-0.6,1.4-1.5,2.5-2.8,3.3\r\n                                    c-0.3-0.4-0.6-0.9-1-1.3s-0.9-0.9-1.3-1.3c0.5-0.4,1-0.8,1.5-1.2C97,191.5,97.5,191.2,98,190.9L98,190.9z M79.6,182\r\n                                    c1.4,0.3,2.7,0.6,4.1,0.9s2.7,0.4,4.3,0.7c0.4,0.3,0.9,0.6,1.4,0.8c2.4,0.8,4.7,2.1,6.5,3.9c0.6,0.6,1.2,1,1.9,1.6\r\n                                    c-0.7,1.3-2.3,1.4-3.3,2.5c-4.4-3.5-9.1-5.9-14.9-5.8L79.6,182z M79.5,213c0-0.9,0-1.8,0-2.9l2.3,1l0.1-0.2h-0.1\r\n                                    c-0.7-0.1-1.2-1.1-2.2-2.1l2.2,2.1l0,0c-0.7-2-0.5-3.9,0.8-3.6l4.2,3l-2.9,2.1c-0.8-0.2-1.1-1.2-2.1-1.4\r\n                                    c0.9,0.8,1.2,1.2,1.6,1.6l-4.1,3.3C79.6,214.9,79.7,213.9,79.5,213L79.5,213z M73.3,225.5c-1.5,0-3-0.4-4.4-1.2l6.5-4.9\r\n                                    c1.4-0.1,2.1,1.3,3.6,1.7c-1.1,1-2.3,1.9-3.5,2.6C74.6,224.2,74,225,73.3,225.5z M78.7,213.3v2.1l-3.9-2.7\r\n                                    c1.3-0.4,1.9-1.5,2.9-2.1c1.3,0.1,1.1,0.6,1.1,1.1S78.7,212.7,78.7,213.3L78.7,213.3z M76.3,210.9c-0.7,0.4-1.3,1-1.9,1.5\r\n                                    l-2.7-1.9l1.5-1.8c0.5-0.3,1-0.4,1.5-0.4l1.1-1l2.8,1.7l-1.3,1.6C76.9,210.6,76.6,210.7,76.3,210.9L76.3,210.9z M73.3,208.1\r\n                                    l-0.1,0.1c-5.2-0.3-7.8-2.7-11-4.5l2.2-4.4c0.5,0.1,0.9,0.3,1.4,0.5c2,1.4,4,2.8,6,4.3c1.1,0.8,2.2,1.6,3.3,2.5\r\n                                    C74.4,207.1,73.9,207.9,73.3,208.1L73.3,208.1z M71.5,209.5c-0.1,0.1-0.3,0.2-0.5,0.3L71.5,209.5z M66.7,213\r\n                                    c-1.3,0.7-2.5,1.6-3.6,2.6c-1.9-2.1-1.9-4.4-1.7-7C63.2,210.1,65.3,211,66.7,213L66.7,213z M63.2,216c0.7-0.2,1.4-0.5,2-1\r\n                                    c0.7-0.5,1.4-1.1,2.2-1.7l2.9,1.8v0.7c-0.3,0.1-0.7,0.2-1,0.3c-1.6,1.1-3.2,2.3-4.9,3.4l-1.7-2.4L63.2,216z M70.5,215.8\r\n                                    c2.1,0.4,3.2,2.2,4.8,2.9c-1,1-2.2,1.9-3.4,2.6c-1.3,0.6-1.9,2.2-3.3,2.3c-1.2-1.2-2.4-2.4-3.6-3.6\r\n                                    C66.6,218.7,68.5,217.5,70.5,215.8L70.5,215.8z M77.9,210.4c0.3-0.2,0.6-0.3,1-0.3L77.9,210.4z M78.7,197.4v6.1l-10.7-8\r\n                                    c2-1.9,4.5-2.7,6.8-3.6c1.3-0.3,2.6-0.5,3.9-0.6L78.7,197.4z M62.4,188.2c0.9-0.9,2-1.6,3.1-2.1c1.4-0.7,2.9-1.4,4.2-2.2\r\n                                    c1.1-0.7,2.3-0.3,3.4-0.8s2.7-0.4,4-0.6c0.5-0.1,1-0.3,1.5-0.6v4.7c-5.4,0.2-10.6,2.4-14.6,6.1l-3.7-2.7\r\n                                    C61,189.3,61.8,188.8,62.4,188.2L62.4,188.2z M59.7,190.4l3.7,2.7c-0.7,0.9-1.4,1.8-2.2,2.5c-0.9-0.8-1.9-1.5-3-2.1\r\n                                    C58.4,192.3,58.9,191.2,59.7,190.4L59.7,190.4z M58.4,200.6l-3.5-2.4c-0.1-1.9,1.9-2.8,2-4.5H58c0.3,0.6,0.5,0.9,0.7,1.3\r\n                                    l2.1,1.1L58.4,200.6z M60.3,202.2c-0.5-0.4-1-0.8-1.4-1.2l2.1-4c1.5-0.2,2.2,1.1,3.2,1.5c-0.8,1.5-1.7,2.9-2.6,4.5\r\n                                    C61.2,202.7,60.7,202.5,60.3,202.2L60.3,202.2z M61.2,229.4c-1.1-1.4-2.3-2.8-3.6-4c1.2-0.6,1.9-2,3.4-2.3\r\n                                    c1.3,1,1.9,2.4,3.3,3.1c-0.4,1.7-2.4,1.6-2.9,3c1.3-0.4,2.5-1.1,3.4-2.2l3.2,2l-3.8,2.6L61.2,229.4z M78.6,236.1\r\n                                    c-1.6,0.8-3.2-0.4-4.8-0.4s-3-0.8-4.5-1.4c-1.5-0.6-2.9-1.4-4.3-2.2l3.6-2.5c0.6-0.2,1.3,0.3,2.1,0.7c1.3,0.6,2.6,1,3.9,1.3\r\n                                    c1.3,0.3,2.7,0.4,4,0.4L78.6,236.1z M77.1,227.4c-1.4-0.2-2.7-0.5-4-1l0.4-0.6c1.3-0.4,1.7-1.1,2.3-1.3c1.1-0.6,2.1-1.4,3-2.3\r\n                                    v4.7l1,0.1v-4.8c0.8,0.6,1.4,1,2,1.4c0.3,0.1,0.6,0.2,0.8,0.2c-0.6-1.1-1.6-1.9-2.7-2.2l2.6-2c1.3,0.3,5.4,3.2,7.2,5\r\n                                    c-1.2,0.7-2.3,1.7-3.8,1.6c-0.9,0.9-2.2,1.4-3.5,1.4C80.6,227.5,78.8,227.5,77.1,227.4L77.1,227.4z M93,231.6\r\n                                    c-3.8,2.9-8.5,4.6-13.3,4.6v-4.2c3.4,0.1,6.9-0.8,9.9-2.4C90.9,230.1,92,230.8,93,231.6z M90,223.6c-0.1,0-0.3,0-0.4-0.1\r\n                                    c-1.8-1.9-4.3-3-6.3-4.9l4.1-3l1.5,0.6c-0.2-0.4-0.4-0.8-0.6-1.2l2.7-1.9l4.8,3.5c-0.2,0.7-0.4,1.3-0.7,1.9\r\n                                    c-0.3,0.4-0.7,0.8-1.2,1c-1.4-1.1-2.8-2.1-4.2-3.2c-0.3-0.1-0.6-0.2-0.8-0.2v0.7c1.7,0.9,3.3,2,4.7,3.3L90,223.6L90,223.6z\r\n                                    M93.2,226.1l-2.2-1.6l3.7-3.7l2.2,1.6L93.2,226.1z M97.6,222l-2.5-1.7c-0.1-0.5,0-1.1,0.3-1.5c2.2-0.9,3-0.3,3.8,0.3\r\n                                    C98.7,220,98.2,220.9,97.6,222L97.6,222z M105.3,215.9l-1.9,5.4c-1.1-0.6-1.9-1.7-3.2-1.8c0.8,0.9,1.7,1.7,2.7,2.4l-1.7,2.8\r\n                                    l-3-2.2c0.7-1.1,0.9-2.4,1.8-3c0.3-0.4,0.2-0.8,0.3-1c1.1-1.6,0.7-3.7,1.7-5.3c0.1-0.4,0.2-0.7,0.1-1.1c0-1.5,0-3,0-4.4\r\n                                    c-0.1-0.7-0.2-1.3-0.4-2l2.1-2.1c0.8-0.3,1.1-0.4,1.5-0.4C106.1,207.3,106.1,211.6,105.3,215.9L105.3,215.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -67838,7 +67841,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M34.4,204.5c-0.3-1.3-0.5-2.5-0.7-3.5c1-0.7,1.9-1.2,2.7-1.9c0.2-0.1,0.1-0.5,0.3-1.2l-3.5,2.3l-2.3-4.1\n                                    c1.1-1.1,2.4-2.1,3.7-2.9c0.6-0.4,1.2-0.9,1.7-1.4c0.2-0.2,0.2-0.6,0.4-1.1l-6.5,4.8l-2-2.7c1.3-1,2.5-1.9,3.8-2.9\n                                    c0.2-0.2,0.3-0.6,0.6-1.3l-5,3.6c-4.2-3.7-9.7-5.7-15.3-5.8c0.1-0.8,0.3-1.5,0.3-2.2c0.1-0.9,0-1.8,0-2.8l-0.5,0.3l-0.2-1\n                                    l-0.3,0.2v5.4c-5.6,0.4-10.4,2-14.4,5.8c-0.3,0-0.6-0.1-0.9-0.2c-1.3-0.9-2.6-1.8-3.7-2.8c-0.9-0.7-1.8-1.3-2.8-1.8\n                                    c-0.1,0.4-0.2,0.8-0.1,0.8c1.7,0.8,2.7,2.6,4.5,3.2c0.5,0.9,1.9,0.8,2,1.9c-1.1,0.3-1.2,1.7-2.3,2.1l-6.3-4.7\n                                    c-0.9,0.6-0.2,1,0.1,1.3c0.6,0.4,1.4,0.7,2.1,1.2c1.2,0.9,2.3,1.8,3.5,2.8c-0.2,1.7-1.7,2.7-2.2,4.4l-5.1-3.5l-0.4,0.5\n                                    c1.6,1.5,3.7,2.5,5.2,3.9l-1.2,3.3c-1.7-1.5-3.6-2.8-5.6-3.9c0.6,0.3-0.1,1.4,1,1.3l4.6,3.4c-0.2,1.3,0.3,2.5-0.5,3.6\n                                    c-0.1,0.2,0,0.6,0.1,0.9c0.2,0.4,0.3,0.8,0.3,1.3c-0.3,2.8,1.1,5.1,1.8,7.7c-0.4,0.2-0.8,0.4-1.3,0.7c-0.5,0.3-1,0.6-1.4,1\n                                    c-0.3,0.3-0.6,0.6-0.9,1l0.3,0.3l3.6-2.3l1.7,2.8c-0.9,0.2-1.6,0.9-1.9,1.8l2.5-1.1c0.7,1.6,2.1,2.4,3.1,3.7\n                                    c-0.8,0.6-1.6,1.1-2.4,1.7s-1.9,1.2-2.7,1.8c-0.4,0.3-1,0.6-0.2,1.4c1.9-1.7,4-3.1,6.1-4.5l2.5,2l-7.1,5.4\n                                    c3.3-0.8,5.1-3.9,8.1-5c1.5,0.7,3.1,1.4,4.7,1.9c1.8,0.3,3.6,0.6,5.4,0.7c0.1,2.6-0.1,5.2,0.1,7.9l0.8-0.8l-0.5-0.5\n                                    c0.6-1.8,0.6-3.8,0.2-5.6c0.2-0.4,0.3-0.8,0.5-1.2c3.6,0.2,6.9-1.2,10-2.3c2.2,1.1,3.8,3,6.2,3.5l-5.3-3.9l2.5-2\n                                    c1.7,0.6,3,1.9,4.6,2.9c0.3-1.4-1.1-1.3-1.7-1.9c-0.6-0.6-1.3-1.1-2-1.5l3-3.6h1.1l-0.2,0.2l1.1,0.7c0-0.3,0-0.6,0.1-0.9\n                                    l-0.9-0.1l0,0l-0.6-1.1l1.8-1.2l-0.3-0.3c0-0.4,0.1-0.7,0.1-1l1.3,0.4l-0.2,0.2l1.1,0.7c0-0.3,0-0.6,0.1-0.9l-0.9-0.1l0,0\n                                    l-0.7-1c0.4-1.4,0.8-2.6,1.2-3.9c0.3-0.9,0.5-1.9,0.5-2.9c0-2.2,0-4.5,0-6.6c0.7-0.5,1.4-1.1,2.1-1.6c0.5-0.5,1.8-0.5,1.5-2.3\n                                    C37.1,202.8,35.8,203.7,34.4,204.5z M3.8,210.5l2.8,2.1c-0.5,0.4-0.9,0.8-1.3,1.2c-0.4,0.3-0.9,0.6-1.3,0.9l-3-2L3.8,210.5z\n                                    M11.7,215.1c-0.2,0.1-0.4,0.2-0.5,0.1c-1.6-3.7-0.6-4.4,0.5-5.2V215.1z M7.4,212.1l-3-2.1c1.9-1,2.9-2.4,4.5-3l2.6,2L7.4,212.1\n                                    z M7,213.3h0.4c0.1,0,0.4,0,0.4,0.1c0.3,0.4,0.7,0.8,1.1,1c1.5,2.8,0.7,3.4-0.1,4l-4.2-3.1L7,213.3z M11.7,217.1v3.4l-2.3-1.6\n                                    L11.7,217.1z M9.3,206.6l2.4-1.7v3.4L9.3,206.6z M11.7,191.3v12c-0.5-0.4-1-0.7-1.5-1.1C4.5,192.7,7.9,191.7,11.7,191.3\n                                    L11.7,191.3z M1.1,195.7l-0.3-0.2L1.1,195.7z M0.6,196.2c1.1,0.3,1.9,1.7,3.3,2.1l0.7,0.7c0.3,0.4,0.7,0.8,1.2,1.1\n                                    c5,4.7,4.7,5,4.3,5.3c-0.5,0.3-1,0.5-1.6,0.7c-3.5-2.4-6.9-5-10.4-7.4L0.6,196.2z M-2.5,199c3.8,2.4,7,5.1,10.6,7.4\n                                    c-1.1,1.6-3,1.9-4,3.2c-0.9-0.3-1.7-0.7-2.3-1.4c-0.1-0.1-0.3-0.3-0.4-0.4C-3.8,201.6-3.2,200.4-2.5,199L-2.5,199z M-5.2,204.5\n                                    l0.4-0.1c0.9,0.6,1.7,1.2,2.6,1.9c4.1,5.1,3.4,5.7,2.1,5.7l-5.6-4.3C-6.1,206.8-4.4,205.8-5.2,204.5z M-4.3,215.7\n                                    c-1.1-2.2-1.4-4.7-1.1-7.1c0.6,0.5,1.1,1,1.7,1.4s1,0.9,1.6,1.2s1.2,0.8,2,1.3L-4.3,215.7z M-4.2,216.6l4.6-3.6l2.9,2.3\n                                    l-5.9,4.2L-4.2,216.6z M-2.5,220.3c2-1.7,4.3-2.9,6.2-4.7l4.4,3.1l-1.7,1.5C-0.4,222.8-1.1,221.3-2.5,220.3L-2.5,220.3z\n                                    M11.7,227.3c-1.8,0.5-3.3-0.3-4.9-0.4c-0.3,0-0.5-0.3-0.8-0.5l5.7-4.2V227.3z M5.3,226.1c-1.2,0.2-2-1.2-3.4-1.6\n                                    c0.8-0.7,1.5-1.5,2.4-2.1c5.7-2.6,6.4-1.7,7.5-1.1L5.3,226.1z M30.4,207.5c-0.2,0.3-0.5,0.7-0.8,1.1c-1,0.1-1.3,0.7-1.7,1\n                                    c-1.3,0.7-2.5,1.6-3.6,2.7l-1.3-0.3l0.4,0.7l-0.7,0.9c-0.8,0.3-1.4,0.7-2,1.3l-2.9-2.1l2.8-2.1c0.9,0.1,1.4,1.4,2.5,1.3\n                                    c-0.5-0.6-1.1-1.1-1.7-1.8l8.1-5.8C29.8,205.4,30,206.5,30.4,207.5z M12.3,218.7l0.3-0.3l-0.4-1.6l2.7,1.8c-1,1.3-1,1.3-2.7,1.9\n                                    l0.4-1.3L12.3,218.7z M16.5,207.2L16.5,207.2c0.4,0.5,0.8,1,1.3,1.4c0.6,0.5,1.3,1,1.9,1.6c-0.9,0.7-1.6,1.4-2.5,2\n                                    c-0.2,0.2-0.6,0.1-0.8,0.2l-0.1,0.1c-1.1-1.3-2.1-2.3-3.3-3.5C14.1,208.2,15,207.1,16.5,207.2L16.5,207.2z M15.1,211.7\n                                    c0.4,0.3,0.8,0.6,1.2,0.8c-0.9,0.9-1.9,1.8-3,2.6h-0.9c-0.1-0.1-0.2-0.2-0.2-0.2c0.7-1.6-0.4-3.2,0.1-5\n                                    C13.4,210.3,14.3,210.9,15.1,211.7L15.1,211.7z M14.5,217.5c-0.4-0.3-0.8-0.7-1.3-1.2l3.8-3.1l2.9,1.8c-0.2,0.4-0.4,0.7-0.7,1\n                                    c-1.1,0.8-2.3,1.5-3.4,2.2C15.3,218,14.9,217.8,14.5,217.5L14.5,217.5z M29.1,203.6l-4.6,3.4c-1.1,0.8-2.3,1.7-3.4,2.5\n                                    c-0.3,0.1-0.7,0.2-1,0.2c-1-1.1-2.1-2-3.4-2.6c1.3-2,3.4-2.9,5.1-4.3s3.6-2.6,5.4-3.9C27.4,200.6,29.6,201.7,29.1,203.6z\n                                    M26.4,198c-3.4,3.1-7.2,5.4-10.7,8.2c-0.5-1-1.7-1-2.5-1.6c3.5-3.1,7.1-6,11-8.7C25.5,195.7,25.2,197.6,26.4,198L26.4,198z\n                                    M12.7,197.6c0.1-1,0-2,0-3v-3.3c3.9,0.1,7.7,1.5,10.8,4c-1.8,1.4-3.6,2.7-5.4,4c-1.8,1.4-3.8,2.8-5.8,4\n                                    c0.2-1.2,0.8-2.1-0.1-2.9C13.2,199.6,12.6,198.5,12.7,197.6z M12.8,207.1l-0.5-0.6l0.4-0.5l-0.2-0.2l0,0l0.4-1l0.2-0.2\n                                    c0.3,0.4,0.6,0.8,1,1.1c0.3,0.2,0.6,0.4,1.2,0.7l-3,2.1C12.5,207.7,12.7,207.4,12.8,207.1L12.8,207.1z M15.6,227.2\n                                    c-0.8,0.5-2.1,0.1-3.4,0.1l0.2-0.3l0,0c0.5-0.6-0.5-1,0.3-1.4c0.1,0-0.3-1-0.2-1c0.7-0.5-0.3-0.7-0.2-1.1c0.1-0.5,0.1-1.1,0-1.6\n                                    c2.4,1.2,4.1,2.8,6,4C17.9,227.5,16.5,226.7,15.6,227.2z M19.5,226.1l-6.4-4.7l2.4-2.1c0.4,0.1,0.8,0.2,1.1,0.5\n                                    c0.8,0.8,1.8,1.5,2.9,2c0.1,0,0.2,0.1,0.2,0.2l0.7,0.6C21.3,225,20.4,225.6,19.5,226.1z M23.8,223.7c-1.8,0-2.3-2.1-3.7-2\n                                    c0.1,0.2,0.1,0.4,0.2,0.5c-1.2-1.2-2.6-2.4-3.9-3.5l4.3-3.1l6.1,4.6C25.8,221.3,24.8,222.5,23.8,223.7z M27.5,219.5\n                                    c-2.4-0.9-4.1-2.7-6-4.1c0.3-0.7,0.8-1.2,1.4-1.6c2.1,0.4,4.1,1.3,5.8,2.7L27.5,219.5z M29.4,215.6c-1.8-0.5-3.3-1.6-4.5-3\n                                    c0.9-0.8,1.8-1.4,2.9-2c0.8-0.4,1.1-1.2,1.9-1.7C30.1,211.1,30,213.4,29.4,215.6L29.4,215.6z"
+                          "M34.4,204.5c-0.3-1.3-0.5-2.5-0.7-3.5c1-0.7,1.9-1.2,2.7-1.9c0.2-0.1,0.1-0.5,0.3-1.2l-3.5,2.3l-2.3-4.1\r\n                                    c1.1-1.1,2.4-2.1,3.7-2.9c0.6-0.4,1.2-0.9,1.7-1.4c0.2-0.2,0.2-0.6,0.4-1.1l-6.5,4.8l-2-2.7c1.3-1,2.5-1.9,3.8-2.9\r\n                                    c0.2-0.2,0.3-0.6,0.6-1.3l-5,3.6c-4.2-3.7-9.7-5.7-15.3-5.8c0.1-0.8,0.3-1.5,0.3-2.2c0.1-0.9,0-1.8,0-2.8l-0.5,0.3l-0.2-1\r\n                                    l-0.3,0.2v5.4c-5.6,0.4-10.4,2-14.4,5.8c-0.3,0-0.6-0.1-0.9-0.2c-1.3-0.9-2.6-1.8-3.7-2.8c-0.9-0.7-1.8-1.3-2.8-1.8\r\n                                    c-0.1,0.4-0.2,0.8-0.1,0.8c1.7,0.8,2.7,2.6,4.5,3.2c0.5,0.9,1.9,0.8,2,1.9c-1.1,0.3-1.2,1.7-2.3,2.1l-6.3-4.7\r\n                                    c-0.9,0.6-0.2,1,0.1,1.3c0.6,0.4,1.4,0.7,2.1,1.2c1.2,0.9,2.3,1.8,3.5,2.8c-0.2,1.7-1.7,2.7-2.2,4.4l-5.1-3.5l-0.4,0.5\r\n                                    c1.6,1.5,3.7,2.5,5.2,3.9l-1.2,3.3c-1.7-1.5-3.6-2.8-5.6-3.9c0.6,0.3-0.1,1.4,1,1.3l4.6,3.4c-0.2,1.3,0.3,2.5-0.5,3.6\r\n                                    c-0.1,0.2,0,0.6,0.1,0.9c0.2,0.4,0.3,0.8,0.3,1.3c-0.3,2.8,1.1,5.1,1.8,7.7c-0.4,0.2-0.8,0.4-1.3,0.7c-0.5,0.3-1,0.6-1.4,1\r\n                                    c-0.3,0.3-0.6,0.6-0.9,1l0.3,0.3l3.6-2.3l1.7,2.8c-0.9,0.2-1.6,0.9-1.9,1.8l2.5-1.1c0.7,1.6,2.1,2.4,3.1,3.7\r\n                                    c-0.8,0.6-1.6,1.1-2.4,1.7s-1.9,1.2-2.7,1.8c-0.4,0.3-1,0.6-0.2,1.4c1.9-1.7,4-3.1,6.1-4.5l2.5,2l-7.1,5.4\r\n                                    c3.3-0.8,5.1-3.9,8.1-5c1.5,0.7,3.1,1.4,4.7,1.9c1.8,0.3,3.6,0.6,5.4,0.7c0.1,2.6-0.1,5.2,0.1,7.9l0.8-0.8l-0.5-0.5\r\n                                    c0.6-1.8,0.6-3.8,0.2-5.6c0.2-0.4,0.3-0.8,0.5-1.2c3.6,0.2,6.9-1.2,10-2.3c2.2,1.1,3.8,3,6.2,3.5l-5.3-3.9l2.5-2\r\n                                    c1.7,0.6,3,1.9,4.6,2.9c0.3-1.4-1.1-1.3-1.7-1.9c-0.6-0.6-1.3-1.1-2-1.5l3-3.6h1.1l-0.2,0.2l1.1,0.7c0-0.3,0-0.6,0.1-0.9\r\n                                    l-0.9-0.1l0,0l-0.6-1.1l1.8-1.2l-0.3-0.3c0-0.4,0.1-0.7,0.1-1l1.3,0.4l-0.2,0.2l1.1,0.7c0-0.3,0-0.6,0.1-0.9l-0.9-0.1l0,0\r\n                                    l-0.7-1c0.4-1.4,0.8-2.6,1.2-3.9c0.3-0.9,0.5-1.9,0.5-2.9c0-2.2,0-4.5,0-6.6c0.7-0.5,1.4-1.1,2.1-1.6c0.5-0.5,1.8-0.5,1.5-2.3\r\n                                    C37.1,202.8,35.8,203.7,34.4,204.5z M3.8,210.5l2.8,2.1c-0.5,0.4-0.9,0.8-1.3,1.2c-0.4,0.3-0.9,0.6-1.3,0.9l-3-2L3.8,210.5z\r\n                                    M11.7,215.1c-0.2,0.1-0.4,0.2-0.5,0.1c-1.6-3.7-0.6-4.4,0.5-5.2V215.1z M7.4,212.1l-3-2.1c1.9-1,2.9-2.4,4.5-3l2.6,2L7.4,212.1\r\n                                    z M7,213.3h0.4c0.1,0,0.4,0,0.4,0.1c0.3,0.4,0.7,0.8,1.1,1c1.5,2.8,0.7,3.4-0.1,4l-4.2-3.1L7,213.3z M11.7,217.1v3.4l-2.3-1.6\r\n                                    L11.7,217.1z M9.3,206.6l2.4-1.7v3.4L9.3,206.6z M11.7,191.3v12c-0.5-0.4-1-0.7-1.5-1.1C4.5,192.7,7.9,191.7,11.7,191.3\r\n                                    L11.7,191.3z M1.1,195.7l-0.3-0.2L1.1,195.7z M0.6,196.2c1.1,0.3,1.9,1.7,3.3,2.1l0.7,0.7c0.3,0.4,0.7,0.8,1.2,1.1\r\n                                    c5,4.7,4.7,5,4.3,5.3c-0.5,0.3-1,0.5-1.6,0.7c-3.5-2.4-6.9-5-10.4-7.4L0.6,196.2z M-2.5,199c3.8,2.4,7,5.1,10.6,7.4\r\n                                    c-1.1,1.6-3,1.9-4,3.2c-0.9-0.3-1.7-0.7-2.3-1.4c-0.1-0.1-0.3-0.3-0.4-0.4C-3.8,201.6-3.2,200.4-2.5,199L-2.5,199z M-5.2,204.5\r\n                                    l0.4-0.1c0.9,0.6,1.7,1.2,2.6,1.9c4.1,5.1,3.4,5.7,2.1,5.7l-5.6-4.3C-6.1,206.8-4.4,205.8-5.2,204.5z M-4.3,215.7\r\n                                    c-1.1-2.2-1.4-4.7-1.1-7.1c0.6,0.5,1.1,1,1.7,1.4s1,0.9,1.6,1.2s1.2,0.8,2,1.3L-4.3,215.7z M-4.2,216.6l4.6-3.6l2.9,2.3\r\n                                    l-5.9,4.2L-4.2,216.6z M-2.5,220.3c2-1.7,4.3-2.9,6.2-4.7l4.4,3.1l-1.7,1.5C-0.4,222.8-1.1,221.3-2.5,220.3L-2.5,220.3z\r\n                                    M11.7,227.3c-1.8,0.5-3.3-0.3-4.9-0.4c-0.3,0-0.5-0.3-0.8-0.5l5.7-4.2V227.3z M5.3,226.1c-1.2,0.2-2-1.2-3.4-1.6\r\n                                    c0.8-0.7,1.5-1.5,2.4-2.1c5.7-2.6,6.4-1.7,7.5-1.1L5.3,226.1z M30.4,207.5c-0.2,0.3-0.5,0.7-0.8,1.1c-1,0.1-1.3,0.7-1.7,1\r\n                                    c-1.3,0.7-2.5,1.6-3.6,2.7l-1.3-0.3l0.4,0.7l-0.7,0.9c-0.8,0.3-1.4,0.7-2,1.3l-2.9-2.1l2.8-2.1c0.9,0.1,1.4,1.4,2.5,1.3\r\n                                    c-0.5-0.6-1.1-1.1-1.7-1.8l8.1-5.8C29.8,205.4,30,206.5,30.4,207.5z M12.3,218.7l0.3-0.3l-0.4-1.6l2.7,1.8c-1,1.3-1,1.3-2.7,1.9\r\n                                    l0.4-1.3L12.3,218.7z M16.5,207.2L16.5,207.2c0.4,0.5,0.8,1,1.3,1.4c0.6,0.5,1.3,1,1.9,1.6c-0.9,0.7-1.6,1.4-2.5,2\r\n                                    c-0.2,0.2-0.6,0.1-0.8,0.2l-0.1,0.1c-1.1-1.3-2.1-2.3-3.3-3.5C14.1,208.2,15,207.1,16.5,207.2L16.5,207.2z M15.1,211.7\r\n                                    c0.4,0.3,0.8,0.6,1.2,0.8c-0.9,0.9-1.9,1.8-3,2.6h-0.9c-0.1-0.1-0.2-0.2-0.2-0.2c0.7-1.6-0.4-3.2,0.1-5\r\n                                    C13.4,210.3,14.3,210.9,15.1,211.7L15.1,211.7z M14.5,217.5c-0.4-0.3-0.8-0.7-1.3-1.2l3.8-3.1l2.9,1.8c-0.2,0.4-0.4,0.7-0.7,1\r\n                                    c-1.1,0.8-2.3,1.5-3.4,2.2C15.3,218,14.9,217.8,14.5,217.5L14.5,217.5z M29.1,203.6l-4.6,3.4c-1.1,0.8-2.3,1.7-3.4,2.5\r\n                                    c-0.3,0.1-0.7,0.2-1,0.2c-1-1.1-2.1-2-3.4-2.6c1.3-2,3.4-2.9,5.1-4.3s3.6-2.6,5.4-3.9C27.4,200.6,29.6,201.7,29.1,203.6z\r\n                                    M26.4,198c-3.4,3.1-7.2,5.4-10.7,8.2c-0.5-1-1.7-1-2.5-1.6c3.5-3.1,7.1-6,11-8.7C25.5,195.7,25.2,197.6,26.4,198L26.4,198z\r\n                                    M12.7,197.6c0.1-1,0-2,0-3v-3.3c3.9,0.1,7.7,1.5,10.8,4c-1.8,1.4-3.6,2.7-5.4,4c-1.8,1.4-3.8,2.8-5.8,4\r\n                                    c0.2-1.2,0.8-2.1-0.1-2.9C13.2,199.6,12.6,198.5,12.7,197.6z M12.8,207.1l-0.5-0.6l0.4-0.5l-0.2-0.2l0,0l0.4-1l0.2-0.2\r\n                                    c0.3,0.4,0.6,0.8,1,1.1c0.3,0.2,0.6,0.4,1.2,0.7l-3,2.1C12.5,207.7,12.7,207.4,12.8,207.1L12.8,207.1z M15.6,227.2\r\n                                    c-0.8,0.5-2.1,0.1-3.4,0.1l0.2-0.3l0,0c0.5-0.6-0.5-1,0.3-1.4c0.1,0-0.3-1-0.2-1c0.7-0.5-0.3-0.7-0.2-1.1c0.1-0.5,0.1-1.1,0-1.6\r\n                                    c2.4,1.2,4.1,2.8,6,4C17.9,227.5,16.5,226.7,15.6,227.2z M19.5,226.1l-6.4-4.7l2.4-2.1c0.4,0.1,0.8,0.2,1.1,0.5\r\n                                    c0.8,0.8,1.8,1.5,2.9,2c0.1,0,0.2,0.1,0.2,0.2l0.7,0.6C21.3,225,20.4,225.6,19.5,226.1z M23.8,223.7c-1.8,0-2.3-2.1-3.7-2\r\n                                    c0.1,0.2,0.1,0.4,0.2,0.5c-1.2-1.2-2.6-2.4-3.9-3.5l4.3-3.1l6.1,4.6C25.8,221.3,24.8,222.5,23.8,223.7z M27.5,219.5\r\n                                    c-2.4-0.9-4.1-2.7-6-4.1c0.3-0.7,0.8-1.2,1.4-1.6c2.1,0.4,4.1,1.3,5.8,2.7L27.5,219.5z M29.4,215.6c-1.8-0.5-3.3-1.6-4.5-3\r\n                                    c0.9-0.8,1.8-1.4,2.9-2c0.8-0.4,1.1-1.2,1.9-1.7C30.1,211.1,30,213.4,29.4,215.6L29.4,215.6z"
                       }
                     }),
                     _vm._v(" "),
@@ -67846,7 +67849,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M101.2,128.1c0.4-1.2-1-1.8-1.2-3c-0.3-1-0.7-2-1.4-2.9c-0.6-1-1.3-1.9-2-2.9H96c0,0.3,0,0.7,0.2,0.9\n                                    c2,2.2,3.4,4.8,4,7.6c0.1,0.3,0.3,0.6,0.5,0.9c0,0.1-0.1,0.3-0.1,0.3c-0.4,0.1-0.7,0.2-1.3,0.3c-0.4,0.5-1,1.1-1.5,1.9\n                                    c0.9-0.4,1.7-0.9,2.5-1.4c0.6,0.7,0.9,1.6,0.8,2.5c-0.1,1.1,0,2.2,0,3.3c-0.2,2.3-0.7,4.5-1.5,6.6c-1.7,4-4.5,7.5-8.1,9.9\n                                    c-0.2,0.2-0.4,0.4-0.6,0.6l-2.7-1.9c0.8-0.9,1.7-1.7,2.7-2.3c1.8-0.7,2.1-2.8,3.6-3.7c0.6-1.9,2.1-3.3,2.4-5.3\n                                    c0.1-1,0.7-1.9,0.9-2.9c0.1-0.8,0.1-1.6,0-2.3v-3.2c-0.1-0.1-0.1-0.1-0.2-0.1c-0.6-3.3-2.2-6.2-4-9l-0.2-0.4h-0.7\n                                    c-0.2,0.9,0.6,1.1,0.9,1.7c1.1,2.1,2.7,4.1,3,6.6c0.1,0.4,0.2,0.7,0.4,1l-1,1.5h0.7c1.4,6.4-2.2,13.8-9.6,17.6\n                                    c-1.2-0.9-2.4-1.9-3.6-2.7s-2.3-1.7-3.5-2.6c0.5-1.4,1.8-1.8,2.7-2.4c0.8-0.5,1.5-1.2,2-2c-0.2,0-0.3-0.1-0.5,0l-4.6,3.2V116\n                                    c1.8,0.1,3.6,0.4,5.3,1c2.4,0.7,4.6,2,6.3,3.9c0.4,0.4,0.7,0.8,1.4,0.7c0.1-0.8-0.4-1.6-1.2-1.8c-0.6-0.3-1-1-1.4-1\n                                    c-0.9,0.1-0.4-1.2-1.2-1s-1-0.6-1.5-0.9c-0.9-0.4-1.9-0.7-2.8-1c-0.8-0.2-1.6-0.4-2.4-0.5c-0.8-0.1-1.6,0-2.4,0v-3.8l4.1,0.7\n                                    c2.3,0.5,4.5,1.4,6.6,2.6c0.8,0.3,1.6,0.9,2.2,1.5c0.9,1,2.4,1.3,2.9,2.7H96c-0.1-0.3-0.1-0.8-0.3-1c-0.8-0.8-1.8-1.4-2.6-2.2\n                                    c-1.8-1.5-3.8-2.7-6.1-3.4c-2.2-1-4.5-1.4-6.9-1.4c-0.1,0-0.3-0.1-0.4-0.2c0-1.7,0-3.4,0-5.1c0-0.1-0.2-0.2-0.3-0.4l-0.7,0.2\n                                    v5.4h-4.5c-4,1.5-7.7,3.2-10.8,6.2c-3,2.9-5.2,6.5-6.3,10.6l-1.3-0.4l0.9,1.3c0.1,0.5,0.1,1.1,0,1.6c-0.7,3.1-0.6,6.3,0.5,9.2\n                                    c0.6,2.3,1.6,4.5,2.8,6.6c1.2,1.9,2.7,3.6,4.4,5.1c0.3,0.3,0.8,0.4,1.1,0.7c0.4,0.3,0.7,0.6,1,1l-5.3,4l0.5,0.5l5.9-4.5\n                                    c0.2,0.4,0.3,0.7,0.4,0.9c1.4,0.6,2.8,1.1,4.1,1.6c1.4,0.5,2.8,0.8,4.3,1l-0.1-0.8c-2.8-0.5-5.5-1.5-8-2.8\n                                    c0.4-0.6,0.8-1.1,0.3-1c0.4-0.2,0.8-0.4,1.3-0.6c0.9-0.6,2-0.6,2.9,0c1.3,0.8,2.7,1.1,4.2,0.9v4.2l1.9,0.1v7.5l0.9-0.1\n                                    c0-1.3,0-2.5,0-3.8c0-1.2,0-2.4,0.1-3.6c4,0,7.9-1.1,11.4-3.3c1.1,0.9,2.2,1.9,3.3,2.7c0.5,0.2,1,0.4,1.5,0.5\n                                    c0-0.1,0.1-0.2,0.1-0.3l-4.4-3.3c1-0.7,2-1.4,2.8-2.3c0.7-0.9,1.7-1.4,2.3-2.3c0.7-0.9,1.3-1.9,1.9-2.9c0.6-1,1-2.1,1.4-3.1\n                                    c0.4-1.1,0.8-2.2,1.1-3.3c0-1.1,0.2-2.2,0.5-3.3c0.4-1.1,0.5-2.3,0.2-3.5c-0.2-1.1-0.4-2.3-0.6-3.4l1.3-1.3L101.2,128.1z\n                                    M68.5,152.1L68.5,152.1c-1.6,0.1-2.2-0.1-2.6-0.5c-1.3-0.9-2.5-1.9-3.5-3.1c-1.6-2.1-3.3-4.4-4.1-6.9c-0.7-1.9-1.1-3.8-1.2-5.8\n                                    c0.1-2,0-4,0-6.1c1.4-0.1,2,1.2,3.3,1.5c-0.7,8.3,2.2,14.9,9.4,19.3C69.5,151.8,68,151.5,68.5,152.1z M71,149.8\n                                    c-2.6-0.9-4.2-2.8-5.9-4.5c-1.6-1.6-2.2-3.8-3.2-5.7c-1.1-2.2-0.4-4.6-0.6-7.2h1l-1-1.4c0.4-3,1.6-5.7,3.5-8\n                                    c5.5-6.1,8.5-6.2,13.7-7v27.4l-1.3-0.3c0.3,0.5,0.7,0.9,1.1,1.5l-1.2,0.8l-1.2,0.8v0.3c-0.9,0.4-1.8,0.9-2.5,1.7\n                                    C72.7,148.9,71.9,149.4,71,149.8z M71.9,150.4c1.1-1.1,2.3-1.7,3.3-2.6c0.3-0.3,0.6-0.5,1-0.8c2.4,0.9,2.4,2.9,2.4,5.1\n                                    C76.4,151.5,74.2,151.4,71.9,150.4L71.9,150.4z M78.6,115.4c-2.1-0.1-4.1,0.2-6.1,1c-2.1,0.7-3.8,2.1-5.6,3.3s-2.9,3.3-4.1,5.1\n                                    c-1.2,1.8-1.9,3.9-2,6.1l-3-2.1c0-0.8,0.2-1.5,0.4-2.2c1.1-2.1,2.2-4.1,3.5-6c1.3-1.7,2.9-3.2,4.7-4.5c2.1-1.6,4.5-2.7,7-3.2\n                                    c0.9,0,1.7-0.2,2.6-0.5c0.8-0.4,1.3-0.6,2,0c0.2-0.2,0.4-0.3,0.6-0.5L78.6,115.4z M79.7,151.9v-6.4l6.8,4.7\n                                    c-1.5,0.6-2.7,1.3-4.1,1.3C81.5,151.6,80.6,151.8,79.7,151.9L79.7,151.9z M81.6,155.8v-3.2c2.1,0,4-1.3,6.1-1.6l2.5,2.1\n                                    C87.3,154.4,84.7,155.7,81.6,155.8L81.6,155.8z"
+                          "M101.2,128.1c0.4-1.2-1-1.8-1.2-3c-0.3-1-0.7-2-1.4-2.9c-0.6-1-1.3-1.9-2-2.9H96c0,0.3,0,0.7,0.2,0.9\r\n                                    c2,2.2,3.4,4.8,4,7.6c0.1,0.3,0.3,0.6,0.5,0.9c0,0.1-0.1,0.3-0.1,0.3c-0.4,0.1-0.7,0.2-1.3,0.3c-0.4,0.5-1,1.1-1.5,1.9\r\n                                    c0.9-0.4,1.7-0.9,2.5-1.4c0.6,0.7,0.9,1.6,0.8,2.5c-0.1,1.1,0,2.2,0,3.3c-0.2,2.3-0.7,4.5-1.5,6.6c-1.7,4-4.5,7.5-8.1,9.9\r\n                                    c-0.2,0.2-0.4,0.4-0.6,0.6l-2.7-1.9c0.8-0.9,1.7-1.7,2.7-2.3c1.8-0.7,2.1-2.8,3.6-3.7c0.6-1.9,2.1-3.3,2.4-5.3\r\n                                    c0.1-1,0.7-1.9,0.9-2.9c0.1-0.8,0.1-1.6,0-2.3v-3.2c-0.1-0.1-0.1-0.1-0.2-0.1c-0.6-3.3-2.2-6.2-4-9l-0.2-0.4h-0.7\r\n                                    c-0.2,0.9,0.6,1.1,0.9,1.7c1.1,2.1,2.7,4.1,3,6.6c0.1,0.4,0.2,0.7,0.4,1l-1,1.5h0.7c1.4,6.4-2.2,13.8-9.6,17.6\r\n                                    c-1.2-0.9-2.4-1.9-3.6-2.7s-2.3-1.7-3.5-2.6c0.5-1.4,1.8-1.8,2.7-2.4c0.8-0.5,1.5-1.2,2-2c-0.2,0-0.3-0.1-0.5,0l-4.6,3.2V116\r\n                                    c1.8,0.1,3.6,0.4,5.3,1c2.4,0.7,4.6,2,6.3,3.9c0.4,0.4,0.7,0.8,1.4,0.7c0.1-0.8-0.4-1.6-1.2-1.8c-0.6-0.3-1-1-1.4-1\r\n                                    c-0.9,0.1-0.4-1.2-1.2-1s-1-0.6-1.5-0.9c-0.9-0.4-1.9-0.7-2.8-1c-0.8-0.2-1.6-0.4-2.4-0.5c-0.8-0.1-1.6,0-2.4,0v-3.8l4.1,0.7\r\n                                    c2.3,0.5,4.5,1.4,6.6,2.6c0.8,0.3,1.6,0.9,2.2,1.5c0.9,1,2.4,1.3,2.9,2.7H96c-0.1-0.3-0.1-0.8-0.3-1c-0.8-0.8-1.8-1.4-2.6-2.2\r\n                                    c-1.8-1.5-3.8-2.7-6.1-3.4c-2.2-1-4.5-1.4-6.9-1.4c-0.1,0-0.3-0.1-0.4-0.2c0-1.7,0-3.4,0-5.1c0-0.1-0.2-0.2-0.3-0.4l-0.7,0.2\r\n                                    v5.4h-4.5c-4,1.5-7.7,3.2-10.8,6.2c-3,2.9-5.2,6.5-6.3,10.6l-1.3-0.4l0.9,1.3c0.1,0.5,0.1,1.1,0,1.6c-0.7,3.1-0.6,6.3,0.5,9.2\r\n                                    c0.6,2.3,1.6,4.5,2.8,6.6c1.2,1.9,2.7,3.6,4.4,5.1c0.3,0.3,0.8,0.4,1.1,0.7c0.4,0.3,0.7,0.6,1,1l-5.3,4l0.5,0.5l5.9-4.5\r\n                                    c0.2,0.4,0.3,0.7,0.4,0.9c1.4,0.6,2.8,1.1,4.1,1.6c1.4,0.5,2.8,0.8,4.3,1l-0.1-0.8c-2.8-0.5-5.5-1.5-8-2.8\r\n                                    c0.4-0.6,0.8-1.1,0.3-1c0.4-0.2,0.8-0.4,1.3-0.6c0.9-0.6,2-0.6,2.9,0c1.3,0.8,2.7,1.1,4.2,0.9v4.2l1.9,0.1v7.5l0.9-0.1\r\n                                    c0-1.3,0-2.5,0-3.8c0-1.2,0-2.4,0.1-3.6c4,0,7.9-1.1,11.4-3.3c1.1,0.9,2.2,1.9,3.3,2.7c0.5,0.2,1,0.4,1.5,0.5\r\n                                    c0-0.1,0.1-0.2,0.1-0.3l-4.4-3.3c1-0.7,2-1.4,2.8-2.3c0.7-0.9,1.7-1.4,2.3-2.3c0.7-0.9,1.3-1.9,1.9-2.9c0.6-1,1-2.1,1.4-3.1\r\n                                    c0.4-1.1,0.8-2.2,1.1-3.3c0-1.1,0.2-2.2,0.5-3.3c0.4-1.1,0.5-2.3,0.2-3.5c-0.2-1.1-0.4-2.3-0.6-3.4l1.3-1.3L101.2,128.1z\r\n                                    M68.5,152.1L68.5,152.1c-1.6,0.1-2.2-0.1-2.6-0.5c-1.3-0.9-2.5-1.9-3.5-3.1c-1.6-2.1-3.3-4.4-4.1-6.9c-0.7-1.9-1.1-3.8-1.2-5.8\r\n                                    c0.1-2,0-4,0-6.1c1.4-0.1,2,1.2,3.3,1.5c-0.7,8.3,2.2,14.9,9.4,19.3C69.5,151.8,68,151.5,68.5,152.1z M71,149.8\r\n                                    c-2.6-0.9-4.2-2.8-5.9-4.5c-1.6-1.6-2.2-3.8-3.2-5.7c-1.1-2.2-0.4-4.6-0.6-7.2h1l-1-1.4c0.4-3,1.6-5.7,3.5-8\r\n                                    c5.5-6.1,8.5-6.2,13.7-7v27.4l-1.3-0.3c0.3,0.5,0.7,0.9,1.1,1.5l-1.2,0.8l-1.2,0.8v0.3c-0.9,0.4-1.8,0.9-2.5,1.7\r\n                                    C72.7,148.9,71.9,149.4,71,149.8z M71.9,150.4c1.1-1.1,2.3-1.7,3.3-2.6c0.3-0.3,0.6-0.5,1-0.8c2.4,0.9,2.4,2.9,2.4,5.1\r\n                                    C76.4,151.5,74.2,151.4,71.9,150.4L71.9,150.4z M78.6,115.4c-2.1-0.1-4.1,0.2-6.1,1c-2.1,0.7-3.8,2.1-5.6,3.3s-2.9,3.3-4.1,5.1\r\n                                    c-1.2,1.8-1.9,3.9-2,6.1l-3-2.1c0-0.8,0.2-1.5,0.4-2.2c1.1-2.1,2.2-4.1,3.5-6c1.3-1.7,2.9-3.2,4.7-4.5c2.1-1.6,4.5-2.7,7-3.2\r\n                                    c0.9,0,1.7-0.2,2.6-0.5c0.8-0.4,1.3-0.6,2,0c0.2-0.2,0.4-0.3,0.6-0.5L78.6,115.4z M79.7,151.9v-6.4l6.8,4.7\r\n                                    c-1.5,0.6-2.7,1.3-4.1,1.3C81.5,151.6,80.6,151.8,79.7,151.9L79.7,151.9z M81.6,155.8v-3.2c2.1,0,4-1.3,6.1-1.6l2.5,2.1\r\n                                    C87.3,154.4,84.7,155.7,81.6,155.8L81.6,155.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67854,7 +67857,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M-14.9,65c0.4,0.8,0.7,1.6,1,2.4c0.7,2.9,2.7,5,4.3,7.3c0.1,0.2,0.6,0.1,0.9,0.1v-0.5l-3.2-3.9\n                                    c-0.3-1.9-1.6-3.4-2-5.3c-0.5-1.8-0.8-3.6-0.9-5.5c0.1-2-0.2-3.9,0.7-5.9l7,21.4c-0.6-0.2-1.1-0.3-1.6-0.4\n                                    c-0.1,0.6,0.3,1.2,0.9,1.4c0.5,0.3,0.9,0.6,1.3,1l-5,3.6c0.3,0,0.6,0.2,0.7,0.1c1.9-0.8,3.5-2,4.9-3.6c1,1.6,2.6,1.9,3.9,2.7\n                                    c0.3,0.2,0.7,0.3,1,0.5c1.5,0.5,2.9,1.2,4.5,0.9c1.4,0.9,3,0.3,4.5,0.5c1.5,0.1,2.9-0.5,4.4-0.7c0-0.1,0-0.1,0-0.2\n                                    c-2.6,0-5.1-0.1-7.7,0c-2.2,0.1-4.2-0.8-6.1-1.5c-1-0.4-1.9-0.9-2.8-1.5c1.3-0.4,18.7-0.5,23.2-0.1c-1.1,0.2-2,0.8-2.7,1.6\n                                    c1.3,0,2.5-0.5,3.5-1.4c0.3-0.3,0.7-0.5,1.2-0.4l2.3-2.4v-0.4c-0.8-0.2-1.2,0.6-2,1.2c0.7-2.2,1.2-4,2-5.8\n                                    c0.7-1.8,1.3-3.7,1.8-5.6c0.7-1.8,1.2-3.6,1.6-5.5c0.3-1.9,1.3-3.6,2.1-5.4c0.6,0.2-0.3,1.3,0.7,1.3c-0.1-1-0.2-2-0.3-2.9\n                                    l1.7-1.8c-0.5-0.1-0.9,0.1-1.2,0.5c-0.2,0.4-0.7,0.6-1.2,0.5c-0.2,0.2-0.4,0.4-0.6,0.4c-5,0-10.1,0-15.1,0L7.6,37.1\n                                    c2.1-0.5,4.1,0.3,6,0.8c2.1,0.5,4,1.5,5.6,2.8c1.6,1.3,3.5,2.3,4.7,4.2h0.5c-0.1-0.3,0-0.7-0.2-0.8c-1.5-1.5-3.1-2.9-4.8-4.2\n                                    c-0.8-0.6-1.7-1.1-2.6-1.5l-3-1.2c-0.5-0.2-1.4,0-1.7-0.3c-0.5-0.5-1-0.1-1.4-0.2C9.4,36.2,8,36,6.6,36.1\n                                    c-3.4,0.2-6.8,1.1-9.8,2.6c-1.1,0.4-2.1,1.1-2.8,2c1.6-0.5,3.1-1.1,4.5-2c1.3-0.6,2.7-1.1,4.1-1.3c1.2-0.3,2.3-0.4,3.5-0.4\n                                    c-0.1,0.9-0.2,1.7-0.5,2.5c-0.5,1-0.8,2-1,3.1c-0.1,1-1.1,1.8-0.9,2.9c-1.1,1.7-1.4,3.8-1.9,5.7c-0.1,0.3-0.4,0.4-0.7,0.7h-14.3\n                                    c-0.3,0-0.8,0.2-0.8-0.5c-0.3,0-0.6-0.1-0.8-0.2l-0.5-0.1l-3.7-3c-0.3,0-0.5,0-0.9,0c-0.1,0-0.1,0.1-0.2,0.2\n                                    c1.4,0.7,2.3,2,4.2,2.6l1,1.5c-1.2,1.2-0.1,2.9-1.1,4.2C-15.8,59.5-15.9,62.3-14.9,65z M-6.1,75.5c-2.5-7.3-4.6-14.4-7-21.8\n                                    l0.1,0.1c4,2.5,7.8,5.2,11.4,8.2C-3.5,66.4-4.1,71.1-6.1,75.5z M-5.1,76c0.3-1.3,0.7-2.6,1.1-3.8c0.5-1,0.8-2.1,0.9-3.1\n                                    c0.1-1.1,0.7-2.2,0.9-3.4s1.9-1.6,0.8-3.2c3,1.4,5.2,3.4,7.8,5L-5.1,76z M-2.6,76.9c-0.1,0-0.2,0.2-0.3,0.2l-1.4-0.7l11-8.2\n                                    c1-0.1,1.6,0.9,2.4,1.4c2.1,1.3,4,2.8,6,4.2c1.1,0.8,2.2,1.7,3.5,2.7L-2.6,76.9z M18.4,75.5c-1.3-1.5-3.1-2.3-4.6-3.5\n                                    c-1.5-1.2-3-2.2-4.5-3.3c-0.5-0.4-1.1-0.7-1.6-1.1l7.3-5.3c1.5,4.6,2.9,8.9,4.3,13.3C18.9,75.7,18.5,75.7,18.4,75.5L18.4,75.5z\n                                    M26.3,56.9c-0.3,1-0.6,2.1-1,3.1s-0.6,2.1-0.9,3.1c-0.3,1-0.7,2.2-1.1,3.3s-0.8,2-1.1,3c-0.4,1-0.8,2-0.9,3.1\n                                    c-0.2,1-0.5,2-1,2.9c-0.6-2.4-1.7-4.6-2.4-6.8c-0.7-2.3-1.3-4.4-2.1-6.7c1.7-1.5,3.9-2.5,5.7-4.3c2.3-0.6,3.4-3.1,5.8-3.8\n                                    C27,54.8,26.7,55.9,26.3,56.9L26.3,56.9z M26.6,52.5c0,1.2-1.3,1.2-1.9,1.8c-0.7,0.7-1.5,1.3-2.3,1.8c-0.7,0.5-1.5,1-2.2,1.5\n                                    s-1.6,1.1-2.3,1.7L15.4,61c-0.9-2.9-1.8-5.7-2.8-8.6H26.6z M7,37.8c1.5,4.6,2.9,9.2,4.5,14h-9C4,47.2,5.5,42.6,7,37.8z\n                                    M2.4,53.2L2,52.5h9.7l2.9,9.2c-2.6,1.7-5,3.9-7.7,5.4l-7.6-5.4c0.8-2.5,1.6-5,2.5-7.9C1.8,53.8,2,53.5,2.4,53.2z M1.4,52.5\n                                    l-2.8,8.4l-11.7-8.4L1.4,52.5z"
+                          "M-14.9,65c0.4,0.8,0.7,1.6,1,2.4c0.7,2.9,2.7,5,4.3,7.3c0.1,0.2,0.6,0.1,0.9,0.1v-0.5l-3.2-3.9\r\n                                    c-0.3-1.9-1.6-3.4-2-5.3c-0.5-1.8-0.8-3.6-0.9-5.5c0.1-2-0.2-3.9,0.7-5.9l7,21.4c-0.6-0.2-1.1-0.3-1.6-0.4\r\n                                    c-0.1,0.6,0.3,1.2,0.9,1.4c0.5,0.3,0.9,0.6,1.3,1l-5,3.6c0.3,0,0.6,0.2,0.7,0.1c1.9-0.8,3.5-2,4.9-3.6c1,1.6,2.6,1.9,3.9,2.7\r\n                                    c0.3,0.2,0.7,0.3,1,0.5c1.5,0.5,2.9,1.2,4.5,0.9c1.4,0.9,3,0.3,4.5,0.5c1.5,0.1,2.9-0.5,4.4-0.7c0-0.1,0-0.1,0-0.2\r\n                                    c-2.6,0-5.1-0.1-7.7,0c-2.2,0.1-4.2-0.8-6.1-1.5c-1-0.4-1.9-0.9-2.8-1.5c1.3-0.4,18.7-0.5,23.2-0.1c-1.1,0.2-2,0.8-2.7,1.6\r\n                                    c1.3,0,2.5-0.5,3.5-1.4c0.3-0.3,0.7-0.5,1.2-0.4l2.3-2.4v-0.4c-0.8-0.2-1.2,0.6-2,1.2c0.7-2.2,1.2-4,2-5.8\r\n                                    c0.7-1.8,1.3-3.7,1.8-5.6c0.7-1.8,1.2-3.6,1.6-5.5c0.3-1.9,1.3-3.6,2.1-5.4c0.6,0.2-0.3,1.3,0.7,1.3c-0.1-1-0.2-2-0.3-2.9\r\n                                    l1.7-1.8c-0.5-0.1-0.9,0.1-1.2,0.5c-0.2,0.4-0.7,0.6-1.2,0.5c-0.2,0.2-0.4,0.4-0.6,0.4c-5,0-10.1,0-15.1,0L7.6,37.1\r\n                                    c2.1-0.5,4.1,0.3,6,0.8c2.1,0.5,4,1.5,5.6,2.8c1.6,1.3,3.5,2.3,4.7,4.2h0.5c-0.1-0.3,0-0.7-0.2-0.8c-1.5-1.5-3.1-2.9-4.8-4.2\r\n                                    c-0.8-0.6-1.7-1.1-2.6-1.5l-3-1.2c-0.5-0.2-1.4,0-1.7-0.3c-0.5-0.5-1-0.1-1.4-0.2C9.4,36.2,8,36,6.6,36.1\r\n                                    c-3.4,0.2-6.8,1.1-9.8,2.6c-1.1,0.4-2.1,1.1-2.8,2c1.6-0.5,3.1-1.1,4.5-2c1.3-0.6,2.7-1.1,4.1-1.3c1.2-0.3,2.3-0.4,3.5-0.4\r\n                                    c-0.1,0.9-0.2,1.7-0.5,2.5c-0.5,1-0.8,2-1,3.1c-0.1,1-1.1,1.8-0.9,2.9c-1.1,1.7-1.4,3.8-1.9,5.7c-0.1,0.3-0.4,0.4-0.7,0.7h-14.3\r\n                                    c-0.3,0-0.8,0.2-0.8-0.5c-0.3,0-0.6-0.1-0.8-0.2l-0.5-0.1l-3.7-3c-0.3,0-0.5,0-0.9,0c-0.1,0-0.1,0.1-0.2,0.2\r\n                                    c1.4,0.7,2.3,2,4.2,2.6l1,1.5c-1.2,1.2-0.1,2.9-1.1,4.2C-15.8,59.5-15.9,62.3-14.9,65z M-6.1,75.5c-2.5-7.3-4.6-14.4-7-21.8\r\n                                    l0.1,0.1c4,2.5,7.8,5.2,11.4,8.2C-3.5,66.4-4.1,71.1-6.1,75.5z M-5.1,76c0.3-1.3,0.7-2.6,1.1-3.8c0.5-1,0.8-2.1,0.9-3.1\r\n                                    c0.1-1.1,0.7-2.2,0.9-3.4s1.9-1.6,0.8-3.2c3,1.4,5.2,3.4,7.8,5L-5.1,76z M-2.6,76.9c-0.1,0-0.2,0.2-0.3,0.2l-1.4-0.7l11-8.2\r\n                                    c1-0.1,1.6,0.9,2.4,1.4c2.1,1.3,4,2.8,6,4.2c1.1,0.8,2.2,1.7,3.5,2.7L-2.6,76.9z M18.4,75.5c-1.3-1.5-3.1-2.3-4.6-3.5\r\n                                    c-1.5-1.2-3-2.2-4.5-3.3c-0.5-0.4-1.1-0.7-1.6-1.1l7.3-5.3c1.5,4.6,2.9,8.9,4.3,13.3C18.9,75.7,18.5,75.7,18.4,75.5L18.4,75.5z\r\n                                    M26.3,56.9c-0.3,1-0.6,2.1-1,3.1s-0.6,2.1-0.9,3.1c-0.3,1-0.7,2.2-1.1,3.3s-0.8,2-1.1,3c-0.4,1-0.8,2-0.9,3.1\r\n                                    c-0.2,1-0.5,2-1,2.9c-0.6-2.4-1.7-4.6-2.4-6.8c-0.7-2.3-1.3-4.4-2.1-6.7c1.7-1.5,3.9-2.5,5.7-4.3c2.3-0.6,3.4-3.1,5.8-3.8\r\n                                    C27,54.8,26.7,55.9,26.3,56.9L26.3,56.9z M26.6,52.5c0,1.2-1.3,1.2-1.9,1.8c-0.7,0.7-1.5,1.3-2.3,1.8c-0.7,0.5-1.5,1-2.2,1.5\r\n                                    s-1.6,1.1-2.3,1.7L15.4,61c-0.9-2.9-1.8-5.7-2.8-8.6H26.6z M7,37.8c1.5,4.6,2.9,9.2,4.5,14h-9C4,47.2,5.5,42.6,7,37.8z\r\n                                    M2.4,53.2L2,52.5h9.7l2.9,9.2c-2.6,1.7-5,3.9-7.7,5.4l-7.6-5.4c0.8-2.5,1.6-5,2.5-7.9C1.8,53.8,2,53.5,2.4,53.2z M1.4,52.5\r\n                                    l-2.8,8.4l-11.7-8.4L1.4,52.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -67862,7 +67865,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M22.3,111.4H-6v45.3h28.5C22.8,148.2,22.7,113.4,22.3,111.4z M-5,111.8h26.5v16.6\n                                    c-0.7-0.1-1.4-0.2-2.2-0.2H-5V111.8z M-5,129.2h16.3v9.1c-0.1,0.1-0.3,0.2-0.4,0.2c-1-0.5-1.8,0.9-3,0.3\n                                    c-0.8-0.5-2.1-0.2-3.2-0.2s-2,0-3,0H-5V129.2z M-3.7,155.7H-5c0-0.3-0.1-0.7-0.1-1.2h1.4L-3.7,155.7z M-2.3,152H-5\n                                    c0-0.2-0.1-0.5-0.1-0.7s0-0.6,0-1h2.8L-2.3,152z M0.5,155.7h-1.7v-5.5l1.7-0.1L0.5,155.7z M0.5,149.6c-0.5,0-0.8-0.2-1.3,0.1\n                                    c-0.5,0.2-1.1,0.2-1.6,0c-0.4-0.1-0.8-0.2-1.2-0.1c-0.5-0.1-1-0.3-1.5-0.5v-2.6h5.5L0.5,149.6z M4.2,155.7L1.5,156\n                                    c-0.1-0.1-0.5-0.4-0.5-0.8c0-2.9,0-5.9,0-8.8h3.2L4.2,155.7z M3.4,145.5c-2.7,0-5.4,0-8.4,0v-5.6c1.5,0,3,0,4.4,0\n                                    s2.9,0.3,4.3-0.3l1.1,0.5c-0.7,1.6-0.7,3.3,0,4.9C4.3,145.2,3.9,145.4,3.4,145.5z M11.3,155.6c0,0.2-0.3,0.3-0.5,0.6\n                                    c-0.8-0.4-1.6-0.5-2.5-0.4h-3v-5.5c0-1.8-0.1-3.6,0-5.4s-0.5-3.7,0.4-5.4c1.9,0.9,3.7,0.2,5.6,0.6\n                                    C11.3,145.2,11.3,150.4,11.3,155.6L11.3,155.6z M21.6,155.7h-9.7v-26.5h9.5C21.7,131.1,21.8,148.2,21.6,155.7L21.6,155.7z"
+                          "M22.3,111.4H-6v45.3h28.5C22.8,148.2,22.7,113.4,22.3,111.4z M-5,111.8h26.5v16.6\r\n                                    c-0.7-0.1-1.4-0.2-2.2-0.2H-5V111.8z M-5,129.2h16.3v9.1c-0.1,0.1-0.3,0.2-0.4,0.2c-1-0.5-1.8,0.9-3,0.3\r\n                                    c-0.8-0.5-2.1-0.2-3.2-0.2s-2,0-3,0H-5V129.2z M-3.7,155.7H-5c0-0.3-0.1-0.7-0.1-1.2h1.4L-3.7,155.7z M-2.3,152H-5\r\n                                    c0-0.2-0.1-0.5-0.1-0.7s0-0.6,0-1h2.8L-2.3,152z M0.5,155.7h-1.7v-5.5l1.7-0.1L0.5,155.7z M0.5,149.6c-0.5,0-0.8-0.2-1.3,0.1\r\n                                    c-0.5,0.2-1.1,0.2-1.6,0c-0.4-0.1-0.8-0.2-1.2-0.1c-0.5-0.1-1-0.3-1.5-0.5v-2.6h5.5L0.5,149.6z M4.2,155.7L1.5,156\r\n                                    c-0.1-0.1-0.5-0.4-0.5-0.8c0-2.9,0-5.9,0-8.8h3.2L4.2,155.7z M3.4,145.5c-2.7,0-5.4,0-8.4,0v-5.6c1.5,0,3,0,4.4,0\r\n                                    s2.9,0.3,4.3-0.3l1.1,0.5c-0.7,1.6-0.7,3.3,0,4.9C4.3,145.2,3.9,145.4,3.4,145.5z M11.3,155.6c0,0.2-0.3,0.3-0.5,0.6\r\n                                    c-0.8-0.4-1.6-0.5-2.5-0.4h-3v-5.5c0-1.8-0.1-3.6,0-5.4s-0.5-3.7,0.4-5.4c1.9,0.9,3.7,0.2,5.6,0.6\r\n                                    C11.3,145.2,11.3,150.4,11.3,155.6L11.3,155.6z M21.6,155.7h-9.7v-26.5h9.5C21.7,131.1,21.8,148.2,21.6,155.7L21.6,155.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67870,7 +67873,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M55.9,38.7c2,1.5,4,2.8,6.3,4.4l-2.6,2.3c0.1,0.5-0.1,0.9-0.5,1.2c-0.3,0.4-0.7,0.9-0.9,1.4\n                                    c-0.5-0.2-0.9-0.5-1.3-0.8c-0.6-0.7-1.5-1.2-2.5-1.3c0.7,1.4,2,2,3.5,2.7c-0.5,1.1-0.9,2-1.4,3c-0.6-0.5-1.2-0.9-1.8-1.3\n                                    c-0.9-0.5-1.5-1.4-2.6-1.5l0,0l-0.3-0.4l-0.2,0.2l0.4,0.3l0,0c1,1.7,2.8,2.4,4.2,3.6l-0.5,2.6c-0.2,0.8-0.4,1.6-0.4,2.4\n                                    c-0.1,0.9-0.1,1.9,0,2.8c0,0.8,0.1,1.6,0.2,2.4c0.1,0.8,0.8,1.3,0.5,2.3c-0.2,0.6,0.5,1.4,0.8,2.1s0.6,1.6,1,2.5\n                                    c-0.8,0.7-1.7,1.4-2.6,2.1s-2.1,1.1-2.5,2.5c2-1,3.8-2.4,5.3-4c0.5,0.9,1.8,1.1,1.6,2.4c0.7,0.8,1.3,1.5,1.9,2.3l-0.5,1l1.2-0.3\n                                    l2.1,2c-1.4,1.2-3.3,1.7-4.2,3.5c0.2,0,0.4,0.1,0.5,0c1.5-1.1,3-2.1,4.4-3.2c0.8,0.4,1.5,0.9,2.3,1.3c2.6,1.5,5.5,2.4,8.4,2.7\n                                    c3.2,0.5,6.4,0.2,9.4-0.9c2.2-0.8,4.5-1.4,6.2-3.2c0.1-0.1,0.4,0,0.7,0l2.1-2.4l1.6,0.5L95,74.5l1.5-1.6l4.1,2.9h1.3l-5-3.6\n                                    c0.4-0.7,0.8-1.3,1.2-1.9c0.2-0.4,0.7-0.6,1.2-0.5l-0.5-0.9c2.2-5.5,2.9-11,1-16.7l1.4-0.7l0,0l0.3,0.4l0.2-0.2l-0.4-0.3\n                                    c0.9-0.9,2-1.7,3.2-2.3l0,0l0.3,0.4l0.2-0.2l-0.4-0.3l0,0c0.1-0.3,0.2-0.6,0.6-1.4l-5.4,3.9l-1.3-2.4l1.2-1.3\n                                    c0.7-0.7,1.9-0.8,2.3-1.9c-1.1,0.1-2.1,0.6-2.8,1.4l-1.2,0.9c-0.4-0.8-0.8-1.6-1.1-2.2l2.3-2.4c-0.3,0-0.6,0.1-0.8,0.2\n                                    c-0.8,0.5-1.6,1.1-2.4,1.7c-0.4,1.1-1.6,1.2-2.3,1.9c-0.5,0.4-0.9,0.9-1.4,1.4c1,0.3,1.3-0.9,2.2-1.1c0.7-0.1,1.2-0.8,1.8-1.3\n                                    l1.2,2.2c-2.1,2.2-4.8,3.1-6.7,5.1c-0.7,0.8-2,0.9-2.3,2.1c0.3-0.1,0.7-0.2,1-0.3c1.7-1.2,3.4-2.5,5.2-3.8c1-0.7,1.9-1.3,2.9-2\n                                    l1.2,1.2c0.1,0.7,0,1.5-0.4,2.1l1.4,0.4c0,2.4,0.7,4.5,0.6,6.8c-0.3,2.9-1,5.7-2.2,8.3c-1.1-0.9-2.2-1.8-3.3-2.6\n                                    c-1.1-0.8-2.3-1.7-3.4-2.5c-0.3-0.1-0.6-0.2-0.8-0.2c0.5,1.3,1.9,1.6,2.8,2.5c1.5,1.3,3.1,2.4,4.7,3.5l-1.6,2.5l-3.7-2.9\n                                    c-0.6-0.6-1.3-0.9-2.2-1c1.2,1.7,3.1,2.6,4.7,3.7c0.3,0.2,0.6,0.4,0.9,0.7L94.2,74c-0.4-0.1-0.8-0.3-1.2-0.6\n                                    c-0.3-0.3-0.7-0.5-1.2-0.5l1.5,1.9l-1.9,2.1c-0.8-0.6-1.5-1.2-2.3-1.7c-0.3-0.2-0.7-0.3-1-0.3c0.5,1,1.4,1.8,2.5,2.2\n                                    c-1.5,1.4-3.3,2.4-5.3,2.9c-0.9,0.2-1.5,0.9-2.4,1c-1.4,0.1-2.8,0-4.2,0c-0.8,0-1.6,0-2.3,0c-3.3,0-6.4-1-9.1-2.9\n                                    c-0.6-0.3-1.2-0.5-1.8-0.8c0.5-0.6,1.2-1.1,1.9-1.5c0.7-0.2,1.3-0.8,1.6-1.4c-1-0.2-1.4,1-2.3,1.1c-0.6,0.1-1,0.7-1.7,1.2\n                                    c-0.8-0.7-2.2-0.8-2.1-2.3c-0.5,0.1-1.1-0.2-1.3-0.6c-0.3-0.5-0.6-1-0.9-1.5l0.8-1.1l-0.9,0.2c-0.4-0.4-0.8-0.7-1.4-1.4v-0.4\n                                    c1.6-1,3.2-2.2,4.7-3.4c0.9-0.9,2.3-1.2,2.8-2.5c-1.1-0.2-1.6,0.8-2.3,1.2c-1.7,1.2-3.3,2.4-4.8,3.7c-0.3,0.1-0.7,0.2-1,0.3\n                                    c-1.5-2.7-2.3-5.7-2.2-8.7c0-0.3,0-0.6,0-0.9c0-1.1-0.1-2.2,0-3.3c0.1-1,0.3-1.9,0.6-2.9c1.9,0.6,3.3,2,4.8,3.1\n                                    c1.3,1,2.7,1.9,4,2.8c0.1,0.1,0.3,0,0.5,0c-0.7-1.4-2.3-1.8-3.4-2.8c-0.2-0.2-0.5-0.3-0.7-0.6c-1.3-1.6-3.2-2.4-4.9-3.4\n                                    c0.4-1.1,0.8-2.1,1.1-3H59c-0.1-0.2-0.2-0.4-0.3-0.7l1.6-2.2c2,1.5,3.7,2.9,5.6,4.3c0.2,0.1,0.4,0,0.7,0c-1.6-2.2-4-3.4-6-5\n                                    c0.5-0.5,1-1.1,1.7-1.7c0.3-0.2,0.7-0.3,1-0.3c0.1-0.3,0-0.7,0.2-0.8c0.8-0.8,1.7-1.5,2.6-2.2c2.4-1.4,4.9-2.5,7.6-3.2\n                                    c6.2-1.3,12.6,0.1,17.6,3.9c0.3,0.2,0.6,0.3,1,0.3c-0.8-1.8-2.8-2.2-4.1-3.2c-0.9-0.5-1.8-0.8-2.8-1c-0.9-0.4-1.9-0.7-2.9-0.9\n                                    c-1-0.2-2.1-0.3-3.1-0.4c-2.4-0.2-4.8,0.1-7,0.9c-3.7,1.1-7.2,2.5-9.7,5.6c-0.3-0.3-0.6-0.6-0.9-0.9c-1.7-1-3.4-2.1-4.9-3.4\n                                    c-0.7-0.6-1.3-1.5-2.4-1.4C54.8,37.5,55.3,38.1,55.9,38.7z"
+                          "M55.9,38.7c2,1.5,4,2.8,6.3,4.4l-2.6,2.3c0.1,0.5-0.1,0.9-0.5,1.2c-0.3,0.4-0.7,0.9-0.9,1.4\r\n                                    c-0.5-0.2-0.9-0.5-1.3-0.8c-0.6-0.7-1.5-1.2-2.5-1.3c0.7,1.4,2,2,3.5,2.7c-0.5,1.1-0.9,2-1.4,3c-0.6-0.5-1.2-0.9-1.8-1.3\r\n                                    c-0.9-0.5-1.5-1.4-2.6-1.5l0,0l-0.3-0.4l-0.2,0.2l0.4,0.3l0,0c1,1.7,2.8,2.4,4.2,3.6l-0.5,2.6c-0.2,0.8-0.4,1.6-0.4,2.4\r\n                                    c-0.1,0.9-0.1,1.9,0,2.8c0,0.8,0.1,1.6,0.2,2.4c0.1,0.8,0.8,1.3,0.5,2.3c-0.2,0.6,0.5,1.4,0.8,2.1s0.6,1.6,1,2.5\r\n                                    c-0.8,0.7-1.7,1.4-2.6,2.1s-2.1,1.1-2.5,2.5c2-1,3.8-2.4,5.3-4c0.5,0.9,1.8,1.1,1.6,2.4c0.7,0.8,1.3,1.5,1.9,2.3l-0.5,1l1.2-0.3\r\n                                    l2.1,2c-1.4,1.2-3.3,1.7-4.2,3.5c0.2,0,0.4,0.1,0.5,0c1.5-1.1,3-2.1,4.4-3.2c0.8,0.4,1.5,0.9,2.3,1.3c2.6,1.5,5.5,2.4,8.4,2.7\r\n                                    c3.2,0.5,6.4,0.2,9.4-0.9c2.2-0.8,4.5-1.4,6.2-3.2c0.1-0.1,0.4,0,0.7,0l2.1-2.4l1.6,0.5L95,74.5l1.5-1.6l4.1,2.9h1.3l-5-3.6\r\n                                    c0.4-0.7,0.8-1.3,1.2-1.9c0.2-0.4,0.7-0.6,1.2-0.5l-0.5-0.9c2.2-5.5,2.9-11,1-16.7l1.4-0.7l0,0l0.3,0.4l0.2-0.2l-0.4-0.3\r\n                                    c0.9-0.9,2-1.7,3.2-2.3l0,0l0.3,0.4l0.2-0.2l-0.4-0.3l0,0c0.1-0.3,0.2-0.6,0.6-1.4l-5.4,3.9l-1.3-2.4l1.2-1.3\r\n                                    c0.7-0.7,1.9-0.8,2.3-1.9c-1.1,0.1-2.1,0.6-2.8,1.4l-1.2,0.9c-0.4-0.8-0.8-1.6-1.1-2.2l2.3-2.4c-0.3,0-0.6,0.1-0.8,0.2\r\n                                    c-0.8,0.5-1.6,1.1-2.4,1.7c-0.4,1.1-1.6,1.2-2.3,1.9c-0.5,0.4-0.9,0.9-1.4,1.4c1,0.3,1.3-0.9,2.2-1.1c0.7-0.1,1.2-0.8,1.8-1.3\r\n                                    l1.2,2.2c-2.1,2.2-4.8,3.1-6.7,5.1c-0.7,0.8-2,0.9-2.3,2.1c0.3-0.1,0.7-0.2,1-0.3c1.7-1.2,3.4-2.5,5.2-3.8c1-0.7,1.9-1.3,2.9-2\r\n                                    l1.2,1.2c0.1,0.7,0,1.5-0.4,2.1l1.4,0.4c0,2.4,0.7,4.5,0.6,6.8c-0.3,2.9-1,5.7-2.2,8.3c-1.1-0.9-2.2-1.8-3.3-2.6\r\n                                    c-1.1-0.8-2.3-1.7-3.4-2.5c-0.3-0.1-0.6-0.2-0.8-0.2c0.5,1.3,1.9,1.6,2.8,2.5c1.5,1.3,3.1,2.4,4.7,3.5l-1.6,2.5l-3.7-2.9\r\n                                    c-0.6-0.6-1.3-0.9-2.2-1c1.2,1.7,3.1,2.6,4.7,3.7c0.3,0.2,0.6,0.4,0.9,0.7L94.2,74c-0.4-0.1-0.8-0.3-1.2-0.6\r\n                                    c-0.3-0.3-0.7-0.5-1.2-0.5l1.5,1.9l-1.9,2.1c-0.8-0.6-1.5-1.2-2.3-1.7c-0.3-0.2-0.7-0.3-1-0.3c0.5,1,1.4,1.8,2.5,2.2\r\n                                    c-1.5,1.4-3.3,2.4-5.3,2.9c-0.9,0.2-1.5,0.9-2.4,1c-1.4,0.1-2.8,0-4.2,0c-0.8,0-1.6,0-2.3,0c-3.3,0-6.4-1-9.1-2.9\r\n                                    c-0.6-0.3-1.2-0.5-1.8-0.8c0.5-0.6,1.2-1.1,1.9-1.5c0.7-0.2,1.3-0.8,1.6-1.4c-1-0.2-1.4,1-2.3,1.1c-0.6,0.1-1,0.7-1.7,1.2\r\n                                    c-0.8-0.7-2.2-0.8-2.1-2.3c-0.5,0.1-1.1-0.2-1.3-0.6c-0.3-0.5-0.6-1-0.9-1.5l0.8-1.1l-0.9,0.2c-0.4-0.4-0.8-0.7-1.4-1.4v-0.4\r\n                                    c1.6-1,3.2-2.2,4.7-3.4c0.9-0.9,2.3-1.2,2.8-2.5c-1.1-0.2-1.6,0.8-2.3,1.2c-1.7,1.2-3.3,2.4-4.8,3.7c-0.3,0.1-0.7,0.2-1,0.3\r\n                                    c-1.5-2.7-2.3-5.7-2.2-8.7c0-0.3,0-0.6,0-0.9c0-1.1-0.1-2.2,0-3.3c0.1-1,0.3-1.9,0.6-2.9c1.9,0.6,3.3,2,4.8,3.1\r\n                                    c1.3,1,2.7,1.9,4,2.8c0.1,0.1,0.3,0,0.5,0c-0.7-1.4-2.3-1.8-3.4-2.8c-0.2-0.2-0.5-0.3-0.7-0.6c-1.3-1.6-3.2-2.4-4.9-3.4\r\n                                    c0.4-1.1,0.8-2.1,1.1-3H59c-0.1-0.2-0.2-0.4-0.3-0.7l1.6-2.2c2,1.5,3.7,2.9,5.6,4.3c0.2,0.1,0.4,0,0.7,0c-1.6-2.2-4-3.4-6-5\r\n                                    c0.5-0.5,1-1.1,1.7-1.7c0.3-0.2,0.7-0.3,1-0.3c0.1-0.3,0-0.7,0.2-0.8c0.8-0.8,1.7-1.5,2.6-2.2c2.4-1.4,4.9-2.5,7.6-3.2\r\n                                    c6.2-1.3,12.6,0.1,17.6,3.9c0.3,0.2,0.6,0.3,1,0.3c-0.8-1.8-2.8-2.2-4.1-3.2c-0.9-0.5-1.8-0.8-2.8-1c-0.9-0.4-1.9-0.7-2.9-0.9\r\n                                    c-1-0.2-2.1-0.3-3.1-0.4c-2.4-0.2-4.8,0.1-7,0.9c-3.7,1.1-7.2,2.5-9.7,5.6c-0.3-0.3-0.6-0.6-0.9-0.9c-1.7-1-3.4-2.1-4.9-3.4\r\n                                    c-0.7-0.6-1.3-1.5-2.4-1.4C54.8,37.5,55.3,38.1,55.9,38.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67878,7 +67881,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M29,60.9c-0.2,1.9-0.7,3.8-1.3,5.6c-0.7,1.8-1.5,3.4-2.5,5c-0.2,0.3-0.3,0.7-0.3,1l1.9-1.6\n                                    c0-0.4-0.1-0.8,0-1c1.2-1.2,1.2-2.8,1.9-4.1c0.5-0.9,0.1-1.8,0.5-2.6c0.2-0.4,0.2-1,0.5-1.4c0.5-0.6-0.3-0.8-0.3-1.3\n                                    c0.1-1.6,0.1-3.1,0-4.7c0-0.2-0.3-0.4-0.4-0.6c-0.1,0.3-0.1,0.7-0.2,1.2C29.2,57.8,29.3,59.4,29,60.9z"
+                          "M29,60.9c-0.2,1.9-0.7,3.8-1.3,5.6c-0.7,1.8-1.5,3.4-2.5,5c-0.2,0.3-0.3,0.7-0.3,1l1.9-1.6\r\n                                    c0-0.4-0.1-0.8,0-1c1.2-1.2,1.2-2.8,1.9-4.1c0.5-0.9,0.1-1.8,0.5-2.6c0.2-0.4,0.2-1,0.5-1.4c0.5-0.6-0.3-0.8-0.3-1.3\r\n                                    c0.1-1.6,0.1-3.1,0-4.7c0-0.2-0.3-0.4-0.4-0.6c-0.1,0.3-0.1,0.7-0.2,1.2C29.2,57.8,29.3,59.4,29,60.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -67886,7 +67889,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M-6.7,42c0.4-0.2,0.5-0.9,0.7-1.3c-0.2,0-0.5-0.1-0.7,0c-1.1,0.8-2.1,1.7-3,2.7c-1.8,2.3-3.7,4.6-4.6,7.4\n                                    l0.3,0.6c0.3-0.4,0.7-0.9,0.9-1.3C-11.5,46.9-9.8,44-6.7,42z"
+                          "M-6.7,42c0.4-0.2,0.5-0.9,0.7-1.3c-0.2,0-0.5-0.1-0.7,0c-1.1,0.8-2.1,1.7-3,2.7c-1.8,2.3-3.7,4.6-4.6,7.4\r\n                                    l0.3,0.6c0.3-0.4,0.7-0.9,0.9-1.3C-11.5,46.9-9.8,44-6.7,42z"
                       }
                     }),
                     _vm._v(" "),
@@ -67894,7 +67897,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M9.3,160.9c-0.3-0.4-0.6-0.7-1.1-1.4c0,1.1-0.1,1.6-0.1,2.1l0.7,0.6l4.1-0.6c-0.3-0.6-0.5-1.1-0.7-1.6H9.6\n                                    L9.3,160.9z"
+                          "M9.3,160.9c-0.3-0.4-0.6-0.7-1.1-1.4c0,1.1-0.1,1.6-0.1,2.1l0.7,0.6l4.1-0.6c-0.3-0.6-0.5-1.1-0.7-1.6H9.6\r\n                                    L9.3,160.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -67902,7 +67905,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M101.5,38.7c0.7-1.2,2.4-1.3,2.9-2.7l0,0l0.4-0.3l-0.2-0.2l-0.3,0.4l0,0c-0.3,0-0.6,0.1-0.8,0.2\n                                    c-1.2,0.8-2.4,1.7-3.5,2.6c-1.6,1.2-3.3,2.2-4.5,3.8c0.3-0.1,0.7-0.2,1-0.3C98.3,41.2,99.6,39.5,101.5,38.7z"
+                          "M101.5,38.7c0.7-1.2,2.4-1.3,2.9-2.7l0,0l0.4-0.3l-0.2-0.2l-0.3,0.4l0,0c-0.3,0-0.6,0.1-0.8,0.2\r\n                                    c-1.2,0.8-2.4,1.7-3.5,2.6c-1.6,1.2-3.3,2.2-4.5,3.8c0.3-0.1,0.7-0.2,1-0.3C98.3,41.2,99.6,39.5,101.5,38.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -67910,7 +67913,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M95.1,227.8c0.3,0.8,1,1.4,1.8,1.6l-0.9,1.2c0.3,0,0.7,0,0.8-0.2c1.3-1.2,2.5-2.4,3.7-3.7\n                                    c0.2-0.2,0.1-0.5,0.2-0.8l-3.1,2.8C96.4,229.2,96.1,227.4,95.1,227.8z"
+                          "M95.1,227.8c0.3,0.8,1,1.4,1.8,1.6l-0.9,1.2c0.3,0,0.7,0,0.8-0.2c1.3-1.2,2.5-2.4,3.7-3.7\r\n                                    c0.2-0.2,0.1-0.5,0.2-0.8l-3.1,2.8C96.4,229.2,96.1,227.4,95.1,227.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -67918,7 +67921,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M95.3,45.4H96c0.3-0.9-0.8-1.2-1-1.9l0.5-0.9l-1.3,0.3c-0.6-0.3-0.8-1.5-2-1.3l1.4,2.3\n                                    C94.7,43.8,95,44.7,95.3,45.4z"
+                          "M95.3,45.4H96c0.3-0.9-0.8-1.2-1-1.9l0.5-0.9l-1.3,0.3c-0.6-0.3-0.8-1.5-2-1.3l1.4,2.3\r\n                                    C94.7,43.8,95,44.7,95.3,45.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -67926,7 +67929,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M54.2,81.2c0.2-0.6,0.6-0.7,1-0.9c0.5-0.3,1-0.6,1.4-1c0.4-0.3,0.8-0.7,1.1-1.1l-0.2-0.3\n                                    c-1.3,0.8-2.5,1.6-3.8,2.5c-0.5,0.5-0.9,1-1.2,1.6C53.5,81.6,54.2,81.5,54.2,81.2z"
+                          "M54.2,81.2c0.2-0.6,0.6-0.7,1-0.9c0.5-0.3,1-0.6,1.4-1c0.4-0.3,0.8-0.7,1.1-1.1l-0.2-0.3\r\n                                    c-1.3,0.8-2.5,1.6-3.8,2.5c-0.5,0.5-0.9,1-1.2,1.6C53.5,81.6,54.2,81.5,54.2,81.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -67934,7 +67937,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M56,42.1h-1.2c0.1,0.2,0.2,0.4,0.3,0.5c1.3,0.8,2.6,1.7,3.7,2.7c0.1,0.1,0.4,0,0.7,0\n                                    C58.8,43.8,56.9,43.5,56,42.1z"
+                          "M56,42.1h-1.2c0.1,0.2,0.2,0.4,0.3,0.5c1.3,0.8,2.6,1.7,3.7,2.7c0.1,0.1,0.4,0,0.7,0\r\n                                    C58.8,43.8,56.9,43.5,56,42.1z"
                       }
                     }),
                     _vm._v(" "),
@@ -67958,7 +67961,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M27.3,50.8c0,0.2,0.5,0.4,0.8,0.7c-0.1-1.4-0.8-2.8-1.9-3.7c0,0.4,0,1,0.2,1.3\n                                    C27,49.5,27.3,50.1,27.3,50.8z"
+                          "M27.3,50.8c0,0.2,0.5,0.4,0.8,0.7c-0.1-1.4-0.8-2.8-1.9-3.7c0,0.4,0,1,0.2,1.3\r\n                                    C27,49.5,27.3,50.1,27.3,50.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -68019,7 +68022,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M52,36c0.5-0.1,0.9,0.1,1.2,0.5c0.2,0.4,0.7,0.6,1.2,0.5c-0.4-0.5-0.7-0.9-1.2-1.4c-0.5-0.3-1-0.6-1.6-0.8\n                                    c0,0.2-0.1,0.3,0,0.3C51.7,35.4,51.9,35.7,52,36z"
+                          "M52,36c0.5-0.1,0.9,0.1,1.2,0.5c0.2,0.4,0.7,0.6,1.2,0.5c-0.4-0.5-0.7-0.9-1.2-1.4c-0.5-0.3-1-0.6-1.6-0.8\r\n                                    c0,0.2-0.1,0.3,0,0.3C51.7,35.4,51.9,35.7,52,36z"
                       }
                     }),
                     _vm._v(" "),
@@ -68111,7 +68114,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M96.9,81.4c0.4,0.8,0.8,1.5,1.9,1.4l0,0c1.2,1.4,1.3,1.4,2.5,1.1l-2.7-1.4C98.4,81.8,97.7,81.4,96.9,81.4z\n                                    "
+                          "M96.9,81.4c0.4,0.8,0.8,1.5,1.9,1.4l0,0c1.2,1.4,1.3,1.4,2.5,1.1l-2.7-1.4C98.4,81.8,97.7,81.4,96.9,81.4z\r\n                                    "
                       }
                     }),
                     _vm._v(" "),
@@ -68151,7 +68154,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M56.7,83.2c-0.3,0-0.6,0.1-0.9,0.3c-0.9,0.5-1.7,1.1-2.5,1.7c-0.2,0.2-0.3,0.5-0.5,1.2c1.6-1.1,3-1.7,4-3\n                                    c0.6,0.1,1.2-0.3,1.3-0.9C57.5,82.2,56.9,82.6,56.7,83.2z"
+                          "M56.7,83.2c-0.3,0-0.6,0.1-0.9,0.3c-0.9,0.5-1.7,1.1-2.5,1.7c-0.2,0.2-0.3,0.5-0.5,1.2c1.6-1.1,3-1.7,4-3\r\n                                    c0.6,0.1,1.2-0.3,1.3-0.9C57.5,82.2,56.9,82.6,56.7,83.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -68159,7 +68162,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M93.2,78.6c-0.1-0.6-0.7-1.1-1.3-1c0,0-0.1,0-0.1,0C91.9,78.3,92.5,78.7,93.2,78.6\n                                    C93.1,78.6,93.2,78.6,93.2,78.6z"
+                          "M93.2,78.6c-0.1-0.6-0.7-1.1-1.3-1c0,0-0.1,0-0.1,0C91.9,78.3,92.5,78.7,93.2,78.6\r\n                                    C93.1,78.6,93.2,78.6,93.2,78.6z"
                       }
                     }),
                     _vm._v(" "),
@@ -68167,7 +68170,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M22.1,78.6c0.8,1.4,2.2,1.9,3.2,2.6c-0.5-1.6-1.9-2-3.3-2.8c-0.2-0.6-0.8-0.9-1.3-0.8\n                                    C20.8,78.3,21.4,78.7,22.1,78.6C22,78.6,22.1,78.6,22.1,78.6z"
+                          "M22.1,78.6c0.8,1.4,2.2,1.9,3.2,2.6c-0.5-1.6-1.9-2-3.3-2.8c-0.2-0.6-0.8-0.9-1.3-0.8\r\n                                    C20.8,78.3,21.4,78.7,22.1,78.6C22,78.6,22.1,78.6,22.1,78.6z"
                       }
                     }),
                     _vm._v(" "),
@@ -68182,7 +68185,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M103,127.2c0.6,0.1,1.2-0.3,1.4-0.9c0,0,0,0,0-0.1C103.8,126.2,103.2,126.6,103,127.2\n                                    C103,127.2,103,127.2,103,127.2z"
+                          "M103,127.2c0.6,0.1,1.2-0.3,1.4-0.9c0,0,0,0,0-0.1C103.8,126.2,103.2,126.6,103,127.2\r\n                                    C103,127.2,103,127.2,103,127.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -68329,7 +68332,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M65,134.9c0.1,0.2,0.6,0.1,0.7,0.3c0.3,0.4,0.7,0.5,1.2,0.5c-1-1-2.1-2-3.3-2.8c-0.4-0.2-0.9-0.4-1.4-0.5\n                                    C62.8,133.7,64.3,133.8,65,134.9z"
+                          "M65,134.9c0.1,0.2,0.6,0.1,0.7,0.3c0.3,0.4,0.7,0.5,1.2,0.5c-1-1-2.1-2-3.3-2.8c-0.4-0.2-0.9-0.4-1.4-0.5\r\n                                    C62.8,133.7,64.3,133.8,65,134.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -68361,7 +68364,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M67,135.7c0.1,0.6,0.7,1,1.3,0.9c0,0,0.1,0,0.1,0C68.3,136,67.7,135.5,67,135.7\n                                    C67.1,135.6,67.1,135.7,67,135.7z"
+                          "M67,135.7c0.1,0.6,0.7,1,1.3,0.9c0,0,0.1,0,0.1,0C68.3,136,67.7,135.5,67,135.7\r\n                                    C67.1,135.6,67.1,135.7,67,135.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -68369,7 +68372,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M88.2,138.4c1-1,2.5-1.4,3.2-2.8c-0.3,0-0.6,0.1-0.8,0.2c-0.9,0.5-1.8,1-2.5,1.7c-1,1-2.5,1.4-3.2,2.8\n                                    c0.3,0,0.6-0.1,0.9-0.2C86.5,139.7,87.4,139.1,88.2,138.4z"
+                          "M88.2,138.4c1-1,2.5-1.4,3.2-2.8c-0.3,0-0.6,0.1-0.8,0.2c-0.9,0.5-1.8,1-2.5,1.7c-1,1-2.5,1.4-3.2,2.8\r\n                                    c0.3,0,0.6-0.1,0.9-0.2C86.5,139.7,87.4,139.1,88.2,138.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -68407,7 +68410,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M76,56.2c-1.5,0.3-1.8-1.3-2.9-1c0.4,0.8,1.1,1.4,1.9,1.7v0.7c0.9-0.1,1.5,0.7,2.3,0.9\n                                    c0.2-0.8-0.6-1.1-0.9-1.6l2.2-1.7c0.8,0.1,1,1.3,1.9,1v-0.7l-0.9-0.7l2.3-2.4c-1.3,0.1-2.1,1.2-2.9,1.7\n                                    c-1.4-0.3-2.6-1.1-3.5-2.1c-0.1-0.1-0.4,0-0.7,0l3,3L76,56.2z"
+                          "M76,56.2c-1.5,0.3-1.8-1.3-2.9-1c0.4,0.8,1.1,1.4,1.9,1.7v0.7c0.9-0.1,1.5,0.7,2.3,0.9\r\n                                    c0.2-0.8-0.6-1.1-0.9-1.6l2.2-1.7c0.8,0.1,1,1.3,1.9,1v-0.7l-0.9-0.7l2.3-2.4c-1.3,0.1-2.1,1.2-2.9,1.7\r\n                                    c-1.4-0.3-2.6-1.1-3.5-2.1c-0.1-0.1-0.4,0-0.7,0l3,3L76,56.2z"
                       }
                     }),
                     _vm._v(" "),
@@ -68415,7 +68418,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M64.6,44.9c2.1,1.6,4.1,3.2,6.3,4.6c0.8,0.6,1.7,1.1,2.7,1.5v-0.7c-0.7-0.3-1.3-0.6-1.9-1\n                                    c-2.1-1.5-4-3.2-6.2-4.6c-0.7-0.4-1.2-1.4-2.3-1.2C63.7,44,64.1,44.4,64.6,44.9z"
+                          "M64.6,44.9c2.1,1.6,4.1,3.2,6.3,4.6c0.8,0.6,1.7,1.1,2.7,1.5v-0.7c-0.7-0.3-1.3-0.6-1.9-1\r\n                                    c-2.1-1.5-4-3.2-6.2-4.6c-0.7-0.4-1.2-1.4-2.3-1.2C63.7,44,64.1,44.4,64.6,44.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -68423,7 +68426,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M88.5,47.7c0.3-0.1,0.7-0.2,1-0.3c0.6-0.4,1.1-0.9,1.8-1.3c1-0.5,1.8-1.2,2.4-2.2\n                                    C91.6,44.7,89.8,46,88.5,47.7z"
+                          "M88.5,47.7c0.3-0.1,0.7-0.2,1-0.3c0.6-0.4,1.1-0.9,1.8-1.3c1-0.5,1.8-1.2,2.4-2.2\r\n                                    C91.6,44.7,89.8,46,88.5,47.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -68483,7 +68486,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M77.6,66.4h-1.3l0.8,1.2l-1.8,2.1c1.2,0.2,1.4-1.2,2.4-1.4l1.8,0.5c-0.2-0.3-0.4-0.6-0.6-0.9\n                                    c-0.1-0.3-0.2-0.7-0.3-1l-0.8,0.4L77.6,66.4z"
+                          "M77.6,66.4h-1.3l0.8,1.2l-1.8,2.1c1.2,0.2,1.4-1.2,2.4-1.4l1.8,0.5c-0.2-0.3-0.4-0.6-0.6-0.9\r\n                                    c-0.1-0.3-0.2-0.7-0.3-1l-0.8,0.4L77.6,66.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -68534,7 +68537,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M69.6,61.7c0.3,1.1,1.8,0.8,2,1.9h0.9l0.5-0.9c-1.1,0.1-2.1-0.4-2.8-1.2l1.5-0.9v-0.7\n                                    c-1.1-0.4-1.3,1.4-2.7,0.8c-0.7-1-1.8-1.6-3-1.8c0.4,0.5,0.9,1,1.4,1.4s1,0.8,1.4,1.1l-2.3,2.2C67.9,63.6,68.7,62.6,69.6,61.7z"
+                          "M69.6,61.7c0.3,1.1,1.8,0.8,2,1.9h0.9l0.5-0.9c-1.1,0.1-2.1-0.4-2.8-1.2l1.5-0.9v-0.7\r\n                                    c-1.1-0.4-1.3,1.4-2.7,0.8c-0.7-1-1.8-1.6-3-1.8c0.4,0.5,0.9,1,1.4,1.4s1,0.8,1.4,1.1l-2.3,2.2C67.9,63.6,68.7,62.6,69.6,61.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -68542,7 +68545,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M78.4,58.5h-1.1v0.7c-1,0.2-1.5,1.6-2.8,1.2c0.2,0.3,0.3,0.6,0.5,0.9l2.7,1.9c-0.5,0.2-0.9,0.5-1.3,0.7\n                                    c-0.3,0.2-0.5,0.6-0.8,0.8c-0.3,0.2-0.7,0.3-1,0.3l-1.4,1.9c0.3-0.1,0.8-0.1,1-0.3c0.8-0.9,1.5-0.7,2.3-0.2\n                                    c-0.1-0.4-0.2-0.8-0.3-1.3l2.2-1.6l2.4,1.7l-1.9,1.6l0.9,0.5l1.3-1.6c0.6,0.5,1.2,0.8,1.9,1.2c0.9,0.3,1.4,1.4,2.4,1.3\n                                    c-0.7-1.5-2.5-1.7-3.2-3.1l2.2-1.5c0.5,0.5,1.2,1,1.8,1.4c0.9,0.4,1.4,1.4,2.5,1.3c-0.8-1.5-2.4-2.1-3.8-3.1l2.5-1.8l1.3,0.3\n                                    L88.1,61l0.9-1.2l-1.8,0.5c-0.8-0.2-1-1.3-2-1l1.3,1.6c-0.8,0.7-1.6,1.3-2.4,2c-0.4-0.8-1.1-1.3-1.4-0.4c0,1-0.6,1.9-1.5,2.3\n                                    l-2.4-1.8l2.4-1.8c0.4,0.5,0.9,0.9,1.4,1.3c-0.3-2.4,0.5-3,2.6-3.2l-0.4-0.7c0.8-0.3,1.5-0.8,1.8-1.6c-0.3,0-0.7,0-0.8,0.2\n                                    c-0.6,0.5-1.3,1-2,1.2l-2.2,1.9c-1-0.1-1.9-0.6-2.5-1.5c1-0.8,1.8-1.6,3-1.8v-0.9h-1.4v0.5L78.4,58.5z M80.6,61.1l-2.4,1.7\n                                    L75.7,61l2.5-1.7L80.6,61.1z"
+                          "M78.4,58.5h-1.1v0.7c-1,0.2-1.5,1.6-2.8,1.2c0.2,0.3,0.3,0.6,0.5,0.9l2.7,1.9c-0.5,0.2-0.9,0.5-1.3,0.7\r\n                                    c-0.3,0.2-0.5,0.6-0.8,0.8c-0.3,0.2-0.7,0.3-1,0.3l-1.4,1.9c0.3-0.1,0.8-0.1,1-0.3c0.8-0.9,1.5-0.7,2.3-0.2\r\n                                    c-0.1-0.4-0.2-0.8-0.3-1.3l2.2-1.6l2.4,1.7l-1.9,1.6l0.9,0.5l1.3-1.6c0.6,0.5,1.2,0.8,1.9,1.2c0.9,0.3,1.4,1.4,2.4,1.3\r\n                                    c-0.7-1.5-2.5-1.7-3.2-3.1l2.2-1.5c0.5,0.5,1.2,1,1.8,1.4c0.9,0.4,1.4,1.4,2.5,1.3c-0.8-1.5-2.4-2.1-3.8-3.1l2.5-1.8l1.3,0.3\r\n                                    L88.1,61l0.9-1.2l-1.8,0.5c-0.8-0.2-1-1.3-2-1l1.3,1.6c-0.8,0.7-1.6,1.3-2.4,2c-0.4-0.8-1.1-1.3-1.4-0.4c0,1-0.6,1.9-1.5,2.3\r\n                                    l-2.4-1.8l2.4-1.8c0.4,0.5,0.9,0.9,1.4,1.3c-0.3-2.4,0.5-3,2.6-3.2l-0.4-0.7c0.8-0.3,1.5-0.8,1.8-1.6c-0.3,0-0.7,0-0.8,0.2\r\n                                    c-0.6,0.5-1.3,1-2,1.2l-2.2,1.9c-1-0.1-1.9-0.6-2.5-1.5c1-0.8,1.8-1.6,3-1.8v-0.9h-1.4v0.5L78.4,58.5z M80.6,61.1l-2.4,1.7\r\n                                    L75.7,61l2.5-1.7L80.6,61.1z"
                       }
                     }),
                     _vm._v(" "),
@@ -68550,7 +68553,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M89.7,59.9c1.6-1.6,3.6-2.5,5.3-3.9c1-0.9,2.4-1.2,2.9-2.6c-1.6,0.7-3.1,1.6-4.4,2.8\n                                    c-1.2,1.1-2.5,1.9-3.9,2.5L89,59.9C89.2,59.9,89.5,60,89.7,59.9z"
+                          "M89.7,59.9c1.6-1.6,3.6-2.5,5.3-3.9c1-0.9,2.4-1.2,2.9-2.6c-1.6,0.7-3.1,1.6-4.4,2.8\r\n                                    c-1.2,1.1-2.5,1.9-3.9,2.5L89,59.9C89.2,59.9,89.5,60,89.7,59.9z"
                       }
                     }),
                     _vm._v(" "),
@@ -68573,7 +68576,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M67.9,51.5c0.1,0.6,0.7,1.1,1.3,1c0,0,0.1,0,0.1,0C69.2,51.8,68.6,51.4,67.9,51.5\n                                    C68,51.5,67.9,51.5,67.9,51.5z"
+                          "M67.9,51.5c0.1,0.6,0.7,1.1,1.3,1c0,0,0.1,0,0.1,0C69.2,51.8,68.6,51.4,67.9,51.5\r\n                                    C68,51.5,67.9,51.5,67.9,51.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -68581,7 +68584,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M67.9,51.5c-0.1-0.6-0.7-1-1.3-0.9c0,0-0.1,0-0.1,0C66.6,51.2,67.2,51.6,67.9,51.5\n                                    C67.9,51.5,67.9,51.5,67.9,51.5z"
+                          "M67.9,51.5c-0.1-0.6-0.7-1-1.3-0.9c0,0-0.1,0-0.1,0C66.6,51.2,67.2,51.6,67.9,51.5\r\n                                    C67.9,51.5,67.9,51.5,67.9,51.5z"
                       }
                     }),
                     _vm._v(" "),
@@ -68607,7 +68610,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M61.9,51.7c0.9,0.6,1.6,1.5,2.8,1.6c0-0.1,0-0.2,0-0.2c-1.7-1.3-3.4-2.7-5.2-4c-0.1-0.1-0.3,0-0.4,0v0.6\n                                    C60,50.4,61,51.1,61.9,51.7z"
+                          "M61.9,51.7c0.9,0.6,1.6,1.5,2.8,1.6c0-0.1,0-0.2,0-0.2c-1.7-1.3-3.4-2.7-5.2-4c-0.1-0.1-0.3,0-0.4,0v0.6\r\n                                    C60,50.4,61,51.1,61.9,51.7z"
                       }
                     }),
                     _vm._v(" "),
@@ -68647,7 +68650,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M87.1,52.8c0.5-0.4,1-0.9,1.4-1.3c-1-0.3-1.4,0.6-1.9,1c-1.6,1.1-3.5,2-4.6,3.7c0.8,0,1.6-0.4,2.1-1\n                                    C85,54.3,86.1,53.5,87.1,52.8z"
+                          "M87.1,52.8c0.5-0.4,1-0.9,1.4-1.3c-1-0.3-1.4,0.6-1.9,1c-1.6,1.1-3.5,2-4.6,3.7c0.8,0,1.6-0.4,2.1-1\r\n                                    C85,54.3,86.1,53.5,87.1,52.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -68676,7 +68679,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M85.7,68.3c-0.1-0.1-0.3,0-0.5,0c1,1.9,3,2.5,4.7,3.7c0.5,0.4,0.9,1.3,1.9,1c0-0.1-0.1-0.3-0.2-0.4\n                                    C89.8,71,87.8,69.6,85.7,68.3z"
+                          "M85.7,68.3c-0.1-0.1-0.3,0-0.5,0c1,1.9,3,2.5,4.7,3.7c0.5,0.4,0.9,1.3,1.9,1c0-0.1-0.1-0.3-0.2-0.4\r\n                                    C89.8,71,87.8,69.6,85.7,68.3z"
                       }
                     }),
                     _vm._v(" "),
@@ -68700,7 +68703,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M64.2,73.5l-0.7-0.4c-0.2,0.4-0.4,0.9-0.7,1.3C63.4,74.6,64,74.2,64.2,73.5C64.2,73.5,64.2,73.5,64.2,73.5\n                                    z"
+                          "M64.2,73.5l-0.7-0.4c-0.2,0.4-0.4,0.9-0.7,1.3C63.4,74.6,64,74.2,64.2,73.5C64.2,73.5,64.2,73.5,64.2,73.5\r\n                                    z"
                       }
                     }),
                     _vm._v(" "),
@@ -68708,7 +68711,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M64.7,73c0.6,0.2,1.2-0.2,1.4-0.8c0,0,0-0.1,0-0.1C65.4,71.9,64.8,72.3,64.7,73\n                                    C64.7,72.9,64.7,72.9,64.7,73z"
+                          "M64.7,73c0.6,0.2,1.2-0.2,1.4-0.8c0,0,0-0.1,0-0.1C65.4,71.9,64.8,72.3,64.7,73\r\n                                    C64.7,72.9,64.7,72.9,64.7,73z"
                       }
                     }),
                     _vm._v(" "),
@@ -68750,7 +68753,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M66,67.8c-0.6-0.2-1.2,0.2-1.4,0.8c0,0,0,0.1,0,0.1C65.2,68.9,65.8,68.5,66,67.8C66,67.9,66,67.9,66,67.8z\n                                    "
+                          "M66,67.8c-0.6-0.2-1.2,0.2-1.4,0.8c0,0,0,0.1,0,0.1C65.2,68.9,65.8,68.5,66,67.8C66,67.9,66,67.9,66,67.8z\r\n                                    "
                       }
                     }),
                     _vm._v(" "),
@@ -68776,7 +68779,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M90.9,49.1l-0.3-0.4l-0.2,0.2L90.9,49.1L90.9,49.1c-0.4,0.4-0.6,0.8-0.9,1c-0.7,0.3-1.2,0.8-1.5,1.5\n                                    c1.6-0.4,2.9-1.4,3.7-2.8L90.9,49.1L90.9,49.1z"
+                          "M90.9,49.1l-0.3-0.4l-0.2,0.2L90.9,49.1L90.9,49.1c-0.4,0.4-0.6,0.8-0.9,1c-0.7,0.3-1.2,0.8-1.5,1.5\r\n                                    c1.6-0.4,2.9-1.4,3.7-2.8L90.9,49.1L90.9,49.1z"
                       }
                     }),
                     _vm._v(" "),
@@ -68789,7 +68792,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M89.9,67.4c-0.1-0.6-0.7-1.1-1.3-1c0,0,0,0-0.1,0C88.6,67,89.2,67.5,89.9,67.4\n                                    C89.9,67.4,89.9,67.4,89.9,67.4z"
+                          "M89.9,67.4c-0.1-0.6-0.7-1.1-1.3-1c0,0,0,0-0.1,0C88.6,67,89.2,67.5,89.9,67.4\r\n                                    C89.9,67.4,89.9,67.4,89.9,67.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -68802,7 +68805,7 @@ var render = function() {
                       staticClass: "st13",
                       attrs: {
                         d:
-                          "M73.1,59.4c0.1,0.6,0.7,1,1.3,0.9c0,0,0.1,0,0.1,0C74.4,59.7,73.8,59.3,73.1,59.4\n                                    C73.1,59.4,73.1,59.4,73.1,59.4z"
+                          "M73.1,59.4c0.1,0.6,0.7,1,1.3,0.9c0,0,0.1,0,0.1,0C74.4,59.7,73.8,59.3,73.1,59.4\r\n                                    C73.1,59.4,73.1,59.4,73.1,59.4z"
                       }
                     }),
                     _vm._v(" "),
@@ -68848,7 +68851,7 @@ var render = function() {
                     staticClass: "st0",
                     attrs: {
                       d:
-                        "M594.6,202.1l-5.4-39.4H385.6l-5.4,39.4c-1.2,10.8,4.8,28.6,29.5,28.6h155.5\n                            C589.8,230.6,595.9,212.9,594.6,202.1z"
+                        "M594.6,202.1l-5.4-39.4H385.6l-5.4,39.4c-1.2,10.8,4.8,28.6,29.5,28.6h155.5\r\n                            C589.8,230.6,595.9,212.9,594.6,202.1z"
                     }
                   }),
                   _vm._v(" "),
@@ -68950,7 +68953,7 @@ var render = function() {
                     staticClass: "st5",
                     attrs: {
                       d:
-                        "M497.5,149.3c-0.1-0.1-0.2-0.2-0.2-0.4c-0.3-1.4,1.8-0.8,1.9-1.6c0-0.5-0.7-0.7-1.1-0.7\n                            c-2.8-0.1-5.8-0.2-8.8-0.2c-2.9,0-5.8-0.3-8.7-0.1c-1.8,0.1-3.6,0.4-5.4,1c-0.8,0.3-1.4,1.1-1.5,2c-0.2,2,1.5,3,3.2,3.5\n                            c3.5,0.8,7.1,1.2,10.8,1.1c3.7,0,7.5-0.3,11.1-1.1c0.7-0.1,1.3-0.3,1.9-0.6c0.7-0.6,0.5-1.4-0.3-1.8s-1.7-0.4-2.5-0.8\n                            C497.9,149.6,497.7,149.4,497.5,149.3z"
+                        "M497.5,149.3c-0.1-0.1-0.2-0.2-0.2-0.4c-0.3-1.4,1.8-0.8,1.9-1.6c0-0.5-0.7-0.7-1.1-0.7\r\n                            c-2.8-0.1-5.8-0.2-8.8-0.2c-2.9,0-5.8-0.3-8.7-0.1c-1.8,0.1-3.6,0.4-5.4,1c-0.8,0.3-1.4,1.1-1.5,2c-0.2,2,1.5,3,3.2,3.5\r\n                            c3.5,0.8,7.1,1.2,10.8,1.1c3.7,0,7.5-0.3,11.1-1.1c0.7-0.1,1.3-0.3,1.9-0.6c0.7-0.6,0.5-1.4-0.3-1.8s-1.7-0.4-2.5-0.8\r\n                            C497.9,149.6,497.7,149.4,497.5,149.3z"
                     }
                   }),
                   _vm._v(" "),
@@ -68958,7 +68961,7 @@ var render = function() {
                     staticClass: "st5",
                     attrs: {
                       d:
-                        "M490.8,145.4c0.4-0.1,0.9-0.1,1.3-0.1c0.8-0.1,2.5-0.3,2.6-1.4c0.1-0.6-0.5-0.2-1-0.1s-0.9,0.1-1.4,0.1\n                            c-0.8,0.1-1.5,0.3-2.2,0.6c-0.4,0.2-0.7,0.4-1,0.7c-0.2,0.1-0.2,0.4-0.1,0.6C489.6,145.7,490.2,145.6,490.8,145.4z"
+                        "M490.8,145.4c0.4-0.1,0.9-0.1,1.3-0.1c0.8-0.1,2.5-0.3,2.6-1.4c0.1-0.6-0.5-0.2-1-0.1s-0.9,0.1-1.4,0.1\r\n                            c-0.8,0.1-1.5,0.3-2.2,0.6c-0.4,0.2-0.7,0.4-1,0.7c-0.2,0.1-0.2,0.4-0.1,0.6C489.6,145.7,490.2,145.6,490.8,145.4z"
                     }
                   })
                 ],
@@ -69031,7 +69034,7 @@ var render = function() {
                       staticClass: "st0",
                       attrs: {
                         d:
-                          "M667.5,43.6c0,0,0-8.2-1.3-12.6c-0.3-1-0.3-2,0-3l1.1-3.1H688l1.2,2.7c0.6,1.3,0.7,2.7,0.4,4\n                                c-0.9,4-1.4,8.1-1.5,12.2c0,7.6-0.3,150.2-0.3,150.2h-18.8L667.5,43.6z"
+                          "M667.5,43.6c0,0,0-8.2-1.3-12.6c-0.3-1-0.3-2,0-3l1.1-3.1H688l1.2,2.7c0.6,1.3,0.7,2.7,0.4,4\r\n                                c-0.9,4-1.4,8.1-1.5,12.2c0,7.6-0.3,150.2-0.3,150.2h-18.8L667.5,43.6z"
                       }
                     }),
                     _vm._v(" "),
@@ -69098,7 +69101,7 @@ var render = function() {
                       staticClass: "st4",
                       attrs: {
                         d:
-                          "M674.8,104.8V90.7c0-2.1,1.4-3.8,3-3.8l0,0c1.7,0,3,1.7,3,3.8v14.1c0,2.3-1.4,4.2-3,4.2\n                                S674.8,107.1,674.8,104.8z"
+                          "M674.8,104.8V90.7c0-2.1,1.4-3.8,3-3.8l0,0c1.7,0,3,1.7,3,3.8v14.1c0,2.3-1.4,4.2-3,4.2\r\n                                S674.8,107.1,674.8,104.8z"
                       }
                     }),
                     _vm._v(" "),
@@ -69106,7 +69109,7 @@ var render = function() {
                       staticClass: "st4",
                       attrs: {
                         d:
-                          "M674.8,76.5V62.5c0-2.1,1.4-3.8,3-3.8l0,0c1.7,0,3,1.7,3,3.8v14.1c0,2.3-1.4,4.2-3,4.2\n                                S674.8,78.9,674.8,76.5z"
+                          "M674.8,76.5V62.5c0-2.1,1.4-3.8,3-3.8l0,0c1.7,0,3,1.7,3,3.8v14.1c0,2.3-1.4,4.2-3,4.2\r\n                                S674.8,78.9,674.8,76.5z"
                       }
                     })
                   ],
@@ -69192,7 +69195,7 @@ var render = function() {
                     staticClass: "st0",
                     attrs: {
                       d:
-                        "M24.3,0h73c13,0,23.5,10.5,23.5,23.5v193.1c0,13-10.5,23.5-23.5,23.5h-73c-13,0-23.5-10.5-23.5-23.5V23.5\n                            C0.8,10.5,11.4,0,24.3,0z"
+                        "M24.3,0h73c13,0,23.5,10.5,23.5,23.5v193.1c0,13-10.5,23.5-23.5,23.5h-73c-13,0-23.5-10.5-23.5-23.5V23.5\r\n                            C0.8,10.5,11.4,0,24.3,0z"
                     }
                   }),
                   _vm._v(" "),
@@ -69227,7 +69230,7 @@ var render = function() {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M24.7,2.5H97c11.7,0,21.1,9.5,21.1,21.1v193.5c0,11.7-9.5,21.1-21.1,21.1H24.7c-11.7,0-21.1-9.5-21.1-21.1\n                            V23.6C3.5,11.9,13,2.5,24.7,2.5z"
+                        "M24.7,2.5H97c11.7,0,21.1,9.5,21.1,21.1v193.5c0,11.7-9.5,21.1-21.1,21.1H24.7c-11.7,0-21.1-9.5-21.1-21.1\r\n                            V23.6C3.5,11.9,13,2.5,24.7,2.5z"
                     }
                   }),
                   _vm._v(" "),
@@ -69245,7 +69248,7 @@ var render = function() {
                     staticClass: "st2",
                     attrs: {
                       d:
-                        "M52.4,14.5h16.8c0.4,0,0.8,0.4,0.8,0.8v0.1c0,0.4-0.4,0.8-0.8,0.8H52.4c-0.4,0-0.8-0.4-0.8-0.8v-0.1\n                            C51.7,14.8,52,14.5,52.4,14.5z"
+                        "M52.4,14.5h16.8c0.4,0,0.8,0.4,0.8,0.8v0.1c0,0.4-0.4,0.8-0.8,0.8H52.4c-0.4,0-0.8-0.4-0.8-0.8v-0.1\r\n                            C51.7,14.8,52,14.5,52.4,14.5z"
                     }
                   }),
                   _vm._v(" "),
@@ -69322,7 +69325,7 @@ var render = function() {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M3.4,44C1.1,40.4,0,36,0,30.8c0-6.7,1.7-12.7,5.1-18C8.5,7.5,13.7,3.2,20.6,0l1.8,3.6\n                                c-4.1,1.7-7.7,4.5-10.7,8.2c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5\n                                c2.5,2.3,3.7,5.4,3.7,9.3c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C10,50.4,6.1,48.3,3.4,44z M37.4,44\n                                c-2.3-3.6-3.4-8-3.4-13.2c0-6.7,1.7-12.7,5.1-18C42.5,7.5,47.7,3.2,54.6,0l1.8,3.6c-4.1,1.7-7.7,4.5-10.7,8.2\n                                c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5c2.5,2.3,3.7,5.4,3.7,9.3\n                                c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C44,50.4,40.1,48.3,37.4,44z"
+                        "M3.4,44C1.1,40.4,0,36,0,30.8c0-6.7,1.7-12.7,5.1-18C8.5,7.5,13.7,3.2,20.6,0l1.8,3.6\r\n                                c-4.1,1.7-7.7,4.5-10.7,8.2c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5\r\n                                c2.5,2.3,3.7,5.4,3.7,9.3c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C10,50.4,6.1,48.3,3.4,44z M37.4,44\r\n                                c-2.3-3.6-3.4-8-3.4-13.2c0-6.7,1.7-12.7,5.1-18C42.5,7.5,47.7,3.2,54.6,0l1.8,3.6c-4.1,1.7-7.7,4.5-10.7,8.2\r\n                                c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5c2.5,2.3,3.7,5.4,3.7,9.3\r\n                                c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C44,50.4,40.1,48.3,37.4,44z"
                     }
                   })
                 ])
@@ -69360,7 +69363,7 @@ var render = function() {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M58.6,6.4c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6\n                                c4.1-1.7,7.7-4.5,10.7-8.2c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5\n                                c-2.5-2.3-3.7-5.4-3.7-9.3c0-3.6,1.2-6.6,3.7-9.1C40.2,1.2,43.2,0,46.8,0C52,0,55.9,2.1,58.6,6.4z M24.6,6.4\n                                c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6c4.1-1.7,7.7-4.5,10.7-8.2\n                                c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5C1.2,19.8,0,16.7,0,12.8\n                                c0-3.6,1.2-6.6,3.7-9.1C6.2,1.2,9.2,0,12.8,0C18,0,21.9,2.1,24.6,6.4z"
+                        "M58.6,6.4c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6\r\n                                c4.1-1.7,7.7-4.5,10.7-8.2c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5\r\n                                c-2.5-2.3-3.7-5.4-3.7-9.3c0-3.6,1.2-6.6,3.7-9.1C40.2,1.2,43.2,0,46.8,0C52,0,55.9,2.1,58.6,6.4z M24.6,6.4\r\n                                c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6c4.1-1.7,7.7-4.5,10.7-8.2\r\n                                c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5C1.2,19.8,0,16.7,0,12.8\r\n                                c0-3.6,1.2-6.6,3.7-9.1C6.2,1.2,9.2,0,12.8,0C18,0,21.9,2.1,24.6,6.4z"
                     }
                   })
                 ])
@@ -69384,14 +69387,131 @@ if (false) {
 
 /***/ }),
 /* 73 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(74)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(76)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-d57ea290"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/Graphics/BusinessCardMockup.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d57ea290", Component.options)
+  } else {
+    hotAPI.reload("data-v-d57ea290", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
 
 /***/ }),
-/* 74 */,
-/* 75 */,
-/* 76 */,
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(75);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("9edce746", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d57ea290\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BusinessCardMockup.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d57ea290\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BusinessCardMockup.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.business-card[data-v-d57ea290] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n}\n.business-card .image[data-v-d57ea290] {\n    padding: 2rem 0;\n}\n.business-card .image img[data-v-d57ea290] {\n      width: 100%;\n      height: 90vh;\n      -o-object-fit: cover;\n         object-fit: cover;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "business-card scroll-able" }, [
+      _c("div", { staticClass: "theme-container" }, [
+        _c("div", { staticClass: "image" }, [
+          _c("img", {
+            attrs: { src: "images/businesscards.jpeg", alt: "Branding" }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d57ea290", module.exports)
+  }
+}
+
+/***/ }),
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69400,7 +69520,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(78)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -69453,7 +69573,7 @@ var content = __webpack_require__(79);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("584f384e", content, false, {});
+var update = __webpack_require__(1)("584f384e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69472,7 +69592,7 @@ if(false) {
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -69534,20 +69654,19 @@ if (false) {
 }
 
 /***/ }),
-/* 81 */,
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(83)
+  __webpack_require__(82)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(85)
+var __vue_template__ = __webpack_require__(84)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -69586,17 +69705,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(84);
+var content = __webpack_require__(83);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("348de8c8", content, false, {});
+var update = __webpack_require__(1)("348de8c8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69612,10 +69731,10 @@ if(false) {
 }
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -69626,7 +69745,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -69673,19 +69792,19 @@ if (false) {
 }
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(87)
+  __webpack_require__(86)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(89)
+var __vue_template__ = __webpack_require__(88)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -69724,17 +69843,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(88);
+var content = __webpack_require__(87);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("28a34101", content, false, {});
+var update = __webpack_require__(1)("28a34101", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69750,10 +69869,10 @@ if(false) {
 }
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -69764,7 +69883,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -71279,19 +71398,19 @@ if (false) {
 }
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(91)
+  __webpack_require__(90)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(93)
+var __vue_template__ = __webpack_require__(92)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -71330,17 +71449,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(92);
+var content = __webpack_require__(91);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3391513e", content, false, {});
+var update = __webpack_require__(1)("3391513e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -71356,10 +71475,10 @@ if(false) {
 }
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -71370,7 +71489,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -71434,7 +71553,7 @@ var render = function() {
               staticClass: "st0",
               attrs: {
                 d:
-                  "M258.4,360.2c0,0,11.6,0,17.9-1.3c1.4-0.3,2.9-0.3,4.3,0l4.4,1.1v20.8l-3.8,1.2c-1.8,0.6-3.8,0.7-5.7,0.4\n                    c-5.7-0.9-11.5-1.4-17.3-1.4c-9.6,0-203.4-0.3-248.8-0.3c-5.2,0-9.4-4.2-9.4-9.4c0,0,0,0,0,0l0,0c0-5.2,4.2-9.4,9.4-9.4L258.4,360.2\n                    z"
+                  "M258.4,360.2c0,0,11.6,0,17.9-1.3c1.4-0.3,2.9-0.3,4.3,0l4.4,1.1v20.8l-3.8,1.2c-1.8,0.6-3.8,0.7-5.7,0.4\r\n                    c-5.7-0.9-11.5-1.4-17.3-1.4c-9.6,0-203.4-0.3-248.8-0.3c-5.2,0-9.4-4.2-9.4-9.4c0,0,0,0,0,0l0,0c0-5.2,4.2-9.4,9.4-9.4L258.4,360.2\r\n                    z"
               }
             }),
             _vm._v(" "),
@@ -71495,7 +71614,7 @@ var render = function() {
               staticClass: "st4",
               attrs: {
                 d:
-                  "M205.1,367.5h14.1c2.1,0,3.8,1.4,3.8,3l0,0c0,1.7-1.7,3-3.8,3h-14.1c-2.3,0-4.3-1.4-4.3-3\n                    S202.8,367.5,205.1,367.5z"
+                  "M205.1,367.5h14.1c2.1,0,3.8,1.4,3.8,3l0,0c0,1.7-1.7,3-3.8,3h-14.1c-2.3,0-4.3-1.4-4.3-3\r\n                    S202.8,367.5,205.1,367.5z"
               }
             }),
             _vm._v(" "),
@@ -71503,7 +71622,7 @@ var render = function() {
               staticClass: "st4",
               attrs: {
                 d:
-                  "M233.3,367.5h14.1c2.1,0,3.8,1.4,3.8,3l0,0c0,1.7-1.7,3-3.8,3h-14.1c-2.3,0-4.3-1.4-4.3-3\n                    S231,367.5,233.3,367.5z"
+                  "M233.3,367.5h14.1c2.1,0,3.8,1.4,3.8,3l0,0c0,1.7-1.7,3-3.8,3h-14.1c-2.3,0-4.3-1.4-4.3-3\r\n                    S231,367.5,233.3,367.5z"
               }
             }),
             _vm._v(" "),
@@ -71511,7 +71630,7 @@ var render = function() {
               staticClass: "st5",
               attrs: {
                 d:
-                  "M15,316.3V5.3C15,2.4,17.4,0,20.4,0h287.1c2.9,0,5.3,2.4,5.3,5.3v311c0,2.9-2.4,5.3-5.3,5.3H20.4\n                    C17.4,321.6,15,319.2,15,316.3z"
+                  "M15,316.3V5.3C15,2.4,17.4,0,20.4,0h287.1c2.9,0,5.3,2.4,5.3,5.3v311c0,2.9-2.4,5.3-5.3,5.3H20.4\r\n                    C17.4,321.6,15,319.2,15,316.3z"
               }
             }),
             _vm._v(" "),
@@ -71519,7 +71638,7 @@ var render = function() {
               staticClass: "st6",
               attrs: {
                 d:
-                  "M17.4,316.2V5.4c0-1.7,1.4-3.1,3.1-3.1h286.8c1.7,0,3.1,1.4,3.1,3.1v310.8c0,1.7-1.4,3.1-3.1,3.1H20.5\n                    C18.8,319.3,17.4,317.9,17.4,316.2z"
+                  "M17.4,316.2V5.4c0-1.7,1.4-3.1,3.1-3.1h286.8c1.7,0,3.1,1.4,3.1,3.1v310.8c0,1.7-1.4,3.1-3.1,3.1H20.5\r\n                    C18.8,319.3,17.4,317.9,17.4,316.2z"
               }
             }),
             _vm._v(" "),
@@ -71535,7 +71654,7 @@ var render = function() {
               staticClass: "st7",
               attrs: {
                 d:
-                  "M21.2,312.4V9.2c0-1.7,1.4-3.1,3.1-3.1h279.1c1.7,0,3.1,1.4,3.1,3.1v303.3c0,1.7-1.4,3.1-3.1,3.1H24.3\n                    C22.6,315.5,21.2,314.1,21.2,312.4z"
+                  "M21.2,312.4V9.2c0-1.7,1.4-3.1,3.1-3.1h279.1c1.7,0,3.1,1.4,3.1,3.1v303.3c0,1.7-1.4,3.1-3.1,3.1H24.3\r\n                    C22.6,315.5,21.2,314.1,21.2,312.4z"
               }
             }),
             _vm._v(" "),
@@ -71633,7 +71752,7 @@ var render = function() {
                     staticClass: "st0",
                     attrs: {
                       d:
-                        "M243.1,19.6c18.2,0.4,27.9,9.3,27.9,9.3l50.5,35.9c-0.6,2.5-1.6,5.4-2.9,7.1s-4.7,3.2-7.5,4.1\n                            c-13.3-11.7-31.6-27.6-39.7-34.3c-13.5-11.2-29.8-11.2-29.8-11.2L9.7,25V8.4C9.7,8.4,224.9,19.2,243.1,19.6z"
+                        "M243.1,19.6c18.2,0.4,27.9,9.3,27.9,9.3l50.5,35.9c-0.6,2.5-1.6,5.4-2.9,7.1s-4.7,3.2-7.5,4.1\r\n                            c-13.3-11.7-31.6-27.6-39.7-34.3c-13.5-11.2-29.8-11.2-29.8-11.2L9.7,25V8.4C9.7,8.4,224.9,19.2,243.1,19.6z"
                     }
                   }),
                   _vm._v(" "),
@@ -71713,7 +71832,7 @@ var render = function() {
                     staticClass: "st2",
                     attrs: {
                       d:
-                        "M93.3,19.6c-18.2,0.4-27.9,9.3-27.9,9.3L14.9,64.8c0.6,2.5,1.6,5.4,2.9,7.1s4.7,3.2,7.5,4.1\n                            C38.6,64.3,56.9,48.4,65,41.7c13.5-11.2,29.8-11.2,29.8-11.2L326.7,25V8.4C326.7,8.4,111.5,19.2,93.3,19.6z"
+                        "M93.3,19.6c-18.2,0.4-27.9,9.3-27.9,9.3L14.9,64.8c0.6,2.5,1.6,5.4,2.9,7.1s4.7,3.2,7.5,4.1\r\n                            C38.6,64.3,56.9,48.4,65,41.7c13.5-11.2,29.8-11.2,29.8-11.2L326.7,25V8.4C326.7,8.4,111.5,19.2,93.3,19.6z"
                     }
                   }),
                   _vm._v(" "),
@@ -71793,7 +71912,7 @@ var render = function() {
                     staticClass: "st4",
                     attrs: {
                       d:
-                        "M137.4,7.2c-2.4-1.2-5-2.2-7.6-2.9C110.9-0.8,91-0.1,71.6,0.2C55.4,0.5,39,0.5,23.1,4.2\n                            C19.5,5,14.5,5.7,11.3,7.7c-2.2,1.4-1.7,2.6-1.7,5.3v11.4c7,1.1,12.7,6.3,14.3,13.2c3.1,12.1,7.3,24.8,14,35.5\n                            c7.7,12.4,23.5,15.2,37.2,16.3c11.7,0.9,23.7,0.6,34.9-2.8c23.2-7.1,35.6-27.5,42-49.8V20.4c0-1.7-1.9-3.5-3-4.6\n                            C145.7,12.3,141.8,9.4,137.4,7.2z M117.9,78.2c-12.5,7.4-27.9,8.8-42.5,7.4c-14.3-1.3-28.1-6.1-34.8-19.6\n                            c-4.1-8.2-6.6-17.1-7.3-26.2c-0.5-7.6-0.5-17.1,5-23.1c3.2-3.5,7.8-5.4,12.4-6.6c8.5-2.3,17.4-2.8,26.2-2.9\n                            c12.3-0.2,24.6,0.3,36.7,2.5c9.3,1.7,22.8,5,26.9,14.6c8,18.3-5.6,43.1-21.1,53.1C118.9,77.7,118.4,78,117.9,78.2L117.9,78.2z"
+                        "M137.4,7.2c-2.4-1.2-5-2.2-7.6-2.9C110.9-0.8,91-0.1,71.6,0.2C55.4,0.5,39,0.5,23.1,4.2\r\n                            C19.5,5,14.5,5.7,11.3,7.7c-2.2,1.4-1.7,2.6-1.7,5.3v11.4c7,1.1,12.7,6.3,14.3,13.2c3.1,12.1,7.3,24.8,14,35.5\r\n                            c7.7,12.4,23.5,15.2,37.2,16.3c11.7,0.9,23.7,0.6,34.9-2.8c23.2-7.1,35.6-27.5,42-49.8V20.4c0-1.7-1.9-3.5-3-4.6\r\n                            C145.7,12.3,141.8,9.4,137.4,7.2z M117.9,78.2c-12.5,7.4-27.9,8.8-42.5,7.4c-14.3-1.3-28.1-6.1-34.8-19.6\r\n                            c-4.1-8.2-6.6-17.1-7.3-26.2c-0.5-7.6-0.5-17.1,5-23.1c3.2-3.5,7.8-5.4,12.4-6.6c8.5-2.3,17.4-2.8,26.2-2.9\r\n                            c12.3-0.2,24.6,0.3,36.7,2.5c9.3,1.7,22.8,5,26.9,14.6c8,18.3-5.6,43.1-21.1,53.1C118.9,77.7,118.4,78,117.9,78.2L117.9,78.2z"
                     }
                   }),
                   _vm._v(" "),
@@ -71833,7 +71952,7 @@ var render = function() {
                     staticClass: "st5",
                     attrs: {
                       d:
-                        "M187.2,15.8c-1.1,1.1-3,3-3,4.6v16.3c6.4,22.2,18.8,42.7,42,49.8c11.2,3.4,23.2,3.8,34.9,2.8\n                            c13.7-1.1,29.5-4,37.3-16.3c6.7-10.7,10.8-23.4,14-35.5c1.7-6.9,7.3-12.1,14.3-13.2V12.9c0-2.6,0.5-3.9-1.7-5.3\n                            c-3.1-2-8.2-2.7-11.7-3.5c-15.9-3.7-32.3-3.7-48.5-4c-19.4-0.3-39.3-1-58.2,4.1C204,5,201.4,6,199,7.2\n                            C194.6,9.4,190.6,12.3,187.2,15.8z M217,77.4c-15.6-10-29.1-34.7-21.1-53.1c4.2-9.6,17.7-12.9,26.9-14.6\n                            c12.1-2.2,24.4-2.7,36.7-2.4c8.8,0.2,17.7,0.7,26.2,2.9c4.6,1.2,9.3,3,12.4,6.6c5.4,6,5.5,15.5,4.9,23.1c-0.7,9.1-3.2,18-7.3,26.2\n                            c-6.8,13.5-20.6,18.3-34.8,19.6c-14.6,1.4-29.9,0-42.5-7.4C218,78,217.5,77.7,217,77.4z"
+                        "M187.2,15.8c-1.1,1.1-3,3-3,4.6v16.3c6.4,22.2,18.8,42.7,42,49.8c11.2,3.4,23.2,3.8,34.9,2.8\r\n                            c13.7-1.1,29.5-4,37.3-16.3c6.7-10.7,10.8-23.4,14-35.5c1.7-6.9,7.3-12.1,14.3-13.2V12.9c0-2.6,0.5-3.9-1.7-5.3\r\n                            c-3.1-2-8.2-2.7-11.7-3.5c-15.9-3.7-32.3-3.7-48.5-4c-19.4-0.3-39.3-1-58.2,4.1C204,5,201.4,6,199,7.2\r\n                            C194.6,9.4,190.6,12.3,187.2,15.8z M217,77.4c-15.6-10-29.1-34.7-21.1-53.1c4.2-9.6,17.7-12.9,26.9-14.6\r\n                            c12.1-2.2,24.4-2.7,36.7-2.4c8.8,0.2,17.7,0.7,26.2,2.9c4.6,1.2,9.3,3,12.4,6.6c5.4,6,5.5,15.5,4.9,23.1c-0.7,9.1-3.2,18-7.3,26.2\r\n                            c-6.8,13.5-20.6,18.3-34.8,19.6c-14.6,1.4-29.9,0-42.5-7.4C218,78,217.5,77.7,217,77.4z"
                     }
                   }),
                   _vm._v(" "),
@@ -71873,7 +71992,7 @@ var render = function() {
                     staticClass: "st6",
                     attrs: {
                       d:
-                        "M152.1,36.7c0,0,0.4-6.6,16.1-6.6s16.1,6.6,16.1,6.6l5-22.8c0,0-2.3,4.6-20.9,4.6S147,13.8,147,13.8\n                            L152.1,36.7z"
+                        "M152.1,36.7c0,0,0.4-6.6,16.1-6.6s16.1,6.6,16.1,6.6l5-22.8c0,0-2.3,4.6-20.9,4.6S147,13.8,147,13.8\r\n                            L152.1,36.7z"
                     }
                   }),
                   _vm._v(" "),
@@ -71908,7 +72027,7 @@ var render = function() {
                     staticClass: "st7",
                     attrs: {
                       d:
-                        "M113.4,9.5C101.3,7.3,89,6.8,76.7,7C67.9,7.2,59,7.7,50.5,10c-4.6,1.2-9.2,3-12.4,6.5c-5.4,6-5.5,15.5-5,23.1\n                            c0.7,9.1,3.2,18,7.3,26.2C47.2,79.4,61,84.1,75.3,85.5c14.6,1.4,29.9-0.1,42.5-7.4c0.5-0.3,1-0.6,1.5-0.9\n                            c15.6-9.9,29.1-34.7,21.1-53.1C136.1,14.5,122.6,11.2,113.4,9.5z"
+                        "M113.4,9.5C101.3,7.3,89,6.8,76.7,7C67.9,7.2,59,7.7,50.5,10c-4.6,1.2-9.2,3-12.4,6.5c-5.4,6-5.5,15.5-5,23.1\r\n                            c0.7,9.1,3.2,18,7.3,26.2C47.2,79.4,61,84.1,75.3,85.5c14.6,1.4,29.9-0.1,42.5-7.4c0.5-0.3,1-0.6,1.5-0.9\r\n                            c15.6-9.9,29.1-34.7,21.1-53.1C136.1,14.5,122.6,11.2,113.4,9.5z"
                     }
                   }),
                   _vm._v(" "),
@@ -71943,7 +72062,7 @@ var render = function() {
                     staticClass: "st8",
                     attrs: {
                       d:
-                        "M285.5,10c-8.5-2.3-17.4-2.8-26.2-3c-12.3-0.2-24.6,0.3-36.7,2.4c-9.3,1.7-22.7,5-26.9,14.6\n                            c-8,18.4,5.6,43.1,21.1,53.1c0.5,0.3,1,0.6,1.5,0.9c12.5,7.4,27.9,8.8,42.5,7.4c14.3-1.4,28.1-6.1,34.8-19.6\n                            c4.1-8.2,6.6-17.1,7.3-26.2c0.5-7.6,0.5-17.1-5-23.1C294.7,13,290.1,11.2,285.5,10z"
+                        "M285.5,10c-8.5-2.3-17.4-2.8-26.2-3c-12.3-0.2-24.6,0.3-36.7,2.4c-9.3,1.7-22.7,5-26.9,14.6\r\n                            c-8,18.4,5.6,43.1,21.1,53.1c0.5,0.3,1,0.6,1.5,0.9c12.5,7.4,27.9,8.8,42.5,7.4c14.3-1.4,28.1-6.1,34.8-19.6\r\n                            c4.1-8.2,6.6-17.1,7.3-26.2c0.5-7.6,0.5-17.1-5-23.1C294.7,13,290.1,11.2,285.5,10z"
                     }
                   })
                 ],
@@ -71982,7 +72101,7 @@ var render = function() {
                     staticClass: "st0",
                     attrs: {
                       d:
-                        "M16.5,0h222.3c8.5,0,15.4,6.9,15.4,15.4v326.4c0,8.5-6.9,15.4-15.4,15.4H16.5c-8.5,0-15.4-6.9-15.4-15.4V15.4\n                            C1.1,6.9,8,0,16.5,0z"
+                        "M16.5,0h222.3c8.5,0,15.4,6.9,15.4,15.4v326.4c0,8.5-6.9,15.4-15.4,15.4H16.5c-8.5,0-15.4-6.9-15.4-15.4V15.4\r\n                            C1.1,6.9,8,0,16.5,0z"
                     }
                   }),
                   _vm._v(" "),
@@ -72017,7 +72136,7 @@ var render = function() {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M17.6,2.2h220.2c7.5,0,13.6,6.1,13.6,13.6v326.4c0,7.5-6.1,13.6-13.6,13.6H17.6c-7.5,0-13.6-6.1-13.6-13.6\n                            V15.9C3.9,8.3,10,2.2,17.6,2.2z"
+                        "M17.6,2.2h220.2c7.5,0,13.6,6.1,13.6,13.6v326.4c0,7.5-6.1,13.6-13.6,13.6H17.6c-7.5,0-13.6-6.1-13.6-13.6\r\n                            V15.9C3.9,8.3,10,2.2,17.6,2.2z"
                     }
                   }),
                   _vm._v(" "),
@@ -72106,7 +72225,7 @@ var render = function() {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M3.4,44C1.1,40.4,0,36,0,30.8c0-6.7,1.7-12.7,5.1-18C8.5,7.5,13.7,3.2,20.6,0l1.8,3.6\n                                c-4.1,1.7-7.7,4.5-10.7,8.2c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5\n                                c2.5,2.3,3.7,5.4,3.7,9.3c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C10,50.4,6.1,48.3,3.4,44z M37.4,44\n                                c-2.3-3.6-3.4-8-3.4-13.2c0-6.7,1.7-12.7,5.1-18C42.5,7.5,47.7,3.2,54.6,0l1.8,3.6c-4.1,1.7-7.7,4.5-10.7,8.2\n                                c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5c2.5,2.3,3.7,5.4,3.7,9.3\n                                c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C44,50.4,40.1,48.3,37.4,44z"
+                        "M3.4,44C1.1,40.4,0,36,0,30.8c0-6.7,1.7-12.7,5.1-18C8.5,7.5,13.7,3.2,20.6,0l1.8,3.6\r\n                                c-4.1,1.7-7.7,4.5-10.7,8.2c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5\r\n                                c2.5,2.3,3.7,5.4,3.7,9.3c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C10,50.4,6.1,48.3,3.4,44z M37.4,44\r\n                                c-2.3-3.6-3.4-8-3.4-13.2c0-6.7,1.7-12.7,5.1-18C42.5,7.5,47.7,3.2,54.6,0l1.8,3.6c-4.1,1.7-7.7,4.5-10.7,8.2\r\n                                c-3,3.7-4.5,7.5-4.5,11.4c0,1.6,0.2,3,0.6,4.2c2.1-1.7,4.6-2.6,7.4-2.6c3.6,0,6.6,1.2,9.1,3.5c2.5,2.3,3.7,5.4,3.7,9.3\r\n                                c0,3.6-1.2,6.6-3.7,9.1c-2.5,2.5-5.5,3.7-9.1,3.7C44,50.4,40.1,48.3,37.4,44z"
                     }
                   })
                 ])
@@ -72144,7 +72263,7 @@ var render = function() {
                     staticClass: "st1",
                     attrs: {
                       d:
-                        "M58.6,6.4c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6\n                                c4.1-1.7,7.7-4.5,10.7-8.2c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5\n                                c-2.5-2.3-3.7-5.4-3.7-9.3c0-3.6,1.2-6.6,3.7-9.1C40.2,1.2,43.2,0,46.8,0C52,0,55.9,2.1,58.6,6.4z M24.6,6.4\n                                c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6c4.1-1.7,7.7-4.5,10.7-8.2\n                                c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5C1.2,19.8,0,16.7,0,12.8\n                                c0-3.6,1.2-6.6,3.7-9.1C6.2,1.2,9.2,0,12.8,0C18,0,21.9,2.1,24.6,6.4z"
+                        "M58.6,6.4c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6\r\n                                c4.1-1.7,7.7-4.5,10.7-8.2c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5\r\n                                c-2.5-2.3-3.7-5.4-3.7-9.3c0-3.6,1.2-6.6,3.7-9.1C40.2,1.2,43.2,0,46.8,0C52,0,55.9,2.1,58.6,6.4z M24.6,6.4\r\n                                c2.3,3.6,3.4,8,3.4,13.2c0,6.7-1.7,12.7-5.1,18c-3.4,5.3-8.6,9.6-15.5,12.8l-1.8-3.6c4.1-1.7,7.7-4.5,10.7-8.2\r\n                                c3-3.7,4.5-7.5,4.5-11.4c0-1.6-0.2-3-0.6-4.2c-2.1,1.7-4.6,2.6-7.4,2.6c-3.6,0-6.6-1.2-9.1-3.5C1.2,19.8,0,16.7,0,12.8\r\n                                c0-3.6,1.2-6.6,3.7-9.1C6.2,1.2,9.2,0,12.8,0C18,0,21.9,2.1,24.6,6.4z"
                     }
                   })
                 ])
@@ -72167,19 +72286,19 @@ if (false) {
 }
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(95)
+  __webpack_require__(94)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(97)
+var __vue_template__ = __webpack_require__(96)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72218,17 +72337,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(96);
+var content = __webpack_require__(95);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3d19308b", content, false, {});
+var update = __webpack_require__(1)("3d19308b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -72244,10 +72363,10 @@ if(false) {
 }
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -72258,7 +72377,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72309,19 +72428,19 @@ if (false) {
 }
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(99)
+  __webpack_require__(98)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(101)
+var __vue_template__ = __webpack_require__(100)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72360,17 +72479,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(100);
+var content = __webpack_require__(99);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("5a5313ce", content, false, {});
+var update = __webpack_require__(1)("5a5313ce", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -72386,10 +72505,10 @@ if(false) {
 }
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -72400,7 +72519,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72455,19 +72574,19 @@ if (false) {
 }
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(103)
+  __webpack_require__(102)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(105)
+var __vue_template__ = __webpack_require__(104)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72506,17 +72625,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(104);
+var content = __webpack_require__(103);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6ad51802", content, false, {});
+var update = __webpack_require__(1)("6ad51802", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -72532,10 +72651,10 @@ if(false) {
 }
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -72546,7 +72665,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72591,19 +72710,19 @@ if (false) {
 }
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(107)
+  __webpack_require__(106)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(109)
+var __vue_template__ = __webpack_require__(108)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72642,17 +72761,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(108);
+var content = __webpack_require__(107);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6bc9a52c", content, false, {});
+var update = __webpack_require__(1)("6bc9a52c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -72668,10 +72787,10 @@ if(false) {
 }
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -72682,7 +72801,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72944,19 +73063,19 @@ if (false) {
 }
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(111)
+  __webpack_require__(110)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(113)
+var __vue_template__ = __webpack_require__(112)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72995,17 +73114,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(112);
+var content = __webpack_require__(111);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("22d181d2", content, false, {});
+var update = __webpack_require__(1)("22d181d2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -73021,10 +73140,10 @@ if(false) {
 }
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -73035,7 +73154,7 @@ exports.push([module.i, "\n@font-face {\n  font-family: 'Sofia Pro';\n  src: '.r
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -73094,25 +73213,34 @@ if (false) {
 }
 
 /***/ }),
-/* 114 */
+/* 113 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(115)
+  __webpack_require__(118)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(117)
+var __vue_template__ = __webpack_require__(120)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-d57ea290"
+var __vue_scopeId__ = "data-v-9e164aca"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -73123,7 +73251,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/layouts/Graphics/BusinessCardMockup.vue"
+Component.options.__file = "resources/js/components/layouts/Development/WebDevelopmentCover.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -73132,9 +73260,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d57ea290", Component.options)
+    hotAPI.createRecord("data-v-9e164aca", Component.options)
   } else {
-    hotAPI.reload("data-v-d57ea290", Component.options)
+    hotAPI.reload("data-v-9e164aca", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -73145,23 +73273,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 115 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(116);
+var content = __webpack_require__(119);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("9edce746", content, false, {});
+var update = __webpack_require__(1)("bae7f1ec", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d57ea290\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BusinessCardMockup.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d57ea290\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BusinessCardMockup.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9e164aca\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WebDevelopmentCover.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9e164aca\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WebDevelopmentCover.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -73171,51 +73299,36 @@ if(false) {
 }
 
 /***/ }),
-/* 116 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.business-card[data-v-d57ea290] {\n  height: 100vh;\n  width: 100vw;\n  overflow: hidden;\n}\n.business-card .image[data-v-d57ea290] {\n    padding: 2rem 0;\n}\n.business-card .image img[data-v-d57ea290] {\n      width: 100%;\n      height: 90vh;\n      -o-object-fit: cover;\n         object-fit: cover;\n}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
 
 /***/ }),
-/* 117 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "business-card scroll-able" }, [
-      _c("div", { staticClass: "theme-container" }, [
-        _c("div", { staticClass: "image" }, [
-          _c("img", {
-            attrs: { src: "images/businesscards.jpeg", alt: "Branding" }
-          })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d57ea290", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-9e164aca", module.exports)
   }
 }
 
