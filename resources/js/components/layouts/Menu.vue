@@ -2,7 +2,7 @@
 <div class="header-fixed">
     <div class="header">
         <div class="header-left">
-            <div class="logo">
+            <div class="logo hoverable">
                 <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 951.9 1000" style="enable-background:new 0 0 951.9 1000;" xml:space="preserve">
                     <rect y="1.4" class="st0" width="998.6" height="998.6"/>
@@ -139,7 +139,7 @@
                     </svg>
                 <div class="logo-name">CODE<span>N</span>CAT</div>
             </div>
-            <div class="contact-button">
+            <div class="contact-button hoverable">
                 <div class="contact-sign">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 976 1000" style="enable-background:new 0 0 976 1000;" xml:space="preserve">
                         <g>
@@ -161,7 +161,7 @@
         </div>
         <div class="header-right">
             <div class="social-links">
-                <div class="social-button">
+                <div class="social-button hoverable">
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-twitter"></i>
@@ -169,7 +169,7 @@
                     <i class="fab fa-behance"></i>
                 </div>
             </div>
-            <div class="menu-button">
+            <div class="menu-button hoverable">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 40 26" style="enable-background:new 0 0 40 26;" xml:space="preserve">
                     <rect x="4" y="21" class="st0 click-bottom-line" width="32" height="4"/>
@@ -180,7 +180,7 @@
             </div>
         </div>
         <div class="menu-section">
-            <div class="menu-links">
+            <div class="menu-links hoverable">
                 <div :style="{width:bgwidth,transform:bgtransform }" class="background"></div>
                 <div @mouseover="hoverbg1()" @mouseout="hoveroutbg1()" class="heading-bold"><p>HOME</p></div>
                 <div @mouseover="hoverbg2()" @mouseout="hoveroutbg2()" class="heading-bold"><p>DESIGNING</p></div>
@@ -200,7 +200,7 @@
 
 .header-fixed{
     position:fixed;
-     z-index: 999999;
+     z-index: 999;
      width: 100vw;
     .header{
         position: relative;
@@ -210,7 +210,7 @@
             .logo{
                 margin: 1rem;
                 position: relative;
-                z-index:99999;
+                z-index:99;
                 svg{
                      .st0{display:none;}
                     .st1{fill:url(#logoSVGID_1_);}
@@ -316,7 +316,6 @@
             }
             }
             .menu-button{
-                cursor: pointer;
                 position: absolute;
                 right:0;
                 top:50%;
