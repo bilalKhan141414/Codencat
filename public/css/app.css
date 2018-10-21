@@ -4217,6 +4217,26 @@ html {
   /* optional: just make scrollbar invisible */
 }
 
+body {
+  cursor: none;
+}
+
+body .cursor {
+  pointer-events: none;
+}
+
+body .cursor__ball {
+  position: fixed;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+}
+
+body .cursor__ball circle {
+  fill: #f7f8fa;
+}
+
 ::-moz-selection {
   /* Code for Firefox */
   color: #ebebeb;
