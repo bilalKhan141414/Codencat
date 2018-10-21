@@ -200,7 +200,7 @@
 
 .header-fixed{
     position:fixed;
-     z-index: 9999999;
+     z-index: 999999;
      width: 100vw;
     .header{
         position: relative;
@@ -505,6 +505,7 @@ $(function(){
         afterRender:function() {}
     });
 })
+
 
 export default {
     name: 'header-fixed',
