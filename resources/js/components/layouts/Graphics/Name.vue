@@ -391,7 +391,7 @@
             .st5{fill:url(#nSVGIDID_5_);}
             .st6{fill:url(#nSVGIDID_6_);}
             .st7{fill:#EBEBEB;}
-            .st8{font-family:'SofiaPro-Black';}
+            .st8{font-family:'Sofia Pro';}
             .st9{font-size:85.971px;}
         }
     }

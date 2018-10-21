@@ -157,7 +157,7 @@
             </svg>
         </div>
         <div class="center">
-            <div class="heading-bold">GRAPHIC DESIGN</div>
+            <div class="heading-bold">DIGITAL DESIGN</div>
             <div class="quote">
                 <div class="left-kamas">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

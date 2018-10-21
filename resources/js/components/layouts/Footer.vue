@@ -17,7 +17,7 @@
                 <div class="col-3 contact">
                     <div class="this-is-us">
                         <div class="footer-heading">SHARE YOUR IDEA</div>
-                        <div class="footer-para">There are a lot of companies that do what we do. They share the same what and how, but our clients work with us for our why and our who. We're IndiaNIC, and you're in the right place.</div>
+                        <div class="footer-para">We like fast - the same way the technology market moves. In the time it takes you to say "I've got a great idea", someone else has already started working on a similar project half the world away. Tell us about your idea, and we're sure we can take to the next level.</div>
                     </div>
                     <div class="footer-bottom">
                         <div class="heading-bold">CONTACT</div>
@@ -29,7 +29,7 @@
                 <div class="col-3 portfolio">
                     <div class="this-is-us">
                         <div class="footer-heading">STUFF WE DID</div>
-                        <div class="footer-para">There are a lot of companies that do what we do. They share the same what and how, but our clients work with us for our why and our who. We're IndiaNIC, and you're in the right place.</div>
+                        <div class="footer-para">While we can't show you the iceberg of work that is our process or technology we used, Here's a shiny bits that breach the surface. Here's our portfolio of few of our best mobile, web and game projects.</div>
                     </div>
                     <div class="footer-bottom">
                         <div class="icons">
