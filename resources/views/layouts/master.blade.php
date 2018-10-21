@@ -21,7 +21,9 @@
         <div class="verticle-line"></div>
     </div>
 
-    @yield('content')
+    <div id="app">
+        @yield('content')
+    </div>
 
     <script src="{{'js/app.js'}}"></script>
     <script src="{{'js/jquery.scrollify.js'}}"></script>

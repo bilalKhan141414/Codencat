@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/graphics', function () {
     return view('graphics');
 });
+Route::get('/development', function () {
+    return view('development');
+});
