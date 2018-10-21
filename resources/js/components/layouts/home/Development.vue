@@ -369,16 +369,14 @@
 
         .heading-light{
             text-align: right;
-            margin-bottom: -20px;
-            padding: 0 0 0 5px;
         }
         .heading-bold{
             text-align: right;
         }
         .para{
             color:$white;
-            margin: 2rem 0;
             text-align:right;
+            margin: 2rem 0;
         }
         .button{
             height: 3rem;

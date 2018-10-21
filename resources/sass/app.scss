@@ -79,11 +79,14 @@ body{
     color: $primary;
     font-weight:$font-weight-x-light;
     letter-spacing: 4px;
+    margin-bottom: -20px;
+    padding: 0 0 0 5px;
 }
 .heading-bold{
     font-size: $font-size-large;
     color: $white;
     font-weight:$font-weight-bold;
+
 }
 .para{
     font-size: $font-size-regular;
@@ -91,7 +94,7 @@ body{
     font-weight:$font-weight-x-light;
     line-height: 1.3rem;
 }
-.quote-para{
+.quote-para , .tool-name{
 
     font-size: 1.3rem;
     color: $white;
