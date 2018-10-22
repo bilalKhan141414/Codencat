@@ -13,7 +13,7 @@
     <design></design>
     <e-commerce></e-commerce>
     <tools></tools>
-    <services></services>
+    <dev-services></dev-services>
     <main-footer></main-footer>
 
 @stop

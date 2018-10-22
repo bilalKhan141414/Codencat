@@ -33,10 +33,18 @@ Vue.component('websites', require('./components/layouts/Graphics/Websites.vue'))
 Vue.component('design', require('./components/layouts/Graphics/Design.vue'));
 Vue.component('e-commerce', require('./components/layouts/Graphics/E-Commerce.vue'));
 Vue.component('tools', require('./components/layouts/Graphics/Tools.vue'));
-Vue.component('services', require('./components/layouts/Graphics/Services.vue'));
+Vue.component('dev-services', require('./components/layouts/Graphics/Services.vue'));
 
 //development page
 Vue.component('web-development-cover', require('./components/layouts/Development/WebDevelopmentCover.vue'));
+Vue.component('dev-img-cover', require('./components/layouts/Development/DevelopmentImageCover.vue'));
+Vue.component('web-design', require('./components/layouts/Development/WebDesign.vue'));
+Vue.component('responsive-web', require('./components/layouts/Development/ResponsiveWeb.vue'));
+Vue.component('redesign-website', require('./components/layouts/Development/RedesignWebsite.vue'));
+Vue.component('database-integration', require('./components/layouts/Development/DatabaseIntegration.vue'));
+Vue.component('management-system', require('./components/layouts/Development/ManagementSystem.vue'));
+Vue.component('technologies-we-use', require('./components/layouts/Development/TechnologiesWeUse.vue'));
+Vue.component('design-services', require('./components/layouts/Development/Services.vue'));
 
 const app = new Vue({
     el: '#app'
