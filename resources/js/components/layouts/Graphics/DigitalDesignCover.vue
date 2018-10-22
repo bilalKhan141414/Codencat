@@ -289,7 +289,7 @@
                     text-align: left;
                     width: 8rem;
                     align-self: flex-end;
-                    color: $secondary;
+                    color: $primary;
                 }
                 .right-kamaz{
                     align-self: flex-end;

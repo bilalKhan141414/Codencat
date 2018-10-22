@@ -2379,7 +2379,7 @@
                     text-align: left;
                     width: 6rem;
                     align-self: flex-end;
-                    color: $secondary;
+                    color: $primary;
                 }
                 .right-kamaz{
                     align-self: flex-end;

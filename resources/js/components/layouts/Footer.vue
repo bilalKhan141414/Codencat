@@ -112,7 +112,7 @@
             font-weight: $font-weight-regular;
             transition: color 0.2s ease-in-out;
             &:hover{
-                color: $secondary;
+                color: $primary;
             }
         }
     }
@@ -129,7 +129,7 @@
                 padding-right: 0.5rem;
                 transition: color 0.2s ease-in-out;
                 &:hover{
-                    color: $secondary;
+                    color: $primary;
                 }
             }
         }

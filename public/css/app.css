@@ -4240,12 +4240,12 @@ body .cursor__ball circle {
 ::-moz-selection {
   /* Code for Firefox */
   color: #ebebeb;
-  background: #CB8E55;
+  background: #e95b00;
 }
 
 ::selection {
   color: #ebebeb;
-  background: #CB8E55;
+  background: #e95b00;
 }
 
 .theme-container {
