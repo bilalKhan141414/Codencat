@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<div id="app">
 
     <main-header></main-header>
     <graphic-design-cover></graphic-design-cover>
@@ -14,7 +13,7 @@
     <design></design>
     <e-commerce></e-commerce>
     <tools></tools>
-    <services></services>
+    <dev-services></dev-services>
     <main-footer></main-footer>
-</div>
+
 @stop

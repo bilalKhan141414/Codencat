@@ -22,7 +22,7 @@ Vue.component('development', require('./components/layouts/home/Development.vue'
 Vue.component('clients', require('./components/layouts/home/Clients.vue'));
 Vue.component('main-footer', require('./components/layouts/Footer.vue'));
 
-//graphicdesign page
+//design page
 Vue.component('graphic-design-cover', require('./components/layouts/Graphics/GraphicDesignCover.vue'));
 Vue.component('business-card-mockup', require('./components/layouts/Graphics/BusinessCardMockup.vue'));
 Vue.component('branding', require('./components/layouts/Graphics/Branding.vue'));
@@ -33,7 +33,18 @@ Vue.component('websites', require('./components/layouts/Graphics/Websites.vue'))
 Vue.component('design', require('./components/layouts/Graphics/Design.vue'));
 Vue.component('e-commerce', require('./components/layouts/Graphics/E-Commerce.vue'));
 Vue.component('tools', require('./components/layouts/Graphics/Tools.vue'));
-Vue.component('services', require('./components/layouts/Graphics/Services.vue'));
+Vue.component('dev-services', require('./components/layouts/Graphics/Services.vue'));
+
+//development page
+Vue.component('web-development-cover', require('./components/layouts/Development/WebDevelopmentCover.vue'));
+Vue.component('dev-img-cover', require('./components/layouts/Development/DevelopmentImageCover.vue'));
+Vue.component('web-design', require('./components/layouts/Development/WebDesign.vue'));
+Vue.component('responsive-web', require('./components/layouts/Development/ResponsiveWeb.vue'));
+Vue.component('redesign-website', require('./components/layouts/Development/RedesignWebsite.vue'));
+Vue.component('database-integration', require('./components/layouts/Development/DatabaseIntegration.vue'));
+Vue.component('management-system', require('./components/layouts/Development/ManagementSystem.vue'));
+Vue.component('technologies-we-use', require('./components/layouts/Development/TechnologiesWeUse.vue'));
+Vue.component('design-services', require('./components/layouts/Development/Services.vue'));
 
 const app = new Vue({
     el: '#app'
