@@ -10,7 +10,7 @@
                     <div class="tool-icon adobe-photoshop">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 204.3 198.1" style="enable-background:new 0 0 204.3 198.1;" xml:space="preserve">
-                            <title>Asset 17</title>
+
                             <rect class="st0" width="204.3" height="198.1"/>
                             <rect x="8.1" y="7.9" class="st1" width="188" height="182.3"/>
                             <path class="st0" d="M63.3,111.7c2.4,0.3,4.7,0.4,7.1,0.4c12.3,0,22.9-3,30-9.7c5.5-5.2,8.5-12.9,8.5-21.9
@@ -30,7 +30,7 @@
                     <div class="tool-icon adobe-illustrator">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 204.3 198.1" style="enable-background:new 0 0 204.3 198.1;" xml:space="preserve">
-                            <title>Asset 18</title>
+
                             <g>
                                 <g id="Layer_3">
                                     <rect class="st0" width="204.3" height="198.1"/>
@@ -52,7 +52,7 @@
                     <div class="tool-icon adobe-xd">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 204.9 199.7" style="enable-background:new 0 0 204.9 199.7;" xml:space="preserve">
-                            <title>Asset 19</title>
+
                             <g>
                                 <g id="Layer_1-2">
                                     <path class="st0" d="M186.3,4.6c3.7,2,6.9,4.6,9.6,7.7c8.2,9.4,9.1,21.2,9,33.2c-0.1,37.7,0,75.3,0,113c0,2.9-0.1,5.7-0.4,8.6

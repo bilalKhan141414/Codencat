@@ -9,7 +9,7 @@
                 <div class="col-4 client client1">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 284.6 275" style="enable-background:new 0 0 284.6 275;" xml:space="preserve">
-                        <title>Asset 12</title>
+                        <title>Asstone</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M144.6,255.6l39.5-63.5l15.8,0.1L149,271.7c-2.3,3.4-7,4.3-10.4,1.9c-0.8-0.5-1.4-1.2-1.9-1.9l-51.5-79.6H101
@@ -72,7 +72,7 @@
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 158.1 192.7" style="enable-background:new 0 0 158.1 192.7;" xml:space="preserve">
 
-                        <title>Asset 17</title>
+                        <title>Caribbean Thought</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M129.4,82.6l-24.5,24.5c-1.1,1.1-2.8,1.1-3.8,0s-1.1-2.8,0-3.8l24.5-24.5c1.1-1.1,2.8-1.1,3.8,0
@@ -148,7 +148,7 @@
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 231.2 274.2" style="enable-background:new 0 0 231.2 274.2;" xml:space="preserve">
 
-                        <title>Asset 15</title>
+                        <title>Christian Youth</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M203.4,58.7c0.5-0.1,0.9,0.2,1,0.7c0,0,0,0,0,0c1.3,9.4,11.6,94.2-43,146.2c-0.6,0.6-1.5,1-2.4,1
@@ -272,7 +272,7 @@
                 <div class="col-4 client client4">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 318.4 183.5" style="enable-background:new 0 0 318.4 183.5;" xml:space="preserve">
-                        <title>Asset 13</title>
+                        <title>Apex</title>
                         <g>
                             <g id="Layer_3">
                                 <path class="st0" d="M135.1,126.2v28h-16.4V74.7h31c4.3-0.1,8.5,0.6,12.6,2c3.5,1.2,6.7,3,9.4,5.5c2.5,2.3,4.6,5.2,5.9,8.3
@@ -376,7 +376,7 @@
                 <div class="col-4 client client5">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 324.1 174.8" style="enable-background:new 0 0 324.1 174.8;" xml:space="preserve">
-                        <title>Asset 4</title>
+                        <title>RapidSucceed</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M78.7,65.4c-0.6,2.1-1,4.2-1.4,6.3c0,0,48.3,0.1,70,0c15.1,0,15.1-22.7,0-22.7H0c4.6,8,8.3,10.3,16.8,10.3
@@ -397,7 +397,7 @@
                 <div class="col-4 client client6">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 358.1 87.6" style="enable-background:new 0 0 358.1 87.6;" xml:space="preserve">
-                        <title>Asset 7</title>
+                        <title>Sqozo</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M38.2,35.3c0.4,0.3,0.9,0.7,1.2,1.1c0.4,0.4,0.7,0.8,1,1.2c1.4,1.8,2.6,3.8,3.4,6c0.8,2.2,1.2,4.5,1.2,6.9
@@ -504,7 +504,7 @@
                 <div class="col-4 client client7">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 241.7 254" style="enable-background:new 0 0 241.7 254;" xml:space="preserve">
-                        <title>Asset 10</title>
+                        <title>Dota Esport</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M229,76.9c-3-31.3-36.2-43.3-36.2-43.3c8.6,0.4,17.1,1.6,25.4,3.7C198.4,0.1,153.3,9.8,153.3,9.8l8.9-9.7
@@ -586,7 +586,7 @@
                 <div class="col-4 client client8">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 213.9 208.4" style="enable-background:new 0 0 213.9 208.4;" xml:space="preserve">
-                        <title>Asset 5</title>
+                        <title>Minorities Protection Trust</title>
                         <g>
                             <g id="Layer_1-2">
                                 <path class="st0" d="M0.4,59.5c-6.6,97.6,68.3,81.4,73.2,125.6c-2.6,3.1-5.7,5.9-8.3,9l12.5,0.3c1.5-13.2,3.8-25.4,5.3-38.6
@@ -626,7 +626,7 @@
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 249.1 259.7" style="enable-background:new 0 0 249.1 259.7;" xml:space="preserve">
 
-                        <title>Asset 14</title>
+                        <title>Asad Computers</title>
                         <g>
                             <g id="Layer_4">
                                 <polygon class="st0" points="136.4,176.6 67.7,176.6 102,117.2 79.5,78.1 0.1,215.6 158.9,215.6 		"/>
@@ -715,7 +715,6 @@
 
 <style lang="scss" scoped>
 @import '../../../../sass/app.scss';
-
 
 .our-clients{
     height: 100vh;

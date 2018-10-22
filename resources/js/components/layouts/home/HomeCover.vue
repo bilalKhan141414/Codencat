@@ -160,7 +160,7 @@
                 </linearGradient>
                 <polygon class="st19" points="450.8,27.2 426.3,27.2 402.8,27.2 379.8,64.2 472.8,64.2 	"/>
                 <path id="lightbulb" class="st20" d="M379.8,64.2h93c0,0-12,7-48,7S379.8,64.2,379.8,64.2z"/>
-                <g id="laptoplight" class="st21">
+                <g id="laptoplight" style="opacity: 0;" class="st21">
                     <linearGradient id="SVGID_18_" gradientUnits="userSpaceOnUse" x1="413.3516" y1="597.6987" x2="405.3516" y2="361.1024">
                         <stop  offset="0" style="stop-color:#FFFFFF"/>
                         <stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
@@ -733,12 +733,14 @@
                 <path class="st109" d="M72.6,33.7c-33.1,0-60,26.8-60,60c0,33.1,26.9,60,60,60c33.1,0,60-26.8,60-60
                     C132.5,60.6,105.7,33.7,72.6,33.7z M72.6,147.8c-29.9,0-54.1-24.2-54.1-54.1c0-29.9,24.2-54.1,54.1-54.1
                     c29.9,0,54.1,24.2,54.1,54.1C126.6,123.6,102.4,147.8,72.6,147.8z"/>
-                <path class="st0" d="M72.6,92.9L72.6,92.9c-1.2,0-2.2-1-2.2-2.2V60.5c0-1.2,1-2.2,2.2-2.2l0,0c1.2,0,2.2,1,2.2,2.2v30.2
-                    C74.8,91.9,73.8,92.9,72.6,92.9z"/>
-                <path class="st0" d="M90.6,128.6L90.6,128.6c-1.1,0.6-2.4,0.1-3-1l-17-32.8c-0.6-1.1-0.1-2.4,1-3v0c1.1-0.6,2.4-0.1,3,1l17,32.8
-                    C92.1,126.7,91.7,128,90.6,128.6z"/>
+
+                <path id="hours" class="st0" d="M72.6,92.9L72.6,92.9c-1.2,0-2.2-1-2.2-2.2V60.5c0-1.2,1-2.2,2.2-2.2l0,0c1.2,0,2.2,1,2.2,2.2v30.2
+                C74.8,91.9,73.8,92.9,72.6,92.9z"/>
+
+                <path id="mints" class="st0" d="M72.6,92.9L72.6,92.9c-1.2,0-2.2-1.3-2.2-2.8V50.9c0-1.6,1-2.8,2.2-2.8l0,0c1.2,0,2.2,1.3,2.2,2.8
+		        v39.1C74.8,91.6,73.8,92.9,72.6,92.9z"/>
             </g>
-            <g id="spider">
+            <!-- <g id="spider">
                 <line class="st110" x1="820.8" y1="0" x2="820.8" y2="257.8"/>
                 <path class="st111" d="M820.8-56.9"/>
                 <g>
@@ -810,7 +812,7 @@
                         </g>
                     </g>
                 </g>
-            </g>
+            </g> -->
 
             </svg>
 
@@ -821,7 +823,7 @@
         <div class="slogan">
             <div class="heading-bold">PROVIDING QUALITY</div><div class="heading-light">TAKES TIME</div>
         </div>
-        <div class="scroll">
+        <div class="scroll hoverable">
             <div class="text">
                 SCROLL DOWN
             </div>
@@ -1049,6 +1051,13 @@
                 animation-timing-function: linear;
                 transform-origin: 72.5px 92.9px 0px;
             }
+            #mints{
+                transform-origin: 72.5px 92.9px 0px;
+            }
+            #hours{
+                transform: rotate(206deg);
+                transform-origin: 72.5px 92.9px 0px;
+            }
         @keyframes clock {
             0% {ms-transform: rotate(0deg);
                     -webkit-transform: rotate(0deg);
@@ -1061,87 +1070,57 @@
         #light{
 
             $delay: random(10) + s;
-            #toplight{
-                -webkit-animation: toplight $delay infinite; /* Safari 4+ */
-                -moz-animation:    toplight $delay infinite; /* Fx 5+ */
-                -o-animation:      toplight $delay infinite; /* Opera 12+ */
-                animation:         toplight $delay infinite; /* IE 10+, Fx 29+ */
-
-                -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
-                animation-direction: alternate;
-                // -webkit-animation-delay: $delay; /* Safari 4.0 - 8.0 */
-                // animation-delay: $delay;
-
+            .toplight{
+                -webkit-animation:toplight 0.5s ; /* Safari 4+ */
+                -moz-animation:    toplight 0.5s ; /* Fx 5+ */
+                -o-animation:      toplight 0.5s ; /* Opera 12+ */
+                animation:         toplight 0.5s ; /* IE 10+, Fx 29+ */
                 animation-timing-function: linear;
             }
-            #lightbulb{
-                 -webkit-animation: lightbulb 3s infinite; /* Safari 4+ */
-                -moz-animation:    lightbulb 3s infinite; /* Fx 5+ */
-                -o-animation:      lightbulb 3s infinite; /* Opera 12+ */
-                animation:         lightbulb 3s infinite; /* IE 10+, Fx 29+ */
-
-                -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
-                animation-direction: alternate;
-                -webkit-animation-delay: $delay; /* Safari 4.0 - 8.0 */
-                animation-delay: $delay;
-
+            .lightbulb{
+                -webkit-animation:lightbulb 0.5s; /* Safari 4+ */
+                -moz-animation:    lightbulb 0.5s ; /* Fx 5+ */
+                -o-animation:      lightbulb 0.5s; /* Opera 12+ */
+                animation:         lightbulb 0.5s; /* IE 10+, Fx 29+ */
                 animation-timing-function: linear;
             }
-            #laptoplight{
-                -webkit-animation:laptoplight 3s infinite; /* Safari 4+ */
-                -moz-animation:    laptoplight 3s infinite; /* Fx 5+ */
-                -o-animation:      laptoplight 3s infinite; /* Opera 12+ */
-                animation:         laptoplight 3s infinite; /* IE 10+, Fx 29+ */
+            .laptoplight{
+                -webkit-animation:laptoplight 0.5s; /* Safari 4+ */
+                -moz-animation:    laptoplight 0.5s; /* Fx 5+ */
+                -o-animation:      laptoplight 0.5s; /* Opera 12+ */
+                animation:         laptoplight 0.5s; /* IE 10+, Fx 29+ */
                 animation-timing-function: linear;
             }
             @keyframes toplight {
             0% {opacity: 0.3 }
-            10% {opacity: 0.3 }
             20% {opacity: 0 }
             30% {opacity: 0.3 }
-            40% {opacity: 0.3 }
-            50% {opacity: 0.3 }
-            60% {opacity: 0.3 }
-            70% {opacity: 0.3 }
-            80% {opacity: 0.3 }
-            90% {opacity: 0.3 }
-            100% {opacity: 0 }
+            90% {opacity: 0 }
+            100% {opacity: 0.3 }
             }
             @keyframes lightbulb {
             0% {opacity: 1 }
-            10% {opacity: 1 }
-            20% {opacity: 0 }
+            20% {opacity: 0.3 }
             30% {opacity: 1 }
-            40% {opacity: 1 }
-            50% {opacity: 1 }
-            60% {opacity: 1 }
-            70% {opacity: 1 }
-            80% {opacity: 1 }
-            90% {opacity: 1 }
-            100% {opacity: 0 }
+            90% {opacity: 0.3 }
+            100% {opacity: 1 }
             }
-             @keyframes laptoplight {
+            @keyframes laptoplight {
             0% {opacity: 0 }
-            10% {opacity: 0 }
             20% {opacity: 1 }
             30% {opacity: 0 }
-            40% {opacity: 0 }
-            50% {opacity: 0 }
-            60% {opacity: 0 }
-            70% {opacity: 0 }
-            80% {opacity: 0 }
-            90% {opacity: 0 }
-            100% {opacity: 1 }
+            90% {opacity: 1 }
+            100% {opacity: 0 }
 
             }
         }
-        #spider{
-            transition: transform 1s;
+        // #spider{
+        //     transition: transform 1s;
 
-            &:hover{
-                transform: translateY(-1rem);
-            }
-        }
+        //     &:hover{
+        //         transform: translateY(-1rem);
+        //     }
+        // }
          #donttouch{
             opacity: 0;
             -webkit-transition: opacity 0.5s ease-in-out;
@@ -1158,20 +1137,43 @@
 </style>
 
 <script>
-$(function(){
+var lightAnimation;
 
-    var offset = $('.scroll').offset().top;
+$(function(){
+    // scroll down element opacity
+    let offset = $('.scroll').offset().top;
     $(window).scroll(function () {
         $(".scroll").css({
-    'opacity':1-(($(window).scrollTop()*3)/$(window).height())
+        'opacity': 1 - (($(window).scrollTop()*3)/$(window).height())
         });
-        if($(window).scrollTop() >(offset-400)){
-        }else{
-
-            //$(".scroll").fadeIn();
-            }
-        if($(window).scrollTop() < (offset+400)){
-        }
     });
+
+
+    //clock
+    let dt = new Date();
+    let hours = dt.getHours();
+    let mints = dt.getMinutes();
+
+    $("#hours").css({
+        'transform': "rotate("+ (30* hours) + "deg)"
+    });
+    $("#mints").css({
+        'transform': "rotate("+ (6* mints) + "deg)"
+    });
+
+
+    //light animation after some time
+    $light = $('#toplight');
+    $bulb = $('#lightbulb');
+    $laptoplight = $('#laptoplight');
+
+    lightAnimation = setInterval(function(){
+        $light.addClass('toplight');
+        $bulb.addClass('lightbulb');
+        $laptoplight.addClass('laptoplight');
+        setTimeout("$light.removeClass('toplight');",1000)
+        setTimeout("$bulb.removeClass('lightbulb');",1000)
+        setTimeout("$laptoplight.removeClass('laptoplight');",1000)
+    }, 10000);
 })
 </script>

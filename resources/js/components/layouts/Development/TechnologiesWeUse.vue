@@ -10,7 +10,7 @@
                     <div class="col-3 technology html">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 204.3 198.1" style="enable-background:new 0 0 204.3 198.1;" xml:space="preserve">
-                            <title>Asset 19</title>
+
                             <g>
                                 <g id="Layer_4">
                                     <path class="st0" d="M183.1,0.1H22.2c-3.4,0-6.1,2.7-6.1,6.1c0,0.2,0,0.3,0,0.5L29,171c0.2,2.5,1.9,4.6,4.2,5.3l67.6,21.4
@@ -25,8 +25,7 @@
                     <div class="col-3 technology css">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 204.3 198.1" style="enable-background:new 0 0 204.3 198.1;" xml:space="preserve">
-                            <title>Asset 19</title>
-                            <title>Asset 9</title>
+
                             <g>
                                 <g id="Layer_4">
                                     <polygon class="st0" points="16.2,0.8 31.8,177.6 102.1,197.3 172.4,177.6 188.1,0.8 		"/>
@@ -41,7 +40,7 @@
                     <div class="col-3 technology javascript">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 204.3 198.1" style="enable-background:new 0 0 204.3 198.1;" xml:space="preserve">
-                            <title>Asset 21</title>
+
                             <g>
                                 <g id="Layer_4">
                                     <path class="st0" d="M3.1,197.8V0.2h196.2c0.3,0,0.6,0,0.9,0s0.6,0.1,0.6,0.6c0,0.5,0,0.6,0,0.9v194.9c0,0.4,0,0.8,0,1.3

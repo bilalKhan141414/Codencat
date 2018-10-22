@@ -27,10 +27,11 @@ html {
 
 //cursor
 body{
-    cursor: none;
+    cursor: none !important;
+
 }
 body .cursor {
-pointer-events: none;
+pointer-events: none !important;
 }
 body .cursor__ball {
 position: fixed;

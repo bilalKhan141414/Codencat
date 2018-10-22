@@ -4,7 +4,7 @@
         <div class="left">
            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 330.4 471" style="enable-background:new 0 0 330.4 471;" xml:space="preserve">
-                <title>Asset 8</title>
+
                 <g>
 
                         <linearGradient id="dlSVGID_1_" gradientUnits="userSpaceOnUse" x1="295.5246" y1="27.5412" x2="16.5648" y2="27.5412" gradientTransform="matrix(1 0 0 -1 0 446)">
@@ -2003,7 +2003,7 @@
         <div class="top">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 975.5 230.6" style="enable-background:new 0 0 975.5 230.6;" xml:space="preserve">
-                <title>Asset 10</title>
+
                 <g>
                     <g id="laptop">
                         <path class="st0" d="M594.6,202.1l-5.4-39.4H385.6l-5.4,39.4c-1.2,10.8,4.8,28.6,29.5,28.6h155.5
@@ -2038,7 +2038,7 @@
         <div class="bottom">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 743.5 185.2" style="enable-background:new 0 0 743.5 185.2;" xml:space="preserve">
-                <title>Asset 10</title>
+
                 <g id="Mouse">
                     <path class="st0" d="M733.6,11.7C728.9,3.9,713.4,0,698,0s-31,3.9-35.6,11.7c-10.8,18-9.8,96.7-9.8,96.7l0,0
                         c0,0,1.2,42.7,10.9,54.7c4.5,5.5,11.9,8,18.7,9.1c8.6,1.5,17.8,1.3,26.4,0.5s18.3-2.5,24.1-9.6c9.7-11.9,10.9-54.7,10.9-54.7
@@ -2186,7 +2186,7 @@
         <div class="right">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 121.8 240.1" style="enable-background:new 0 0 121.8 240.1;" xml:space="preserve">
-                <title>Asset 12</title>
+
                 <g>
                     <g id="iphone">
                         <path class="st0" d="M24.3,0h73c13,0,23.5,10.5,23.5,23.5v193.1c0,13-10.5,23.5-23.5,23.5h-73c-13,0-23.5-10.5-23.5-23.5V23.5
@@ -2244,6 +2244,17 @@
                     </svg>
                 </div>
             </div>
+        </div>
+        <div class="scroll hoverable">
+            <div class="text">
+                SCROLL DOWN
+            </div>
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 40 48.3" style="enable-background:new 0 0 40 48.3;" xml:space="preserve">
+                <rect x="15.9" y="38.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -21.38 29.5247)" class="st0" width="18" height="4"/>
+                <rect x="13.1" y="31.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -24.2795 22.5248)" class="st0" width="4" height="18"/>
+                <rect x="18" class="st0" width="4" height="43.7"/>
+            </svg>
         </div>
     </div>
 </div>
@@ -2381,6 +2392,41 @@
                         .st1{fill:$black;}
                     }
                 }
+            }
+        }
+        .scroll{
+            position: absolute;
+            bottom: 5%;
+            right: 1.5vw;
+            -webkit-animation: scroll-down 1s infinite; /* Safari 4+ */
+                -moz-animation:    scroll-down 1s infinite; /* Fx 5+ */
+                -o-animation:      scroll-down 1s infinite; /* Opera 12+ */
+                animation:         scroll-down 1s infinite; /* IE 10+, Fx 29+ */
+                animation-timing-function: ease-in-out;
+            .text{
+                color: $white;
+                text-orientation: rtl;
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+                line-height: 21px;
+                margin: 0 0 1rem 0.4rem;
+            }
+            svg{
+                .st0{fill:#00E0E9;}
+                width: 2.1rem;
+            }
+            @keyframes scroll-down {
+                0% {ms-transform: translate(0, 0);
+                        -webkit-transform: translate(0, 0);
+                        transform: translate(0, 0);}
+                50% {ms-transform: translate(0, 10px);
+                    -webkit-transform: translate(0, 10px);
+                    transform: translate(0, 10px);}
+                100% {ms-transform: translate(0, 0);
+                    -webkit-transform: translate(0, 0);
+                    transform: translate(0, 0);}
             }
         }
     }

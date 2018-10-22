@@ -6,12 +6,12 @@
                 <div class="heading-bold">Our Services</div>
             </div>
             <div class="services-section">
-                <div class="service">
+                <div class="service hoverable">
                     <div class="heading-light">PORTFOLIO</div>
                     <div class="background"></div>
                     <img src="images/portfolio-cover.jpg" alt="Branding">
                 </div>
-                <div class="service">
+                <div class="service hoverable">
                     <div class="heading-light">DEVELOPMENT</div>
                     <div class="background"></div>
                     <img src="images/developmen-covert.jpg" alt="Branding">
@@ -70,7 +70,6 @@
 
             }
             &:hover{
-                cursor: pointer;
                 .heading-light{
                     color: $black;
                 }

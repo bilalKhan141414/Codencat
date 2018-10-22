@@ -12,6 +12,8 @@
 </head>
 <body>
 
+
+    {{-- changing cursor chanpe --}}
     <div class="cursor">
         <div class="cursor__ball cursor__ball--big ">
             <svg height="30" width="30">
@@ -26,6 +28,8 @@
         </div>
     </div>
 
+
+    {{-- background verticals likes --}}
     <div class="verticle-lines">
         <div class="verticle-line"></div>
         <div class="verticle-line"></div>
@@ -35,13 +39,18 @@
         <div class="verticle-line"></div>
     </div>
 
+
+    {{-- all data will inject here --}}
     <div id="app">
         @yield('content')
     </div>
 
+
     <script src="{{'js/app.js'}}"></script>
     <script src="{{'js/jquery.scrollify.js'}}"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+
+    {{-- cursor code here --}}
     <script>
 
         var $bigBall = document.querySelector('.cursor__ball--big');
@@ -76,6 +85,14 @@
             TweenMax.to($bigBall, .3, {
             scale: 1 });
         }
+
+
+
+
+        // scroll down code here
+        $('.scroll').click(function () {
+            $.scrollify.move("#2");
+        });
     </script>
 </body>
 </html>

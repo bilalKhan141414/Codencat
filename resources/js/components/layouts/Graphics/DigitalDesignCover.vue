@@ -4,7 +4,7 @@
         <div class="left">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 312.8 382.6" style="enable-background:new 0 0 312.8 382.6;" xml:space="preserve">
-                <title>Asset 17</title>
+
                 <linearGradient id="ptSVGID_1_" gradientUnits="userSpaceOnUse" x1="-329.1801" y1="644.7025" x2="-329.1801" y2="620.8411" gradientTransform="matrix(1 0 0 -1 471.68 1003.4)">
                     <stop  offset="1.000000e-02" style="stop-color:#1E2326"/>
                     <stop  offset="0.51" style="stop-color:#33373A"/>
@@ -43,7 +43,7 @@
         <div class="top">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 336.4 89.7" style="enable-background:new 0 0 336.4 89.7;" xml:space="preserve">
-                <title>Asset 13</title>
+
                 <g>
                     <g id="glasses">
 
@@ -132,7 +132,7 @@
         <div class="right">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 256.5 357.3" style="enable-background:new 0 0 256.5 357.3;" xml:space="preserve">
-                <title>Asset 16</title>
+
                 <g>
                     <g id="Layer_19">
                         <path class="st0" d="M16.5,0h222.3c8.5,0,15.4,6.9,15.4,15.4v326.4c0,8.5-6.9,15.4-15.4,15.4H16.5c-8.5,0-15.4-6.9-15.4-15.4V15.4

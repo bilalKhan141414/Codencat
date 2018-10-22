@@ -5,9 +5,9 @@
                 <div class="heading-light">GRAPHICS</div>
                 <div class="heading-bold">DESIGNING</div>
                 <div class="para">We put our heads together to set out your goals and roll up our sleeves to reach them. Quality, taste, insight and method are values that will be reflected in our works.</div>
-                <a href="#" class="button">
+                <div class="button hoverable">
                     <div class="button-background"></div><div class="button-text">SEE MORE</div>
-                </a>
+                </div>
             </div>
             <div class="col-9">
                 <div class="svg-cover">
@@ -1567,6 +1567,7 @@
                 transition:transform 0.3s ease-in-out, right 0.3s ease-in-out;
             }
             &:hover{
+
                 .button-background{
                     background-color:$primary;
                     width: 100%;
@@ -1739,6 +1740,36 @@
             .st149{fill:url(#gdSVGID_135_);}
             .st150{opacity:0.1;fill:url(#gdSVGID_136_);}
             .st151{opacity:0.1;fill:url(#gdSVGID_137_);}
+             #laptop{
+                transition: transform 0.3s ease-in-out;
+                &:hover{
+                    transform: translateY(-1rem);
+                }
+            }
+             #pen{
+                transition: transform 0.3s ease-in-out;
+                &:hover{
+                    transform: translateY(-1rem);
+                }
+            }
+             #touch{
+                transition: transform 0.3s ease-in-out;
+                &:hover{
+                    transform: translateY(-1rem);
+                }
+            }
+             #mobile{
+                transition: transform 0.3s ease-in-out;
+                &:hover{
+                    transform: translateY(-1rem);
+                }
+            }
+             #cards{
+                transition: transform 0.3s ease-in-out;
+                &:hover{
+                    transform: translateY(-1rem);
+                }
+            }
         }
     }
 }
