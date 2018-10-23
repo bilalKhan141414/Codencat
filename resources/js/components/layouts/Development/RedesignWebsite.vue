@@ -39,6 +39,9 @@
 
         .heading{
             margin:2rem 0;
+            .heading-light{
+                padding:0;
+            }
         }
         .details{
             display: flex;

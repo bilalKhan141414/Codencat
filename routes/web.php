@@ -20,3 +20,6 @@ Route::get('/graphics', function () {
 Route::get('/development', function () {
     return view('development');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
