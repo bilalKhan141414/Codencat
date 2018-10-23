@@ -4198,6 +4198,7 @@ html {
 
 * {
   margin: 0px;
+  cursor: none !important;
 }
 
 * ::before,
@@ -4215,10 +4216,6 @@ html {
   /* remove scrollbar space */
   background: transparent;
   /* optional: just make scrollbar invisible */
-}
-
-body {
-  cursor: none !important;
 }
 
 body .cursor {
@@ -4240,12 +4237,12 @@ body .cursor__ball circle {
 ::-moz-selection {
   /* Code for Firefox */
   color: #ebebeb;
-  background: #e95b00;
+  background: #CB8E55;
 }
 
 ::selection {
   color: #ebebeb;
-  background: #e95b00;
+  background: #CB8E55;
 }
 
 .theme-container {
@@ -4255,7 +4252,7 @@ body .cursor__ball circle {
 }
 
 body {
-  background: #1E2326;
+  background: #181B1D;
   font-family: Sofia Pro !important;
 }
 

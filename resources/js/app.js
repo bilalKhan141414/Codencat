@@ -48,6 +48,7 @@ Vue.component('design-services', require('./components/layouts/Development/Servi
 
 //contact page
 Vue.component('contact-cover', require('./components/layouts/contact/ContactCover.vue'));
+Vue.component('contact-section', require('./components/layouts/contact/ContactSection.vue'));
 
 const app = new Vue({
     el: '#app'

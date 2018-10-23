@@ -5,6 +5,6 @@
 
 <main-header></main-header>
 <contact-cover></contact-cover>
-<main-footer></main-footer>
+<contact-section></contact-section>
 
 @stop

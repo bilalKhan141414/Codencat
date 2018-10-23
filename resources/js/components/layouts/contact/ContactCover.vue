@@ -54,10 +54,15 @@
             }
         }
         .location, .map, .email, .number{
-            font-weight: 500;
+            font-weight: $font-weight-medium;
+
         }
         .map, .email{
             color:$primary;
+            display: inline-block;
+        }
+        .map{
+            margin-bottom: 1rem;
         }
     }
 }
