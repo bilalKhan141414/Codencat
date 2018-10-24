@@ -1,5 +1,5 @@
 <template>
-    <div class="contact scroll-able">
+    <div class="contact scroll-able  ">
         <div class="theme-container">
             <div class="branding-section">
                 <div class="heading">

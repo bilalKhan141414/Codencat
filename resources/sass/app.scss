@@ -127,3 +127,21 @@ body{
     font-weight:$font-weight-bold;
     letter-spacing: 4px;
 }
+button{
+    font-size: $font-size-small;
+    color: $white;
+    font-weight:$font-weight-bold;
+    letter-spacing: 4px;
+    height: 3rem;
+    width: 10rem;
+    border:0;
+    font-family: 'Sofia Pro';
+    display:block;
+    background-color:$secondary;
+    transition:background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    outline-width: 0;
+    &:hover{
+        background-color:$primary;
+        color:$black;
+    }
+}
