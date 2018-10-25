@@ -10,6 +10,9 @@
                     <div class="para location">
                         House No 5, Street No 116, G13/1, Islmabad Pakistan
                     </div>
+                    <div class="para location">
+                        Pakistan
+                    </div>
                     <div class="para map hoverable">
                         View on map
                     </div>

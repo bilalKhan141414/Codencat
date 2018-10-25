@@ -1,13 +1,13 @@
 <template>
     <div class="contact scroll-able">
-        <div class="theme-container tch">
+        <div class="theme-container">
             <div class="contact-category">
-                <div class="button-text contact-button active hoverable">PROJECT</div>
-                <div class="button-text contact-button hoverable">JOB / INTERNSHIP</div>
-                <div class="button-text contact-button hoverable">HELLO</div>
+                <div id="project-button" class="button-text contact-button active hoverable">PROJECT</div>
+                <div id="job-internship-button" class="button-text contact-button hoverable">JOB / INTERNSHIP</div>
+                <div id="hello-button" class="button-text contact-button hoverable">HELLO</div>
                 <div class="highlighter"></div>
             </div>
-            <div class="project">
+            <div id="project" class="project contact-scroll-able">
                 <form action="">
                     <div class="heading">
                         <div class="heading-light">TELL US ABOUT</div>
@@ -58,7 +58,7 @@
 
                     <div class="row col-12 budget-deadline" style="margin: 0; padding: 0;">
                         <div class="col-6 expertise-budget-deadline">
-                            <div class="button-text contact-section-heading">MY BUDGET IS</div>
+                            <div class="button-text contact-section-heading ">MY BUDGET IS</div>
                             <div class="row">
                                     <div class="col-6"><label class="contact-container hoverable">
                                         <input type="radio" name="budget" value="male"><span class="checkmark"></span><span class="para">$ 10 - $ 100</span>
@@ -113,7 +113,7 @@
                     <div class="row col-12 message-button" style="margin: 0; padding: 0;">
                         <div class="col-12 button-text contact-section-heading">I NEED YOUR EXPERTISE ON</div>
                         <div class="col-6 message">
-                            <textarea class="message-box"  placeholder="I have a great project and i need you for..."></textarea>
+                            <textarea class="message-box hoverable"  placeholder="I have a great project and i need you for..."></textarea>
                         </div>
                         <div class="col-6 submit-button">
                             <label class="agrement hoverable">
@@ -129,7 +129,7 @@
                     </div>
                 </form>
             </div>
-            <div class="job-internship">
+            <div id="job-internship" class="job-internship" style="display:none; opacity:0">
                 <form action="" class="row" style="margin:0;">
                     <div class="col-6">
                         <div class="heading">
@@ -138,7 +138,7 @@
                         </div>
                         <div class="para">If you’re not afraid to work in an offbeat but serious atmosphere and you wish to rise to new challenges, you’ve come to the right place!
                         </div>
-                        <div class="resume">
+                        <div class="resume hoverable">
                             <div class="resume-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45 51">
                                     <defs>
@@ -151,8 +151,11 @@
                             </div>
                             <div class="resume-text para">Resume</div>
                         </div>
+                        <label class="agrement hoverable">
+                            <input class="agrement-input" type="checkbox" name="expertise1" value="logo"><span class="checkmark"></span><span class="para">I agree with the <span class="trems-policy">legal terms and the cookie policy</span></span>
+                        </label>
                         <div class="job-button">
-                            <button class="button hoverable" type="button">SUBMIT </button>
+                            <button class="button hoverable" type="button">APPLY</button>
                         </div>
                     </div>
                     <div class="col-6 job-details">
@@ -167,13 +170,53 @@
                         </div>
                          <div class="row job-domain">
                             <div class="col-6 graphic-design"><label class="domain-container hoverable">
-                                <input type="radio" name="expertise3" value="branding"><span class="checkmark"></span><span class="para">Graphic Design</span>
+                                <input type="radio" name="domain" value="branding"><span class="checkmark"></span><span class="para">Graphic Design</span>
                                 </label></div>
                             <div class="col-6"><label class="domain-container hoverable">
-                                <input type="radio" name="expertise4" value="e-shop"><span class="checkmark"></span><span class="para">Development</span>
+                                <input type="radio" name="domain" value="e-shop"><span class="checkmark"></span><span class="para">Development</span>
                                 </label></div>
                             <div class="col-12 message">
-                                <textarea class="message-box"  placeholder="Description About Your Domain..."></textarea>
+                                <textarea class="message-box hoverable"  placeholder="Description About Your Domain..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="hello" class="project" style="display:none; opacity:0">
+                 <form action="">
+                    <div class="heading">
+                        <div class="heading-light">LET'S GET TO KNOW</div>
+                        <div class="heading-bold">Each Other</div>
+                    </div>
+                    <div class="row col-12" style="margin: 0; padding: 0;">
+                        <div class="col-6 about-section">
+                            <div class="button-text contact-section-heading">ABOUT</div>
+                            <div class="row">
+                                    <div class="col-6"><input class="para hoverable" type="text" placeholder="First Name*"></div>
+                                    <div class="col-6"><input class="para hoverable" type="text" placeholder="Last Name*"></div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-6"><input class="para hoverable" type="text" placeholder="Email*"></div>
+                                    <div class="col-6"><input class="para hoverable" type="text" placeholder="Phone"></div>
+                            </div>
+                        </div>
+                        <div class="col-6 about-section">
+                            <div class="button-text contact-section-heading">A LOVELY WORD</div>
+                            <div class="col-12 message hello-message">
+                                <textarea class="message-box hoverable"  placeholder="Your Message..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hello-button-agrement">
+                        <div class="row col-6 message-button hello-button" style="margin: 0;">
+                            <div class="row col-12 submit-button">
+                                <div class="project-button">
+                                    <button class="button hoverable" type="button">SUBMIT</button>
+                                </div>
+                                <label class="agrement hoverable">
+                                    <input class="agrement-input" type="checkbox" name="expertise1" value="logo"><span class="checkmark"></span><span class="para">I agree with the <span class="trems-policy">legal terms and the cookie policy</span></span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -241,7 +284,7 @@
     }
 
     .project{
-
+        transition : opacity 0.5s ease-in-out;
         .about-section{
             .col-6{
                 text-align:center;
@@ -316,7 +359,7 @@
             margin-top: 4rem !important;
         }
         .message-button{
-            margin-top: 3rem !important;
+            margin: 3rem 0 2rem 0 !important;
             padding-left:1rem;
         }
 
@@ -395,11 +438,14 @@
         }
     }
     .job-internship{
+        transition : opacity 5s ease-in-out;
+        padding-bottom: 1.6rem;
         .job-details{
-            margin-top: 2rem;
+            margin-top: 4rem;
         }
         .heading{
             margin-left:0;
+            margin-top: 2rem;
         }
         .col-6{
             padding:1rem;
@@ -491,7 +537,7 @@
 
         }
         .resume{
-            margin: 3.5rem 0;
+            margin: 4.5rem 0 0 0;
             display:flex;
             justify-content:flex-start;
             align-items:center;
@@ -507,8 +553,105 @@
                 padding:1rem;
             }
         }
+        .agrement{
+            padding: 1.5rem 0;
+            margin-bottom: 0.6rem;
+            display: inline-block;
+            position: relative;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            .para{
+                width: 100%;
+                font-weight: $font-weight-medium;
+                transition: color 0.3s ease-in-out;
+                padding-left:3rem;
+                .trems-policy{
+                    color:$secondary;
+                }
+            }
+            input{
+                position: absolute;
+                top: 50%;
+                left: 2%;
+                transform: translate(0 ,-43%);
+                opacity: 0;
+                z-index:2;
+            }
+            .checkmark {
+                z-index:1;
+                position: absolute;
+                top: 50%;
+                left: 2%;
+                transform: translate(0 ,-43%);
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                border: 2px solid rgba(255,255,255,0.1);
+                transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+            }
+            input:checked ~ .checkmark {
+                background-color: $primary;
+                border: 2px solid $primary;
+            }
+        }
 
     }
+
+
+
+    .hello-message{
+        text-align:left;
+        margin:1rem 0;
+        padding: 1rem 0 !important;
+
+        .message-box{
+            width: 100%;
+            height:6rem;
+            background-color: rgba(0, 0, 0, 0);
+            border: 0px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+            outline-width: 0;
+            color:$white;
+            caret-color: $primary;
+            font-family: 'Sofia Pro';
+            font-weight: $font-weight-bold;
+            transition: border 0.3s ease-in-out;
+            resize: none;
+            &:focus{
+                border-bottom: 2px solid rgba(0,224,223,1);
+            }
+        }
+
+    }
+    .hello-button-agrement{
+
+        .hello-button{
+            margin: 2rem 0 3rem 0 !important;
+            .submit-button{
+                margin: 0;
+                padding: 0;
+                justify-content:
+                flex-start;
+                align-items: center;
+                .agrement{
+                    margin-left:2rem;
+                }
+                .button{
+                    margin-top:0 !important;
+                }
+            }
+        }
+    }
+}
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
 }
 </style>
 
@@ -534,13 +677,48 @@ $(function(){
         }
     })
 
-
-
-    // if ($('.agrement-input').attr('checked'))
-    // {
-    //     alert("checked");
-    //     $(".project-button input[type=submit]").attr("disabled", "disabled");
-    // }
+    $("#project-button").click(function(){
+        $("#project").css({
+            "display": "block",
+            "opacity": 1
+            })
+        $("#job-internship").css({
+            "display": "none",
+            "opacity": 0
+            })
+        $("#hello").css({
+            "display": "none",
+            "opacity": 0
+            })
+    })
+    $("#job-internship-button").click(function(){
+        $("#project").css({
+            "display": "none",
+            "opacity": 0
+            })
+        $("#job-internship").css({
+            "display": "block",
+            "opacity": 1
+            })
+        $("#hello").css({
+            "display": "none",
+            "opacity": 0
+            })
+    })
+    $("#hello-button").click(function(){
+       $("#project").css({
+            "display": "none",
+            "opacity": 0
+            })
+        $("#job-internship").css({
+            "display": "none",
+            "opacity": 0
+            })
+        $("#hello").css({
+            "display": "block",
+            "opacity": 1
+            })
+    })
 })
 
 </script>

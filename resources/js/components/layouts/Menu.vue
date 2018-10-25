@@ -504,7 +504,7 @@ $(function(){
         scrollSpeed: 1100,
         offset : 0,
         scrollbars: true,
-        standardScrollElements: ".tch",
+        standardScrollElements: ".contact-scroll-able",
         setHeights: true,
         overflowScroll: true,
         updateHash: true,
