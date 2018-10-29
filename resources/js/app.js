@@ -46,6 +46,10 @@ Vue.component('management-system', require('./components/layouts/Development/Man
 Vue.component('technologies-we-use', require('./components/layouts/Development/TechnologiesWeUse.vue'));
 Vue.component('design-services', require('./components/layouts/Development/Services.vue'));
 
+//contact page
+Vue.component('contact-cover', require('./components/layouts/contact/ContactCover.vue'));
+Vue.component('contact-section', require('./components/layouts/contact/ContactSection.vue'));
+
 const app = new Vue({
     el: '#app'
 });

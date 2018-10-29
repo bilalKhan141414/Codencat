@@ -1,7 +1,7 @@
 <template>
     <div class="theme-container scroll-able">
         <div class="footer">
-            <div class="row heading-bold">CODE<span>N</span>CAT</div>
+            <div class="row heading-bold"><section class="hoverable">CODE<span>N</span>CAT</section></div>
             <div class="row">
                 <div class="col-3 about hoverable">
                     <div class="this-is-us">

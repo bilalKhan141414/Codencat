@@ -499,17 +499,21 @@ $(function(){
     // scrolling
     $.scrollify({
         section : ".scroll-able",
+        sectionName: "section-name",
         easing: "easeOutExpo",
         scrollSpeed: 1100,
         offset : 0,
         scrollbars: true,
-        standardScrollElements: "",
+        standardScrollElements: ".contact-scroll-able",
         setHeights: true,
         overflowScroll: true,
         updateHash: true,
         touchScroll:true,
-        before:function() {},
-        after:function() {},
+        before:function(i,j) {
+
+
+        },
+        after:function(i,j) {},
         afterResize:function() {},
         afterRender:function() {}
     });
