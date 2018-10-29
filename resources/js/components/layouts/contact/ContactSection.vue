@@ -284,7 +284,6 @@
     }
 
     .project{
-        transition : opacity 0.5s ease-in-out;
         .about-section{
             .col-6{
                 text-align:center;
@@ -438,7 +437,6 @@
         }
     }
     .job-internship{
-        transition : opacity 5s ease-in-out;
         padding-bottom: 1.6rem;
         .job-details{
             margin-top: 4rem;
@@ -677,47 +675,66 @@ $(function(){
         }
     })
 
+    //animation sections
     $("#project-button").click(function(){
-        $("#project").css({
+        $("#project").css({             // display cannot be animate
             "display": "block",
-            "opacity": 1
             })
         $("#job-internship").css({
             "display": "none",
-            "opacity": 0
             })
         $("#hello").css({
             "display": "none",
-            "opacity": 0
             })
+        $("#project").animate({             // for animation
+            "opacity": 1
+            },500)
+        $("#job-internship").animate({
+            "opacity": 0
+            },500)
+        $("#hello").animate({
+            "opacity": 0
+            },500)
     })
     $("#job-internship-button").click(function(){
-        $("#project").css({
+        $("#project").css({                 // display cannot be animate
             "display": "none",
-            "opacity": 0
             })
         $("#job-internship").css({
             "display": "block",
-            "opacity": 1
             })
         $("#hello").css({
             "display": "none",
-            "opacity": 0
             })
+        $("#project").animate({                 // for animation
+            "opacity": 0
+            },500)
+        $("#job-internship").animate({
+            "opacity": 1
+            },500)
+        $("#hello").animate({
+            "opacity": 0
+            },500)
     })
     $("#hello-button").click(function(){
-       $("#project").css({
+       $("#project").css({                      // display cannot be animate
             "display": "none",
-            "opacity": 0
             })
         $("#job-internship").css({
             "display": "none",
-            "opacity": 0
             })
         $("#hello").css({
             "display": "block",
-            "opacity": 1
             })
+       $("#project").animate({                      // for animation
+            "opacity": 0
+            },500)
+        $("#job-internship").animate({
+            "opacity": 0
+            },500)
+        $("#hello").animate({
+            "opacity": 1
+            },500)
     })
 })
 
