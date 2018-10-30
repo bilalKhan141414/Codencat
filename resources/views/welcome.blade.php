@@ -3,6 +3,7 @@
 @section('content')
 
 
+
     <main-header></main-header>
     <cover></cover>
     <graphic-designing></graphic-designing>

@@ -4252,8 +4252,8 @@ body .cursor__ball circle {
 }
 
 body {
-  background: #181B1D;
   font-family: Sofia Pro !important;
+  background-color: #181B1D;
 }
 
 .verticle-lines {

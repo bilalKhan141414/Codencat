@@ -1141,7 +1141,7 @@ var lightAnimation;
 
 $(function(){
     // scroll down element opacity
-    let offset = $('.scroll').offset().top;
+    // let offset = $('.scroll').offset().top;
     $(window).scroll(function () {
         $(".scroll").css({
         'opacity': 1 - (($(window).scrollTop()*3)/$(window).height())
