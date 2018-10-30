@@ -50,6 +50,9 @@ Vue.component('design-services', require('./components/layouts/Development/Servi
 Vue.component('contact-cover', require('./components/layouts/contact/ContactCover.vue'));
 Vue.component('contact-section', require('./components/layouts/contact/ContactSection.vue'));
 
+//portfolio
+Vue.component('portfolio-cover', require('./components/layouts/portfolio/PortfolioCover.vue'));
+
 const app = new Vue({
     el: '#app'
 });
