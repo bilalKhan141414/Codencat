@@ -29,6 +29,7 @@
     </div>
 
 
+
     {{-- background verticals likes --}}
     <div class="verticle-lines">
         <div class="verticle-line"></div>
@@ -44,6 +45,7 @@
     <div id="app">
         @yield('content')
     </div>
+
 
 
     <script src="{{'js/app.js'}}"></script>

@@ -504,7 +504,7 @@ $(function(){
         scrollSpeed: 1100,
         offset : 0,
         scrollbars: true,
-        standardScrollElements: ".contact-scroll-able",
+        standardScrollElements: ".contact-scroll-able, .work-section",
         setHeights: true,
         overflowScroll: true,
         updateHash: true,

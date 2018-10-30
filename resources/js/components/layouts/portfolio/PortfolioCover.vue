@@ -1,5 +1,5 @@
 <template>
-    <div class="portfolio-cover">
+    <div class="portfolio-cover scroll-able">
         <div class="theme-container">
             <div class="portfolio">
                 <div class="image">

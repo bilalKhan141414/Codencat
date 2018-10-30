@@ -14,13 +14,17 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+ //header footer
+ Vue.component('main-header', require('./components/layouts/menu.vue'));
+ Vue.component('main-footer', require('./components/layouts/Footer.vue'));
+
 //home page
-Vue.component('main-header', require('./components/layouts/menu.vue'));
 Vue.component('cover', require('./components/layouts/home/HomeCover.vue'));
 Vue.component('graphic-designing', require('./components/layouts/home/GraphicDesigning.vue'));
 Vue.component('development', require('./components/layouts/home/Development.vue'));
 Vue.component('clients', require('./components/layouts/home/Clients.vue'));
-Vue.component('main-footer', require('./components/layouts/Footer.vue'));
+
 
 //design page
 Vue.component('graphic-design-cover', require('./components/layouts/Graphics/GraphicDesignCover.vue'));
@@ -52,6 +56,7 @@ Vue.component('contact-section', require('./components/layouts/contact/ContactSe
 
 //portfolio
 Vue.component('portfolio-cover', require('./components/layouts/portfolio/PortfolioCover.vue'));
+Vue.component('portfolio-files', require('./components/layouts/portfolio/PortfolioFiles.vue'));
 
 const app = new Vue({
     el: '#app'
