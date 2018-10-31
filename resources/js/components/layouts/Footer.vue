@@ -56,7 +56,7 @@
                         </div>
                         <div class="footer-bottom">
                             <div class="heading-bold" style="visibility: hidden;">LINKS</div>
-                            <div class="para">Made with <i class="fas fa-heart"></i></div>
+                            <div class="para">Made with <i class="heart fas fa-heart"></i> Keyboard</div>
                         </div>
                     </div>
                 </div>
@@ -141,6 +141,21 @@
         }
         .para{
             opacity: 0.5;
+            .heart{
+                color:#ff3b00;
+                opacity: 1;
+                position: relative;
+                 &:after {
+                    content: '';
+                    width: 142%;
+                    border-bottom: solid 1px #ffffffc2;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translate(-9%,-250%) rotate(-30deg);
+                    z-index: 1
+                }
+            }
         }
     }.background{
         position: absolute;

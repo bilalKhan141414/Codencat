@@ -200,12 +200,14 @@
             width: 25%;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0px 3px 3px $black-shadow);
+            transition: margin 0.3s ease-in-out;
 
             img{
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.25));
+            transition: filter 0.3s ease-in-out;
             }
             .details{
                 top: 20%;
@@ -214,8 +216,8 @@
                 width: 90%;
                 height: 15%;
                 background: #FBFBFB;
-                filter: drop-shadow(0px 3px 3px $black-shadow);
-
+                filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.25));
+                transition: filter 0.3s ease-in-out;
                 display: flex;
                 .text{
                     flex:9;
@@ -250,6 +252,14 @@
                     }
                 }
             }
+            &:hover{
+                img{
+                    filter: drop-shadow(3px 3px 10px $black-shadow);
+                }
+                .details{
+                    filter: drop-shadow(3px 3px 10px $black-shadow);
+                }
+            }
         }
         .item1{
             z-index: 4;
@@ -265,15 +275,15 @@
         }
         .item1, .item3{
             margin-top:3rem;
-            transition: margin 0.3s ease-in-out;
+
             &:hover{
                 margin-top:0rem;
                 z-index: 10 !important;
+
             }
         }
         .item2, .item4{
             margin-top:6rem;
-            transition: margin 0.3s ease-in-out;
             &:hover{
                 margin-top:3rem;
                 z-index: 10 !important;

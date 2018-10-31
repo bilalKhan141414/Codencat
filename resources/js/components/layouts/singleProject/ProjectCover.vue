@@ -35,9 +35,10 @@
             width: 100%;
             object-fit: cover;
             align-self: center;
-            padding:0
+            padding:0 2rem;
         }
         .project-details{
+            padding:0 2rem;
             align-self: flex-end;
             .heading-bold, .tags, .para{
                 color: $black !important;
