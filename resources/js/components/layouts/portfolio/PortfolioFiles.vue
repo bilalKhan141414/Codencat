@@ -284,21 +284,26 @@
 </style>
 
  <script>
-            $(window).scroll(function(){
-                // scroll down element opacity
-                let offsetportfolio = ($('.portfolio-files').offset().top)-300;
-                let offsetfooter = ($('.main-footer').offset().top)-500;
-                let offsetwindow = $(window).scrollTop();
-                console.log(offsetfooter+" "+offsetwindow+" "+offsetportfolio);
-                if(offsetportfolio < offsetwindow && offsetfooter > offsetwindow){
-                    $(".portfolio-body").css({
-                    'background-color': '#FBFBFB',
-                    });
-                }
-                else{
+ $(function(){
+
+     $(window).scroll(function(){
+         // scroll down element opacity
+         if( $('.portfolio-files').length ) {
+             let offsetportfolio = ($('.portfolio-files').offset().top)-300;
+             let offsetfooter = ($('.main-footer').offset().top)-300;
+             let offsetwindow = $(window).scrollTop();
+             if(offsetportfolio < offsetwindow && offsetfooter > offsetwindow){
+                 $(".portfolio-body").css({
+                 'background-color': '#FBFBFB',
+                 });
+             }
+             else{
                      $(".portfolio-body").css({
-                    'background-color': "rgba(0,0,0,0)",
-                    });
-                }
-            })
-            </script>
+                 'background-color': "rgba(0,0,0,0)",
+                 });
+             }
+         }
+     })
+ })
+
+</script>

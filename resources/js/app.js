@@ -58,6 +58,10 @@ Vue.component('contact-section', require('./components/layouts/contact/ContactSe
 Vue.component('portfolio-cover', require('./components/layouts/portfolio/PortfolioCover.vue'));
 Vue.component('portfolio-files', require('./components/layouts/portfolio/PortfolioFiles.vue'));
 
+// single project
+Vue.component('project-cover', require('./components/layouts/singleProject/ProjectCover.vue'));
+Vue.component('project-images', require('./components/layouts/singleProject/ProjectImages.vue'));
+
 const app = new Vue({
     el: '#app'
 });

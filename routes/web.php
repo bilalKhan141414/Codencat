@@ -26,3 +26,6 @@ Route::get('/contact', function () {
 Route::get('/portfolio', function () {
     return view('portfolio');
 });
+Route::get('/project', function () {
+    return view('project');
+});
