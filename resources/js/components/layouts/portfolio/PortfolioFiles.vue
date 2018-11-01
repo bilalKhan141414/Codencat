@@ -196,7 +196,7 @@
         margin: auto;
         .items{
             padding:0 1.5rem;
-            height: 89vh;
+            height: 78vh;
             width: 25%;
             position: relative;
             z-index: 1;
@@ -260,6 +260,26 @@
                     filter: drop-shadow(3px 3px 10px $black-shadow);
                 }
             }
+
+            $odd-items-margin: 3rem;
+            $even-items-margin: 6rem;
+            &:nth-child(odd){
+                margin-top:$odd-items-margin;
+                &:hover{
+                    margin-top:$odd-items-margin - $odd-items-margin;
+                }
+            }
+            &:nth-child(even){
+                margin-top:$even-items-margin;
+                 &:hover{
+                    margin-top:$even-items-margin - $odd-items-margin;
+                }
+            }
+            &:hover{
+                z-index: 10 !important;
+            }
+
+
         }
         .item1{
             z-index: 4;
@@ -273,22 +293,7 @@
         .item4{
             z-index: 1;
         }
-        .item1, .item3{
-            margin-top:3rem;
 
-            &:hover{
-                margin-top:0rem;
-                z-index: 10 !important;
-
-            }
-        }
-        .item2, .item4{
-            margin-top:6rem;
-            &:hover{
-                margin-top:3rem;
-                z-index: 10 !important;
-            }
-        }
     }
 }
 </style>

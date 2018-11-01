@@ -11,8 +11,67 @@
                </div>
             </div>
             <div class="visit-site scroll-able">
-                <button class="button" href="#">SEE SITE</button>
+                <button class="button hoverable" href="#">SEE SITE</button>
             </div>
+
+
+            <div class="suggestion scroll-able">
+                <div class="item1 items main hoverable">
+                    <img src="images/brand-mockup.jpg" alt="Portfolio">
+                    <div class="details">
+                        <div class="text">
+                            <div class="title">TITTLE NAME</div>
+                            <div class="category">Category</div>
+                            <div class="year">Year</div>
+                        </div>
+                        <div class="colors">
+                            <div class="color blue"></div>
+                            <div class="color black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item2 items hoverable">
+                    <img src="images/brand-mockup.jpg" alt="Portfolio">
+                    <div class="details">
+                        <div class="text">
+                            <div class="title">TITTLE NAME</div>
+                            <div class="category">Category</div>
+                            <div class="year">Year</div>
+                        </div>
+                        <div class="colors">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item3 items hoverable">
+                    <img src="images/brand-mockup.jpg" alt="Portfolio">
+                    <div class="details">
+                        <div class="text">
+                            <div class="title">TITTLE NAME</div>
+                            <div class="category">Category</div>
+                            <div class="year">Year</div>
+                        </div>
+                        <div class="colors">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item4 items hoverable">
+                    <img src="images/brand-mockup.jpg" alt="Portfolio">
+                    <div class="details">
+                        <div class="text">
+                            <div class="title">TITTLE NAME</div>
+                            <div class="category">Category</div>
+                            <div class="year">Year</div>
+                        </div>
+                        <div class="colors">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </template>
@@ -75,6 +134,114 @@
                 color:$white;
             }
         }
+    }
+    .suggestion{
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        height: 100vh;
+        overflow: hidden;
+        margin: auto;
+        .items{
+            padding:0 1.5rem;
+            height: 78vh;
+            width: 25%;
+            position: relative;
+            z-index: 1;
+            transition: margin 0.3s ease-in-out;
+
+            img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.25));
+            transition: filter 0.3s ease-in-out;
+            }
+            .details{
+                top: 20%;
+                right: -20%;
+                position: absolute;
+                width: 90%;
+                height: 15%;
+                background: #FBFBFB;
+                filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.25));
+                transition: filter 0.3s ease-in-out;
+                display: flex;
+                .text{
+                    flex:9;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding-left: 1rem;
+                    .title , .category , .year{
+                        font-size: $font-size-regular;
+                        color: $black;
+                        font-weight:$font-weight-medium;
+                        letter-spacing: 4px;
+                        line-height: 1.3rem;
+                    }
+                    .category , .year{
+                        opacity: 0.5;
+                    }
+                }
+                .colors{
+                    height: 100%;
+                    width: 100%;
+                    flex: 0.4;
+                    .blue{
+                        background: blue;
+                        height: 50%;
+                        width: 100%;
+                    }
+                    .black{
+                        height: 50%;
+                        width: 100%;
+                         background: black;
+                    }
+                }
+            }
+            &:hover{
+                img{
+                    filter: drop-shadow(3px 3px 10px $black-shadow);
+                }
+                .details{
+                    filter: drop-shadow(3px 3px 10px $black-shadow);
+                }
+            }
+
+            $odd-items-margin: 3rem;
+            $even-items-margin: 6rem;
+            &:nth-child(odd){
+                margin-top:$odd-items-margin;
+                &:hover{
+                    margin-top:$odd-items-margin - $odd-items-margin;
+                }
+            }
+            &:nth-child(even){
+                margin-top:$even-items-margin;
+                 &:hover{
+                    margin-top:$even-items-margin - $odd-items-margin;
+                }
+            }
+            &:hover{
+                z-index: 10 !important;
+            }
+
+
+        }
+        .item1{
+            z-index: 4;
+        }
+        .item2{
+            z-index: 3;
+        }
+        .item3{
+            z-index: 2;
+        }
+        .item4{
+            z-index: 1;
+        }
+
     }
 }
 </style>

@@ -3,7 +3,7 @@
         <div class="theme-container">
             <div class="portfolio">
                 <div class="image">
-                    <img src="images/portfolio-cover.jpg" alt="Portfolio">
+                    <img src="images/portfolio-cover.gif" alt="Portfolio">
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
         position: absolute;
         padding: 2rem 0;
         img{
-            width: 100%;
+            width: 88.8vw;
             height: 90vh;
             object-fit: cover;
         }
