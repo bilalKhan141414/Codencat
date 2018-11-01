@@ -36,6 +36,7 @@
             object-fit: cover;
             align-self: center;
             padding:0 2rem;
+
         }
         .project-details{
             padding:0 2rem;
@@ -59,7 +60,7 @@
                     display: block;
                     position: relative;
 
-                    $colors: $primary, $white, $black;
+                    $colors: $primary, $white, $black ;
                     @for $i from 1 through 3 {
                         &:nth-child(#{$i}){
                             background: nth($colors, $i);

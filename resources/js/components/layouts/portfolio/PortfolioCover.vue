@@ -32,6 +32,7 @@
             width: 88.8vw;
             height: 90vh;
             object-fit: cover;
+
         }
     }
     .portfolio-quote{

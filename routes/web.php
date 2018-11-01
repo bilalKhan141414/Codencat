@@ -10,22 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/graphics', function () {
-    return view('graphics');
-});
-Route::get('/development', function () {
-    return view('development');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/portfolio', function () {
-    return view('portfolio');
-});
-Route::get('/project', function () {
-    return view('project');
-});
+Route::get('/', 'CodencatController@index');
+Route::get('/graphicsDesign', 'CodencatController@graphicsDesign');
+Route::get('/development', 'CodencatController@development');
+Route::get('/portfolio', 'CodencatController@portfolio');
+Route::get('/project', 'CodencatController@project');
+Route::get('/contact', 'CodencatController@contact');
+Route::get('/about', 'CodencatController@about');

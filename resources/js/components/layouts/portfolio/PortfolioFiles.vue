@@ -23,8 +23,23 @@
                     <div class="title heading-light">DEVELOPMENT</div>
                 </div>
             </div>
+            <div v-html="projects"></div>
             <div class="work-section">
-                <div class="item1 items main hoverable">
+                <div v-for="project in projects" :key="project.id" class="item1 items main hoverable">
+                    <img  v-bind:src="'project-images/' + project.imgcover" alt="cover">
+                    <div class="details">
+                        <div class="text">
+                            <div v-text="project.title" class="title"></div>
+                            <div v-text="project.category" class="category"></div>
+                            <div v-text="project.year" class="year"></div>
+                        </div>
+                        <div class="colors"></div>
+                            <div v-for="color in project.colors" :key="color" v-bind:style="{'background':color}" class="color"></div>
+                            <!-- <div class="color black"></div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="item1 items main hoverable">
                     <img src="images/brand-mockup.jpg" alt="Portfolio">
                     <div class="details">
                         <div class="text">
@@ -51,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item3 items hoverable">
+                <div class="item3 items hoverab le">
                     <img src="images/brand-mockup.jpg" alt="Portfolio">
                     <div class="details">
                         <div class="text">
@@ -76,60 +91,7 @@
 
                         </div>
                     </div>
-                </div>
-                <div class="item1 items main">
-                    <img src="images/brand-mockup.jpg" alt="Portfolio">
-                    <div class="details">
-                        <div class="text">
-                            <div class="title">TITTLE NAME</div>
-                            <div class="category">Category</div>
-                            <div class="year">Year</div>
-                        </div>
-                        <div class="colors">
-                            <div class="color blue"></div>
-                            <div class="color black"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item2 items">
-                    <img src="images/brand-mockup.jpg" alt="Portfolio">
-                    <div class="details">
-                        <div class="text">
-                            <div class="title">TITTLE NAME</div>
-                            <div class="category">Category</div>
-                            <div class="year">Year</div>
-                        </div>
-                        <div class="colors">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="item3 items">
-                    <img src="images/brand-mockup.jpg" alt="Portfolio">
-                    <div class="details">
-                        <div class="text">
-                            <div class="title">TITTLE NAME</div>
-                            <div class="category">Category</div>
-                            <div class="year">Year</div>
-                        </div>
-                        <div class="colors">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="item4 items">
-                    <img src="images/brand-mockup.jpg" alt="Portfolio">
-                    <div class="details">
-                        <div class="text">
-                            <div class="title">TITTLE NAME</div>
-                            <div class="category">Category</div>
-                            <div class="year">Year</div>
-                        </div>
-                        <div class="colors">
-
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -240,16 +202,19 @@
                     height: 100%;
                     width: 100%;
                     flex: 0.4;
-                    .blue{
-                        background: blue;
-                        height: 50%;
+                    .color{
                         width: 100%;
                     }
-                    .black{
-                        height: 50%;
-                        width: 100%;
-                         background: black;
-                    }
+                    // .blue{
+                    //     background: blue;
+                    //     height: 50%;
+                    //     width: 100%;
+                    // }
+                    // .black{
+                    //     height: 50%;
+                    //     width: 100%;
+                    //      background: black;
+                    // }
                 }
             }
             &:hover{
@@ -299,6 +264,21 @@
 </style>
 
  <script>
+export default{
+
+    props:['data'],
+
+    data(){
+        $.each(this.data[0], function (indexInArray, valueOfElement) {
+             console.log((valueOfElement.split(',').length));
+        });
+        return{
+            projects:this.data,
+            // img:this.data[0],
+        }
+    }
+}
+
  $(function(){
 
      $(window).scroll(function(){
