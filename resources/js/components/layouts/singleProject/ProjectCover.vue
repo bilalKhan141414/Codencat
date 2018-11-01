@@ -48,24 +48,33 @@
                 justify-content: flex-start;
                 align-items: center;
                 :first-child{
-                    border-radius: 3px 0 0 3px;
+                    border-radius: 4px 0 0 4px;
                 }
                 :last-child{
-                    border-radius: 0 3px 3px 0;
+                    border-radius: 0 4px 4px 0;
                 }
                 span{
                     height: 1.5rem;
-                    width: 3rem;
+                    width: 3.5rem;
                     display: block;
+                    position: relative;
 
-                    &:nth-child(1){
-                        background: $primary;
-                    }
-                    &:nth-child(2){
-                        background: $secondary;
-                    }
-                    &:nth-child(3){
-                        background: $white;
+                    $colors: $primary, $white, $black;
+                    @for $i from 1 through 3 {
+                        &:nth-child(#{$i}){
+                            background: nth($colors, $i);
+                            &:hover{
+                                &:after{
+                                    content: '';
+                                    width: 122%;
+                                    border-bottom: solid 35px nth($colors, $i);
+                                    position: absolute;
+                                    left: -11%;
+                                    top: -21%;
+                                    z-index: 1;
+                                }
+                            }
+                        }
                     }
                 }
             }
